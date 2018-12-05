@@ -15,9 +15,12 @@
 
 package es.uco.kdis.miml.report;
 
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import es.uco.kdis.miml.core.IConfiguration;
@@ -105,11 +108,17 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	@Override
 	public void saveReport(String report) throws FileNotFoundException {
 
-		try (PrintWriter out = new PrintWriter(filename)) {
+		File file = new File(filename);
+		file.getParentFile().mkdirs();
 
-			out.println(report);
-			out.close();
-			System.out.println("Results saved in " + filename);
+		try {
+			FileWriter writer = new FileWriter(file);
+			writer.write(report);
+			writer.close();
+			System.out.println("" + new Date() + ": " + "Results saved in " + filename);
+
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 

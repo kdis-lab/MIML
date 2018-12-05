@@ -15,6 +15,8 @@
 
 package es.uco.kdis.miml.run;
 
+import java.util.Date;
+
 import es.uco.kdis.miml.core.ConfigLoader;
 import es.uco.kdis.miml.evaluation.IEvaluator;
 import es.uco.kdis.miml.mimlclassifier.IMIMLClassifier;
@@ -45,19 +47,17 @@ public class RunAlgorithm {
 			// example execution => -c configurations/MIMLkNN.config
 			ConfigLoader loader = new ConfigLoader(Utils.getOption("c", args));
 
-			System.out.println("Loading classifier");
+			System.out.println("" + new Date() + ": " + "Loading classifier");
 			IMIMLClassifier classifier = loader.loadClassifier();
 
-			System.out.println("Loading evaluation method");
+			System.out.println("" + new Date() + ": " + "Loading evaluation method");
 			IEvaluator evaluator = loader.loadEvaluator();
 			evaluator.runExperiment(classifier);
 
 			IReport report = loader.loadReport();
 
 			report.saveReport(report.toCSV(evaluator));
-
-			System.out.println("Results:");
-			System.out.println(report.toString(evaluator));
+			System.out.println("" + new Date() + ": " + "Experiment ended");
 
 		} catch (InvalidDataFormatException e) {
 			e.printStackTrace();
