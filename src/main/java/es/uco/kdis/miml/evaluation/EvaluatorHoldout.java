@@ -15,6 +15,8 @@
 
 package es.uco.kdis.miml.evaluation;
 
+import java.util.Date;
+
 import org.apache.commons.configuration2.Configuration;
 
 import es.uco.kdis.miml.core.IConfiguration;
@@ -72,10 +74,10 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 
 		Evaluator eval = new Evaluator();
 
-		System.out.println("Building model");
+		System.out.println("" + new Date() + ": " + "Building model");
 		try {
 			classifier.build(trainData);
-			System.out.println("Getting evaluation results");
+			System.out.println("" + new Date() + ": " + "Getting evaluation results");
 			evaluation = eval.evaluate(classifier, testData, trainData);
 		} catch (Exception e) {
 			e.printStackTrace();

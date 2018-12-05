@@ -15,6 +15,8 @@
 
 package es.uco.kdis.miml.evaluation;
 
+import java.util.Date;
+
 import org.apache.commons.configuration2.Configuration;
 
 import es.uco.kdis.miml.core.IConfiguration;
@@ -69,7 +71,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	@Override
 	public void runExperiment(IMIMLClassifier classifier) {
 		Evaluator eval = new Evaluator();
-		System.out.println("initializing cross validation");
+		System.out.println("" + new Date() + ": " + "Initializing cross validation");
 		evaluation = eval.crossValidate(classifier, data, numFolds);
 	}
 
