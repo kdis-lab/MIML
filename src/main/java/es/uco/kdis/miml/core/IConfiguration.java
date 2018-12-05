@@ -28,6 +28,7 @@ import org.apache.commons.configuration2.Configuration;
 
 public interface IConfiguration {
 
+	
 	/**
 	 * Configuration method
 	 * 
