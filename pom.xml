@@ -86,11 +86,13 @@
 			<version>1.0.10</version>
 		</dependency>
 
-		<dependency>
-			<groupId>mulan</groupId>
-			<artifactId>mulan</artifactId>
-			<version>1.5</version>
-		</dependency>
+      <dependency>
+         <groupId>mulan</groupId>
+         <artifactId>mulan</artifactId>
+         <scope>system</scope>
+         <version>1.5</version>
+         <systemPath>${basedir}\src\main\resources\mulan-1-5-0.jar</systemPath>
+      </dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
