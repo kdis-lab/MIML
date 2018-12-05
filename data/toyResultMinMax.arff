@@ -1,0 +1,17 @@
+@relation toy_minimax_transformation
+
+@attribute id {bag1,bag2}
+@attribute min_f1 numeric
+@attribute min_f2 numeric
+@attribute min_f3 numeric
+@attribute max_f1 numeric
+@attribute max_f2 numeric
+@attribute max_f3 numeric
+@attribute label1 {0,1}
+@attribute label2 {0,1}
+@attribute label3 {0,1}
+@attribute label4 {0,1}
+
+@data
+bag1,3,-198,-142,42,4,6,1,0,0,1
+bag2,12,-98,-12,42,42,66,0,1,1,0

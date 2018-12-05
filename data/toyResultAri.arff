@@ -1,0 +1,14 @@
+@relation toy_arithmetic_transformation
+
+@attribute id {bag1,bag2}
+@attribute f1 numeric
+@attribute f2 numeric
+@attribute f3 numeric
+@attribute label1 {0,1}
+@attribute label2 {0,1}
+@attribute label3 {0,1}
+@attribute label4 {0,1}
+
+@data
+bag1,29,-128.333333,-81.666667,1,0,0,1
+bag2,28.333333,-25,21.333333,0,1,1,0

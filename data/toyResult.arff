@@ -1,0 +1,13 @@
+@relation toy-weka.filters.unsupervised.attribute.Remove-R3-6
+
+@attribute id {bag1,bag2}
+@attribute bag relational
+@attribute f1 numeric
+@attribute f2 numeric
+@attribute f3 numeric
+@end bag
+@attribute LP_Class_0 {0110,1001}
+
+@data
+bag1,'42,-198,-109\n42,-191,-142\n3,4,6',1001
+bag2,'12,-98,10\n42,-19,-12\n31,42,66',0110

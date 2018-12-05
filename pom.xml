@@ -1,0 +1,140 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>es.uco.kdis</groupId>
+	<artifactId>miml</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>miml</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Maven plugins -->
+		<compiler.plugin.version>3.8.0</compiler.plugin.version>
+		<jar.plugin.version>2.3.2</jar.plugin.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-configuration2 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-configuration2</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-dev -->
+		<dependency>
+			<groupId>nz.ac.waikato.cms.weka</groupId>
+			<artifactId>weka-dev</artifactId>
+			<version>3.7.10</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/citationKNN -->
+		<dependency>
+			<groupId>nz.ac.waikato.cms.weka</groupId>
+			<artifactId>citationKNN</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/multiInstanceLearning -->
+		<dependency>
+			<groupId>nz.ac.waikato.cms.weka</groupId>
+			<artifactId>multiInstanceLearning</artifactId>
+			<version>1.0.9</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/multiInstanceFilters -->
+		<dependency>
+			<groupId>nz.ac.waikato.cms.weka</groupId>
+			<artifactId>multiInstanceFilters</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mulan</groupId>
+			<artifactId>mulan</artifactId>
+			<version>1.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- MAVEN COMPILER PLUGIN -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${compiler.plugin.version}</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+						<verbose>true</verbose>
+					</configuration>
+				</plugin>
+				<!-- MAVEN JAR PLUGIN -->
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${jar.plugin.version}</version>
+					<configuration>
+						<archive>
+							<!-- Para no crear el directorio /META-INF/maven -->
+							<addMavenDescriptor>false</addMavenDescriptor>
+							<index>false</index>
+							<manifest>
+								<addClasspath>false</addClasspath>
+							</manifest>
+							<manifestEntries>
+								<compiler-level>1.8</compiler-level>
+								<Build-Id>${project.version}</Build-Id>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
