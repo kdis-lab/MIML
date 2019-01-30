@@ -146,7 +146,12 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 		if (!isModelInitialized()) {
 			throw new ModelInitializationException("The model has not been trained.");
 		}
-
+		
+		// Make 0 all labels by default (doesn't predicted) to avoid errors with some classifiers 
+		for (int i = 0; i < labelIndices.length; i++) {
+			instance.setValue(labelIndices[i], 0);
+		}
+		
 		return makePredictionInternal(new Bag(instance));
 	}
 
