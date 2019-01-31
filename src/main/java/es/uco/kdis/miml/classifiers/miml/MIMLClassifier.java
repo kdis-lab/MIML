@@ -12,7 +12,7 @@
  *    along with this program; if not, write to the Free Software
  *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-package es.uco.kdis.miml.mimlclassifier;
+package es.uco.kdis.miml.classifiers.miml;
 
 import java.util.Date;
 
@@ -147,10 +147,7 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 			throw new ModelInitializationException("The model has not been trained.");
 		}
 		
-		// Make 0 all labels by default (doesn't predicted) to avoid errors with some classifiers 
-		for (int i = 0; i < labelIndices.length; i++) {
-			instance.setValue(labelIndices[i], 0);
-		}
+		instance.setValue(labelIndices[labelIndices.length-1], 1);
 		
 		return makePredictionInternal(new Bag(instance));
 	}

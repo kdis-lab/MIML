@@ -13,13 +13,13 @@
  *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package es.uco.kdis.miml.mimlclassifier.mimlTOmi;
+package es.uco.kdis.miml.classifiers.miml.mimlTOmi;
 
 import org.apache.commons.configuration2.Configuration;
 
+import es.uco.kdis.miml.classifiers.miml.MIMLClassifier;
 import es.uco.kdis.miml.data.Bag;
 import es.uco.kdis.miml.data.MIMLInstances;
-import es.uco.kdis.miml.mimlclassifier.MIMLClassifier;
 import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelLearner;
 import mulan.classifier.MultiLabelOutput;

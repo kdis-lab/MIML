@@ -13,7 +13,7 @@
  *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package es.uco.kdis.miml.mimlclassifier;
+package es.uco.kdis.miml.classifiers.miml;
 
 import java.io.Serializable;
 

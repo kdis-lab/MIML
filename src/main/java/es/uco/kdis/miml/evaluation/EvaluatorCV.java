@@ -19,9 +19,9 @@ import java.util.Date;
 
 import org.apache.commons.configuration2.Configuration;
 
+import es.uco.kdis.miml.classifiers.miml.IMIMLClassifier;
 import es.uco.kdis.miml.core.IConfiguration;
 import es.uco.kdis.miml.data.MIMLInstances;
-import es.uco.kdis.miml.mimlclassifier.IMIMLClassifier;
 import mulan.data.InvalidDataFormatException;
 import mulan.evaluation.Evaluator;
 import mulan.evaluation.MultipleEvaluation;
