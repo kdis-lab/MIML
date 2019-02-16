@@ -77,7 +77,7 @@
 			<groupId>nz.ac.waikato.cms.weka</groupId>
 			<artifactId>multiInstanceLearning</artifactId>
 			<!-- <version>1.0.9</version> -->
-			<version>1.0.4</version>
+			<version>1.0.9</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/multiInstanceFilters -->
@@ -93,7 +93,7 @@
          <artifactId>mulan</artifactId>
          <scope>system</scope>
          <version>1.5</version>
-         <systemPath>${basedir}\src\main\resources\mulan-1-5-0.jar</systemPath>
+         <systemPath>${basedir}/src/main/resources/mulan-1-5-0.jar</systemPath>
       </dependency>
 
 		<dependency>
@@ -117,7 +117,7 @@
 						<target>1.8</target>
 						<verbose>true</verbose>
 						<fork>true</fork>
-						<executable>C:\Program Files\Java\jdk1.8.0_191\bin\javac</executable>
+						<executable>/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/bin/javac</executable>
 					</configuration>
 				</plugin>
 				<!-- MAVEN JAR PLUGIN -->

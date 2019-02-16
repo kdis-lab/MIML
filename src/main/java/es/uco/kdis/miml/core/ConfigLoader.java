@@ -22,8 +22,8 @@ import org.apache.commons.configuration2.builder.fluent.Parameters;
 import org.apache.commons.configuration2.builder.fluent.XMLBuilderParameters;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
+import es.uco.kdis.miml.classifiers.miml.IMIMLClassifier;
 import es.uco.kdis.miml.evaluation.IEvaluator;
-import es.uco.kdis.miml.mimlclassifier.IMIMLClassifier;
 import es.uco.kdis.miml.report.IReport;
 
 /**

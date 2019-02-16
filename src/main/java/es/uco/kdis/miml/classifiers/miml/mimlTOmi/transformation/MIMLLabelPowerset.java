@@ -1,4 +1,4 @@
-package es.uco.kdis.miml.mimlclassifier.mimlTOmi.transformation;
+package es.uco.kdis.miml.classifiers.miml.mimlTOmi.transformation;
 
 import mulan.classifier.transformation.LabelPowerset;
 import mulan.data.MultiLabelInstances;

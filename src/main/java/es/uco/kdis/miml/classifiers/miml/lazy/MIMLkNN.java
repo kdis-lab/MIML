@@ -13,7 +13,7 @@
  *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-package es.uco.kdis.miml.mimlclassifier.lazy;
+package es.uco.kdis.miml.classifiers.miml.lazy;
 
 import java.util.HashSet;
 import java.util.PriorityQueue;
@@ -21,10 +21,10 @@ import java.util.Set;
 
 import org.apache.commons.configuration2.Configuration;
 
+import es.uco.kdis.miml.classifiers.miml.MIMLClassifier;
 import es.uco.kdis.miml.core.distance.IDistance;
 import es.uco.kdis.miml.data.Bag;
 import es.uco.kdis.miml.data.MIMLInstances;
-import es.uco.kdis.miml.mimlclassifier.MIMLClassifier;
 import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelOutput;
 import mulan.core.ArgumentNullException;

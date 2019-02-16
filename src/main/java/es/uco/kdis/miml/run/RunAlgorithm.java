@@ -17,9 +17,9 @@ package es.uco.kdis.miml.run;
 
 import java.util.Date;
 
+import es.uco.kdis.miml.classifiers.miml.IMIMLClassifier;
 import es.uco.kdis.miml.core.ConfigLoader;
 import es.uco.kdis.miml.evaluation.IEvaluator;
-import es.uco.kdis.miml.mimlclassifier.IMIMLClassifier;
 import es.uco.kdis.miml.report.IReport;
 import mulan.data.InvalidDataFormatException;
 import weka.core.Utils;

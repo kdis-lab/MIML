@@ -15,7 +15,7 @@
 
 package es.uco.kdis.miml.evaluation;
 
-import es.uco.kdis.miml.mimlclassifier.IMIMLClassifier;
+import es.uco.kdis.miml.classifiers.miml.IMIMLClassifier;
 
 /**
  * Interface for run and evaluate a experiment.
