@@ -18,7 +18,7 @@ package es.uco.kdis.miml.core.distance;
 import java.util.Arrays;
 import java.util.stream.DoubleStream;
 
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import weka.core.EuclideanDistance;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -43,7 +43,7 @@ public class AverageHausdorff implements IDistance {
 	 * @see core.distance.IDistance#distance(data.Bag, data.Bag)
 	 */
 	@Override
-	public double distance(Bag first, Bag second) throws Exception {
+	public double distance(MIMLBag first, MIMLBag second) throws Exception {
 
 		EuclideanDistance euclideanDistance = new EuclideanDistance(first.getBagAsInstances());
 

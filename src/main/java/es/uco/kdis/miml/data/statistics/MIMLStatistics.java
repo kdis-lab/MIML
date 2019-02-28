@@ -495,4 +495,13 @@ public class MIMLStatistics {
 	public int getMaxInstancesPerBag() {
 		return milstatistics.getMaxInstancesPerBag();
 	}
+
+	/**
+	 * Returns the maximum number of instances per bag.
+	 * 
+	 * @return totalInstances
+	 */
+	public int getTotalInstances() {
+		return milstatistics.getTotalInstances();
+	}
 }

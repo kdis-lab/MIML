@@ -22,7 +22,7 @@ import org.apache.commons.configuration2.Configuration;
 import es.uco.kdis.miml.classifiers.miml.IMIMLClassifier;
 import es.uco.kdis.miml.classifiers.miml.MIMLClassifier;
 import es.uco.kdis.miml.core.IConfiguration;
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelOutput;
@@ -31,14 +31,18 @@ import weka.filters.Filter;
 import weka.filters.unsupervised.instance.Resample;
 
 /**
- * Class implementing the MIMLkNN algorithm for MIML data.
+ * <p>
+ * Class implementing an ensemble algorithm using bagging. For more information,
+ * see <em>Breiman, L. (1996). Bagging predictors. Machine learning, 24(2),
+ * 123-140.</em>
+ * </p>
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
  * @author Amelia Zafra
  * @version 20180717
  */
-public class MIMLEnsemble extends MIMLClassifier {
+public class MIMLBagging extends MIMLClassifier {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -80,7 +84,7 @@ public class MIMLEnsemble extends MIMLClassifier {
 	/**
 	 * No-argument constructor for xml configuration.
 	 */
-	public MIMLEnsemble() {
+	public MIMLBagging() {
 	}
 
 	/**
@@ -90,7 +94,7 @@ public class MIMLEnsemble extends MIMLClassifier {
 	 * @param baseLearner    The base learner to be used
 	 * @param numClassifiers The number of base classifiers in the ensemble
 	 */
-	public MIMLEnsemble(IMIMLClassifier baseLearner, int numClassifiers) {
+	public MIMLBagging(IMIMLClassifier baseLearner, int numClassifiers) {
 		this.baseLearner = baseLearner;
 		this.numClassifiers = numClassifiers;
 	}
@@ -122,7 +126,7 @@ public class MIMLEnsemble extends MIMLClassifier {
 	 * @see mimlclassifier.MIMLClassifier#makePredictionInternal(data.Bag)
 	 */
 	@Override
-	protected MultiLabelOutput makePredictionInternal(Bag instance) throws Exception, InvalidDataException {
+	protected MultiLabelOutput makePredictionInternal(MIMLBag instance) throws Exception, InvalidDataException {
 
 		boolean bipartitions[][] = new boolean[ensemble.length][];
 		double confidences[][] = new double[ensemble.length][];

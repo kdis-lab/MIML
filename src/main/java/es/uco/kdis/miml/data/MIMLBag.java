@@ -31,7 +31,7 @@ import weka.core.Instances;
  *
  */
 
-public class Bag extends DenseInstance implements Instance {
+public class MIMLBag extends DenseInstance implements Instance {
 
 	/** For serialization */
 	private static final long serialVersionUID = 1L;
@@ -43,7 +43,7 @@ public class Bag extends DenseInstance implements Instance {
 	 * @throws Exception To be handled in an upper level.
 	 * 
 	 */
-	public Bag(Instance instance) throws Exception {
+	public MIMLBag(Instance instance) throws Exception {
 		super(instance);
 		m_AttValues = instance.toDoubleArray();
 		m_Weight = instance.weight();

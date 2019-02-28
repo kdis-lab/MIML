@@ -1,5 +1,6 @@
-package es.uco.kdis.miml.classifiers.miml.mimlTOmi.transformation;
+package es.uco.kdis.miml.classifiers.miml.mimlTOmi;
 
+import es.uco.kdis.miml.transformation.mimlTOmi.LPTransformation;
 import mulan.classifier.transformation.LabelPowerset;
 import mulan.data.MultiLabelInstances;
 import weka.classifiers.Classifier;
@@ -18,7 +19,7 @@ public class MIMLLabelPowerset extends LabelPowerset {
 
 	protected void buildInternal(MultiLabelInstances mlData) throws Exception {
 		Instances transformedData;
-		transformation = new MIMLLabelPowersetTransformation();
+		transformation = new LPTransformation();
 		debug("Transforming the training set.");
 		transformedData = transformation.transformInstances(mlData);
 
