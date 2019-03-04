@@ -16,7 +16,7 @@ package es.uco.kdis.miml.transformation.mimlTOml;
 
 import java.io.Serializable;
 
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import mulan.data.MultiLabelInstances;
 import weka.core.Attribute;
@@ -65,13 +65,13 @@ public abstract class MIMLtoML implements Serializable {
 	public abstract MultiLabelInstances transformDataset(MIMLInstances dataset) throws Exception;
 
 	/**
-	 * Transforms {@link Bag} into Instance.
+	 * Transforms {@link MIMLBag} into Instance.
 	 * 
 	 * @param bag The Bag to be transformed.
 	 * @return Instance
 	 * @throws Exception To be handled in an upper level.
 	 */
-	public abstract Instance transformInstance(Bag bag) throws Exception;
+	public abstract Instance transformInstance(MIMLBag bag) throws Exception;
 
 	/**
 	 * Prepares a template to perform the transformation from MIMLInstances to

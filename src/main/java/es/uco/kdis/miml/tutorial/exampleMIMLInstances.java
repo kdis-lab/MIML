@@ -17,7 +17,7 @@ package es.uco.kdis.miml.tutorial;
 
 import java.io.File;
 
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import es.uco.kdis.miml.data.statistics.MILStatistics;
 import es.uco.kdis.miml.data.statistics.MLStatistics;
@@ -83,7 +83,7 @@ public class exampleMIMLInstances {
 
 			// Shows all bags in the dataset
 			for (int i = 0; i < mimlDataSet.getNumBags(); i++) {
-				Bag bag = null;
+				MIMLBag bag = null;
 
 				// Recover a bag
 				bag = mimlDataSet.getBag(i);

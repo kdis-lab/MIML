@@ -18,7 +18,7 @@ package es.uco.kdis.miml.classifiers.miml.mimlTOml;
 import org.apache.commons.configuration2.Configuration;
 
 import es.uco.kdis.miml.classifiers.miml.MIMLClassifier;
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import es.uco.kdis.miml.transformation.mimlTOml.MIMLtoML;
 import mulan.classifier.InvalidDataException;
@@ -29,8 +29,13 @@ import weka.core.Instance;
 
 /**
  * 
+ * <p>
  * Class implementing the degenerative algorithm for MIML data to solve it with
- * ML learning.
+ * ML learning. For more information, see <em>Zhou, Z. H., &#38; Zhang, M. L.
+ * (2007). Multi-instance multi-label learning with application to scene
+ * classification. In Advances in neural information processing systems (pp.
+ * 1609-1616).</em>
+ * </p>
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
@@ -90,7 +95,7 @@ public class MIMLClassifierML extends MIMLClassifier {
 	 * @see mimlclassifier.MIMLClassifier#makePredictionInternal(data.Bag)
 	 */
 	@Override
-	protected MultiLabelOutput makePredictionInternal(Bag bag) throws Exception, InvalidDataException {
+	protected MultiLabelOutput makePredictionInternal(MIMLBag bag) throws Exception, InvalidDataException {
 		Instance instance = transformMethod.transformInstance(bag);
 		return baseClassifier.makePrediction(instance);
 	}
@@ -119,36 +124,40 @@ public class MIMLClassifierML extends MIMLClassifier {
 			Class[] cArg = new Class[parameterLength];
 			Object[] obj = new Object[parameterLength];
 
+			String parameter;
+
 			for (int i = 0; i < parameterLength; i++) {
 
-				if (configuration.getString("multiLabelClassifier.parameters.classParameters(" + i + ")")
-						.equals("int.class")) {
+				parameter = configuration.getString("multiLabelClassifier.parameters.classParameters(" + i + ")");
+
+				if (parameter.equals("int.class")) {
 					cArg[i] = int.class;
 					obj[i] = configuration.getInt("multiLabelClassifier.parameters.valueParameters(" + i + ")");
 
-				} else if (configuration.getString("multiLabelClassifier.parameters.classParameters(" + i + ")")
-						.equals("double.class")) {
+				} else if (parameter.equals("double.class")) {
 					cArg[i] = double.class;
 					obj[i] = configuration.getDouble("multiLabelClassifier.parameters.valueParameters(" + i + ")");
 
-				} else if (configuration.getString("multiLabelClassifier.parameters.classParameters(" + i + ")")
-						.equals("char.class")) {
+				} else if (parameter.equals("char.class")) {
 					cArg[i] = char.class;
 					obj[i] = configuration.getInt("multiLabelClassifier.parameters.valueParameters(" + i + ")");
 
-				} else if (configuration.getString("multiLabelClassifier.parameters.classParameters(" + i + ")")
-						.equals("byte.class")) {
+				} else if (parameter.equals("byte.class")) {
 					cArg[i] = byte.class;
 					obj[i] = configuration.getByte("multiLabelClassifier.parameters.valueParameters(" + i + ")");
 
-				}
-				// A�adir el resto:long,short,boolean, ....,
-				else {
-//					cArg[i] = Class.forName(configuration.getString("multiLabelClassifier.parameters.classParameters("+i+")")); 
-//					obj[i] =  configuration.getString("multiLabelClassifier.parameters.valueParameters("+i+")");
+				} else if (parameter.equals("boolean.class")) {
+					cArg[i] = boolean.class;
+					obj[i] = configuration.getBoolean("multiLabelClassifier.parameters.valueParameters(" + i + ")");
 
-					cArg[i] = Class.forName(
-							configuration.getString("multiLabelClassifier.parameters.classParameters(" + i + ")"));
+				} else if (parameter.equals("String.class")) {
+					cArg[i] = String.class;
+					obj[i] = configuration.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+				}
+				// Here you can add the rest of types (short, long, ...)
+				else {
+					cArg[i] = Class.forName(parameter);
 					obj[i] = Class
 							.forName(configuration
 									.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")"))
@@ -156,7 +165,7 @@ public class MIMLClassifierML extends MIMLClassifier {
 				}
 
 			}
-
+			
 			this.baseClassifier = (MultiLabelLearner) classifierClass.getConstructor(cArg).newInstance(obj);
 
 			// Get the string with the base classifier class

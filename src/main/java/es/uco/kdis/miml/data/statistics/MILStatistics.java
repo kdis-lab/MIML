@@ -40,6 +40,8 @@ public class MILStatistics {
 	int attributesPerBag;
 	/** The number of bags. */
 	int numBags;
+	/** The total of instances */
+	int totalInstances;
 	/** The distribution of number of instances per bag: */
 	HashMap<Integer, Integer> distributionBags;
 
@@ -54,11 +56,14 @@ public class MILStatistics {
 		attributesPerBag = dataSet.instance(0).relationalValue(1).numAttributes();
 		minInstancesPerBag = Integer.MAX_VALUE;
 		maxInstancesPerBag = Integer.MIN_VALUE;
+		totalInstances = 0;
 
 		// Each pair <Integer, Integer> stores <numberOfInstances, numberOfBags>
 		distributionBags = new HashMap<Integer, Integer>();
 		for (int i = 0; i < numBags; i++) {
 			int nInstances = dataSet.instance(i).relationalValue(1).numInstances();
+			totalInstances += nInstances;
+
 			if (nInstances < minInstancesPerBag) {
 				minInstancesPerBag = nInstances;
 			}
@@ -153,6 +158,7 @@ public class MILStatistics {
 		sb.append("\nMIL Statistics--------------");
 		sb.append("\n----------------------------");
 		sb.append("\nnBags: " + numBags);
+		sb.append("\nTotalInstances: " + totalInstances);
 		sb.append("\nAvgInstancesPerBag: " + avgInstancesPerBag);
 		sb.append("\nMinInstancesPerBag: " + minInstancesPerBag);
 		sb.append("\nMaxInstancesPerBag: " + maxInstancesPerBag);
@@ -171,6 +177,7 @@ public class MILStatistics {
 		StringBuilder sb = new StringBuilder();
 		sb.append("\nMIL STATISTICS:");
 		sb.append("\nnBags;" + numBags);
+		sb.append("\nTotalInstances: " + totalInstances);
 		sb.append("\nAvgInstancesPerBag;" + avgInstancesPerBag);
 		sb.append("\nMinInstancesPerBag;" + minInstancesPerBag);
 		sb.append("\nMaxInstancesPerBag;" + maxInstancesPerBag);
@@ -196,5 +203,14 @@ public class MILStatistics {
 	 */
 	public int getMaxInstancesPerBag() {
 		return maxInstancesPerBag;
+	}
+
+	/**
+	 * Returns the total number of instances.
+	 * 
+	 * @return totalInstances
+	 */
+	public int getTotalInstances() {
+		return totalInstances;
 	}
 }

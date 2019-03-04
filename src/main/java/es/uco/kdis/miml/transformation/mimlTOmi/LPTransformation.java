@@ -1,27 +1,14 @@
-/*    This program is free software; you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation; either version 2 of the License, or
- *    (at your option) any later version.
- *
- *    This program is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
- *
- *    You should have received a copy of the GNU General Public License
- *    along with this program; if not, write to the Free Software
- *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
- */
-
 package es.uco.kdis.miml.transformation.mimlTOmi;
 
 import java.io.Serializable;
 
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import mulan.transformations.LabelPowersetTransformation;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Remove;
 
 /**
  * 
@@ -40,13 +27,13 @@ public class LPTransformation implements Serializable {
 	private static final long serialVersionUID = -3418733531408587603L;
 
 	/** LabelPowerSetTransformation */
-	protected LabelPowersetTransformation LPT;
+	protected MIMLLabelPowersetTransformation LPT;
 
 	/**
 	 * Constructor
 	 */
 	public LPTransformation() {
-		this.LPT = new LabelPowersetTransformation();
+		this.LPT = new MIMLLabelPowersetTransformation();
 	}
 
 	/**
@@ -65,7 +52,7 @@ public class LPTransformation implements Serializable {
 	 * @return Instance
 	 * @throws Exception To be handled in an upper level.
 	 */
-	public Instance transformBag(Bag bag, int[] labelIndices) throws Exception {
+	public Instance transformBag(MIMLBag bag, int[] labelIndices) throws Exception {
 		return LPT.transformInstance(bag, labelIndices);
 	}
 
@@ -77,6 +64,44 @@ public class LPTransformation implements Serializable {
 	 */
 	public Instances transformBags(MIMLInstances dataSet) throws Exception {
 		return LPT.transformInstances(dataSet);
+	}
+
+}
+
+class MIMLLabelPowersetTransformation extends LabelPowersetTransformation {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -515679901670889755L;
+
+	/**
+	 * 
+	 * @param instance     the instance to be transformed
+	 * @param labelIndices the labels to remove.
+	 * @return transformed instance
+	 * @throws Exception Potential exception thrown. To be handled in an upper
+	 *                   level.
+	 */
+	public Instance transformInstance(Instance instance, int[] labelIndices) throws Exception {
+
+		// Prepares a dataset with a single instance
+		Instances aux = new Instances(instance.dataset(), 0);
+		aux.add(instance);
+
+		// Remove labels
+		Remove remove = new Remove();
+		remove.setAttributeIndicesArray(labelIndices);
+		remove.setInputFormat(aux);
+		Instances result = Filter.useFilter(aux, remove);
+
+		// Adds class attribute
+		result.insertAttributeAt(getTransformedFormat().attribute(getTransformedFormat().classIndex()),
+				result.numAttributes());
+		result.setClassIndex(result.numAttributes() - 1);
+
+		return result.instance(0);
+
 	}
 
 }

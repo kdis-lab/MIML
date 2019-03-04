@@ -16,7 +16,7 @@ package es.uco.kdis.miml.transformation.mimlTOmi;
 
 import java.io.Serializable;
 
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import mulan.transformations.BinaryRelevanceTransformation;
 import weka.core.Instance;
@@ -63,7 +63,7 @@ public class BRTransformation implements Serializable {
 	 * @param labelToKeep The label to keep. A value in [0, numLabels-1].
 	 * @return Instance
 	 */
-	public Instance transformBag(Bag instance, int labelToKeep) {
+	public Instance transformBag(MIMLBag instance, int labelToKeep) {
 		return BRT.transformInstance(instance, labelToKeep);
 	}
 
@@ -89,7 +89,7 @@ public class BRTransformation implements Serializable {
 	 * @return transformed Instance.
 	 * 
 	 */
-	public static Instance transformBag(Bag instance, int[] labelIndices, int indexToKeep) {
+	public static Instance transformBag(MIMLBag instance, int[] labelIndices, int indexToKeep) {
 		return BinaryRelevanceTransformation.transformInstance(instance, labelIndices, indexToKeep);
 	}
 

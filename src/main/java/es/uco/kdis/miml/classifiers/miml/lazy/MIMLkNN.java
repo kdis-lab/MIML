@@ -23,7 +23,7 @@ import org.apache.commons.configuration2.Configuration;
 
 import es.uco.kdis.miml.classifiers.miml.MIMLClassifier;
 import es.uco.kdis.miml.core.distance.IDistance;
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelOutput;
@@ -32,7 +32,13 @@ import weka.core.matrix.Matrix;
 import weka.core.matrix.SingularValueDecomposition;
 
 /**
- * Class implementing the MIMLkNN algorithm for MIML data.
+ * <p>
+ * Class implementing the MIMLkNN algorithm for MIML data. For more information,
+ * see <em>Zhang, M. L. (2010, October). A k-nearest neighbor based
+ * multi-instance multi-label learning algorithm. In 2010 22nd IEEE
+ * International Conference on Tools with Artificial Intelligence (Vol.2, pp.
+ * 207-212). IEEE.</em>
+ * </p>
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
@@ -104,7 +110,7 @@ public class MIMLkNN extends MIMLClassifier {
 	}
 
 	/**
-	 * @see mimlclassifier.MIMLClassifier#buildInternal(data.MIMLInstances)
+	 * @see miml.MIMLClassifier#buildInternal(data.MIMLInstances)
 	 */
 	@Override
 	protected void buildInternal(MIMLInstances trainingSet) throws Exception {
@@ -138,10 +144,10 @@ public class MIMLkNN extends MIMLClassifier {
 	}
 
 	/**
-	 * @see mimlclassifier.MIMLClassifier#makePredictionInternal(data.Bag)
+	 * @see miml.MIMLClassifier#makePredictionInternal(MIMLBag.Bag)
 	 */
 	@Override
-	protected MultiLabelOutput makePredictionInternal(Bag instance) throws Exception, InvalidDataException {
+	protected MultiLabelOutput makePredictionInternal(MIMLBag instance) throws Exception, InvalidDataException {
 
 		// Create a new distances matrix
 		double[][] distanceMatrixCopy = distance_matrix.clone();
@@ -200,9 +206,9 @@ public class MIMLkNN extends MIMLClassifier {
 
 		for (int i = 0; i < d_size; ++i) {
 
-			Bag first = dataset.getBag(i);
+			MIMLBag first = dataset.getBag(i);
 			for (int j = i; j < d_size; ++j) {
-				Bag second = dataset.getBag(j);
+				MIMLBag second = dataset.getBag(j);
 				distance = metric.distance(first, second);
 				distance_matrix[i][j] = distance;
 				distance_matrix[j][i] = distance;

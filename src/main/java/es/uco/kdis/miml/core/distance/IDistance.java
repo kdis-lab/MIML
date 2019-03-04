@@ -17,7 +17,7 @@ package es.uco.kdis.miml.core.distance;
 
 import java.io.Serializable;
 
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import weka.core.Instances;
 
 /**
@@ -39,7 +39,7 @@ public interface IDistance extends Serializable {
 	 * @return distance between two bags
 	 * @throws Exception the exception
 	 */
-	public double distance(Bag first, Bag second) throws Exception;
+	public double distance(MIMLBag first, MIMLBag second) throws Exception;
 
 	/**
 	 * Get the distance between two bags in the form of a set of instances.

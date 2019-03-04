@@ -16,7 +16,7 @@ package es.uco.kdis.miml.transformation.mimlTOml;
 
 import java.util.ArrayList;
 
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import mulan.data.MultiLabelInstances;
 import weka.core.Attribute;
@@ -96,7 +96,7 @@ public class MiniMaxTransformation extends MIMLtoML {
 		double nBags = dataset.getNumBags();
 		for (int i = 0; i < nBags; i++) {
 			// retrieves a bag
-			Bag bag = dataset.getBag(i);
+			MIMLBag bag = dataset.getBag(i);
 			// sets the bagLabel
 			newInst.setValue(0, bag.value(0));
 
@@ -135,7 +135,7 @@ public class MiniMaxTransformation extends MIMLtoML {
 		double nBags = dataset.getNumBags();
 		for (int i = 0; i < nBags; i++) {
 			// retrieves a bag
-			Bag bag = dataset.getBag(i);
+			MIMLBag bag = dataset.getBag(i);
 			// sets the bagLabel
 			newInst.setValue(0, bag.value(0));
 
@@ -159,7 +159,7 @@ public class MiniMaxTransformation extends MIMLtoML {
 	}
 
 	@Override
-	public Instance transformInstance(Bag bag) throws Exception {
+	public Instance transformInstance(MIMLBag bag) throws Exception {
 		int labelIndices[] = dataset.getLabelIndices();
 		Instance newInst = new DenseInstance(template.numAttributes());
 
@@ -185,7 +185,7 @@ public class MiniMaxTransformation extends MIMLtoML {
 		return newInst;
 	}
 
-	public Instance transformInstance(MIMLInstances dataset, Bag bag) throws Exception {
+	public Instance transformInstance(MIMLInstances dataset, MIMLBag bag) throws Exception {
 		this.dataset = dataset;
 		prepareTemplate();
 		template.setRelationName(dataset.getDataSet().relationName() + "_minimax_transformation");

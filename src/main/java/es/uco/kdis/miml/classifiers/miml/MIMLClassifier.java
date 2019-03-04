@@ -17,7 +17,7 @@ package es.uco.kdis.miml.classifiers.miml;
 import java.util.Date;
 
 import es.uco.kdis.miml.core.IConfiguration;
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import mulan.classifier.InvalidDataException;
 import mulan.classifier.ModelInitializationException;
@@ -149,7 +149,7 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 		
 		instance.setValue(labelIndices[labelIndices.length-1], 1);
 		
-		return makePredictionInternal(new Bag(instance));
+		return makePredictionInternal(new MIMLBag(instance));
 	}
 
 	/*
@@ -228,6 +228,6 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 	 * @throws InvalidDataException if specified instance data is invalid and can
 	 *                              not be processed by the learner.
 	 */
-	protected abstract MultiLabelOutput makePredictionInternal(Bag instance) throws Exception, InvalidDataException;
+	protected abstract MultiLabelOutput makePredictionInternal(MIMLBag instance) throws Exception, InvalidDataException;
 
 }

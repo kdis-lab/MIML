@@ -84,25 +84,25 @@ public class MIMLInstances extends MultiLabelInstances {
 	}
 
 	/**
-	 * Gets a {@link Bag} (i.e. pattern) with a certain bagIndex.
+	 * Gets a {@link MIMLBag} (i.e. pattern) with a certain bagIndex.
 	 * 
 	 * @param bagIndex Index of the bag.
 	 * @return Bag If bagIndex exceeds the number of bags in the dataset. To be
 	 *         handled in an upper level.
 	 * @throws Exception To be handled in an upper level.
 	 */
-	public Bag getBag(int bagIndex) throws Exception {
+	public MIMLBag getBag(int bagIndex) throws Exception {
 		if (bagIndex > this.getNumBags())
 			throw new Exception("Out of bounds bagIndex: " + bagIndex + ". Actual numberOfBags: " + this.getNumBags());
 		else {
 			Instances aux = this.getDataSet();
 			DenseInstance aux1 = (DenseInstance) aux.get(bagIndex);
-			return new Bag(aux1);
+			return new MIMLBag(aux1);
 		}
 	}
 
 	/**
-	 * Gets a {@link Bag} with a certain bagIndex in the form of a set of
+	 * Gets a {@link MIMLBag} with a certain bagIndex in the form of a set of
 	 * {@link Instances} considering just the relational information. Neither
 	 * identification attribute of the Bag nor label attributes are included.
 	 * 
@@ -125,7 +125,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	 *
 	 * @param bag A Bag of Instances.
 	 */
-	public void addBag(Bag bag) {
+	public void addBag(MIMLBag bag) {
 		this.getDataSet().add(bag);
 	}
 
@@ -135,7 +135,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	 * @param bag   A Bag of Instances.
 	 * @param index The index to insert the Bag.
 	 */
-	public void addInstance(Bag bag, int index) {
+	public void addInstance(MIMLBag bag, int index) {
 		this.getDataSet().add(index, bag);
 	}
 

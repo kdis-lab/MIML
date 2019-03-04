@@ -18,7 +18,7 @@ package es.uco.kdis.miml.classifiers.miml.mimlTOmi;
 import org.apache.commons.configuration2.Configuration;
 
 import es.uco.kdis.miml.classifiers.miml.MIMLClassifier;
-import es.uco.kdis.miml.data.Bag;
+import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
 import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelLearner;
@@ -30,8 +30,13 @@ import weka.classifiers.Classifier;
 
 /**
  * 
+ * <p>
  * Class implementing the degenerative algorithm for MIML data to solve it with
- * MI learning.
+ * MI learning. For more information, see <em>Zhou, Z. H., &#38; Zhang, M. L.
+ * (2007). Multi-instance multi-label learning with application to scene
+ * classification. In Advances in neural information processing systems (pp.
+ * 1609-1616).</em>
+ * </p>
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
@@ -82,7 +87,7 @@ public class MIMLClassifierMI extends MIMLClassifier {
 	 * @see mimlclassifier.MIMLClassifier#makePredictionInternal(data.Bag)
 	 */
 	@Override
-	protected MultiLabelOutput makePredictionInternal(Bag instance) throws Exception, InvalidDataException {
+	protected MultiLabelOutput makePredictionInternal(MIMLBag instance) throws Exception, InvalidDataException {
 		return transformationClassifier.makePrediction(instance);
 	}
 
