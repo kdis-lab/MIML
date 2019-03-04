@@ -19,7 +19,8 @@ public class MIMLLabelPowerset extends LabelPowerset {
 
 	protected void buildInternal(MultiLabelInstances mlData) throws Exception {
 		Instances transformedData;
-		transformation = new LPTransformation();
+		LPTransformation lp = new LPTransformation();
+		transformation = lp.getLPT();
 		debug("Transforming the training set.");
 		transformedData = transformation.transformInstances(mlData);
 
