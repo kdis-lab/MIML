@@ -46,7 +46,7 @@ public class RunAlgorithm {
 		try {
 			// example execution => -c configurations/MIMLkNN.config
 			ConfigLoader loader = new ConfigLoader(Utils.getOption("c", args));
-
+			
 			System.out.println("" + new Date() + ": " + "Loading classifier");
 			IMIMLClassifier classifier = loader.loadClassifier();
 
