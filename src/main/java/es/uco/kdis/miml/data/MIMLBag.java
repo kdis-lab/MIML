@@ -27,7 +27,7 @@ import weka.core.Instances;
  * @author Ana I. Reyes Melero
  * @author Eva Gibaja
  * @author Amelia Zafra
- * @version 20170507
+ * @version 20190315
  *
  */
 
@@ -39,8 +39,10 @@ public class MIMLBag extends DenseInstance implements Instance {
 	/**
 	 * Constructor.
 	 * 
-	 * @param instance A Weka's Instance to be transformed into a Bag.
-	 * @throws Exception To be handled in an upper level.
+	 * @param instance
+	 *            A Weka's Instance to be transformed into a Bag.
+	 * @throws Exception
+	 *             To be handled in an upper level.
 	 * 
 	 */
 	public MIMLBag(Instance instance) throws Exception {
@@ -53,7 +55,8 @@ public class MIMLBag extends DenseInstance implements Instance {
 	/**
 	 * Returns an instance of the Bag with index bagIndex.
 	 * 
-	 * @param bagIndex The index number.
+	 * @param bagIndex
+	 *            The index number.
 	 * @return Instance
 	 * 
 	 */
@@ -140,11 +143,25 @@ public class MIMLBag extends DenseInstance implements Instance {
 	 * &#064;attribute f3 numeric<br>
 	 * 
 	 * @return Instances
-	 * @throws Exception To be handled in an upper level.
+	 * @throws Exception
+	 *             To be handled in an upper level.
 	 */
 	public Instances getBagAsInstances() throws Exception {
 		Instances bags = this.relationalValue(1);
 		return bags;
 	}
 
+	/**Sets the value of attrIndex attribute of the the instanceIndex to a certain value
+	 * 
+	 * @param instanceIndex
+	 * 		The index of the instance
+	 * @param attrIndex
+	 * 		The index of the attribute
+	 * @param value
+	 * 		The value to be set
+	 */
+	public void setValue(int instanceIndex, int attrIndex, double value)
+	{
+		this.getInstance(instanceIndex).setValue(attrIndex, value);		
+	}
 }

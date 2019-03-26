@@ -42,8 +42,11 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/** The data. */
 	private MIMLInstances data;
 
-	/** The num folds. */
+	/** The number of folds. */
 	private int numFolds;
+	
+	/** The seed for the partition */
+	protected int seed = 1;
 
 	/**
 	 * Instantiates a new Holdout evaluator.
@@ -71,6 +74,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	@Override
 	public void runExperiment(IMIMLClassifier classifier) {
 		Evaluator eval = new Evaluator();
+		eval.setSeed(seed);
 		System.out.println("" + new Date() + ": " + "Initializing cross validation");
 		evaluation = eval.crossValidate(classifier, data, numFolds);
 	}
@@ -103,8 +107,9 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	@Override
 	public void configure(Configuration configuration) {
 
-		numFolds = configuration.getInt("numFolds");
-
+		numFolds = configuration.getInt("numFolds", 5);
+		seed = configuration.getInt("seed", 1);
+		
 		String arffFile = configuration.subset("data").getString("file");
 		String xmlFileName = configuration.subset("data").getString("xmlFile");
 
