@@ -43,7 +43,7 @@ import weka.core.Instance;
  * @version 20180608
  *
  */
-public class MIMLClassifierML extends MIMLClassifier {
+public class MIMLClassifierToML extends MIMLClassifier {
 
 	/** For serialization. */
 	private static final long serialVersionUID = 1L;
@@ -64,7 +64,7 @@ public class MIMLClassifierML extends MIMLClassifier {
 	 * @param transformMethod the transform method
 	 * @throws Exception To be handled in an upper level.
 	 */
-	public MIMLClassifierML(MultiLabelLearner baseClassifier, MIMLtoML transformMethod) throws Exception {
+	public MIMLClassifierToML(MultiLabelLearner baseClassifier, MIMLtoML transformMethod) throws Exception {
 		super();
 		this.baseClassifier = baseClassifier;
 		this.transformMethod = transformMethod;
@@ -73,7 +73,7 @@ public class MIMLClassifierML extends MIMLClassifier {
 	/**
 	 * No-argument constructor for xml configuration.
 	 */
-	public MIMLClassifierML() {
+	public MIMLClassifierToML() {
 	}
 
 	/*

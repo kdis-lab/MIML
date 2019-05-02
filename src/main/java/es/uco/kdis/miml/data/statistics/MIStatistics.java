@@ -29,7 +29,7 @@ import weka.core.Instances;
  * @author Eva Gigaja
  * @version 20150925
  */
-public class MILStatistics {
+public class MIStatistics {
 	/** The minimum number of instances per bag. */
 	int minInstancesPerBag;
 	/** The maximum number of instances per bag. */

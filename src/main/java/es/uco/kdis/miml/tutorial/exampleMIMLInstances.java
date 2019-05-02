@@ -19,7 +19,7 @@ import java.io.File;
 
 import es.uco.kdis.miml.data.MIMLBag;
 import es.uco.kdis.miml.data.MIMLInstances;
-import es.uco.kdis.miml.data.statistics.MILStatistics;
+import es.uco.kdis.miml.data.statistics.MIStatistics;
 import es.uco.kdis.miml.data.statistics.MLStatistics;
 import mulan.data.InvalidDataFormatException;
 import weka.core.Instance;
@@ -121,7 +121,7 @@ public class exampleMIMLInstances {
 			statsML.printPhiDiagram(0.05);
 
 			// Shows mil metrics
-			MILStatistics statsMIL = new MILStatistics();
+			MIStatistics statsMIL = new MIStatistics();
 			statsMIL.calculateStats(mimlDataSet.getDataSet());
 			System.out.println(statsMIL.toString());
 

@@ -17,8 +17,10 @@ package es.uco.kdis.miml.report;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,7 +34,7 @@ import mulan.evaluation.measure.Measure;
  * @author Alvaro A. Belmonte
  * @author Amelia Zafra
  * @author Eva Gibaja
- * @version 20180630
+ * @version 20190502
  */
 public abstract class MIMLReport implements IReport, IConfiguration {
 
@@ -112,10 +114,9 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 		file.getParentFile().mkdirs();
 
 		try {
-			FileWriter writer = new FileWriter(file);
-			writer.write(report);
-			writer.close();
-			System.out.println("" + new Date() + ": " + "Results saved in " + filename);
+			file.createNewFile();
+			Files.write(Paths.get(filename), report.getBytes(), StandardOpenOption.APPEND);
+			System.out.println("" + new Date() + ": " + "Experiment results saved in " + filename);
 
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -44,7 +44,7 @@ import weka.core.Utils;
 public class MIMLStatistics {
 
 	// Basic features
-	protected MILStatistics milstatistics;
+	protected MIStatistics milstatistics;
 
 	protected MLStatistics mlstatistics;
 

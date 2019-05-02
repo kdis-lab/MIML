@@ -67,58 +67,81 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
+		// Write measure's names (MacroAverageMeasures twice)
 		for (Measure m : measures) {
 			measureName = m.getName();
-			if (!(m instanceof MacroAverageMeasure)) {
-				sb.append(measureName + ",,");
+			sb.append(measureName + ",,");
+		}
+
+		sb.append(",,");
+		for (Measure m : measures) {
+			measureName = m.getName();
+			if (m instanceof MacroAverageMeasure) {
+				sb.append(measureName);
+				for (int i = 0; i < data.getNumLabels(); i++) {
+					sb.append(",,");
+				}
 			}
 		}
 
-		sb.append("\n");
+		sb.append(System.getProperty("line.separator"));
 
+		// Write mean and std labels
 		for (Measure m : measures) {
 			measureName = m.getName();
-			if (!(m instanceof MacroAverageMeasure)) {
-				sb.append("mean,std,");
+			sb.append("mean,std,");
+		}
+
+		// Write class labels for each MacroAverageMeasure
+		sb.append(",,");
+		for (Measure m : measures) {
+			if (m instanceof MacroAverageMeasure) {
+				for (int i = 0; i < data.getNumLabels(); i++) {
+					sb.append(data.getDataSet().attribute(data.getLabelIndices()[i]).name());
+					sb.append(",,");
+				}
+			}
+		}
+		sb.append(System.getProperty("line.separator"));
+
+		// Write mean and std for each measure
+		for (Measure m : measures) {
+			measureName = m.getName();
+			sb.append(evaluationCrossValidation.getMean(measureName) + ",");
+			sb.append(evaluationCrossValidation.getStd(measureName) + ",");
+		}
+
+		sb.append(",,");
+
+		// Write mean and std labels again for MacroAverageMeasures
+		for (Measure m : measures) {
+			if (m instanceof MacroAverageMeasure) {
+				for (int i = 0; i < data.getNumLabels(); i++) {
+					sb.append("mean,std,");
+				}
 			}
 		}
 
-		sb.append("\n");
+		// Write MAcroAverageMeasures for each label
+		sb.append(System.getProperty("line.separator"));
 
-		for (Measure m : measures) {
-			measureName = m.getName();
-			if (!(m instanceof MacroAverageMeasure)) {
-				sb.append(evaluationCrossValidation.getMean(measureName) + ",");
-				sb.append(evaluationCrossValidation.getStd(measureName) + ",");
-			}
-		}
-
-		sb.append("\n\n");
-		sb.append("Labels,");
-		for (int i = 0; i < data.getNumLabels(); i++) {
-			sb.append(data.getDataSet().attribute(data.getLabelIndices()[i]).name());
+		for (int i = 0; i < measures.size(); i++) {
 			sb.append(",,");
 		}
 
-		sb.append("\n");
-		sb.append(",");
-		for (int i = 0; i < data.getNumLabels(); i++) {
-			sb.append("mean,std,");
-		}
-		sb.append("\n");
+		sb.append(",,");
 
 		for (Measure m : measures) {
 			measureName = m.getName();
 			if (m instanceof MacroAverageMeasure) {
-				sb.append(measureName + ",");
 				for (int i = 0; i < data.getNumLabels(); i++) {
 					sb.append(evaluationCrossValidation.getMean(measureName, i) + ",");
 					sb.append(evaluationCrossValidation.getStd(measureName, i) + ",");
 				}
-				sb.append("\n");
 			}
 		}
 
+		sb.append(System.getProperty("line.separator") + System.getProperty("line.separator"));
 		return sb.toString();
 	}
 
@@ -143,39 +166,51 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
+		// Write measure's names (MacroAverageMeasures twice)
 		for (Measure m : measures) {
 			measureName = m.getName();
-			if (!(m instanceof MacroAverageMeasure)) {
-				sb.append(measureName + ",");
-			}
+			sb.append(measureName + ",");
 		}
-
-		sb.append("\n");
-
-		for (Measure m : measures) {
-			measureName = m.getName();
-			if (!(m instanceof MacroAverageMeasure)) {
-				sb.append(m.getValue() + ",");
-			}
-		}
-
-		sb.append("\n\n");
-		sb.append("Labels,");
-		for (int i = 0; i < data.getNumLabels(); i++) {
-			sb.append(data.getDataSet().attribute(data.getLabelIndices()[i]).name());
-			sb.append(",");
-		}
-
-		sb.append("\n");
-
+		sb.append(",,");
 		for (Measure m : measures) {
 			measureName = m.getName();
 			if (m instanceof MacroAverageMeasure) {
-				sb.append(measureName + ",");
+				sb.append(measureName);
+				for (int i = 0; i < data.getNumLabels(); i++) {
+					sb.append(",");
+				}
+			}
+		}
+
+		sb.append(System.getProperty("line.separator"));
+
+		// Write results for each measure
+		for (Measure m : measures) {
+			sb.append(m.getValue());
+			sb.append(",");
+		}		
+		// Write class labels for each MacroAverageMeasure
+		sb.append(",,");
+		for (Measure m : measures) {
+			if (m instanceof MacroAverageMeasure) {
+				for (int i = 0; i < data.getNumLabels(); i++) {
+					sb.append(data.getDataSet().attribute(data.getLabelIndices()[i]).name());
+					sb.append(",");
+				}
+			}
+		}
+		sb.append(System.getProperty("line.separator"));
+		
+		for (int i = 0; i < measures.size(); i++) {
+			sb.append(",");
+		}
+		sb.append(",,");
+		for (Measure m : measures) {
+			measureName = m.getName();
+			if (m instanceof MacroAverageMeasure) {
 				for (int i = 0; i < data.getNumLabels(); i++) {
 					sb.append(((MacroAverageMeasure) m).getValue(i) + ",");
 				}
-				sb.append("\n");
 			}
 		}
 
@@ -208,10 +243,11 @@ public class BaseMIMLReport extends MIMLReport {
 			measureName = m.getName();
 			sb.append(measureName);
 			sb.append(": ");
+
 			sb.append(String.format("%.4f", evaluationCrossValidation.getMean(measureName)));
 			sb.append("\u00B1");
 			sb.append(String.format("%.4f", evaluationCrossValidation.getStd(measureName)));
-			sb.append("\n");
+			sb.append(System.getProperty("line.separator"));
 
 			if (m instanceof MacroAverageMeasure) {
 
@@ -222,7 +258,7 @@ public class BaseMIMLReport extends MIMLReport {
 					sb.append(String.format("%.4f", evaluationCrossValidation.getStd(measureName, i)));
 					sb.append(" ");
 				}
-				sb.append("\n");
+				sb.append(System.getProperty("line.separator"));
 			}
 		}
 		return sb.toString();
@@ -250,7 +286,7 @@ public class BaseMIMLReport extends MIMLReport {
 		for (Measure m : measures) {
 			sb.append(m);
 			if (m instanceof MacroAverageMeasure) {
-				sb.append("\n");
+				sb.append(System.getProperty("line.separator"));
 				for (int i = 0; i < data.getNumLabels(); i++) {
 					sb.append(data.getDataSet().attribute(data.getLabelIndices()[i]).name());
 					sb.append(": ");
@@ -258,7 +294,7 @@ public class BaseMIMLReport extends MIMLReport {
 					sb.append(" ");
 				}
 			}
-			sb.append("\n");
+			sb.append(System.getProperty("line.separator"));
 		}
 		return sb.toString();
 	}

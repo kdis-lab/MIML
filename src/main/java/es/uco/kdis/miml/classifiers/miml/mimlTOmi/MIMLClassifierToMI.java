@@ -44,7 +44,7 @@ import weka.classifiers.Classifier;
  * @version 20180701
  *
  */
-public class MIMLClassifierMI extends MIMLClassifier {
+public class MIMLClassifierToMI extends MIMLClassifier {
 
 	/** For serialization. */
 	private static final long serialVersionUID = -1665460849023571048L;
@@ -57,7 +57,7 @@ public class MIMLClassifierMI extends MIMLClassifier {
 	 * 
 	 * @param transformationClassifier Classifier
 	 */
-	public MIMLClassifierMI(MultiLabelLearner transformationClassifier) {
+	public MIMLClassifierToMI(MultiLabelLearner transformationClassifier) {
 		super();
 		this.transformationClassifier = transformationClassifier;
 	}
@@ -65,7 +65,7 @@ public class MIMLClassifierMI extends MIMLClassifier {
 	/**
 	 * No-argument constructor for xml configuration.
 	 */
-	public MIMLClassifierMI() {
+	public MIMLClassifierToMI() {
 	}
 
 	/*
