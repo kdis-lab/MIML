@@ -77,8 +77,8 @@ public class BaseMIMLReport extends MIMLReport {
 		for (Measure m : measures) {
 			measureName = m.getName();
 			if (m instanceof MacroAverageMeasure) {
-				sb.append(measureName);
 				for (int i = 0; i < data.getNumLabels(); i++) {
+					sb.append(measureName);
 					sb.append(",,");
 				}
 			}
@@ -175,8 +175,8 @@ public class BaseMIMLReport extends MIMLReport {
 		for (Measure m : measures) {
 			measureName = m.getName();
 			if (m instanceof MacroAverageMeasure) {
-				sb.append(measureName);
 				for (int i = 0; i < data.getNumLabels(); i++) {
+					sb.append(measureName);
 					sb.append(",");
 				}
 			}
