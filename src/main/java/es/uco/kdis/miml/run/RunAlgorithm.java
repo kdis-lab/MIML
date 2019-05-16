@@ -55,7 +55,7 @@ public class RunAlgorithm {
 			evaluator.runExperiment(classifier);
 
 			IReport report = loader.loadReport();
-
+			
 			report.saveReport(report.toCSV(evaluator));
 			System.out.println("" + new Date() + ": " + "Experiment ended");
 

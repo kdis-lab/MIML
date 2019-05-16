@@ -22,7 +22,7 @@ import java.util.logging.SimpleFormatter;
 
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
-import es.uco.kdis.miml.classifiers.miml.mimlTOmi.MIMLClassifierMI;
+import es.uco.kdis.miml.classifiers.miml.mimlTOmi.MIMLClassifierToMI;
 import es.uco.kdis.miml.core.ConfigLoader;
 import es.uco.kdis.miml.evaluation.IEvaluator;
 import mulan.classifier.MultiLabelLearner;
@@ -129,7 +129,7 @@ public class PruebasMI {
 					transformationClassifier = clsClass.getConstructor(Classifier.class)
 							.newInstance(baseClassifier.newInstance());
 
-					MIMLClassifierMI classifier = new MIMLClassifierMI(transformationClassifier);
+					MIMLClassifierToMI classifier = new MIMLClassifierToMI(transformationClassifier);
 					IEvaluator evaluator = loader.loadEvaluator();
 					evaluator.runExperiment(classifier);
 

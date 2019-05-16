@@ -22,7 +22,7 @@ import java.util.logging.SimpleFormatter;
 
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
-import es.uco.kdis.miml.classifiers.miml.mimlTOml.MIMLClassifierML;
+import es.uco.kdis.miml.classifiers.miml.mimlTOml.MIMLClassifierToML;
 import es.uco.kdis.miml.core.ConfigLoader;
 import es.uco.kdis.miml.evaluation.IEvaluator;
 import es.uco.kdis.miml.transformation.mimlTOml.MIMLtoML;
@@ -114,7 +114,7 @@ public class PruebasML {
 							.forName(metodoTransformacion);
 					transformMethod = transformerClass.newInstance();
 
-					MIMLClassifierML classifier = new MIMLClassifierML(baseClassifier, transformMethod);
+					MIMLClassifierToML classifier = new MIMLClassifierToML(baseClassifier, transformMethod);
 					IEvaluator evaluator = loader.loadEvaluator();
 					evaluator.runExperiment(classifier);
 
