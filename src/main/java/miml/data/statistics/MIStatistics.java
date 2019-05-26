@@ -21,7 +21,7 @@ import java.util.HashMap;
 import weka.core.Instances;
 
 /**
- * Class with methods to obtain information about a MIL dataset such as the
+ * Class with methods to obtain information about a MI dataset such as the
  * number of attributes per bag, the average number of instances per bag, and
  * the distribution of number of instances per bag...
  * 

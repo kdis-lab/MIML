@@ -43,9 +43,15 @@ import weka.core.Utils;
  */
 public class MIMLStatistics {
 
-	// Basic features
+	/**
+	 * Class with methods to obtain information about a MI dataset
+	 * @see MIStatistics
+	 */
 	protected MIStatistics milstatistics = new MIStatistics();
-
+	/**
+	 * Class with methods to obtain information about a ML dataset
+	 * @see MLStatistics
+	 */
 	protected MLStatistics mlstatistics = new MLStatistics();
 
 	/**

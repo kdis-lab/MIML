@@ -32,12 +32,12 @@ import weka.core.Instances;
 public interface IDistance extends Serializable {
 
 	/**
-	 * Get the distance between two bags.
+	 * Get the distance between two MIML bags.
 	 *
 	 * @param first  first Bag
 	 * @param second second Bag
 	 * @return distance between two bags
-	 * @throws Exception the exception
+	 * @throws Exception if occurred an error during distance calculation
 	 */
 	public double distance(MIMLBag first, MIMLBag second) throws Exception;
 
@@ -47,7 +47,7 @@ public interface IDistance extends Serializable {
 	 * @param first  first Bag as Instances
 	 * @param second second Bag as Instances
 	 * @return distance between two bags
-	 * @throws Exception the exception
+	 * @throws Exception if occurred an error during distance calculation
 	 */
 	public double distance(Instances first, Instances second) throws Exception;
 

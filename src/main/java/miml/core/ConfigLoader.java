@@ -29,7 +29,7 @@ import miml.evaluation.IEvaluator;
 import miml.report.IReport;
 
 /**
- * Class used to read a xml file and configure a experiment.
+ * Class used to read a xml file and configure an experiment.
  * 
  * @author Alvaro A. Belmonte
  * @author Amelia Zafra
@@ -38,11 +38,11 @@ import miml.report.IReport;
  */
 public class ConfigLoader {
 
-	/** Configuration object. */
-	private Configuration configuration;
+	/** Configuration object */
+	protected Configuration configuration;
 
 	/**
-	 * Gets the configuration.
+	 * Gets the experiment's configuration.
 	 *
 	 * @return The configuration
 	 */
@@ -51,7 +51,7 @@ public class ConfigLoader {
 	}
 
 	/**
-	 * Sets the configuration.
+	 * Sets the configuration for the experiment.
 	 *
 	 * @param configuration A new configuration
 	 */
@@ -139,9 +139,9 @@ public class ConfigLoader {
 	 * Read current configuration to load and configure the report.
 	 *
 	 * @return the MIML report
-	 * @throws ClassNotFoundException the class not found exception
-	 * @throws InstantiationException the instantiation exception
-	 * @throws IllegalAccessException the illegal access exception
+	 * @throws ClassNotFoundException if the class doesn't exist
+	 * @throws InstantiationException if specified class object cannot be instantiated
+	 * @throws IllegalAccessException if not have access to the definition of the specified class
 	 */
 	@SuppressWarnings("unchecked")
 	public IReport loadReport() throws ClassNotFoundException, InstantiationException, IllegalAccessException {

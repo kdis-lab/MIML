@@ -42,7 +42,7 @@ import weka.core.SerializedObject;
  */
 public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier {
 
-	/** for serialization. */
+	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -517275642740330327L;
 
 	/** The is model initialized. */

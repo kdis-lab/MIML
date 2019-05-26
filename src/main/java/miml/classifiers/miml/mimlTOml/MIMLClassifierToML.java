@@ -45,20 +45,20 @@ import weka.core.Instance;
  */
 public class MIMLClassifierToML extends MIMLClassifier {
 
-	/** For serialization. */
+	/** Generated Serial version UID. */
 	private static final long serialVersionUID = 1L;
 
 	/** A Generic MultiLabel classifier. */
-	MultiLabelLearner baseClassifier;
+	protected MultiLabelLearner baseClassifier;
 
 	/** The transform method. */
-	MIMLtoML transformMethod;
+	protected MIMLtoML transformMethod;
 
 	/** The miml dataset. */
-	MIMLInstances mimlDataset;
+	protected MIMLInstances mimlDataset;
 
 	/**
-	 * Constructor.
+	 * Basic constructor to initialize the classifier.
 	 *
 	 * @param baseClassifier  Classifier
 	 * @param transformMethod the transform method

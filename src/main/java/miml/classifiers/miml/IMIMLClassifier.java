@@ -22,7 +22,6 @@ import mulan.classifier.MultiLabelLearner;
 import mulan.classifier.MultiLabelOutput;
 import weka.core.Instance;
 
-// TODO: Auto-generated Javadoc
 /**
  * Common interface for MIML classifiers.
  *
@@ -33,30 +32,27 @@ import weka.core.Instance;
  */
 public interface IMIMLClassifier extends MultiLabelLearner, Serializable {
 
-	/**
-	 * Make a prediction.
-	 *
-	 * @param instance the instance to be predicted
-	 * @return the multi label output
+	/*
+	 * (non-Javadoc)
 	 * 
-	 * @throws Exception the exception
+	 * @see mulan.classifier.MultiLabelLearner#makePrediction(weka.core.Instance)
 	 */
 	@Override
 	public MultiLabelOutput makePrediction(Instance instance) throws Exception;
 
 	/**
-	 * Builds the classifier.
+	 * Builds the learner model from specified {@link MIMLInstances} data.
 	 *
-	 * @param trainingSet the training set
-	 * 
-	 * @throws Exception the exception
+	 * @param trainingSet set of training data, upon which the learner model should be
+	 *                  built
+	 * @throws Exception if learner model was not created successfully
 	 */
 	public void build(MIMLInstances trainingSet) throws Exception;
 
-	/**
-	 * Sets whether debugging information should be output by the model.
-	 *
-	 * @param debug True to show debug information, False not to.
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see mulan.classifier.MultiLabelLearner#setDebug(boolean)
 	 */
 	@Override
 	public void setDebug(boolean debug);

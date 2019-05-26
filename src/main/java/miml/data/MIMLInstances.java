@@ -37,18 +37,16 @@ import weka.core.Instances;
  */
 public class MIMLInstances extends MultiLabelInstances {
 
-	/** For serialization */
+	/** Generated Serial version UID. */
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Constructor.
 	 * 
-	 * @param dataSet
-	 *            A dataset of {@link Instances} with relational information.
-	 * @param xmlLabelsDefFilePath
-	 *            Path of .xml file with information about labels.
-	 * @throws InvalidDataFormatException
-	 *             To be handled in an upper level.
+	 * @param dataSet              A dataset of {@link Instances} with relational
+	 *                             information.
+	 * @param xmlLabelsDefFilePath Path of .xml file with information about labels.
+	 * @throws InvalidDataFormatException To be handled in an upper level.
 	 */
 	public MIMLInstances(Instances dataSet, String xmlLabelsDefFilePath) throws InvalidDataFormatException {
 		super(dataSet, xmlLabelsDefFilePath);
@@ -57,12 +55,10 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Constructor.
 	 * 
-	 * @param dataSet
-	 *            A dataset of {@link Instances} with relational information.
-	 * @param labelsMetaData
-	 *            Information about labels.
-	 * @throws InvalidDataFormatException
-	 *             To be handled in an upper level.
+	 * @param dataSet        A dataset of {@link Instances} with relational
+	 *                       information.
+	 * @param labelsMetaData Information about labels.
+	 * @throws InvalidDataFormatException To be handled in an upper level.
 	 */
 	public MIMLInstances(Instances dataSet, LabelsMetaData labelsMetaData) throws InvalidDataFormatException {
 		super(dataSet, labelsMetaData);
@@ -71,12 +67,9 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Constructor.
 	 * 
-	 * @param arffFilePath
-	 *            Path of .arff file with Instances.
-	 * @param xmlLabelsDefFilePath
-	 *            Path of .xml file with information about labels.
-	 * @throws InvalidDataFormatException
-	 *             To be handled in an upper level.
+	 * @param arffFilePath         Path of .arff file with Instances.
+	 * @param xmlLabelsDefFilePath Path of .xml file with information about labels.
+	 * @throws InvalidDataFormatException To be handled in an upper level.
 	 */
 	public MIMLInstances(String arffFilePath, String xmlLabelsDefFilePath) throws InvalidDataFormatException {
 		super(arffFilePath, xmlLabelsDefFilePath);
@@ -85,12 +78,9 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Constructor.
 	 * 
-	 * @param arffFilePath
-	 *            Path of .arff file with Instances.
-	 * @param numLabelAttributes
-	 *            Number of label attributes.
-	 * @throws InvalidDataFormatException
-	 *             To be handled in an upper level.
+	 * @param arffFilePath       Path of .arff file with Instances.
+	 * @param numLabelAttributes Number of label attributes.
+	 * @throws InvalidDataFormatException To be handled in an upper level.
 	 */
 	public MIMLInstances(String arffFilePath, int numLabelAttributes) throws InvalidDataFormatException {
 		super(arffFilePath, numLabelAttributes);
@@ -99,12 +89,10 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Gets a {@link MIMLBag} (i.e. pattern) with a certain bagIndex.
 	 * 
-	 * @param bagIndex
-	 *            Index of the bag.
+	 * @param bagIndex Index of the bag.
 	 * @return Bag If bagIndex exceeds the number of bags in the dataset. To be
 	 *         handled in an upper level.
-	 * @throws Exception
-	 *             To be handled in an upper level.
+	 * @throws Exception To be handled in an upper level.
 	 */
 	public MIMLBag getBag(int bagIndex) throws Exception {
 		if (bagIndex > this.getNumBags())
@@ -121,12 +109,10 @@ public class MIMLInstances extends MultiLabelInstances {
 	 * {@link Instances} considering just the relational information. Neither
 	 * identification attribute of the Bag nor label attributes are included.
 	 * 
-	 * @param bagIndex
-	 *            Index of the bag
+	 * @param bagIndex Index of the bag
 	 * @return a bag or an instance from the index of the dataset
-	 * @throws Exception
-	 *             If bagIndex exceeds the number of bags in the dataset. To be
-	 *             handled in an upper level.
+	 * @throws Exception If bagIndex exceeds the number of bags in the dataset. To
+	 *                   be handled in an upper level.
 	 */
 	public Instances getBagAsInstances(int bagIndex) throws Exception {
 		if (bagIndex > this.getNumBags())
@@ -140,8 +126,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Adds a Bag of Instances to the dataset.
 	 *
-	 * @param bag
-	 *            A Bag of Instances.
+	 * @param bag A Bag of Instances.
 	 */
 	public void addBag(MIMLBag bag) {
 		this.getDataSet().add(bag);
@@ -150,10 +135,8 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Adds a Bag of Instances to the dataset in a certain index.
 	 * 
-	 * @param bag
-	 *            A Bag of Instances.
-	 * @param index
-	 *            The index to insert the Bag.
+	 * @param bag   A Bag of Instances.
+	 * @param index The index to insert the Bag.
 	 */
 	public void addInstance(MIMLBag bag, int index) {
 		this.getDataSet().add(index, bag);
@@ -162,13 +145,10 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Gets an instance of a bag.
 	 * 
-	 * @param bagIndex
-	 *            The index of the bag in the data set,
-	 * @param instanceIndex
-	 *            Is the index of the instance in the bag.
+	 * @param bagIndex      The index of the bag in the data set,
+	 * @param instanceIndex Is the index of the instance in the bag.
 	 * @return Instance
-	 * @throws IndexOutOfBoundsException
-	 *             To be handled in an upper level.
+	 * @throws IndexOutOfBoundsException To be handled in an upper level.
 	 */
 	public Instance getInstance(int bagIndex, int instanceIndex) throws IndexOutOfBoundsException {
 		return this.getDataSet().instance(bagIndex).relationalValue(1).instance(instanceIndex);
@@ -186,11 +166,9 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Gets the number of instances of a bag.
 	 * 
-	 * @param bagIndex
-	 *            A bag index.
+	 * @param bagIndex A bag index.
 	 * @return int
-	 * @throws Exception
-	 *             To be handled in an upper level.
+	 * @throws Exception To be handled in an upper level.
 	 */
 	public int getNumInstances(int bagIndex) throws Exception {
 		return this.getBag(bagIndex).relationalValue(1).numInstances();
@@ -280,9 +258,10 @@ public class MIMLInstances extends MultiLabelInstances {
 	 * Adds an attribute to the relational attribute with value ? at the last
 	 * position
 	 * 
-	 * @param newAttr
-	 *            The attribute to be added
-	 * @throws InvalidDataFormatException
+	 * @param newAttr The attribute to be added
+	 * @throws InvalidDataFormatException if occurred an error creating new dataset
+	 * 
+	 * @return new dataset
 	 */
 	public MIMLInstances insertAttributeToBags(Attribute newAttr) throws InvalidDataFormatException {
 
@@ -333,9 +312,10 @@ public class MIMLInstances extends MultiLabelInstances {
 	 * Adds a set of attributes to the relational attribute with values ? at the
 	 * last position of the relational attribute
 	 * 
-	 * @param Attributes
-	 *            ArrayList of attributes to add
-	 * @throws InvalidDataFormatException
+	 * @param Attributes ArrayList of attributes to add
+	 * @throws InvalidDataFormatException if occurred an error creating new dataset
+	 * 
+	 * @return new dataset
 	 */
 	public MIMLInstances insertAttributesToBags(ArrayList<Attribute> Attributes) throws InvalidDataFormatException {
 
@@ -383,5 +363,5 @@ public class MIMLInstances extends MultiLabelInstances {
 
 		}
 		return new MIMLInstances(instances, this.getLabelsMetaData());
-	}	
+	}
 }

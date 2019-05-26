@@ -46,16 +46,17 @@ import weka.classifiers.Classifier;
  */
 public class MIMLClassifierToMI extends MIMLClassifier {
 
-	/** For serialization. */
+	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -1665460849023571048L;
 
-	/** Generic classifier. */
-	private MultiLabelLearner transformationClassifier;
+	/** Generic classifier used for transformation. */
+	protected MultiLabelLearner transformationClassifier;
 
 	/**
-	 * Constructor.
+	 * Basic constructor.
 	 * 
-	 * @param transformationClassifier Classifier
+	 * @param transformationClassifier mulan MultiLabelLearner used as
+	 *                                 transformation method from MIML to MI
 	 */
 	public MIMLClassifierToMI(MultiLabelLearner transformationClassifier) {
 		super();

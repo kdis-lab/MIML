@@ -33,13 +33,26 @@ import mulan.evaluation.measure.Measure;
 /**
  * Class used to generate reports with the format specified.
  * 
- * @author Álvaro A. Belmonte
+ * @author Alvaro A. Belmonte
  * @author Amelia Zafra
  * @author Eva Gibaja
  * @version 20180630
  */
 public class BaseMIMLReport extends MIMLReport {
 
+	
+	/**
+	 * Basic constructor to initialize the report.
+	 *
+	 * @param measures 		the list of selected measures which is going to be shown in the report
+	 * @param filename     	the filename where the report's will be saved
+	 * @param std         	whether the standard deviation of measures will be shown or not (only valid for cross-validation evaluator)
+	 * @param labels 		whether the measures for each label will be shown (only valid for Macros Average measures)
+	 */
+	public BaseMIMLReport(List<String> measures, String filename, boolean std, boolean labels) {
+		super();
+	}
+	
 	/**
 	 * No-argument constructor for xml configuration.
 	 */

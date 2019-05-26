@@ -34,7 +34,7 @@ import weka.core.Instances;
  */
 public class AverageHausdorff implements IDistance {
 
-	/** The Constant serialVersionUID. */
+	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -2002702276955682922L;
 
 	/*

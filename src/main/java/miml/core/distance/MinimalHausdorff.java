@@ -31,7 +31,7 @@ import weka.core.Instances;
  */
 public class MinimalHausdorff implements IDistance {
 
-	/** The Constant serialVersionUID. */
+	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -4225065329008023904L;
 
 	/*

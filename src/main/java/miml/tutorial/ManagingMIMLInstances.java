@@ -20,7 +20,6 @@ import java.io.File;
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
 import miml.data.statistics.MIMLStatistics;
-import miml.data.statistics.MIStatistics;
 import mulan.data.InvalidDataFormatException;
 import weka.core.Instance;
 
@@ -31,7 +30,8 @@ import weka.core.Instance;
  * @author Ana I.Reyes Melero
  * @author Eva Gibaja
  * @author Amelia Zafra
- * @version 20170507
+ * @author Alvaro A. Belmonte
+ * @version 20190525
  *
  */
 

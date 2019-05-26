@@ -27,13 +27,13 @@ public final class ConfigParameters {
 	
 
 	/** The algorirthm used in the experimentation. */
-	private static String algorirthmName = "";
+	protected static String algorirthmName = "";
 	
 	/** The config filename used in the experimentation. */
-	private static String configFileName = "";
+	protected static String configFileName = "";
 	
 	/** The data filename used in the experimentation. */
-	private static String dataFileName = "";
+	protected static String dataFileName = "";
 	
 
 	/**

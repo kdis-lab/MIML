@@ -9,14 +9,23 @@ import weka.core.Instances;
 public class MIMLLabelPowerset extends LabelPowerset {
 
 	/**
-	 * 
+	 * Generated Serial version UID
 	 */
 	private static final long serialVersionUID = -515679901670889755L;
-
+	
+    /**
+     * Conststructor that initializes the learner with a base classifier
+     *
+     * @param classifier the base single-label classification algorithm
+     */
 	public MIMLLabelPowerset(Classifier classifier) {
 		super(classifier);
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see mulan.classifier.transformation.LabelPowerset#buildInternal(mulan.data.MultiLabelInstances)
+	 */
 	protected void buildInternal(MultiLabelInstances mlData) throws Exception {
 		Instances transformedData;
 		LPTransformation lp = new LPTransformation();

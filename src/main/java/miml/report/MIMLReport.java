@@ -28,6 +28,7 @@ import java.util.List;
 import miml.core.IConfiguration;
 import mulan.evaluation.measure.Measure;
 
+// TODO: Auto-generated Javadoc
 /**
  * Abstract class for a MIMLReport.
  * 
@@ -43,12 +44,79 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 
 	/** The name of the file where report is saved. */
 	protected String filename;
-	
-	/** If measures' standard deviation are shown*/
+
+	/** If measures' standard deviation are shown. */
 	protected boolean std;
-	
-	/** If macro measures are broken down by labels*/
+
+	/** If macro measures are broken down by labels. */
 	protected boolean labels;
+
+	/**
+	 * Basic constructor to initialize the report.
+	 *
+	 * @param measures 		the list of selected measures which is going to be shown in the report
+	 * @param filename     	the filename where the report's will be saved
+	 * @param std         	whether the standard deviation of measures will be shown or not (only valid for cross-validation evaluator)
+	 * @param labels 		whether the measures for each label will be shown (only valid for Macros Average measures)
+	 */
+	public MIMLReport(List<String> measures, String filename, boolean std, boolean labels) {
+		this.measures = measures;
+		this.filename = filename;
+		this.std = std;
+		this.labels = labels;
+	}
+	
+	/**
+	 * No-argument constructor for xml configuration.
+	 */
+	public MIMLReport() {
+		
+	}
+	
+	/**
+	 * Filter measures chosen to be shown in the experiment report.
+	 *
+	 * @param allMeasures all the measures which the evaluation has
+	 * @return the list with the measures filtered
+	 * @throws Exception the exception
+	 */
+	protected List<Measure> filterMeasures(List<Measure> allMeasures) throws Exception {
+
+		List<Measure> measures = new ArrayList<Measure>();
+
+		for (String s : this.measures) {
+
+			for (Measure m : allMeasures) {
+
+				if (m.getName().equals(s))
+					measures.add(m.makeCopy());
+			}
+		}
+
+		return measures;
+	}
+
+	/**
+	 * Save in a file the specified report.
+	 *
+	 * @param report the report
+	 * @throws FileNotFoundException the file not found exception
+	 */
+	@Override
+	public void saveReport(String report) throws FileNotFoundException {
+
+		File file = new File(filename);
+		file.getParentFile().mkdirs();
+
+		try {
+			file.createNewFile();
+			Files.write(Paths.get(filename), report.getBytes(), StandardOpenOption.APPEND);
+			System.out.println("" + new Date() + ": " + "Experiment results saved in " + filename);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * Gets the measures shown in the report.
@@ -88,45 +156,39 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	}
 
 	/**
-	 * Filter measures.
+	 * Checks if std is going to be shown (only cross-validation).
 	 *
-	 * @param allMeasures all the measures which the evaluation has
-	 * @return the list with the measures filtered
-	 * @throws Exception the exception
+	 * @return true, if is std
 	 */
-	protected List<Measure> filterMeasures(List<Measure> allMeasures) throws Exception {
-
-		List<Measure> measures = new ArrayList<Measure>();
-
-		for (String s : this.measures) {
-
-			for (Measure m : allMeasures) {
-
-				if (m.getName().equals(s))
-					measures.add(m.makeCopy());
-			}
-		}
-
-		return measures;
+	public boolean isStd() {
+		return std;
 	}
 
 	/**
-	 * Save in a file the specified report.
+	 * Sets if the std is going to be shown (only cross-validation).
+	 *
+	 * @param std the new std
 	 */
-	@Override
-	public void saveReport(String report) throws FileNotFoundException {
+	public void setStd(boolean std) {
+		this.std = std;
+	}
 
-		File file = new File(filename);
-		file.getParentFile().mkdirs();
+	/**
+	 * Checks if measure for each label (Macro Average Measures) is shown.
+	 *
+	 * @return true, if is labels
+	 */
+	public boolean isLabels() {
+		return labels;
+	}
 
-		try {
-			file.createNewFile();
-			Files.write(Paths.get(filename), report.getBytes(), StandardOpenOption.APPEND);
-			System.out.println("" + new Date() + ": " + "Experiment results saved in " + filename);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	/**
+	 * Sets if measure for each label (Macro Average Measures) is shown.
+	 * 
+	 * @param labels the new labels
+	 */
+	public void setLabels(boolean labels) {
+		this.labels = labels;
 	}
 
 }

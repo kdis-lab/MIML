@@ -30,9 +30,9 @@ public interface IConfiguration {
 
 	
 	/**
-	 * Configuration method
+	 * Method to configure the class with the given configuration
 	 * 
-	 * @param configuration Configuration the configuration class
+	 * @param configuration Configuration configuration for the class
 	 */
 	public void configure(Configuration configuration);
 

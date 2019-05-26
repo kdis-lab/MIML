@@ -33,7 +33,7 @@ import weka.core.Instances;
 
 public class MIMLBag extends DenseInstance implements Instance {
 
-	/** For serialization */
+	/** Generated Serial version UID. */
 	private static final long serialVersionUID = 1L;
 
 	/**

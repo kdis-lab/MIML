@@ -43,39 +43,23 @@ import weka.filters.unsupervised.instance.RemovePercentage;
  */
 public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> {
 
-	/** The evaluation. */
-	private Evaluation evaluation;
+	/** The evaluation method used in holdout. */
+	protected Evaluation evaluation;
 
-	/** The train data. */
-	private MIMLInstances trainData;
+	/** The data used in the experiment. */
+	protected MIMLInstances trainData;
 
-	/** The test data. */
-	private MIMLInstances testData;
+	/** The test data used in the experiment. */
+	protected MIMLInstances testData;
 
 	/** Train time in milliseconds. */
-	private long trainTime;
+	protected long trainTime;
 
 	/** Test time in milliseconds. */
-	private long testTime;
+	protected long testTime;
 
 	/** Seed for randomization */
 	protected int seed = 1;
-
-	public int getSeed() {
-		return seed;
-	}
-
-	public void setSeed(int seed) {
-		this.seed = seed;
-	}
-
-	public long getTrainTime() {
-		return trainTime;
-	}
-
-	public long getTestTime() {
-		return testTime;
-	}
 
 	/**
 	 * Instantiates a new Holdout evaluator.
@@ -93,7 +77,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	 *
 	 * @param mimlDataSet     the dataset to be used
 	 * @param percentageTrain the percentage of train
-	 * @throws Exception
+	 * @throws Exception if occur an error during holdout experiment
 	 */
 	public EvaluatorHoldout(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
 		this.splitData(mimlDataSet, percentageTrain);
@@ -137,10 +121,10 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	}
 
 	/**
-	 * Split data.
+	 * Split data given a percentage.
 	 *
-	 * @param mimlDataSet the miml data set
-	 * @param percentageTrain the percentage train
+	 * @param mimlDataSet the MIML dataset to be splited
+	 * @param percentageTrain the percentage (0-100) to be used in train
 	 * @throws Exception the exception
 	 */
 	private void splitData(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
@@ -165,6 +149,42 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 		trainData = new MIMLInstances(trainDataSet, mimlDataSet.getLabelsMetaData());
 		testData = new MIMLInstances(testDataSet, mimlDataSet.getLabelsMetaData());
 	}
+	
+	/**
+	 * Gets the seed used in the experiment.
+	 *
+	 * @return the seed
+	 */
+	public int getSeed() {
+		return seed;
+	}
+
+	/**
+	 * Sets the seed used in the experiment.
+	 *
+	 * @param seed the new seed
+	 */
+	public void setSeed(int seed) {
+		this.seed = seed;
+	}
+
+	/**
+	 * Gets the time spent in training.
+	 *
+	 * @return the train time
+	 */
+	public long getTrainTime() {
+		return trainTime;
+	}
+
+	/**
+	 * Gets the time spent in testing.
+	 *
+	 * @return the test time
+	 */
+	public long getTestTime() {
+		return testTime;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -177,7 +197,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	}
 
 	/**
-	 * Gets the data used for evaluate the measures.
+	 * Gets the data used in the experiment.
 	 *
 	 * @return the data
 	 */

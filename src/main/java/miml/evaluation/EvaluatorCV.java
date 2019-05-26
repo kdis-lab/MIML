@@ -32,6 +32,7 @@ import mulan.evaluation.Evaluator;
 import mulan.evaluation.MultipleEvaluation;
 import weka.core.Instances;
 
+// TODO: Auto-generated Javadoc
 /**
  * Class that allow evaluate an algorithm applying a cross-validation method
  * 
@@ -42,14 +43,14 @@ import weka.core.Instances;
  */
 public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluation> {
 
-	/** The evaluation. */
-	private MultipleEvaluation multipleEvaluation;
+	/** The evaluation method used in cross-validation. */
+	protected MultipleEvaluation multipleEvaluation;
 
-	/** The data. */
-	private MIMLInstances data;
+	/** The data used in the experiment. */
+	protected MIMLInstances data;
 
 	/** The number of folds. */
-	private int numFolds;
+	protected int numFolds;
 
 	/** The seed for the partition. */
 	protected int seed = 1;
@@ -133,32 +134,13 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 		multipleEvaluation = new MultipleEvaluation(Evaluations, data);
 		multipleEvaluation.calculateStatistics();
 	}
-
-	public long[] getTrainTime() {
-		return trainTime;
-	}
-
-	public long[] getTestTime() {
-		return testTime;
-	}
-
-	public int getNumFolds() {
-		return numFolds;
-	}
-
-	public void setNumFolds(int numFolds) {
-		this.numFolds = numFolds;
-	}
-
-	public int getSeed() {
-		return seed;
-	}
-
-	public void setSeed(int seed) {
-		this.seed = seed;
-	}
-
 	
+	/**
+	 * Calculate the mean of given array.
+	 *
+	 * @param array the array with long values
+	 * @return the mean of all array's values
+	 */
 	protected double meanArray(long array[])
 	{
 		double sum = 0;
@@ -167,6 +149,13 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 		return sum / array.length;
 		
 	}
+	
+	/**
+	 * Calculate the standard deviation of given array.
+	 *
+	 * @param array the array with long values
+	 * @return the standard deviation of all array's values
+	 */
 	protected double stdArray(long array[])
 	{
 		double mean = meanArray(array);	    
@@ -176,25 +165,99 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 		return Math.sqrt(sum / array.length);
 	}
 	
+
+	/**
+	 * Gets the time spent in training in each fold.
+	 *
+	 * @return the train time
+	 */
+	public long[] getTrainTime() {
+		return trainTime;
+	}
+
+	/**
+	 * Gets the time spent in testing in each fold.
+	 *
+	 * @return the test time
+	 */
+	public long[] getTestTime() {
+		return testTime;
+	}
+
+	/**
+	 * Gets the num folds used in the experiment.
+	 *
+	 * @return the num folds
+	 */
+	public int getNumFolds() {
+		return numFolds;
+	}
+
+	/**
+	 * Sets the num folds used in the experiment.
+	 *
+	 * @param numFolds the new num folds
+	 */
+	public void setNumFolds(int numFolds) {
+		this.numFolds = numFolds;
+	}
+
+	/**
+	 * Gets the seed used in the experiment.
+	 *
+	 * @return the seed
+	 */
+	public int getSeed() {
+		return seed;
+	}
+
+	/**
+	 * Sets the seed used in the experiment.
+	 *
+	 * @param seed the new seed
+	 */
+	public void setSeed(int seed) {
+		this.seed = seed;
+	}
+
+	/**
+	 * Gets the average time of all folds in train.
+	 *
+	 * @return the average time of all folds
+	 */
 	public double getAvgTrainTime() {
 		return meanArray(trainTime);
 	}
 
+	/**
+	 * Gets the average time of all folds in test.
+	 *
+	 * @return the average time of all folds
+	 */
 	public double getAvgTestTime() {
 		return meanArray(testTime);
 	}
 
+    /**
+     * Gets the standard deviation time of all folds in train.
+     *
+     * @return the standard deviation time of all folds
+     */
     public double getStdTrainTime()
     {   	
        return stdArray(trainTime);	
     }
 
+    /**
+     * Gets the standard deviation time of all folds in test.
+     *
+     * @return the standard deviation time of all folds
+     */
     public double getStdTestTime()
     {   	
        return stdArray(testTime);	
     }
 
-	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -206,7 +269,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	}
 
 	/**
-	 * Gets the data used for evaluate the measures.
+	 * Gets the data used in the experiment.
 	 *
 	 * @return the data
 	 */

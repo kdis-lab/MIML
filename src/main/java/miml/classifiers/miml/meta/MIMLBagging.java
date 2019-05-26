@@ -44,7 +44,7 @@ import weka.filters.unsupervised.instance.Resample;
  */
 public class MIMLBagging extends MIMLClassifier {
 
-	/** The Constant serialVersionUID. */
+	/** Generated Serial version UID. */
 	private static final long serialVersionUID = 1L;
 
 	/** Threshold for predictions. */
@@ -304,7 +304,7 @@ public class MIMLBagging extends MIMLClassifier {
 	}
 
 	/**
-	 * Returns wheter the classifier uses confidences of bibartitions to combine
+	 * Returns whether the classifier uses confidences of bipartitions to combine
 	 * classifiers in the ensemble.
 	 *
 	 * @return true, if is use confidences

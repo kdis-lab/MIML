@@ -19,11 +19,10 @@ import java.io.FileNotFoundException;
 
 import miml.evaluation.IEvaluator;
 
-// TODO: Auto-generated Javadoc
 /**
  * Interface for generate reports with the format specified.
  * 
- * @author Álvaro A. Belmonte
+ * @author Alvaro A. Belmonte
  * @author Amelia Zafra
  * @author Eva Gibaja
  * @version 20180630
