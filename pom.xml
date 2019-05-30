@@ -3,9 +3,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>es.uco.kdis</groupId>
+	<groupId>Miml</groupId>
 	<artifactId>miml</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 
 	<name>miml</name>
@@ -94,13 +94,11 @@
 			<version>1.0.10</version>
 		</dependency>
 		
-      <dependency>
-         <groupId>mulan</groupId>
-         <artifactId>mulan</artifactId>
-         <scope>system</scope>
-         <version>1.5</version>
-         <systemPath>${basedir}/src/main/resources/mulan-1-5-0.jar</systemPath>
-      </dependency>
+		<dependency>
+			<groupId>mulan</groupId>
+			<artifactId>mulan</artifactId>
+			<version>1.5</version>
+		</dependency>
 
 	</dependencies>
 
@@ -117,7 +115,7 @@
 						<target>1.8</target>
 						<verbose>true</verbose>
 						<fork>true</fork>
-						<executable>C:\Program Files\Java\jdk-12.0.1\bin\javac</executable>
+						<executable>/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/bin/javac</executable>
 					</configuration>
 				</plugin>
 				<!-- MAVEN JAR PLUGIN -->
@@ -141,6 +139,33 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		
+		<plugins>
+		<!-- PARA ALADIR DEPENDENCIAS AL JAR -->
+			<plugin>
+			         <artifactId>maven-assembly-plugin</artifactId>
+			         <configuration>
+			             <archive>
+			                 <manifest>
+			                     <mainClass>miml.run.RunAlgorithm</mainClass>
+			                 </manifest>
+			             </archive>
+			             <descriptorRefs>
+			                 <descriptorRef>jar-with-dependencies</descriptorRef>
+			             </descriptorRefs>
+			             
+			         </configuration>
+			         <executions>
+			             <execution>
+			                <id>make-assembly</id> <!-- this is used for inheritance merges -->
+			       			<phase>package</phase> <!-- bind to the packaging phase -->
+			                <goals>
+			                    <goal>single</goal>
+			                </goals>
+			            </execution>
+			        </executions>
+			    </plugin>
+		</plugins>
 	</build>
 
 </project>
