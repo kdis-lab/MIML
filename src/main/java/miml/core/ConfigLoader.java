@@ -66,6 +66,7 @@ public class ConfigLoader {
 	 * @throws ConfigurationException the configuration exception
 	 */
 	public ConfigLoader(String path) throws ConfigurationException {
+		
 		Parameters params = new Parameters();
 
 		XMLBuilderParameters px = params.xml();
