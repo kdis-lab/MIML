@@ -35,6 +35,13 @@ public final class ConfigParameters {
 	/** The data filename used in the experimentation. */
 	protected static String dataFileName = "";
 	
+	/** The classifier used in the experimentation. */
+	protected static String classifierName = "";
+	
+	/** The transform method used in the experimentation. */
+	protected static String transformMethod = "";
+	
+	protected static Boolean isDegenerative = false;
 
 	/**
 	 * Gets the algorirthm name.
@@ -89,5 +96,50 @@ public final class ConfigParameters {
 	public static void setDataFileName(String dataFileName) {
 		ConfigParameters.dataFileName = dataFileName;
 	}
+
+	/**
+	 * Gets the classifier name
+	 * 
+	 * @return the classifier name
+	 */
+	public static String getClassifierName() {
+		return classifierName;
+	}
+
+	/**
+	 * Sets the classifier name
+	 * @param classifierName the classifier name
+	 */
+	public static void setClassifierName(String classifierName) {
+		ConfigParameters.classifierName = classifierName;
+	}
+
+	/**
+	 * Gets the transform method used in the experiment
+	 * 
+	 * @return the transform method used in the experiment
+	 */
+	public static String getTransformMethod() {
+		return transformMethod;
+	}
+
+	/**
+	 * Sets the transform method used in the experiment
+	 * 
+	 * @param transformMethod the transform method used in the experiment
+	 */
+	public static void setTransformMethod(String transformMethod) {
+		ConfigParameters.transformMethod = transformMethod;
+	}
+	
+	public static Boolean getIsDegenerative() {
+		return isDegenerative;
+	}
+
+	public static void setIsDegenerative(Boolean isDegenerative) {
+		ConfigParameters.isDegenerative = isDegenerative;
+	}
+	
+	
 	
 }

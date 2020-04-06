@@ -45,7 +45,7 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -517275642740330327L;
 
-	/** The is model initialized. */
+	/** Boolean that indicate if the model has been initialized. */
 	protected boolean isModelInitialized = false;
 	/**
 	 * The number of labels the learner can handle. The number of labels is

@@ -18,6 +18,7 @@ package miml.classifiers.miml.mimlTOmi;
 import org.apache.commons.configuration2.Configuration;
 
 import miml.classifiers.miml.MIMLClassifier;
+import miml.core.ConfigParameters;
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
 import mulan.classifier.InvalidDataException;
@@ -134,6 +135,10 @@ public class MIMLClassifierToMI extends MIMLClassifier {
 				throw new Exception(
 						"Transformation method must be a instance of TransformationBasedMultiLabelLearner class");
 			}
+			
+			ConfigParameters.setClassifierName(baseName);
+			ConfigParameters.setTransformMethod(transformName);
+			ConfigParameters.setIsDegenerative(true);
 
 		} catch (Exception e) {
 			e.printStackTrace();

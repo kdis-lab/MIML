@@ -81,9 +81,14 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		// Write header
-		sb.append("Algorithm," + "Dataset," + "ConfigurationFile," + "Train_time_ms(avg),");
-
+		if(ConfigParameters.getIsDegenerative()) {
+			// Write header
+			sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile," + "Train_time_ms(avg),");
+		} else {
+			// Write header
+			sb.append("Algorithm," + "Dataset," + "ConfigurationFile," + "Train_time_ms(avg),");
+		}
+		
 		if (this.std) {
 			sb.append("Train_time_ms(std),");
 		}
@@ -127,10 +132,17 @@ public class BaseMIMLReport extends MIMLReport {
 		}
 
 		sb.append(System.getProperty("line.separator"));
-
-		// Write static values
-		sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
-				+ ConfigParameters.getConfigFileName() + "," + evaluator.getAvgTrainTime() + ",");
+		
+		if(ConfigParameters.getIsDegenerative()) {
+			// Write header
+			sb.append(ConfigParameters.getAlgorirthmName() + ","  + ConfigParameters.getClassifierName() + ","
+					+ ConfigParameters.getTransformMethod() + "," + ConfigParameters.getDataFileName() + ","
+					+ ConfigParameters.getConfigFileName() + ","  + evaluator.getAvgTrainTime() + ",");
+		} else {
+			// Write header
+			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
+					+ ConfigParameters.getConfigFileName() + "," + evaluator.getAvgTrainTime() + ",");
+		}
 
 		if (this.std) {
 			sb.append(evaluator.getStdTrainTime() + ",");
@@ -197,9 +209,13 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		// Write header
-		sb.append("Algorithm," + "Dataset," + "ConfigurationFile," + "Train_time_ms," + "Test_time_ms,");
-
+		if(ConfigParameters.getIsDegenerative()) {
+			// Write header
+			sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile," + "Train_time_ms," + "Test_time_ms,");
+		} else {
+			// Write header
+			sb.append("Algorithm," + "Dataset," + "ConfigurationFile,"+ "Train_time_ms," + "Test_time_ms,");
+		}
 		// Write measure's names
 		for (Measure m : measures) {
 			measureName = m.getName();
@@ -215,10 +231,18 @@ public class BaseMIMLReport extends MIMLReport {
 
 		sb.append(System.getProperty("line.separator"));
 
-		// Write static values
-		sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
-				+ ConfigParameters.getConfigFileName() + "," + evaluator.getTrainTime() + "," + evaluator.getTestTime()
-				+ ",");
+		if(ConfigParameters.getIsDegenerative()) {
+			// Write header
+			sb.append(ConfigParameters.getAlgorirthmName() + ","  + ConfigParameters.getClassifierName() + ","
+					+ ConfigParameters.getTransformMethod() + "," + ConfigParameters.getDataFileName() + ","
+					+ ConfigParameters.getConfigFileName() + ","  + evaluator.getTrainTime() + "," + evaluator.getTestTime()
+					+ ",");
+		} else {
+			// Write header
+			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
+					+ ConfigParameters.getConfigFileName() + ","+ evaluator.getTrainTime() + "," + evaluator.getTestTime()
+					+ ",");
+		}
 
 		// Write value for each measure
 		for (Measure m : measures) {
@@ -260,6 +284,8 @@ public class BaseMIMLReport extends MIMLReport {
 			measures = filterMeasures(measures);
 
 		sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
+		sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
+		sb.append("Transform method: " + ConfigParameters.getTransformMethod() + System.getProperty("line.separator"));
 		sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
 		sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
 		sb.append("Train time avg (ms): " + evaluator.getAvgTrainTime() + System.getProperty("line.separator"));
@@ -331,6 +357,8 @@ public class BaseMIMLReport extends MIMLReport {
 			measures = filterMeasures(measures);
 
 		sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
+		sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
+		sb.append("Transform method: " + ConfigParameters.getTransformMethod() + System.getProperty("line.separator"));
 		sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
 		sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
 		sb.append("Train time (ms): " + evaluator.getTrainTime() + System.getProperty("line.separator"));
@@ -393,7 +421,7 @@ public class BaseMIMLReport extends MIMLReport {
 	public void configure(Configuration configuration) {
 		this.filename = configuration.getString("fileName");
 		this.std = configuration.getBoolean("standardDeviation", true);
-		this.labels = configuration.getBoolean("MacroMeasuresLabels", true);
+		this.labels = configuration.getBoolean("macroMeasuresLabels", true);
 
 		int measuresLength = configuration.getList("measures.measure").size();
 
