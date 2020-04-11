@@ -208,7 +208,7 @@ public class MIMLBagging extends MIMLClassifier {
 		this.sampleWithReplacement = configuration.getBoolean("sampleWithReplacement", true);
 		this.useConfidences = configuration.getBoolean("useConfidences", false);
 
-		this.samplePercentage = configuration.getInt("samplePercentage", 100);
+		this.samplePercentage = configuration.getInt("samplePercentage", 90);
 		this.numClassifiers = configuration.getInt("numClassifiers", 5);
 
 		try {
