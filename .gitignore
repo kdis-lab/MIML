@@ -28,5 +28,4 @@ hs_err_pid*
 .classpath
 /target
 .settings
-*.csv
 pom.xml

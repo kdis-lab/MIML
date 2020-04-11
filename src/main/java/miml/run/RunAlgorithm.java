@@ -21,7 +21,6 @@ import miml.classifiers.miml.IMIMLClassifier;
 import miml.core.ConfigLoader;
 import miml.evaluation.IEvaluator;
 import miml.report.IReport;
-import mulan.data.InvalidDataFormatException;
 import weka.core.Utils;
 
 /**
@@ -42,6 +41,7 @@ public class RunAlgorithm {
 	 */
 	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
+		
 
 		try {
 			// example execution => -c configurations/MIMLkNN.config
@@ -58,9 +58,6 @@ public class RunAlgorithm {
 			
 			report.saveReport(report.toCSV(evaluator));
 			System.out.println("" + new Date() + ": " + "Experiment ended");
-
-		} catch (InvalidDataFormatException e) {
-			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

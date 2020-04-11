@@ -25,6 +25,8 @@ import org.apache.commons.configuration2.builder.fluent.XMLBuilderParameters;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
 import miml.classifiers.miml.IMIMLClassifier;
+import miml.classifiers.miml.mimlTOmi.MIMLClassifierToMI;
+import miml.classifiers.miml.mimlTOml.MIMLClassifierToML;
 import miml.evaluation.IEvaluator;
 import miml.report.IReport;
 
@@ -66,6 +68,7 @@ public class ConfigLoader {
 	 * @throws ConfigurationException the configuration exception
 	 */
 	public ConfigLoader(String path) throws ConfigurationException {
+		
 		Parameters params = new Parameters();
 
 		XMLBuilderParameters px = params.xml();
@@ -104,6 +107,7 @@ public class ConfigLoader {
 		// Configure the classifier
 		if (classifier instanceof IMIMLClassifier)
 			((IConfiguration) classifier).configure(configuration.subset("classifier"));
+						
 
 		ConfigParameters.setAlgorirthmName(classifier.getClass().getSimpleName());
 

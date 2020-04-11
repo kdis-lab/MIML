@@ -1,0 +1,2 @@
+Algorithm,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure,Geometric Mean Average Interpolated Precision,
+MIMLBagging,miml_birds_random_80train.arff,MIMLClassifierEnsemble.config,602,637,0.28289473684210537,0.0,0.09960814849949229,0.12560320882604353,NaN,

@@ -18,6 +18,7 @@ package miml.classifiers.miml.mimlTOml;
 import org.apache.commons.configuration2.Configuration;
 
 import miml.classifiers.miml.MIMLClassifier;
+import miml.core.ConfigParameters;
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
 import miml.transformation.mimlTOml.MIMLtoML;
@@ -173,6 +174,10 @@ public class MIMLClassifierToML extends MIMLClassifier {
 			// Instance class
 			Class<? extends MIMLtoML> transformerClass = (Class<? extends MIMLtoML>) Class.forName(transformerName);
 			this.transformMethod = transformerClass.newInstance();
+			
+			ConfigParameters.setClassifierName(classifierName);
+			ConfigParameters.setTransformMethod(transformerName);
+			ConfigParameters.setIsDegenerative(true);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -180,5 +185,7 @@ public class MIMLClassifierToML extends MIMLClassifier {
 		}
 
 	}
+	
+	
 
 }
