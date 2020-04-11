@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,
+MIMLClassifierToML,mulan.classifier.transformation.Pairwise,miml.transformation.mimlTOml.GeometricTransformation,miml_birds_random_80train.arff,MIMLtoML_GT_RPC.config,144,10,
