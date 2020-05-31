@@ -30,7 +30,6 @@ import java.util.Set;
 
 import miml.data.MIMLInstances;
 import mulan.data.LabelSet;
-import weka.core.Utils;
 
 /**
  * Class with methods to obtain information about a MIML dataset.
@@ -43,28 +42,33 @@ import weka.core.Utils;
  */
 public class MIMLStatistics {
 
-	/**
-	 * Class with methods to obtain information about a MI dataset.
-	 * @see MIStatistics
-	 */
-	protected MIStatistics milstatistics = new MIStatistics();
-	/**
-	 * Class with methods to obtain information about a ML dataset.
-	 * @see MLStatistics
-	 */
-	protected MLStatistics mlstatistics = new MLStatistics();
+	/** A MIML data set */
+	MIMLInstances dataSet;
 
 	/**
-	 * Calculates various MLML statistics.
+	 * Class with methods to obtain information about a MI dataset.
+	 * 
+	 * @see MIStatistics
+	 */
+	protected MIStatistics milstatistics;
+	/**
+	 * Class with methods to obtain information about a ML dataset.
+	 * 
+	 * @see MLStatistics
+	 */
+	protected MLStatistics mlstatistics;
+
+	/**
+	 * Constructor.
 	 * 
 	 * @param dataSet A MIML data set.
 	 */
-	public void calculateStats(MIMLInstances dataSet) {
-
-		mlstatistics.calculateStats(dataSet.getMLDataSet());
-
-		milstatistics.calculateStats(dataSet.getDataSet());
-
+	public MIMLStatistics(MIMLInstances dataSet) {
+		this.dataSet = dataSet;
+		mlstatistics = new MLStatistics(dataSet.getMLDataSet());
+		milstatistics = new MIStatistics(dataSet.getDataSet());
+		mlstatistics.calculateStats();
+		milstatistics.calculateStats();
 	}
 
 	/**
@@ -254,7 +258,7 @@ public class MIMLStatistics {
 	 * @return double
 	 */
 	public double averageIR(double[] IR) {
-		return Utils.mean(IR);
+		return mlstatistics.averageIR(IR);
 	}
 
 	/**
@@ -264,7 +268,7 @@ public class MIMLStatistics {
 	 * @return Variance of any IR vector.
 	 */
 	public double varianceIR(double[] IR) {
-		return Utils.variance(IR);
+		return mlstatistics.varianceIR(IR);
 	}
 
 	/**
@@ -434,7 +438,7 @@ public class MIMLStatistics {
 	 * @return Instances per bag.
 	 */
 	public double getAvgInstancesPerBag() {
-		return milstatistics.getAttributesPerBag();
+		return milstatistics.getAvgInstancesPerBag();
 	}
 
 	/**
@@ -509,5 +513,23 @@ public class MIMLStatistics {
 	 */
 	public int getTotalInstances() {
 		return milstatistics.getTotalInstances();
+	}
+
+	/**
+	 * Returns the dataset used to calculate the statistics.
+	 * 
+	 * @return  A MIML data set.
+	 */
+	public MIMLInstances getDataSet() {
+		return dataSet;
+	}
+
+	/**
+	 * Set the dataset used.
+	 * 
+	 * @param dataSet  A MIML data set.
+	 */
+	public void setDataSet(MIMLInstances dataSet) {
+		this.dataSet = dataSet;
 	}
 }

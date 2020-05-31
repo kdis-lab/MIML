@@ -43,15 +43,16 @@ public class BaseMIMLReport extends MIMLReport {
 	/**
 	 * Basic constructor to initialize the report.
 	 *
-	 * @param measures The list of selected measures which is going to be shown in
+	 * @param measures	The list of selected measures which is going to be shown in
 	 *                 the report.
-	 * @param filename The filename where the report's will be saved.
-	 * @param std      Whether the standard deviation of measures will be shown or
+	 * @param filename	The filename where the report's will be saved.
+	 * @param std     	Whether the standard deviation of measures will be shown or
 	 *                 not (only valid for cross-validation evaluator).
-	 * @param labels   Whether the measures for each label will be shown (only valid
+	 * @param labels  	Whether the measures for each label will be shown (only valid
 	 *                 for Macros Average measures).
+	 * @param header	Whether the header will be shown.
 	 */
-	public BaseMIMLReport(List<String> measures, String filename, boolean std, boolean labels) {
+	public BaseMIMLReport(List<String> measures, String filename, boolean std, boolean labels, boolean header) {
 		super();
 	}
 
@@ -291,11 +292,14 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
-		sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
-		sb.append("Transform method: " + ConfigParameters.getTransformMethod() + System.getProperty("line.separator"));
-		sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
-		sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
+		if (this.header) {
+			sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
+			sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
+			sb.append("Transform method: " + ConfigParameters.getTransformMethod() + System.getProperty("line.separator"));
+			sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
+			sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
+		}
+		
 		sb.append("Train time avg (ms): " + evaluator.getAvgTrainTime() + System.getProperty("line.separator"));
 
 		if (this.std) {
@@ -364,11 +368,14 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
-		sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
-		sb.append("Transform method: " + ConfigParameters.getTransformMethod() + System.getProperty("line.separator"));
-		sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
-		sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
+		if (this.header) {
+			sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
+			sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
+			sb.append("Transform method: " + ConfigParameters.getTransformMethod() + System.getProperty("line.separator"));
+			sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
+			sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
+		}
+		
 		sb.append("Train time (ms): " + evaluator.getTrainTime() + System.getProperty("line.separator"));
 		sb.append("Test time (ms): " + evaluator.getTestTime() + System.getProperty("line.separator"));
 

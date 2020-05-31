@@ -20,8 +20,9 @@ import java.util.ArrayList;
 
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
-import miml.data.MLSaver;
+import miml.data.MLSave;
 import weka.core.Attribute;
+import weka.core.Utils;
 
 
 /**
@@ -36,11 +37,22 @@ import weka.core.Attribute;
  *
  */
 public class InsertingAttributesToBags {
+	
+	/** Shows the help on command line. */
+	public static void showUse() {
+		System.out.println("Program parameters:");
+		System.out.println("\t-f arffPathFile Name -> path of arff source file.");
+		System.out.println("\t-x xmlPathFileName -> path of xml file.");
+		System.out.println("Example:");
+		System.out.println("\tjava -jar InsertingAttributesToBags -f data" + File.separator + "toy.arff -x data"
+				+ File.separator + "toy.xml");
+		System.exit(-1);
+	}
 
 	public static void main(String[] args) throws Exception {
 
-		String arffFileName = "data" + File.separator + "miml_birds.arff";
-		String xmlFileName = "data" + File.separator + "miml_birds.xml";
+		String arffFileName = Utils.getOption("f", args);
+		String xmlFileName = Utils.getOption("x", args);
 
 		// Loads the dataset
 		System.out.println("Loading the dataset....");
@@ -70,7 +82,7 @@ public class InsertingAttributesToBags {
 				}
 			}
 		}
-		MLSaver.saveArff(result.getDataSet(), "data" + File.separator + "new.arff");
+		MLSave.saveArff(result.getDataSet(), "data" + File.separator + "new.arff");
 	}
 
 }

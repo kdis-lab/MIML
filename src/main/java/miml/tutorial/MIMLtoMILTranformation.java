@@ -17,7 +17,7 @@ package miml.tutorial;
 import java.io.File;
 
 import miml.data.MIMLInstances;
-import miml.data.MLSaver;
+import miml.data.MLSave;
 import miml.transformation.mimlTOmi.LPTransformation;
 import weka.core.Instances;
 import weka.core.Utils;
@@ -71,7 +71,7 @@ public class MIMLtoMILTranformation {
 		MIMLInstances mimlDataSet = new MIMLInstances(arffFileName, xmlFileName);
 		LPTransformation lp = new LPTransformation();
 		Instances transform = lp.transformBags(mimlDataSet);
-		MLSaver.saveArff(transform, arffFileResult);
+		MLSave.saveArff(transform, arffFileResult);
 
 		System.out.println("The program has finished.");
 	}

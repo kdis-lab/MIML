@@ -17,7 +17,7 @@ package miml.tutorial;
 import java.io.File;
 
 import miml.data.MIMLInstances;
-import miml.data.MLSaver;
+import miml.data.MLSave;
 import miml.transformation.mimlTOml.ArithmeticTransformation;
 import miml.transformation.mimlTOml.GeometricTransformation;
 import miml.transformation.mimlTOml.MiniMaxTransformation;
@@ -76,8 +76,8 @@ public class MIMLtoMLTransformation {
 		Instance instance = ari.transformInstance(mimlDataSet.getBag(0));
 		// Transforms a complete dataset
 		MultiLabelInstances result = ari.transformDataset();
-		MLSaver.saveArff(result, arffFileResultAri);
-		MLSaver.saveXml(result, xmlFileResultAri);
+		MLSave.saveArff(result, arffFileResultAri);
+		MLSave.saveXml(result, xmlFileResultAri);
 
 		System.out.println("=============Geometric=====================");
 		String arffFileResultGeo = "data" + File.separator + "toyResultGeo.arff";
@@ -88,8 +88,8 @@ public class MIMLtoMLTransformation {
 		instance = geo.transformInstance(mimlDataSet.getBag(0));
 		// Transforms a complete dataset
 		result = geo.transformDataset();
-		MLSaver.saveArff(result, arffFileResultGeo);
-		MLSaver.saveXml(result, xmlFileResultGeo);
+		MLSave.saveArff(result, arffFileResultGeo);
+		MLSave.saveXml(result, xmlFileResultGeo);
 
 		System.out.println("=============MinMax=====================");
 		String arffFileResultMinMax = "data" + File.separator + "toyResultMinMax.arff";
@@ -100,8 +100,8 @@ public class MIMLtoMLTransformation {
 		instance = miniMax.transformInstance(mimlDataSet.getBag(0));
 		// Transforms a complete dataset
 		result = miniMax.transformDataset();
-		MLSaver.saveArff(result, arffFileResultMinMax);
-		MLSaver.saveXml(result, xmlFileResultMinMax);
+		MLSave.saveArff(result, arffFileResultMinMax);
+		MLSave.saveXml(result, xmlFileResultMinMax);
 
 	}
 

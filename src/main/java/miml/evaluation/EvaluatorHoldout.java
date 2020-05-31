@@ -17,7 +17,7 @@ package miml.evaluation;
 
 import java.io.File;
 import java.util.Date;
-import java.util.Random;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.configuration2.Configuration;
@@ -26,11 +26,9 @@ import miml.classifiers.miml.IMIMLClassifier;
 import miml.core.ConfigParameters;
 import miml.core.IConfiguration;
 import miml.data.MIMLInstances;
+import miml.data.Utils;
 import mulan.evaluation.Evaluation;
 import mulan.evaluation.Evaluator;
-import weka.core.Instances;
-import weka.filters.Filter;
-import weka.filters.unsupervised.instance.RemovePercentage;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -80,7 +78,10 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	 * @throws Exception if occur an error during holdout experiment
 	 */
 	public EvaluatorHoldout(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
-		this.splitData(mimlDataSet, percentageTrain);
+
+		List<MIMLInstances> list = Utils.splitData(mimlDataSet, percentageTrain, seed);
+		this.trainData = list.get(0);
+		this.testData = list.get(1);
 	}
 
 	/**
@@ -120,36 +121,6 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 		}
 	}
 
-	/**
-	 * Split data given a percentage.
-	 *
-	 * @param mimlDataSet The MIML dataset to be splited.
-	 * @param percentageTrain The percentage (0-100) to be used in train.
-	 * @throws Exception To be handled in an upper level.
-	 */
-	protected void splitData(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
-		// splits the data set into train and test
-		// copy of original data
-		Instances dataSet = new Instances(mimlDataSet.getDataSet());
-		dataSet.randomize(new Random(seed));
-
-		// obtains train set
-		RemovePercentage rmvp = new RemovePercentage();
-		rmvp.setInvertSelection(true);
-		rmvp.setPercentage(percentageTrain);
-		rmvp.setInputFormat(dataSet);
-		Instances trainDataSet = Filter.useFilter(dataSet, rmvp);
-
-		// obtains test set
-		rmvp = new RemovePercentage();
-		rmvp.setPercentage(percentageTrain);
-		rmvp.setInputFormat(dataSet);
-		Instances testDataSet = Filter.useFilter(dataSet, rmvp);
-
-		trainData = new MIMLInstances(trainDataSet, mimlDataSet.getLabelsMetaData());
-		testData = new MIMLInstances(testDataSet, mimlDataSet.getLabelsMetaData());
-	}
-	
 	/**
 	 * Gets the seed used in the experiment.
 	 *
@@ -206,12 +177,6 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	}
 
 	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
-	 */
-	/*
 	 * @see
 	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
 	 */
@@ -226,8 +191,10 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 		try {
 
 			if (arffFileTest == null) {
-				this.splitData(new MIMLInstances(arffFileTrain, xmlFileName),
-						configuration.subset("data").getDouble("percentageTrain"));
+				List<MIMLInstances> list = Utils.splitData(new MIMLInstances(arffFileTrain, xmlFileName),
+						configuration.subset("data").getDouble("percentageTrain"), seed);
+				this.trainData = list.get(0);
+				this.testData = list.get(1);
 			} else {
 
 				trainData = new MIMLInstances(arffFileTrain, xmlFileName);

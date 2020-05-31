@@ -68,6 +68,17 @@ public class LPTransformation implements Serializable {
 
 }
 
+/**
+ * 
+ * Class that uses LabelPowerset transformation to convert MIMLInstances to MIL
+ * Instances with relational attribute.
+ * 
+ * @author Ana I. Reyes Melero
+ * @author Eva Gibaja
+ * @author Amelia Zafra
+ * @version 20170507
+ *
+ */
 class MIMLLabelPowersetTransformation extends LabelPowersetTransformation {
 
 	/**

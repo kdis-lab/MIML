@@ -24,11 +24,10 @@ import miml.classifiers.miml.MIMLClassifier;
 import miml.core.IConfiguration;
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
+import miml.data.Utils;
 import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelOutput;
 import weka.core.Instances;
-import weka.filters.Filter;
-import weka.filters.unsupervised.instance.Resample;
 
 /**
  * <p>
@@ -112,7 +111,7 @@ public class MIMLBagging extends MIMLClassifier {
 
 		for (int i = 0; i < numClassifiers; i++) {
 			ensemble[i] = baseLearner.makeCopy();
-			Instances sample = resample(trainingSet.getDataSet(), samplePercentage, sampleWithReplacement, seed + i);
+			Instances sample = Utils.resample(trainingSet.getDataSet(), samplePercentage, sampleWithReplacement, seed + i);
 
 			System.out.println("\t\tBase Classifier " + i + ": " + sample.numInstances() + "/"
 					+ trainingSet.getNumBags() + " bags");
@@ -162,34 +161,6 @@ public class MIMLBagging extends MIMLClassifier {
 
 		MultiLabelOutput mlo = new MultiLabelOutput(confidence, this.threshold);
 		return mlo;
-	}
-
-	/**
-	 * Obtains a sample of the original data.
-	 *
-	 * @param data                  Instances with the dataset.
-	 * @param percentage            percentage of instances that will contain the
-	 *                              new dataset.
-	 * @param sampleWithReplacement If true the sample will be with replacement.
-	 * @param seed                  Seed for randomization. Necessary if instances
-	 *                              have not been previously shuffled with randomize.
-	 * 
-	 * @return Instances.
-	 * @throws Exception To be handled.
-	 */
-	public static Instances resample(Instances data, double percentage, boolean sampleWithReplacement, int seed)
-			throws Exception {
-
-		Instances resampled;
-
-		Resample rspl = new Resample();
-		rspl.setRandomSeed(seed);
-		rspl.setSampleSizePercent(percentage);
-		rspl.setNoReplacement(!sampleWithReplacement);
-		rspl.setInputFormat(data);
-		resampled = Filter.useFilter(data, rspl);
-
-		return resampled;
 	}
 
 	/*

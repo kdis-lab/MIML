@@ -100,8 +100,7 @@ public class ManagingMIMLInstances {
 			}
 
 			// Shows MIML metrics
-			MIMLStatistics statsMIML = new MIMLStatistics();
-			statsMIML.calculateStats(mimlDataSet);
+			MIMLStatistics statsMIML = new MIMLStatistics(mimlDataSet);
 			System.out.println(statsMIML.toString());
 
 		} catch (InvalidDataFormatException e) {
