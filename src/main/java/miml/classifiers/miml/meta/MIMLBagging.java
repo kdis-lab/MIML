@@ -55,7 +55,7 @@ public class MIMLBagging extends MIMLClassifier {
 
 	/**
 	 * Determines whether the classifier will consider sampling with replacement. By
-	 * default it is false
+	 * default it is false.
 	 */
 	boolean sampleWithReplacement = true;
 
@@ -77,7 +77,7 @@ public class MIMLBagging extends MIMLClassifier {
 	protected IMIMLClassifier baseLearner;
 
 	/**
-	 * The ensemble of MultiLabelLearners. To be initialized by the builder method
+	 * The ensemble of MultiLabelLearners. To be initialized by the builder method.
 	 */
 	protected IMIMLClassifier ensemble[] = null;
 
@@ -88,11 +88,11 @@ public class MIMLBagging extends MIMLClassifier {
 	}
 
 	/**
-	 * Constructor of the class. Its default setting is:@li
-	 * sampleWithReplacement=false @li threshold=0.5
+	 * Constructor of the class. Its default setting is: @li
+	 * sampleWithReplacement=false @li threshold=0.5.
 	 *
-	 * @param baseLearner    The base learner to be used
-	 * @param numClassifiers The number of base classifiers in the ensemble
+	 * @param baseLearner    The base learner to be used.
+	 * @param numClassifiers The number of base classifiers in the ensemble.
 	 */
 	public MIMLBagging(IMIMLClassifier baseLearner, int numClassifiers) {
 		this.baseLearner = baseLearner;
@@ -167,15 +167,15 @@ public class MIMLBagging extends MIMLClassifier {
 	/**
 	 * Obtains a sample of the original data.
 	 *
-	 * @param data                  Instances with the dataset
+	 * @param data                  Instances with the dataset.
 	 * @param percentage            percentage of instances that will contain the
-	 *                              new dataset
-	 * @param sampleWithReplacement If true the sample will be with replacement
+	 *                              new dataset.
+	 * @param sampleWithReplacement If true the sample will be with replacement.
 	 * @param seed                  Seed for randomization. Necessary if instances
-	 *                              have not been previously shuffled with randomize
+	 *                              have not been previously shuffled with randomize.
 	 * 
-	 * @return Instances
-	 * @throws Exception To be handled
+	 * @return Instances.
+	 * @throws Exception To be handled.
 	 */
 	public static Instances resample(Instances data, double percentage, boolean sampleWithReplacement, int seed)
 			throws Exception {
@@ -231,7 +231,7 @@ public class MIMLBagging extends MIMLClassifier {
 	/**
 	 * Sets the seed value.
 	 *
-	 * @param seed The seed value
+	 * @param seed The seed value.
 	 */
 	public void setSeed(int seed) {
 		this.seed = seed;
@@ -240,7 +240,7 @@ public class MIMLBagging extends MIMLClassifier {
 	/**
 	 * Returns the number of classifiers of the ensemble.
 	 *
-	 * @return int
+	 * @return Number of classifiers.
 	 */
 	public int getNumClassifiers() {
 		return numClassifiers;
@@ -249,7 +249,7 @@ public class MIMLBagging extends MIMLClassifier {
 	/**
 	 * Returns the percentage of instances used for sampling with replacement.
 	 *
-	 * @return int
+	 * @return The sample percentage.
 	 */
 	public int getSamplePercentage() {
 		return samplePercentage;
@@ -258,7 +258,7 @@ public class MIMLBagging extends MIMLClassifier {
 	/**
 	 * Sets the percentage of instances used for sampling with replacement*.
 	 *
-	 * @param samplePercentage The size of the sample referring the original one
+	 * @param samplePercentage The size of the sample referring the original one.
 	 */
 
 	public void setSamplePercentage(int samplePercentage) {
@@ -269,7 +269,7 @@ public class MIMLBagging extends MIMLClassifier {
 	 * Returns true if the algorithm is configured with sampling and false
 	 * otherwise.
 	 *
-	 * @return boolean
+	 * @return True if the algorithm is configured with sampling and false otherwise.
 	 */
 	public boolean isSampleWithReplacement() {
 		return sampleWithReplacement;
@@ -278,8 +278,8 @@ public class MIMLBagging extends MIMLClassifier {
 	/**
 	 * Configure the classifier to use/not use sampling with replacement.
 	 *
-	 * @param sampleWithReplacement it true the classifier is set to use sampling
-	 *                              with replacement
+	 * @param sampleWithReplacement True if the classifier is set to use sampling
+	 *                              with replacement.
 	 */
 	public void setSampleWithReplacement(boolean sampleWithReplacement) {
 		this.sampleWithReplacement = sampleWithReplacement;
@@ -288,7 +288,7 @@ public class MIMLBagging extends MIMLClassifier {
 	/**
 	 * Returns the value of the threshold.
 	 *
-	 * @return double
+	 * @return double The threshold.
 	 */
 	public double getThreshold() {
 		return threshold;
@@ -297,7 +297,7 @@ public class MIMLBagging extends MIMLClassifier {
 	/**
 	 * Sets the value of the threshold.
 	 *
-	 * @param threshold the value of the threshold
+	 * @param threshold The value of the threshold.
 	 */
 	public void setThreshold(double threshold) {
 		this.threshold = threshold;
@@ -307,7 +307,7 @@ public class MIMLBagging extends MIMLClassifier {
 	 * Returns whether the classifier uses confidences of bipartitions to combine
 	 * classifiers in the ensemble.
 	 *
-	 * @return true, if is use confidences
+	 * @return True, if is use confidences.
 	 */
 
 	public boolean isUseConfidences() {
@@ -318,7 +318,7 @@ public class MIMLBagging extends MIMLClassifier {
 	 * Stablishes whether confidences or bipartions are used to combine classifiers
 	 * in the ensemble.
 	 *
-	 * @param useConfidences The value of the property
+	 * @param useConfidences The value of the property.
 	 */
 
 	public void setUseConfidences(boolean useConfidences) {

@@ -64,8 +64,8 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Instantiates a new Holdout evaluator.
 	 *
-	 * @param trainData the train data used in the experiment
-	 * @param testData  the test data used in the experiment
+	 * @param trainData The train data used in the experiment.
+	 * @param testData  The test data used in the experiment.
 	 */
 	public EvaluatorHoldout(MIMLInstances trainData, MIMLInstances testData) {
 		this.trainData = trainData;
@@ -123,11 +123,11 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Split data given a percentage.
 	 *
-	 * @param mimlDataSet the MIML dataset to be splited
-	 * @param percentageTrain the percentage (0-100) to be used in train
-	 * @throws Exception the exception
+	 * @param mimlDataSet The MIML dataset to be splited.
+	 * @param percentageTrain The percentage (0-100) to be used in train.
+	 * @throws Exception To be handled in an upper level.
 	 */
-	private void splitData(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
+	protected void splitData(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
 		// splits the data set into train and test
 		// copy of original data
 		Instances dataSet = new Instances(mimlDataSet.getDataSet());
@@ -153,7 +153,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Gets the seed used in the experiment.
 	 *
-	 * @return the seed
+	 * @return The seed.
 	 */
 	public int getSeed() {
 		return seed;
@@ -162,7 +162,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Sets the seed used in the experiment.
 	 *
-	 * @param seed the new seed
+	 * @param seed The new seed.
 	 */
 	public void setSeed(int seed) {
 		this.seed = seed;
@@ -171,7 +171,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Gets the time spent in training.
 	 *
-	 * @return the train time
+	 * @return The train time.
 	 */
 	public long getTrainTime() {
 		return trainTime;
@@ -180,7 +180,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Gets the time spent in testing.
 	 *
-	 * @return the test time
+	 * @return The test time.
 	 */
 	public long getTestTime() {
 		return testTime;
@@ -199,7 +199,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Gets the data used in the experiment.
 	 *
-	 * @return the data
+	 * @return The data.
 	 */
 	public MIMLInstances getData() {
 		return testData;

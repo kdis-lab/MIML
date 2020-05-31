@@ -56,8 +56,8 @@ public class MIMLClassifierToMI extends MIMLClassifier {
 	/**
 	 * Basic constructor.
 	 * 
-	 * @param transformationClassifier mulan MultiLabelLearner used as
-	 *                                 transformation method from MIML to MI
+	 * @param transformationClassifier Mulan MultiLabelLearner used as
+	 *                                 transformation method from MIML to MI.
 	 */
 	public MIMLClassifierToMI(MultiLabelLearner transformationClassifier) {
 		super();

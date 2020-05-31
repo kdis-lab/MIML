@@ -40,16 +40,16 @@ public class MIStatistics {
 	int attributesPerBag;
 	/** The number of bags. */
 	int numBags;
-	/** The total of instances */
+	/** The total of instances. */
 	int totalInstances;
-	/** The distribution of number of instances per bag: */
+	/** The distribution of number of instances per bag. */
 	HashMap<Integer, Integer> distributionBags;
 
 	/**
 	 * Calculates various MIML statistics, such as instancesPerBag and
-	 * attributesPerBag
+	 * attributesPerBag.
 	 * 
-	 * @param dataSet A MIL dataset
+	 * @param dataSet A MIL dataset.
 	 */
 	public void calculateStats(Instances dataSet) {
 		numBags = dataSet.numInstances();
@@ -87,7 +87,7 @@ public class MIStatistics {
 	/**
 	 * Returns the average number of instances per bag.
 	 * 
-	 * @return instancesPerBag
+	 * @return Average number of instances per bag.
 	 */
 	public double getAvgInstancesPerBag() {
 		return avgInstancesPerBag;
@@ -96,7 +96,7 @@ public class MIStatistics {
 	/**
 	 * Returns the number of attributes per bag.
 	 * 
-	 * @return attributesPerBag
+	 * @return Number of attributes per bag.
 	 */
 	public int getAttributesPerBag() {
 		return attributesPerBag;
@@ -105,7 +105,7 @@ public class MIStatistics {
 	/**
 	 * Returns the number of bags.
 	 * 
-	 * @return numBags
+	 * @return Number of bags.
 	 */
 	public int getnumBags() {
 		return numBags;
@@ -114,7 +114,7 @@ public class MIStatistics {
 	/**
 	 * Returns the distribution of number of instances per bags.
 	 * 
-	 * @return distributionBags
+	 * @return Distribution of number of instances per bags.
 	 */
 	public HashMap<Integer, Integer> getDistributionBags() {
 		return distributionBags;
@@ -123,7 +123,7 @@ public class MIStatistics {
 	/**
 	 * Returns distributionBags in textual representation.
 	 * 
-	 * @return string
+	 * @return DistributionBags in textual representation.
 	 */
 	protected String distributionBagsToString() {
 		StringBuilder sb = new StringBuilder();
@@ -136,7 +136,7 @@ public class MIStatistics {
 	/**
 	 * Returns distributionBags in CSV representation.
 	 * 
-	 * @return string
+	 * @return DistributionBags in CSV representation.
 	 */
 	protected String distributionBagsToCSV() {
 		StringBuilder sb = new StringBuilder();
@@ -149,7 +149,7 @@ public class MIStatistics {
 	/**
 	 * Returns statistics in textual representation.
 	 * 
-	 * @return string
+	 * @return Statistics in textual representation.
 	 */
 	@Override
 	public String toString() {
@@ -171,7 +171,7 @@ public class MIStatistics {
 	/**
 	 * Returns statistics in CSV representation.
 	 * 
-	 * @return string
+	 * @return Statistics in CSV representation.
 	 */
 	public String toCSV() {
 		StringBuilder sb = new StringBuilder();
@@ -190,7 +190,7 @@ public class MIStatistics {
 	/**
 	 * Returns the minimum number of instances per bag.
 	 * 
-	 * @return minInstancesPerBag
+	 * @return Minimum number of instances per bag.
 	 */
 	public int getMinInstancesPerBag() {
 		return minInstancesPerBag;
@@ -199,7 +199,7 @@ public class MIStatistics {
 	/**
 	 * Returns the maximum number of instances per bag.
 	 * 
-	 * @return maxInstancesPerBag
+	 * @return Maximum number of instances per bag.
 	 */
 	public int getMaxInstancesPerBag() {
 		return maxInstancesPerBag;
@@ -208,7 +208,7 @@ public class MIStatistics {
 	/**
 	 * Returns the total number of instances.
 	 * 
-	 * @return totalInstances
+	 * @return Total number of instances.
 	 */
 	public int getTotalInstances() {
 		return totalInstances;

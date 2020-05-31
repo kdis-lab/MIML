@@ -28,9 +28,12 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.SerializedObject;
 
-// TODO: Auto-generated Javadoc
 /**
- * Abstract class for a MIMLClassifier.
+ * This java class is based on the mulan.data.Statistics.java class provided in
+ * the Mulan java framework for multi-label learning <em>Tsoumakas, G., Katakis, I.,
+ * Vlahavas, I. (2010) "Mining Multi-label Data", Data Mining and Knowledge
+ * Discovery Handbook, O. Maimon, L. Rokach (Ed.), Springer, 2nd edition, 2010.</em>
+ * Our contribution is mainly related with providing a framework to work with MIML data.
  * 
  * @author Ana I. Reyes
  * @author Eva Gibaja
@@ -186,7 +189,7 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 	/**
 	 * Get whether debugging is turned on.
 	 *
-	 * @return <code>true</code> if debugging output is on
+	 * @return <code>True</code> if debugging output is on
 	 */
 	public boolean getDebug() {
 		return isDebug;
@@ -196,7 +199,7 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 	 * Writes the debug message string to the console output if debug for the
 	 * learner is enabled.
 	 *
-	 * @param msg the debug message
+	 * @param msg The debug message
 	 */
 	protected void debug(String msg) {
 		if (!getDebug()) {
@@ -211,7 +214,7 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 	 * {@link #build(MultiLabelInstances)} method, where behavior common across all
 	 * learners is applied.
 	 *
-	 * @param trainingSet the training data set.
+	 * @param trainingSet The training data set.
 	 * @throws Exception if learner model was not created successfully.
 	 */
 	protected abstract void buildInternal(MIMLInstances trainingSet) throws Exception;
@@ -222,10 +225,10 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 	 * {@link #makePrediction(weka.core.Instance)} which guards for model
 	 * initialization and apply common handling/behavior.
 	 *
-	 * @param instance the data instance to predict on.
-	 * @return the output of the learner for the given instance.
-	 * @throws Exception            if an error occurs while making the prediction.
-	 * @throws InvalidDataException if specified instance data is invalid and can
+	 * @param instance The data instance to predict on.
+	 * @return The output of the learner for the given instance.
+	 * @throws Exception            If an error occurs while making the prediction.
+	 * @throws InvalidDataException If specified instance data is invalid and can
 	 *                              not be processed by the learner.
 	 */
 	protected abstract MultiLabelOutput makePredictionInternal(MIMLBag instance) throws Exception, InvalidDataException;

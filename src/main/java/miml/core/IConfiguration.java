@@ -18,7 +18,7 @@ package miml.core;
 import org.apache.commons.configuration2.Configuration;
 
 /**
- * Interface used to indicate that a class can be configured
+ * Interface used to indicate that a class can be configured.
  * 
  * @author Alvaro A. Belmonte
  * @author Amelia Zafra
@@ -30,9 +30,9 @@ public interface IConfiguration {
 
 	
 	/**
-	 * Method to configure the class with the given configuration
+	 * Method to configure the class with the given configuration.
 	 * 
-	 * @param configuration Configuration configuration for the class
+	 * @param configuration Configuration used to configure the class.
 	 */
 	public void configure(Configuration configuration);
 

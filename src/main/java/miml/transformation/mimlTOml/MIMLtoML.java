@@ -58,7 +58,7 @@ public abstract class MIMLtoML implements Serializable {
 	/**
 	 * Transforms {@link MIMLInstances} into MultiLabelInstances.
 	 *
-	 * @param dataset the dataset to be transformed
+	 * @param dataset The dataset to be transformed
 	 * @return MultiLabelInstances.
 	 * @throws Exception To be handled in an upper level.
 	 */

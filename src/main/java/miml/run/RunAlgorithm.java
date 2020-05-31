@@ -37,14 +37,14 @@ public class RunAlgorithm {
 	/**
 	 * The main method to configure and run an algorithm.
 	 *
-	 * @param args the arguments(route of config file with the option -c)
+	 * @param args The argument (route of config file with the option -c).
 	 */
 	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
 		
 
 		try {
-			// example execution => -c configurations/MIMLkNN.config
+			// example execution => -c configurations/MIMLClassifier/MIMLkNN.config
 			ConfigLoader loader = new ConfigLoader(Utils.getOption("c", args));
 			
 			System.out.println("" + new Date() + ": " + "Loading classifier");

@@ -28,7 +28,6 @@ import java.util.List;
 import miml.core.IConfiguration;
 import mulan.evaluation.measure.Measure;
 
-// TODO: Auto-generated Javadoc
 /**
  * Abstract class for a MIMLReport.
  * 
@@ -50,20 +49,25 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 
 	/** If macro measures are broken down by labels. */
 	protected boolean labels;
+	
+	/** If the header is going to be printed. */
+	protected boolean header;
 
 	/**
 	 * Basic constructor to initialize the report.
 	 *
-	 * @param measures 		the list of selected measures which is going to be shown in the report
-	 * @param filename     	the filename where the report's will be saved
-	 * @param std         	whether the standard deviation of measures will be shown or not (only valid for cross-validation evaluator)
-	 * @param labels 		whether the measures for each label will be shown (only valid for Macros Average measures)
+	 * @param measures 		The list of selected measures which is going to be shown in the report.
+	 * @param filename     	The filename where the report's will be saved.
+	 * @param std         	Whether the standard deviation of measures will be shown or not (only valid for cross-validation evaluator).
+	 * @param labels 		Whether the measures for each label will be shown (only valid for Macros Average measures).
+	 * @param header 		Whether the header will be shown.
 	 */
-	public MIMLReport(List<String> measures, String filename, boolean std, boolean labels) {
+	public MIMLReport(List<String> measures, String filename, boolean std, boolean labels, boolean header) {
 		this.measures = measures;
 		this.filename = filename;
 		this.std = std;
 		this.labels = labels;
+		this.header = header;
 	}
 	
 	/**
@@ -76,9 +80,9 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Filter measures chosen to be shown in the experiment report.
 	 *
-	 * @param allMeasures all the measures which the evaluation has
-	 * @return the list with the measures filtered
-	 * @throws Exception the exception
+	 * @param allMeasures All the measures which the evaluation has
+	 * @return List with the measures filtered
+	 * @throws Exception To be handled in an upper level.
 	 */
 	protected List<Measure> filterMeasures(List<Measure> allMeasures) throws Exception {
 
@@ -99,8 +103,8 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Save in a file the specified report.
 	 *
-	 * @param report the report
-	 * @throws FileNotFoundException the file not found exception
+	 * @param report The report.
+	 * @throws FileNotFoundException To be handled in an upper level.
 	 */
 	@Override
 	public void saveReport(String report) throws FileNotFoundException {
@@ -121,7 +125,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Gets the measures shown in the report.
 	 *
-	 * @return the measures
+	 * @return The measures.
 	 */
 	public List<String> getMeasures() {
 		return measures;
@@ -130,8 +134,8 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Sets the measures shown in the report.
 	 *
-	 * @param measures the new measures
-	 * @throws Exception the exception
+	 * @param measures The new measures.
+	 * @throws Exception To be handled in an upper level.
 	 */
 	public void setMeasures(List<String> measures) throws Exception {
 		this.measures = measures;
@@ -140,7 +144,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Gets the filename.
 	 *
-	 * @return the filename
+	 * @return The filename.
 	 */
 	public String getFilename() {
 		return filename;
@@ -149,7 +153,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Sets the name of the file.
 	 *
-	 * @param filename the new filename
+	 * @param filename The new filename
 	 */
 	public void setFilename(String filename) {
 		this.filename = filename;
@@ -158,7 +162,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Checks if std is going to be shown (only cross-validation).
 	 *
-	 * @return true, if is std
+	 * @return True, if std is going to be shown.
 	 */
 	public boolean isStd() {
 		return std;
@@ -167,7 +171,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Sets if the std is going to be shown (only cross-validation).
 	 *
-	 * @param std the new std
+	 * @param std The new std configuration.
 	 */
 	public void setStd(boolean std) {
 		this.std = std;
@@ -176,7 +180,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Checks if measure for each label (Macro Average Measures) is shown.
 	 *
-	 * @return true, if is labels
+	 * @return True, if measure for each label is shown.
 	 */
 	public boolean isLabels() {
 		return labels;
@@ -185,10 +189,28 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	/**
 	 * Sets if measure for each label (Macro Average Measures) is shown.
 	 * 
-	 * @param labels the new labels
+	 * @param labels The new labels configuration.
 	 */
 	public void setLabels(boolean labels) {
 		this.labels = labels;
+	}
+
+	/**
+	 * Checks if header is shown.
+	 *
+	 * @return True, if header is shown.
+	 */
+	public boolean isHeader() {
+		return header;
+	}
+	
+	/**
+	 * Sets if header is shown.
+	 * 
+	 * @param header The new header configuration.
+	 */
+	public void setHeader(boolean header) {
+		this.header = header;
 	}
 
 }

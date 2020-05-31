@@ -20,6 +20,7 @@ import miml.data.MIMLInstances;
 import miml.data.MLSaver;
 import miml.transformation.mimlTOmi.LPTransformation;
 import weka.core.Instances;
+import weka.core.Utils;
 
 /**
  * 
@@ -46,13 +47,9 @@ public class MIMLtoMILTranformation {
 
 	public static void main(String[] args) throws Exception {
 
-		// String arffFileName = Utils.getOption("f", args);
-		// String xmlFileName = Utils.getOption("x", args);
-		// String arffFileResult = Utils.getOption("o", args);
-
-		String arffFileName = "data" + File.separator + "toy.arff";
-		String xmlFileName = "data" + File.separator + "toy.xml";
-		String arffFileResult = "data" + File.separator + "toyResult.arff";
+		String arffFileName = Utils.getOption("f", args);
+		String xmlFileName = Utils.getOption("x", args);
+		String arffFileResult = Utils.getOption("o", args);
 
 		// Parameter checking
 		if (arffFileName.isEmpty()) {

@@ -26,7 +26,7 @@ import weka.core.Attribute;
 /**
  * 
  * Class implementing an example of inserting a new attribute to the relational attribute of the
- * dataset with {0,1} values
+ * dataset with {0,1} values.
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja

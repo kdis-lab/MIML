@@ -40,19 +40,21 @@ import mulan.evaluation.measure.Measure;
  */
 public class BaseMIMLReport extends MIMLReport {
 
-	
 	/**
 	 * Basic constructor to initialize the report.
 	 *
-	 * @param measures 		the list of selected measures which is going to be shown in the report
-	 * @param filename     	the filename where the report's will be saved
-	 * @param std         	whether the standard deviation of measures will be shown or not (only valid for cross-validation evaluator)
-	 * @param labels 		whether the measures for each label will be shown (only valid for Macros Average measures)
+	 * @param measures The list of selected measures which is going to be shown in
+	 *                 the report.
+	 * @param filename The filename where the report's will be saved.
+	 * @param std      Whether the standard deviation of measures will be shown or
+	 *                 not (only valid for cross-validation evaluator).
+	 * @param labels   Whether the measures for each label will be shown (only valid
+	 *                 for Macros Average measures).
 	 */
 	public BaseMIMLReport(List<String> measures, String filename, boolean std, boolean labels) {
 		super();
 	}
-	
+
 	/**
 	 * No-argument constructor for xml configuration.
 	 */
@@ -62,11 +64,11 @@ public class BaseMIMLReport extends MIMLReport {
 	/**
 	 * Read the cross-validation results and transform to CSV format.
 	 *
-	 * @param evaluator the evaluator
-	 * @return the string with CSV content
-	 * @throws Exception the exception
+	 * @param evaluator The evaluator.
+	 * @return String with CSV content.
+	 * @throws Exception To be handled in an upper level.
 	 */
-	private String crossValidationToCSV(EvaluatorCV evaluator) throws Exception {
+	protected String crossValidationToCSV(EvaluatorCV evaluator) throws Exception {
 
 		MultipleEvaluation evaluationCrossValidation = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
@@ -81,63 +83,66 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		if(ConfigParameters.getIsDegenerative()) {
-			// Write header
-			sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile," + "Train_time_ms(avg),");
-		} else {
-			// Write header
-			sb.append("Algorithm," + "Dataset," + "ConfigurationFile," + "Train_time_ms(avg),");
-		}
-		
-		if (this.std) {
-			sb.append("Train_time_ms(std),");
-		}
+		if (this.header) {
+			if (ConfigParameters.getIsDegenerative()) {
+				// Write header
+				sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile,"
+						+ "Train_time_ms(avg),");
+			} else {
+				// Write header
+				sb.append("Algorithm," + "Dataset," + "ConfigurationFile," + "Train_time_ms(avg),");
+			}
 
-		sb.append("Test_time_ms(avg),");
-
-		if (this.std) {
-			sb.append("Test_time_ms(std),");
-		}
-
-		// Write measure's names
-		for (Measure m : measures) {
-			measureName = m.getName();
-			sb.append(measureName + ",");
-			// If std label is activated standard deviation is written
 			if (this.std) {
+				sb.append("Train_time_ms(std),");
+			}
 
-				sb.append(measureName + " Std,");
+			sb.append("Test_time_ms(avg),");
 
-				if (m instanceof MacroAverageMeasure && this.labels) {
+			if (this.std) {
+				sb.append("Test_time_ms(std),");
+			}
 
-					for (int i = 0; i < data.getNumLabels(); i++) {
-						sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
-								+ ",");
-						sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
-								+ " Std,");
+			// Write measure's names
+			for (Measure m : measures) {
+				measureName = m.getName();
+				sb.append(measureName + ",");
+				// If std label is activated standard deviation is written
+				if (this.std) {
+
+					sb.append(measureName + " Std,");
+
+					if (m instanceof MacroAverageMeasure && this.labels) {
+
+						for (int i = 0; i < data.getNumLabels(); i++) {
+							sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+									+ ",");
+							sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+									+ " Std,");
+						}
+					} else if (m instanceof MacroAverageMeasure) {
+						for (int i = 0; i < data.getNumLabels(); i++) {
+							sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+									+ ",");
+						}
 					}
-				} else if (m instanceof MacroAverageMeasure) {
+				}
+
+				else if (m instanceof MacroAverageMeasure && this.labels) {
 					for (int i = 0; i < data.getNumLabels(); i++) {
 						sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
 								+ ",");
 					}
 				}
 			}
-
-			else if (m instanceof MacroAverageMeasure && this.labels) {
-				for (int i = 0; i < data.getNumLabels(); i++) {
-					sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ",");
-				}
-			}
+			sb.append(System.getProperty("line.separator"));
 		}
 
-		sb.append(System.getProperty("line.separator"));
-		
-		if(ConfigParameters.getIsDegenerative()) {
+		if (ConfigParameters.getIsDegenerative()) {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + ","  + ConfigParameters.getClassifierName() + ","
+			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getClassifierName() + ","
 					+ ConfigParameters.getTransformMethod() + "," + ConfigParameters.getDataFileName() + ","
-					+ ConfigParameters.getConfigFileName() + ","  + evaluator.getAvgTrainTime() + ",");
+					+ ConfigParameters.getConfigFileName() + "," + evaluator.getAvgTrainTime() + ",");
 		} else {
 			// Write header
 			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
@@ -191,11 +196,11 @@ public class BaseMIMLReport extends MIMLReport {
 	/**
 	 * Read the holdout results and transform to CSV format.
 	 *
-	 * @param evaluator the evaluator
-	 * @return the string with CSV content
-	 * @throws Exception the exception
+	 * @param evaluator The evaluator.
+	 * @return String with CSV content.
+	 * @throws Exception To be handled in an upper level
 	 */
-	private String holdoutToCSV(EvaluatorHoldout evaluator) throws Exception {
+	protected String holdoutToCSV(EvaluatorHoldout evaluator) throws Exception {
 
 		Evaluation evaluationHoldout = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
@@ -209,39 +214,42 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		if(ConfigParameters.getIsDegenerative()) {
-			// Write header
-			sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile," + "Train_time_ms," + "Test_time_ms,");
-		} else {
-			// Write header
-			sb.append("Algorithm," + "Dataset," + "ConfigurationFile,"+ "Train_time_ms," + "Test_time_ms,");
-		}
-		// Write measure's names
-		for (Measure m : measures) {
-			measureName = m.getName();
-			sb.append(measureName + ",");
+		if (this.header) {
+			if (ConfigParameters.getIsDegenerative()) {
+				// Write header
+				sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile,"
+						+ "Train_time_ms," + "Test_time_ms,");
+			} else {
+				// Write header
+				sb.append("Algorithm," + "Dataset," + "ConfigurationFile," + "Train_time_ms," + "Test_time_ms,");
+			}
+			// Write measure's names
+			for (Measure m : measures) {
+				measureName = m.getName();
+				sb.append(measureName + ",");
 
-			if (m instanceof MacroAverageMeasure && this.labels) {
+				if (m instanceof MacroAverageMeasure && this.labels) {
 
-				for (int i = 0; i < data.getNumLabels(); i++) {
-					sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ",");
+					for (int i = 0; i < data.getNumLabels(); i++) {
+						sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+								+ ",");
+					}
 				}
 			}
+			sb.append(System.getProperty("line.separator"));
 		}
 
-		sb.append(System.getProperty("line.separator"));
-
-		if(ConfigParameters.getIsDegenerative()) {
+		if (ConfigParameters.getIsDegenerative()) {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + ","  + ConfigParameters.getClassifierName() + ","
+			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getClassifierName() + ","
 					+ ConfigParameters.getTransformMethod() + "," + ConfigParameters.getDataFileName() + ","
-					+ ConfigParameters.getConfigFileName() + ","  + evaluator.getTrainTime() + "," + evaluator.getTestTime()
-					+ ",");
+					+ ConfigParameters.getConfigFileName() + "," + evaluator.getTrainTime() + ","
+					+ evaluator.getTestTime() + ",");
 		} else {
 			// Write header
 			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
-					+ ConfigParameters.getConfigFileName() + ","+ evaluator.getTrainTime() + "," + evaluator.getTestTime()
-					+ ",");
+					+ ConfigParameters.getConfigFileName() + "," + evaluator.getTrainTime() + ","
+					+ evaluator.getTestTime() + ",");
 		}
 
 		// Write value for each measure
@@ -264,11 +272,11 @@ public class BaseMIMLReport extends MIMLReport {
 	/**
 	 * Read the cross-validation results and transform to plain text.
 	 *
-	 * @param evaluator the evaluator
-	 * @return the string with the content
-	 * @throws Exception the exception
+	 * @param evaluator The evaluator.
+	 * @return String with the content.
+	 * @throws Exception To be handled in an upper level
 	 */
-	private String crossValidationToString(EvaluatorCV evaluator) throws Exception {
+	protected String crossValidationToString(EvaluatorCV evaluator) throws Exception {
 
 		MultipleEvaluation evaluationCrossValidation = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
@@ -314,7 +322,8 @@ public class BaseMIMLReport extends MIMLReport {
 				if (m instanceof MacroAverageMeasure && this.labels) {
 
 					for (int i = 0; i < data.getNumLabels(); i++) {
-						sb.append(measureName + " - " + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ": ");
+						sb.append(measureName + " - " + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+								+ ": ");
 						sb.append(String.format("%.4f", evaluationCrossValidation.getMean(measureName, i)));
 						sb.append("\u00B1");
 						sb.append(String.format("%.4f", evaluationCrossValidation.getStd(measureName, i)));
@@ -322,15 +331,14 @@ public class BaseMIMLReport extends MIMLReport {
 						sb.append(System.getProperty("line.separator"));
 					}
 				}
-			}
-			else if(m instanceof MacroAverageMeasure && this.labels) {
+			} else if (m instanceof MacroAverageMeasure && this.labels) {
 				for (int i = 0; i < data.getNumLabels(); i++) {
-					sb.append(measureName + " - " + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ": ");
+					sb.append(
+							measureName + " - " + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ": ");
 					sb.append(String.format("%.4f", evaluationCrossValidation.getMean(measureName, i)));
 					sb.append(System.getProperty("line.separator"));
 				}
-			}
-			else {
+			} else {
 				sb.append(System.getProperty("line.separator"));
 			}
 		}
@@ -340,11 +348,11 @@ public class BaseMIMLReport extends MIMLReport {
 	/**
 	 * Read the holdout results and transform to plain text.
 	 *
-	 * @param evaluator the evaluator
-	 * @return the string with the content
-	 * @throws Exception the exception
+	 * @param evaluator The evaluator.
+	 * @return String with the content.
+	 * @throws Exception To be handled in an upper level.
 	 */
-	private String holdoutToString(EvaluatorHoldout evaluator) throws Exception {
+	protected String holdoutToString(EvaluatorHoldout evaluator) throws Exception {
 
 		Evaluation evaluationHoldout = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
@@ -421,7 +429,8 @@ public class BaseMIMLReport extends MIMLReport {
 	public void configure(Configuration configuration) {
 		this.filename = configuration.getString("fileName");
 		this.std = configuration.getBoolean("standardDeviation", true);
-		this.labels = configuration.getBoolean("macroMeasuresLabels", true);
+		this.header = configuration.getBoolean("header", true);
+		this.labels = configuration.getBoolean("measures[@perLabel]", true);
 
 		int measuresLength = configuration.getList("measures.measure").size();
 

@@ -23,23 +23,23 @@ import weka.filters.unsupervised.attribute.Remove;
  */
 public class LPTransformation implements Serializable {
 
-	/** For serialization */
+	/** For serialization. */
 	private static final long serialVersionUID = -3418733531408587603L;
 
-	/** LabelPowerSetTransformation */
+	/** LabelPowerSetTransformation. */
 	protected MIMLLabelPowersetTransformation LPT;
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	public LPTransformation() {
 		this.LPT = new MIMLLabelPowersetTransformation();
 	}
 
 	/**
-	 * Returns the format of the transformed instances
+	 * Returns the format of the transformed instances.
 	 * 
-	 * @return the format of the transformed instances
+	 * @return the format of the transformed instances.
 	 */
 	public LabelPowersetTransformation getLPT() {
 		return LPT;
@@ -49,7 +49,7 @@ public class LPTransformation implements Serializable {
 	 * 
 	 * @param bag          The bag to be transformed.
 	 * @param labelIndices The labels to remove.
-	 * @return Instance
+	 * @return Instance.
 	 * @throws Exception To be handled in an upper level.
 	 */
 	public Instance transformBag(MIMLBag bag, int[] labelIndices) throws Exception {
@@ -59,7 +59,7 @@ public class LPTransformation implements Serializable {
 	/**
 	 * 
 	 * @param dataSet MIMLInstances dataSet.
-	 * @return Instances
+	 * @return Instances.
 	 * @throws Exception To be handled in an upper level.
 	 */
 	public Instances transformBags(MIMLInstances dataSet) throws Exception {
@@ -77,11 +77,10 @@ class MIMLLabelPowersetTransformation extends LabelPowersetTransformation {
 
 	/**
 	 * 
-	 * @param instance     the instance to be transformed
-	 * @param labelIndices the labels to remove.
-	 * @return transformed instance
-	 * @throws Exception Potential exception thrown. To be handled in an upper
-	 *                   level.
+	 * @param instance     The instance to be transformed
+	 * @param labelIndices The labels to remove.
+	 * @return Transformed instance.
+	 * @throws Exception To be handled in an upper level.
 	 */
 	public Instance transformInstance(Instance instance, int[] labelIndices) throws Exception {
 

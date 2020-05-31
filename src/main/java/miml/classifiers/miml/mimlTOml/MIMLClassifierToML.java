@@ -61,8 +61,8 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	/**
 	 * Basic constructor to initialize the classifier.
 	 *
-	 * @param baseClassifier  Classifier
-	 * @param transformMethod the transform method
+	 * @param baseClassifier  The base classification algorithm.
+	 * @param transformMethod Algorithm used as transformation method from MIML to ML.
 	 * @throws Exception To be handled in an upper level.
 	 */
 	public MIMLClassifierToML(MultiLabelLearner baseClassifier, MIMLtoML transformMethod) throws Exception {
@@ -153,6 +153,14 @@ public class MIMLClassifierToML extends MIMLClassifier {
 
 				} else if (parameter.equals("String.class")) {
 					cArg[i] = String.class;
+					obj[i] = configuration.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+				} else if (parameter.equals("short.class")) {
+					cArg[i] = short.class;
+					obj[i] = configuration.getBoolean("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+				} else if (parameter.equals("long.class")) {
+					cArg[i] = long.class;
 					obj[i] = configuration.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")");
 
 				}

@@ -42,8 +42,8 @@ public class GeometricTransformation extends MIMLtoML {
 	/**
 	 * Constructor
 	 * 
-	 * @param dataset a MIMLInstances dataset
-	 * @throws Exception Potential exception thrown. To be handled in an upper
+	 * @param dataset MIMLInstances dataset.
+	 * @throws Exception To be handled in an upper
 	 *                   level.
 	 */
 	public GeometricTransformation(MIMLInstances dataset) throws Exception {

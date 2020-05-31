@@ -43,9 +43,9 @@ public interface IMIMLClassifier extends MultiLabelLearner, Serializable {
 	/**
 	 * Builds the learner model from specified {@link MIMLInstances} data.
 	 *
-	 * @param trainingSet set of training data, upon which the learner model should be
-	 *                  built
-	 * @throws Exception if learner model was not created successfully
+	 * @param trainingSet Set of training data, upon which the learner model should be
+	 *                  built.
+	 * @throws Exception If learner model was not created successfully.
 	 */
 	public void build(MIMLInstances trainingSet) throws Exception;
 

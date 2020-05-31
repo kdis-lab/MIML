@@ -14,15 +14,15 @@ import weka.classifiers.Classifier;
 public class MIMLBinaryRelevance extends BinaryRelevance{
 
 	/**
-	 * Generated Serial version UID
+	 * Generated Serial version UID.
 	 */
 	private static final long serialVersionUID = 1706817441965109002L;
 
     /**
-     * Creates a new instance
+     * Creates a new instance.
      *
-     * @param classifier the base-level classification algorithm that will be
-     * used for training each of the binary models
+     * @param classifier The base-level classification algorithm that will be
+     * used for training each of the binary models.
      */
 	public MIMLBinaryRelevance(Classifier classifier) {
 		super(classifier);

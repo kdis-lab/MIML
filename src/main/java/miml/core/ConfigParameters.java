@@ -16,7 +16,7 @@
 package miml.core;
 
 /**
- * Class used to save config parameters to be used in reports.
+ * Class used to save configuration parameters to be used in reports.
  * 
  * @author Alvaro A. Belmonte
  * @author Amelia Zafra
@@ -32,7 +32,7 @@ public final class ConfigParameters {
 	/** The config filename used in the experimentation. */
 	protected static String configFileName = "";
 	
-	/** The data filename used in the experimentation. */
+	/** The name of data file used in the experimentation. */
 	protected static String dataFileName = "";
 	
 	/** The classifier used in the experimentation. */
@@ -46,7 +46,7 @@ public final class ConfigParameters {
 	/**
 	 * Gets the algorirthm name.
 	 *
-	 * @return the algorirthm name
+	 * @return The algorirthm name.
 	 */
 	public static String getAlgorirthmName() {
 		return algorirthmName;
@@ -55,34 +55,34 @@ public final class ConfigParameters {
 	/**
 	 * Sets the algorirthm name.
 	 *
-	 * @param algorirthmName the new algorirthm name
+	 * @param algorirthmName The new algorirthm name.
 	 */
 	public static void setAlgorirthmName(String algorirthmName) {
 		ConfigParameters.algorirthmName = algorirthmName;
 	}
 	
 	/**
-	 * Gets the config file name.
+	 * Gets the configuration file name.
 	 *
-	 * @return the config file name
+	 * @return The configuration file name.
 	 */
 	public static String getConfigFileName() {
 		return configFileName;
 	}
 	
 	/**
-	 * Sets the config file name.
+	 * Sets the configuration file name.
 	 *
-	 * @param configFileName the new config file name
+	 * @param configFileName The new configuration file name.
 	 */
 	public static void setConfigFileName(String configFileName) {
 		ConfigParameters.configFileName = configFileName;
 	}
 	
 	/**
-	 * Gets the data file name.
+	 * Gets the name of data file.
 	 *
-	 * @return the data file name
+	 * @return The name of data file.
 	 */
 	public static String getDataFileName() {
 		return dataFileName;
@@ -98,44 +98,54 @@ public final class ConfigParameters {
 	}
 
 	/**
-	 * Gets the classifier name
+	 * Gets the classifier name.
 	 * 
-	 * @return the classifier name
+	 * @return The classifier name.
 	 */
 	public static String getClassifierName() {
 		return classifierName;
 	}
 
 	/**
-	 * Sets the classifier name
-	 * @param classifierName the classifier name
+	 * Sets the classifier name.
+	 * @param classifierName The classifier name.
 	 */
 	public static void setClassifierName(String classifierName) {
 		ConfigParameters.classifierName = classifierName;
 	}
 
 	/**
-	 * Gets the transform method used in the experiment
+	 * Gets the transform method used in the experiment.
 	 * 
-	 * @return the transform method used in the experiment
+	 * @return The transform method used in the experiment.
 	 */
 	public static String getTransformMethod() {
 		return transformMethod;
 	}
 
 	/**
-	 * Sets the transform method used in the experiment
+	 * Sets the transform method used in the experiment.
 	 * 
-	 * @param transformMethod the transform method used in the experiment
+	 * @param transformMethod The transform method used in the experiment.
 	 */
 	public static void setTransformMethod(String transformMethod) {
 		ConfigParameters.transformMethod = transformMethod;
 	}
 	
+	/**
+	 * Gets if the method used is degenerative.
+	 * .
+	 * @return True if the method used is degenerative
+	 */
 	public static Boolean getIsDegenerative() {
 		return isDegenerative;
 	}
 
+	/**
+	 * Sets if the method used is degenerative.
+	 * 
+	 * @param isDegenerative If the method used is degenerative.
+	 */
 	public static void setIsDegenerative(Boolean isDegenerative) {
 		ConfigParameters.isDegenerative = isDegenerative;
 	}

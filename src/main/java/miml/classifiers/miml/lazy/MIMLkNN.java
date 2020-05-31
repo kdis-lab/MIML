@@ -83,10 +83,10 @@ public class MIMLkNN extends MIMLClassifier {
 	/**
 	 * Basic constructor to initialize the classifier.
 	 *
-	 * @param num_references the number of references considered by the algorithm
-	 * @param num_citers     the number of citers considered by the algorithm
-	 * @param metric         the metric used by the algorithm to measure the
-	 *                       distance
+	 * @param num_references The number of references considered by the algorithm.
+	 * @param num_citers     The number of citers considered by the algorithm.
+	 * @param metric         The metric used by the algorithm to measure the
+	 *                       distance.
 	 */
 	public MIMLkNN(int num_references, int num_citers, IDistance metric) {
 		this.num_citers = num_citers;
@@ -95,9 +95,9 @@ public class MIMLkNN extends MIMLClassifier {
 	}
 
 	/**
-	 * Instantiates a new MIMlkNN with values by default except distance metric.
+	 * Instantiates a new MIMLkNN with values by default except distance metric.
 	 *
-	 * @param metric the metric used by the algorithm to measure the distance
+	 * @param metric The metric used by the algorithm to measure the distance.
 	 */
 	public MIMLkNN(IDistance metric) {
 		this.metric = metric;
@@ -110,7 +110,7 @@ public class MIMLkNN extends MIMLClassifier {
 	}
 
 	/**
-	 * @see miml.classifiers.miml.MIMLClassifier#buildInternal(data.MIMLInstances)
+	 * @see miml.classifiers.miml.MIMLClassifier#buildInternal
 	 */
 	@Override
 	protected void buildInternal(MIMLInstances trainingSet) throws Exception {
@@ -198,7 +198,7 @@ public class MIMLkNN extends MIMLClassifier {
 	/**
 	 * Calculate the distances matrix of current data set with the metric assigned.
 	 *
-	 * @throws Exception the exception
+	 * @throws Exception The exception.
 	 */
 	protected void calculateDatasetDistances() throws Exception {
 
@@ -239,9 +239,9 @@ public class MIMLkNN extends MIMLClassifier {
 	 * Calculate the references of a bag specified by its index. It's necessary
 	 * calculate the distance matrix previously.
 	 *
-	 * @param indexBag the index bag
-	 * @return the references' indices of the bag
-	 * @throws Exception the exception
+	 * @param indexBag The index bag.
+	 * @return The references' indices of the bag.
+	 * @throws Exception A exception.
 	 */
 	protected int[] calculateBagReferences(int indexBag) throws Exception {
 		// Nearest neighbors of the selected bag
@@ -264,9 +264,9 @@ public class MIMLkNN extends MIMLClassifier {
 	/**
 	 * Gets the references of a specified bag.
 	 *
-	 * @param indexBag the index bag
+	 * @param indexBag The index bag.
 	 * 
-	 * @return the bag's references
+	 * @return The bag's references.
 	 */
 	protected int[] getReferences(int indexBag) {
 
@@ -286,9 +286,9 @@ public class MIMLkNN extends MIMLClassifier {
 	 * Calculate and return the citers of a bag specified by its index. It's
 	 * necessary calculate the distance matrix first.
 	 *
-	 * @param indexBag the index bag
+	 * @param indexBag The index bag.
 	 * 
-	 * @return the bag's citers
+	 * @return The bag's citers.
 	 */
 	protected int[] getCiters(int indexBag) {
 
@@ -313,9 +313,9 @@ public class MIMLkNN extends MIMLClassifier {
 	 * Gets the union of references and citers (without repetitions) of the bag
 	 * specified.
 	 *
-	 * @param indexBag the index bag
+	 * @param indexBag The index bag.
 	 * 
-	 * @return the union neighbors
+	 * @return Ihe union of references and citers.
 	 */
 	protected Integer[] getUnionNeighbors(int indexBag) {
 
@@ -337,9 +337,9 @@ public class MIMLkNN extends MIMLClassifier {
 	/**
 	 * Calculate the number of times each label appears in the bag's neighborhood.
 	 *
-	 * @param indices the neighboor's indices
+	 * @param indices The neighboor's indices.
 	 * 
-	 * @return the labels' record
+	 * @return The labels' record.
 	 */
 	protected double[] calculateRecordLabel(Integer[] indices) {
 
@@ -357,9 +357,9 @@ public class MIMLkNN extends MIMLClassifier {
 	/**
 	 * Gets the labels of specified bag.
 	 *
-	 * @param bagIndex the bag index
+	 * @param bagIndex The bag index.
 	 * 
-	 * @return the bag labels
+	 * @return The bag labels.
 	 */
 	protected double[] getBagLabels(int bagIndex) {
 
@@ -377,7 +377,7 @@ public class MIMLkNN extends MIMLClassifier {
 	/**
 	 * Calculate the weights matrix used for prediction.
 	 *
-	 * @return the weights matrix
+	 * @return The weights matrix.
 	 */
 	protected double[][] getWeightsMatrix() {
 
@@ -416,13 +416,13 @@ public class MIMLkNN extends MIMLClassifier {
 	}
 
 	/**
-	 * Decide which labels belong to a specified bag.
+	 * Decide if a bag belong to a specified label.
 	 *
-	 * @param weights the weights correspondent to each label
+	 * @param weights The weights correspondent to each label.
 	 * 
-	 * @param record  the labels' record of bag's neighbor to be predicted.
+	 * @param record  The labels' record of bag's neighbor to be predicted.
 	 * 
-	 * @return true, if belong, false if not.
+	 * @return True, if belong, false if not.
 	 */
 	protected boolean linearClassifier(double[] weights, double[] record) {
 
@@ -438,7 +438,7 @@ public class MIMLkNN extends MIMLClassifier {
 	 * Returns the number of citers considered to estimate the class prediction of
 	 * tests bags.
 	 *
-	 * @return the num citers
+	 * @return The num citers.
 	 */
 	public int getNumCiters() {
 		return num_citers;
@@ -448,7 +448,7 @@ public class MIMLkNN extends MIMLClassifier {
 	 * Sets the number of citers considered to estimate the class prediction of
 	 * tests bags.
 	 *
-	 * @param numCiters the new num citers
+	 * @param numCiters The new num citers.
 	 */
 	public void setNumCiters(int numCiters) {
 		this.num_citers = numCiters;
@@ -458,7 +458,7 @@ public class MIMLkNN extends MIMLClassifier {
 	 * Returns the number of references considered to estimate the class prediction
 	 * of tests bags.
 	 *
-	 * @return the num references
+	 * @return The num references.
 	 */
 	public int getNumReferences() {
 		return num_references;
@@ -468,7 +468,7 @@ public class MIMLkNN extends MIMLClassifier {
 	 * Sets the number of references considered to estimate the class prediction of
 	 * tests bags.
 	 *
-	 * @param numReferences the new num references
+	 * @param numReferences The new num references.
 	 */
 	public void setNumReferences(int numReferences) {
 		this.num_references = numReferences;

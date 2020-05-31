@@ -36,20 +36,20 @@ import weka.core.Instances;
  */
 public class BRTransformation implements Serializable {
 
-	/** For serialization */
+	/** For serialization. */
 	private static final long serialVersionUID = -3662731281779529497L;
 
-	/** Binary Relevance Transformation */
+	/** Binary Relevance Transformation. */
 	protected BinaryRelevanceTransformation BRT;
 
-	/** MIML dataSet */
+	/** MIML dataSet. */
 	protected MIMLInstances dataSet;
 
 	/**
 	 * Constructor.
 	 * 
 	 *
-	 * @param dataSet MIMLInstances dataset
+	 * @param dataSet MIMLInstances dataset.
 	 */
 	public BRTransformation(MIMLInstances dataSet) {
 		this.dataSet = dataSet;
@@ -72,7 +72,7 @@ public class BRTransformation implements Serializable {
 	 *
 	 * @param bagIndex    The bagIndex of the Bag to be transformed.
 	 * @param labelToKeep The label to keep. A value in [0, numLabels-1].
-	 * @return Instance
+	 * @return Instance.
 	 * @throws Exception To be handled in upper level.
 	 */
 	public Instance transformBag(int bagIndex, int labelToKeep) throws Exception {
@@ -83,7 +83,7 @@ public class BRTransformation implements Serializable {
 	 * Remove all label attributes except label at position indexToKeep.
 	 *
 	 * @param instance     The instance from which labels are to be removed.
-	 * @param labelIndices Array storing, for each label its corresponding label
+	 * @param labelIndices Array storing, for each label its corresponding label.
 	 *                     index.
 	 * @param indexToKeep  The label index to keep.
 	 * @return transformed Instance.
@@ -97,7 +97,7 @@ public class BRTransformation implements Serializable {
 	 * Remove all label attributes except labelToKeep.
 	 *
 	 * @param labelToKeep The label to keep. A value in [0, numLabels-1].
-	 * @return Instances
+	 * @return Instances.
 	 * @throws Exception To be handled in an upper level.
 	 */
 	public Instances transformBags(int labelToKeep) throws Exception {
@@ -105,13 +105,13 @@ public class BRTransformation implements Serializable {
 	}
 
 	/**
-	 * Remove all label attributes except that at indexOfLabelToKeep
+	 * Remove all label attributes except that at indexOfLabelToKeep.
 	 *
 	 * @param dataSet      A MIMLInstances dataset.
 	 * @param labelIndices Array storing, for each label its corresponding label
 	 *                     index.
 	 * @param indexToKeep  The label index to keep.
-	 * @return Instances
+	 * @return Instances.
 	 * @throws Exception when removal fails.
 	 */
 	public static Instances transformBags(MIMLInstances dataSet, int[] labelIndices, int indexToKeep) throws Exception {

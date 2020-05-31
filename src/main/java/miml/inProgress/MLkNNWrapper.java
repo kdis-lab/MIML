@@ -37,55 +37,55 @@ import weka.core.Instance;
 public class MLkNNWrapper extends MIMLClassifier{
 
 	/**
-	 * Generated Serial version UID
+	 * Generated Serial version UID.
 	 */
 	private static final long serialVersionUID = -5918330265523388151L;
 
-	/** Smooth factor */
+	/** Smooth factor. */
 	protected double smooth = 1.0;
 	
-	/**Number of references*/
-	protected int num_references = 1;
+	/**Number of references. */
+	protected int numReferences = 1;
 	
-	/** Metric for measure the distance between bags */
+	/** Metric for measure the distance between bags. */
 	protected DistanceFunction metric;
 	
-	/** MIML data to build the classifier */
+	/** MIML data to build the classifier. */
 	protected MIMLInstances dataset;
 	
-	/** ML data converted from MIML data */
+	/** ML data converted from MIML data. */
 	protected MultiLabelInstances datasetConverted;
 	
-	/** Mulan MLkNN classifier */
+	/** Mulan MLkNN classifier. */
 	protected MLkNN classifier;
 
 	/**
 	 * Basic constructor to initialize the classifier.
 	 *
-	 * @param num_references the number of references considered by the algorithm
-	 * @param smooth	     the smooth factor considered by the algorithm
-	 * @param metric         the metric used by the algorithm to measure the
-	 *                       distance
+	 * @param numReferences The number of references considered by the algorithm.
+	 * @param smooth	     The smooth factor considered by the algorithm.
+	 * @param metric         The metric used by the algorithm to measure the
+	 *                       distance.
 	 */
-	public MLkNNWrapper(int num_references, double smooth, DistanceFunction metric) {
-		this.num_references = num_references;
+	public MLkNNWrapper(int numReferences, double smooth, DistanceFunction metric) {
+		this.numReferences = numReferences;
 		this.smooth = smooth;
 		this.metric = metric;
-		this.classifier = new MLkNN(num_references, smooth);
+		this.classifier = new MLkNN(numReferences, smooth);
 	}
 	
 	/**
 	 * Instantiates a new MIMlkNN with values by default except distance metric.
 	 *
-	 * @param metric the metric used by the algorithm to measure the distance
+	 * @param metric The metric used by the algorithm to measure the distance.
 	 */
 	public MLkNNWrapper(DistanceFunction metric) {
 		this.metric = metric;
-		this.classifier = new MLkNN(num_references, smooth);
+		this.classifier = new MLkNN(numReferences, smooth);
 	}
 
 	/**
-	 *  No-arg constructor for xml configuration   
+	 *  No-arg constructor for xml configuration. 
 	*/
 	public MLkNNWrapper() {
 	}
@@ -124,7 +124,7 @@ public class MLkNNWrapper extends MIMLClassifier{
 	@Override
 	public void configure(Configuration configuration) {
 		
-		this.num_references = configuration.getInt("nReferences");
+		this.numReferences = configuration.getInt("numReferences");
 		this.smooth = configuration.getDouble("smooth");
 		
 		try {
@@ -140,13 +140,13 @@ public class MLkNNWrapper extends MIMLClassifier{
 			e.printStackTrace();
 			System.exit(1);
 		}
-		this.classifier = new MLkNN(num_references, smooth);
+		this.classifier = new MLkNN(numReferences, smooth);
 	}
 	
 	/**
 	 * Gets the smooth factor considered by the classifier.
 	 *
-	 * @return the smooth factor
+	 * @return The smooth factor.
 	 */
 	public double getSmooth() {
 		return smooth;
@@ -155,7 +155,7 @@ public class MLkNNWrapper extends MIMLClassifier{
 	/**
 	 * Sets the smooth factor considered by the classifier.
 	 *
-	 * @param smooth the new smooth factor
+	 * @param smooth The new smooth factor.
 	 */
 	public void setSmooth(double smooth) {
 		this.smooth = smooth;
@@ -164,25 +164,25 @@ public class MLkNNWrapper extends MIMLClassifier{
 	/**
 	 * Gets the number of references considered by the classifier.
 	 *
-	 * @return the number of references
+	 * @return The number of references.
 	 */
-	public int getNum_references() {
-		return num_references;
+	public int getNumReferences() {
+		return numReferences;
 	}
 
 	/**
 	 * Sets the number of references considered by the classifier.
 	 *
-	 * @param num_references the new number of references
+	 * @param numReferences The new number of references.
 	 */
-	public void setNum_references(int num_references) {
-		this.num_references = num_references;
+	public void setNumReferences(int numReferences) {
+		this.numReferences = numReferences;
 	}
 
 	/**
 	 * Gets the distance metric considered by the classifier.
 	 *
-	 * @return the distance metric
+	 * @return The distance metric.
 	 */
 	public DistanceFunction getMetric() {
 		return metric;
@@ -191,7 +191,7 @@ public class MLkNNWrapper extends MIMLClassifier{
 	/**
 	 * Sets the distance metric considered by the classifier.
 	 *
-	 * @param metric the new distance metric
+	 * @param metric The new distance metric.
 	 */
 	public void setMetric(DistanceFunction metric) {
 		this.metric = metric;

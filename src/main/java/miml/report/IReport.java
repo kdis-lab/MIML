@@ -32,11 +32,11 @@ public interface IReport {
 	/**
 	 * Convert to CSV the evaluator results.
 	 *
-	 * @param evaluator the evaluator with the measures
+	 * @param evaluator The evaluator with the measures.
 	 * 
-	 * @return the string with CSV content
+	 * @return String with CSV content.
 	 * 
-	 * @throws Exception the exception
+	 * @throws Exception To be handled in an upper level.
 	 */
 	@SuppressWarnings("rawtypes")
 	public String toCSV(IEvaluator evaluator) throws Exception;
@@ -44,11 +44,11 @@ public interface IReport {
 	/**
 	 * Convert to plain text the evaluator results.
 	 *
-	 * @param evaluator the evaluator with the measures
+	 * @param evaluator The evaluator with the measures.
 	 * 
-	 * @return the string with the content
+	 * @return String with the content.
 	 * 
-	 * @throws Exception the exception
+	 * @throws Exception To be handled in an upper level.
 	 */
 	@SuppressWarnings("rawtypes")
 	public String toString(IEvaluator evaluator) throws Exception;
@@ -56,9 +56,9 @@ public interface IReport {
 	/**
 	 * Save in a file the specified report.
 	 *
-	 * @param report the formatted string to be saved
+	 * @param report The formatted string to be saved.
 	 * 
-	 * @throws FileNotFoundException the file not found exception
+	 * @throws FileNotFoundException To be handled in an upper level.
 	 */
 	public void saveReport(String report) throws FileNotFoundException;
 
