@@ -136,6 +136,7 @@ public class BaseMIMLReport extends MIMLReport {
 					}
 				}
 			}
+			sb.setLength(sb.length() - 1);
 			sb.append(System.getProperty("line.separator"));
 		}
 
@@ -189,7 +190,7 @@ public class BaseMIMLReport extends MIMLReport {
 			}
 
 		}
-
+		sb.setLength(sb.length() - 1);
 		sb.append(System.getProperty("line.separator"));
 		return sb.toString();
 	}
@@ -237,6 +238,7 @@ public class BaseMIMLReport extends MIMLReport {
 					}
 				}
 			}
+			sb.setLength(sb.length() - 1);
 			sb.append(System.getProperty("line.separator"));
 		}
 
@@ -266,6 +268,7 @@ public class BaseMIMLReport extends MIMLReport {
 
 		}
 
+		sb.setLength(sb.length() - 1);
 		sb.append(System.getProperty("line.separator"));
 		return sb.toString();
 	}
