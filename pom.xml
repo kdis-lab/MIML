@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>Miml</groupId>
+	<groupId>miml</groupId>
 	<artifactId>miml</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
@@ -22,15 +22,20 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
-	<dependencies>
+	<repositories>
+		<repository>
+			<id>local</id>
+			<url>file://${basedir}/src/main/resources</url>
+		</repository>
+	</repositories>
 
+	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
-
 
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
 		<dependency>
@@ -67,7 +72,6 @@
 			<version>2.4</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-dev -->
 		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
@@ -81,7 +85,6 @@
 			<artifactId>citationKNN</artifactId>
 			<version>1.0.1</version>
 		</dependency>
-
 
 		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/multiInstanceLearning -->
 		<dependency>
@@ -100,11 +103,8 @@
 		<dependency>
 			<groupId>mulan</groupId>
 			<artifactId>mulan</artifactId>
-			<scope>system</scope>
 			<version>1.5</version>
-			<systemPath>${basedir}/src/main/resources/mulan-1-5-0.jar</systemPath>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -119,31 +119,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
-			<!-- PARA AÑADIR DEPENDENCIA DE MULAN AL PROYECTO AUTOMÁTICAMENTE -->
-			<plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-install-plugin</artifactId>
-	            <version>${install.plugin.version}</version>
-	            <executions>
-	                <execution>
-	                    <id>install-external</id>
-	                    <phase>clean</phase>
-		                    <configuration>
-		                        <file>${basedir}/src/main/resources/mulan-1-5-0.jar</file>
-		                        <repositoryLayout>default</repositoryLayout>
-		                        <groupId>Mulan</groupId>
-		                        <artifactId>mulan</artifactId>
-		                        <version>1.5</version>
-		                        <packaging>jar</packaging>
-		                        <generatePom>false</generatePom>
-		                    </configuration>
-	                    <goals>
-	                        <goal>install-file</goal>
-	                    </goals>
-	                </execution>
-	            </executions>
-	        </plugin>
 	        
 			<!-- PARA AÑADIR DEPENDENCIAS AL JAR -->
 			<plugin>
@@ -157,7 +132,6 @@
 		             <descriptorRefs>
 		                 <descriptorRef>jar-with-dependencies</descriptorRef>
 		             </descriptorRefs>
-		             
 		         </configuration>
 		         <executions>
 		             <execution>
@@ -171,5 +145,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
