@@ -20,7 +20,6 @@ import miml.core.ConfigParameters;
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
 import miml.transformation.mimlTOml.MIMLtoML;
-import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelLearner;
 import mulan.classifier.MultiLabelOutput;
 import mulan.data.MultiLabelInstances;
@@ -30,7 +29,6 @@ import weka.core.Instance;
 import java.util.Objects;
 
 /**
- * 
  * <p>
  * Class implementing the degenerative algorithm for MIML data to solve it with
  * ML learning. For more information, see <em>Zhou, Z. H., &#38; Zhang, M. L.
@@ -38,25 +36,32 @@ import java.util.Objects;
  * classification. In Advances in neural information processing systems (pp.
  * 1609-1616).</em>
  * </p>
- * 
+ *
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
  * @author Amelia Zafra
  * @version 20180608
- *
  */
 public class MIMLClassifierToML extends MIMLClassifier {
 
-	/** Generated Serial version UID. */
+	/**
+	 * Generated Serial version UID.
+	 */
 	private static final long serialVersionUID = 1L;
 
-	/** A Generic MultiLabel classifier. */
+	/**
+	 * A Generic MultiLabel classifier.
+	 */
 	protected MultiLabelLearner baseClassifier;
 
-	/** The transform method. */
+	/**
+	 * The transform method.
+	 */
 	protected MIMLtoML transformMethod;
 
-	/** The miml dataset. */
+	/**
+	 * The miml dataset.
+	 */
 	protected MIMLInstances mimlDataset;
 
 	/**
@@ -80,12 +85,11 @@ public class MIMLClassifierToML extends MIMLClassifier {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see mimlclassifier.MIMLClassifier#buildInternal(data.MIMLInstances)
 	 */
 	@Override
 	public void buildInternal(MIMLInstances mimlDataSet) throws Exception {
-
 		// Transforms a dataset
 		MultiLabelInstances mlDataSet = transformMethod.transformDataset(mimlDataSet);
 		baseClassifier.build(mlDataSet);
@@ -93,18 +97,18 @@ public class MIMLClassifierToML extends MIMLClassifier {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see mimlclassifier.MIMLClassifier#makePredictionInternal(data.Bag)
 	 */
 	@Override
-	protected MultiLabelOutput makePredictionInternal(MIMLBag bag) throws Exception, InvalidDataException {
+	protected MultiLabelOutput makePredictionInternal(MIMLBag bag) throws Exception {
 		Instance instance = transformMethod.transformInstance(bag);
 		return baseClassifier.makePrediction(instance);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
 	 */
@@ -212,7 +216,4 @@ public class MIMLClassifierToML extends MIMLClassifier {
 		ConfigParameters.setTransformMethod(transformerName);
 		ConfigParameters.setIsDegenerative(true);
 	}
-	
-	
-
 }
