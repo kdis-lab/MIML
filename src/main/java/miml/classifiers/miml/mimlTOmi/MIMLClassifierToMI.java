@@ -15,8 +15,6 @@
 
 package miml.classifiers.miml.mimlTOmi;
 
-import org.apache.commons.configuration2.Configuration;
-
 import miml.classifiers.miml.MIMLClassifier;
 import miml.core.ConfigParameters;
 import miml.data.MIMLBag;
@@ -26,8 +24,12 @@ import mulan.classifier.MultiLabelLearner;
 import mulan.classifier.MultiLabelOutput;
 import mulan.classifier.transformation.TransformationBasedMultiLabelLearner;
 import mulan.data.MultiLabelInstances;
+import org.apache.commons.configuration2.Configuration;
 import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Classifier;
+import weka.core.Utils;
+
+import java.util.Objects;
 
 /**
  * 
@@ -99,51 +101,62 @@ public class MIMLClassifierToMI extends MIMLClassifier {
 	 * @see
 	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void configure(Configuration configuration) {
-
+		// Get the transformation classifier method
+		String transformName = configuration.getString("transformMethod[@name]");
+		// Instantiate the transformation classifier class used in the experiment
+		Class<? extends MultiLabelLearner> clsClass = null;
 		try {
-
-			// Get the transformation classifier method
-			String transformName = configuration.getString("transformMethod[@name]");
-			// Instantiate the transformation classifier class used in the experiment
-			Class<? extends MultiLabelLearner> clsClass = (Class<? extends MultiLabelLearner>) Class
-					.forName(transformName);
-
-			// Get the name of the MI base classifier class
-			String baseName = configuration.getString("multiInstanceClassifier[@name]");
-			// Instance class
-			Class<? extends Classifier> baseClassifier = (Class<? extends Classifier>) Class.forName(baseName);
-			// Check if options is setted
-			String optionsAux = configuration.subset("multiInstanceClassifier").getString("listOptions");
-
-			if (optionsAux != null) {
-				String[] options = optionsAux.split(" ");
-
-				Classifier classifier = baseClassifier.newInstance();
-
-				((AbstractClassifier) classifier).setOptions(options);
-
-				transformationClassifier = clsClass.getConstructor(Classifier.class).newInstance(classifier);
-			} else {
-				transformationClassifier = clsClass.getConstructor(Classifier.class)
-						.newInstance(baseClassifier.newInstance());
-			}
-
-			if (!(transformationClassifier instanceof TransformationBasedMultiLabelLearner)) {
-				throw new Exception(
-						"Transformation method must be a instance of TransformationBasedMultiLabelLearner class");
-			}
-			
-			ConfigParameters.setClassifierName(baseName);
-			ConfigParameters.setTransformMethod(transformName);
-			ConfigParameters.setIsDegenerative(true);
-
-		} catch (Exception e) {
+			clsClass = Class.forName(transformName).asSubclass(MultiLabelLearner.class);
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			System.exit(1);
 		}
 
+		// Get the name of the MI base classifier class
+		String baseName = configuration.getString("multiInstanceClassifier[@name]");
+		// Instance class
+		Class<? extends Classifier> baseClassifier = null;
+		try {
+			baseClassifier = Class.forName(baseName).asSubclass(Classifier.class);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		// Check if options is setted
+		String strOptions = configuration.subset("multiInstanceClassifier").getString("listOptions");
+		if (strOptions != null) {
+			try {
+				Classifier classifier = Objects.requireNonNull(baseClassifier).getConstructor().newInstance();
+				((AbstractClassifier) classifier).setOptions(Utils.splitOptions(strOptions));
+				transformationClassifier = Objects.requireNonNull(clsClass).getConstructor(Classifier.class)
+						.newInstance(classifier);
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.exit(1);
+			}
+		} else {
+			try {
+				transformationClassifier = Objects.requireNonNull(clsClass).getConstructor(Classifier.class)
+						.newInstance(Objects.requireNonNull(baseClassifier).getConstructor().newInstance());
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.exit(1);
+			}
+		}
+
+		if (!(transformationClassifier instanceof TransformationBasedMultiLabelLearner)) {
+			try {
+				throw new Exception(
+						"Transformation method must be a instance of TransformationBasedMultiLabelLearner class");
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.exit(1);
+			}
+		}
+
+		ConfigParameters.setClassifierName(baseName);
+		ConfigParameters.setTransformMethod(transformName);
+		ConfigParameters.setIsDegenerative(true);
 	}
 }
