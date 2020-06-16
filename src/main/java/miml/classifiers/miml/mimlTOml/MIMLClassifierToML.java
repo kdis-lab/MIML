@@ -26,6 +26,7 @@ import mulan.data.MultiLabelInstances;
 import org.apache.commons.configuration2.Configuration;
 import weka.core.Instance;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -124,72 +125,11 @@ public class MIMLClassifierToML extends MIMLClassifier {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		Configuration subConfiguration = configuration.subset("multiLabelClassifier"); // getProperty("multiLable")
-		// Parameters length
-		int parameterLength = subConfiguration.getList("parameters.classParameters").size();
 
-		// Obtaining las clasess
-		Class<?>[] cArg = new Class[parameterLength];
-		Object[] obj = new Object[parameterLength];
-
-		String parameter;
-
-		for (int i = 0; i < parameterLength; i++) {
-
-			parameter = configuration.getString("multiLabelClassifier.parameters.classParameters(" + i + ")");
-
-			if (parameter.equals("int.class")) {
-				cArg[i] = int.class;
-				obj[i] = configuration.getInt("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-			} else if (parameter.equals("double.class")) {
-				cArg[i] = double.class;
-				obj[i] = configuration.getDouble("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-			} else if (parameter.equals("char.class")) {
-				cArg[i] = char.class;
-				obj[i] = configuration.getInt("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-			} else if (parameter.equals("byte.class")) {
-				cArg[i] = byte.class;
-				obj[i] = configuration.getByte("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-			} else if (parameter.equals("boolean.class")) {
-				cArg[i] = boolean.class;
-				obj[i] = configuration.getBoolean("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-			} else if (parameter.equals("String.class")) {
-				cArg[i] = String.class;
-				obj[i] = configuration.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-			} else if (parameter.equals("short.class")) {
-				cArg[i] = short.class;
-				obj[i] = configuration.getBoolean("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-			} else if (parameter.equals("long.class")) {
-				cArg[i] = long.class;
-				obj[i] = configuration.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-			} else {
-				try {
-					cArg[i] = Class.forName(parameter);
-					if (cArg[i].isEnum()) {
-						obj[i] = Enum.valueOf(cArg[i].asSubclass(Enum.class), configuration.
-								getString("multiLabelClassifier.parameters.valueParameters(" + i + ")"));
-					} else {
-						obj[i] = Class.forName(configuration
-								.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")"))
-								.getConstructor().newInstance();
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-					System.exit(1);
-				}
-			}
-		}
+		Params params = readParams(configuration.subset("multiLabelClassifier"));
 
 		try {
-			this.baseClassifier = Objects.requireNonNull(classifierClass).getConstructor(cArg).newInstance(obj);
+			this.baseClassifier = Objects.requireNonNull(classifierClass).getConstructor(params.classes).newInstance(params.objects);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
@@ -215,5 +155,88 @@ public class MIMLClassifierToML extends MIMLClassifier {
 		ConfigParameters.setClassifierName(classifierName);
 		ConfigParameters.setTransformMethod(transformerName);
 		ConfigParameters.setIsDegenerative(true);
+	}
+
+	private Params readParams(Configuration configuration) {
+		int nParams = configuration.getList("parameters.parameter[@class]").size();
+		Class<?>[] classes = new Class[nParams];
+		Object[] objects = new Object[nParams];
+
+		for (int i = 0; i < nParams; i++) {
+			Params subparams = null;
+			if (configuration.getList("parameters.parameter(" + i + ").parameters.parameter[@class]",
+					new ArrayList<>()).size() > 0)
+				subparams = readParams(configuration.subset("parameters.parameter(" + i + ")"));
+
+			String className = configuration.getString("parameters.parameter(" + i + ")[@class]");
+
+			switch (className) {
+				case "int.class":
+					classes[i] = int.class;
+					objects[i] = configuration.getInt("parameters.parameter(" + i + ")[@value]");
+					break;
+				case "double.class":
+					classes[i] = double.class;
+					objects[i] = configuration.getDouble("parameters.parameter(" + i + ")[@value]");
+					break;
+				case "char.class":
+					classes[i] = char.class;
+					objects[i] = configuration.getInt("parameters.parameter(" + i + ")[@value]");
+					break;
+				case "byte.class":
+					classes[i] = byte.class;
+					objects[i] = configuration.getByte("parameters.parameter(" + i + ")[@value]");
+					break;
+				case "boolean.class":
+					classes[i] = boolean.class;
+					objects[i] = configuration.getBoolean("parameters.parameter(" + i + ")[@value]");
+					break;
+				case "String.class":
+					classes[i] = String.class;
+					objects[i] = configuration.getString("parameters.parameter(" + i + ")[@value]");
+					break;
+				case "short.class":
+					classes[i] = short.class;
+					objects[i] = configuration.getShort("parameters.parameter(" + i + ")[@value]");
+					break;
+				case "long.class":
+					classes[i] = long.class;
+					objects[i] = configuration.getLong("parameters.parameter(" + i + ")[@value]");
+					break;
+				default:
+					try {
+						classes[i] = Class.forName(className);
+						if (classes[i].isEnum()) {
+							objects[i] = Enum.valueOf(classes[i].asSubclass(Enum.class), configuration.
+									getString("parameters.parameter(" + i + ")[@value]"));
+						} else {
+							if (subparams == null) {
+								objects[i] = Class.forName(configuration
+										.getString("parameters.parameter(" + i + ")[@value]"))
+										.getConstructor().newInstance();
+							} else {
+								objects[i] = Class.forName(configuration
+										.getString("parameters.parameter(" + i + ")[@value]"))
+										.getConstructor(subparams.classes).newInstance(subparams.objects);
+							}
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+						System.exit(1);
+					}
+					break;
+			}
+		}
+		return new Params(classes, objects);
+	}
+
+	private static class Params {
+		private final Class<?>[] classes;
+		private final Object[] objects;
+
+		public Params(Class<?>[] classes, Object[] objects) {
+			this.classes = classes;
+			this.objects = objects;
+		}
 	}
 }
