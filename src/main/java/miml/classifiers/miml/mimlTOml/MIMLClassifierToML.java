@@ -15,8 +15,6 @@
 
 package miml.classifiers.miml.mimlTOml;
 
-import org.apache.commons.configuration2.Configuration;
-
 import miml.classifiers.miml.MIMLClassifier;
 import miml.core.ConfigParameters;
 import miml.data.MIMLBag;
@@ -26,7 +24,10 @@ import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelLearner;
 import mulan.classifier.MultiLabelOutput;
 import mulan.data.MultiLabelInstances;
+import org.apache.commons.configuration2.Configuration;
 import weka.core.Instance;
+
+import java.util.Objects;
 
 /**
  * 
@@ -107,91 +108,109 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	 * @see
 	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
 	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public void configure(Configuration configuration) {
+		// Get the string with the base classifier class
+		String classifierName = configuration.getString("multiLabelClassifier[@name]");
+		// Instance class
+		Class<? extends MultiLabelLearner> classifierClass = null;
+		try {
+			classifierClass = Class.forName(classifierName).asSubclass(MultiLabelLearner.class);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+		Configuration subConfiguration = configuration.subset("multiLabelClassifier"); // getProperty("multiLable")
+		// Parameters length
+		int parameterLength = subConfiguration.getList("parameters.classParameters").size();
+
+		// Obtaining las clasess
+		Class<?>[] cArg = new Class[parameterLength];
+		Object[] obj = new Object[parameterLength];
+
+		String parameter;
+
+		for (int i = 0; i < parameterLength; i++) {
+
+			parameter = configuration.getString("multiLabelClassifier.parameters.classParameters(" + i + ")");
+
+			if (parameter.equals("int.class")) {
+				cArg[i] = int.class;
+				obj[i] = configuration.getInt("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+			} else if (parameter.equals("double.class")) {
+				cArg[i] = double.class;
+				obj[i] = configuration.getDouble("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+			} else if (parameter.equals("char.class")) {
+				cArg[i] = char.class;
+				obj[i] = configuration.getInt("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+			} else if (parameter.equals("byte.class")) {
+				cArg[i] = byte.class;
+				obj[i] = configuration.getByte("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+			} else if (parameter.equals("boolean.class")) {
+				cArg[i] = boolean.class;
+				obj[i] = configuration.getBoolean("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+			} else if (parameter.equals("String.class")) {
+				cArg[i] = String.class;
+				obj[i] = configuration.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+			} else if (parameter.equals("short.class")) {
+				cArg[i] = short.class;
+				obj[i] = configuration.getBoolean("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+			} else if (parameter.equals("long.class")) {
+				cArg[i] = long.class;
+				obj[i] = configuration.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")");
+
+			} else {
+				try {
+					cArg[i] = Class.forName(parameter);
+					if (cArg[i].isEnum()) {
+						obj[i] = Enum.valueOf(cArg[i].asSubclass(Enum.class), configuration.
+								getString("multiLabelClassifier.parameters.valueParameters(" + i + ")"));
+					} else {
+						obj[i] = Class.forName(configuration
+								.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")"))
+								.getConstructor().newInstance();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.exit(1);
+				}
+			}
+		}
 
 		try {
-			// Get the string with the base classifier class
-			String classifierName = configuration.getString("multiLabelClassifier[@name]");
-			// Instance class
-			Class<? extends MultiLabelLearner> classifierClass = (Class<? extends MultiLabelLearner>) Class
-					.forName(classifierName);
-			Configuration subConfiguration = configuration.subset("multiLabelClassifier"); // getProperty("multiLable")
-			// Parameters length
-			int parameterLength = subConfiguration.getList("parameters.classParameters").size();
-
-			// Obtaining las clasess
-			Class[] cArg = new Class[parameterLength];
-			Object[] obj = new Object[parameterLength];
-
-			String parameter;
-
-			for (int i = 0; i < parameterLength; i++) {
-
-				parameter = configuration.getString("multiLabelClassifier.parameters.classParameters(" + i + ")");
-
-				if (parameter.equals("int.class")) {
-					cArg[i] = int.class;
-					obj[i] = configuration.getInt("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-				} else if (parameter.equals("double.class")) {
-					cArg[i] = double.class;
-					obj[i] = configuration.getDouble("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-				} else if (parameter.equals("char.class")) {
-					cArg[i] = char.class;
-					obj[i] = configuration.getInt("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-				} else if (parameter.equals("byte.class")) {
-					cArg[i] = byte.class;
-					obj[i] = configuration.getByte("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-				} else if (parameter.equals("boolean.class")) {
-					cArg[i] = boolean.class;
-					obj[i] = configuration.getBoolean("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-				} else if (parameter.equals("String.class")) {
-					cArg[i] = String.class;
-					obj[i] = configuration.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-				} else if (parameter.equals("short.class")) {
-					cArg[i] = short.class;
-					obj[i] = configuration.getBoolean("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-				} else if (parameter.equals("long.class")) {
-					cArg[i] = long.class;
-					obj[i] = configuration.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")");
-
-				}
-				// Here you can add the rest of types (short, long, ...)
-				else {
-					cArg[i] = Class.forName(parameter);
-					obj[i] = Class
-							.forName(configuration
-									.getString("multiLabelClassifier.parameters.valueParameters(" + i + ")"))
-							.newInstance();
-				}
-
-			}
-			
-			this.baseClassifier = (MultiLabelLearner) classifierClass.getConstructor(cArg).newInstance(obj);
-
-			// Get the string with the base classifier class
-			String transformerName = configuration.getString("transformMethod[@name]");
-			// Instance class
-			Class<? extends MIMLtoML> transformerClass = (Class<? extends MIMLtoML>) Class.forName(transformerName);
-			this.transformMethod = transformerClass.newInstance();
-			
-			ConfigParameters.setClassifierName(classifierName);
-			ConfigParameters.setTransformMethod(transformerName);
-			ConfigParameters.setIsDegenerative(true);
-
+			this.baseClassifier = Objects.requireNonNull(classifierClass).getConstructor(cArg).newInstance(obj);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
 
+		// Get the string with the base classifier class
+		String transformerName = configuration.getString("transformMethod[@name]");
+		// Instance class
+		Class<? extends MIMLtoML> transformerClass = null;
+		try {
+			transformerClass = Class.forName(transformerName).asSubclass(MIMLtoML.class);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+		try {
+			this.transformMethod = Objects.requireNonNull(transformerClass).getConstructor().newInstance();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+
+		ConfigParameters.setClassifierName(classifierName);
+		ConfigParameters.setTransformMethod(transformerName);
+		ConfigParameters.setIsDegenerative(true);
 	}
 	
 	
