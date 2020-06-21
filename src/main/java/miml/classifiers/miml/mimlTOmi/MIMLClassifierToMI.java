@@ -148,7 +148,7 @@ public class MIMLClassifierToMI extends MIMLClassifier {
 		if (!(transformationClassifier instanceof TransformationBasedMultiLabelLearner)) {
 			try {
 				throw new Exception(
-						"Transformation method must be a instance of TransformationBasedMultiLabelLearner class");
+						"Transformation method must be an instance of TransformationBasedMultiLabelLearner class");
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.exit(1);

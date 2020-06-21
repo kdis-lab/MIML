@@ -51,10 +51,10 @@ public class MIMLkNN extends MIMLClassifier {
 	private static final long serialVersionUID = 1L;
 
 	/** Number of citers. */
-	protected int num_citers = 1;
+	protected int nCiters = 1;
 
 	/** Number of references. */
-	protected int num_references = 1;
+	protected int nReferences = 1;
 
 	/** Metric for measure the distance between bags. */
 	protected IDistance metric;
@@ -63,34 +63,34 @@ public class MIMLkNN extends MIMLClassifier {
 	protected MIMLInstances dataset;
 
 	/** Dataset size (number of bags). */
-	int d_size;
+	int dSize;
 
 	/** Distance matrix between dataset's instances. */
-	protected double[][] distance_matrix;
+	protected double[][] distanceMatrix;
 
 	/** Instances' references matrix. */
-	protected int[][] ref_matrix;
+	protected int[][] refMatrix;
 
 	/** Weights matrix. */
-	protected double[][] weights_matrix;
+	protected double[][] weightsMatrix;
 
 	/** The t matrix. */
-	protected double[][] t_matrix;
+	protected double[][] tMatrix;
 
 	/** The phi matrix. */
-	protected double[][] phi_matrix;
+	protected double[][] phiMatrix;
 
 	/**
 	 * Basic constructor to initialize the classifier.
 	 *
-	 * @param num_references The number of references considered by the algorithm.
-	 * @param num_citers     The number of citers considered by the algorithm.
+	 * @param nReferences The number of references considered by the algorithm.
+	 * @param nCiters     The number of citers considered by the algorithm.
 	 * @param metric         The metric used by the algorithm to measure the
 	 *                       distance.
 	 */
-	public MIMLkNN(int num_references, int num_citers, IDistance metric) {
-		this.num_citers = num_citers;
-		this.num_references = num_references;
+	public MIMLkNN(int nReferences, int nCiters, IDistance metric) {
+		this.nCiters = nCiters;
+		this.nReferences = nReferences;
 		this.metric = metric;
 	}
 
@@ -119,27 +119,27 @@ public class MIMLkNN extends MIMLClassifier {
 		}
 
 		this.dataset = trainingSet;
-		d_size = trainingSet.getNumBags();
+		dSize = trainingSet.getNumBags();
 
-		// Change num_references if its necessary
-		if (d_size <= num_references)
-			num_references = d_size - 1;
+		// Change nReferences if its necessary
+		if (dSize <= nReferences)
+			nReferences = dSize - 1;
 
 		// Initialize matrices
-		t_matrix = new double[d_size][numLabels];
-		phi_matrix = new double[d_size][numLabels];
+		tMatrix = new double[dSize][numLabels];
+		phiMatrix = new double[dSize][numLabels];
 
 		calculateDatasetDistances();
 		calculateReferenceMatrix();
 
-		for (int i = 0; i < d_size; ++i) {
+		for (int i = 0; i < dSize; ++i) {
 			Integer[] neighbors = getUnionNeighbors(i);
 			// Update matrices
-			phi_matrix[i] = calculateRecordLabel(neighbors).clone();
-			t_matrix[i] = getBagLabels(i).clone();
+			phiMatrix[i] = calculateRecordLabel(neighbors).clone();
+			tMatrix[i] = getBagLabels(i).clone();
 		}
 
-		weights_matrix = getWeightsMatrix();
+		weightsMatrix = getWeightsMatrix();
 
 	}
 
@@ -151,25 +151,25 @@ public class MIMLkNN extends MIMLClassifier {
 	protected MultiLabelOutput makePredictionInternal(MIMLBag instance) throws Exception, InvalidDataException {
 
 		// Create a new distances matrix
-		double[][] distanceMatrixCopy = distance_matrix.clone();
-		distance_matrix = new double[d_size + 1][d_size + 1];
+		double[][] distanceMatrixCopy = distanceMatrix.clone();
+		distanceMatrix = new double[dSize + 1][dSize + 1];
 
-		for (int i = 0; i < d_size; ++i) {
+		for (int i = 0; i < dSize; ++i) {
 			// Fill distance matrix with previous values
-			System.arraycopy(distanceMatrixCopy[i], 0, distance_matrix[i], 0, d_size);
+			System.arraycopy(distanceMatrixCopy[i], 0, distanceMatrix[i], 0, dSize);
 			// Update distance matrix with the new bag's distances
 			double distance = metric.distance(instance, dataset.getBag(i));
-			distance_matrix[i][d_size] = distance;
-			distance_matrix[d_size][i] = distance;
+			distanceMatrix[i][dSize] = distance;
+			distanceMatrix[dSize][i] = distance;
 		}
 
-		// Update d_size to calculate references matrix
-		d_size++;
+		// Update dSize to calculate references matrix
+		dSize++;
 		calculateReferenceMatrix();
-		// Restore d_size value
-		d_size--;
+		// Restore dSize value
+		dSize--;
 
-		Integer[] neighbors = getUnionNeighbors(d_size);
+		Integer[] neighbors = getUnionNeighbors(dSize);
 		double[] recordLabel = calculateRecordLabel(neighbors);
 
 		double[] confidences = new double[numLabels];
@@ -181,7 +181,7 @@ public class MIMLkNN extends MIMLClassifier {
 
 			// Get column of weights
 			for (int j = 0; j < numLabels; ++j)
-				column[j] = weights_matrix[j][i];
+				column[j] = weightsMatrix[j][i];
 
 			boolean decision = linearClassifier(column, recordLabel);
 			predictions[i] = decision;
@@ -190,7 +190,7 @@ public class MIMLkNN extends MIMLClassifier {
 
 		MultiLabelOutput finalDecision = new MultiLabelOutput(predictions, confidences);
 		// Restore original distance matrix
-		distance_matrix = distanceMatrixCopy.clone();
+		distanceMatrix = distanceMatrixCopy.clone();
 
 		return finalDecision;
 	}
@@ -202,17 +202,17 @@ public class MIMLkNN extends MIMLClassifier {
 	 */
 	protected void calculateDatasetDistances() throws Exception {
 
-		distance_matrix = new double[d_size][d_size];
+		distanceMatrix = new double[dSize][dSize];
 		double distance;
 
-		for (int i = 0; i < d_size; ++i) {
+		for (int i = 0; i < dSize; ++i) {
 
 			MIMLBag first = dataset.getBag(i);
-			for (int j = i; j < d_size; ++j) {
+			for (int j = i; j < dSize; ++j) {
 				MIMLBag second = dataset.getBag(j);
 				distance = metric.distance(first, second);
-				distance_matrix[i][j] = distance;
-				distance_matrix[j][i] = distance;
+				distanceMatrix[i][j] = distance;
+				distanceMatrix[j][i] = distance;
 			}
 		}
 	}
@@ -224,14 +224,14 @@ public class MIMLkNN extends MIMLClassifier {
 	 */
 	protected void calculateReferenceMatrix() throws Exception {
 
-		ref_matrix = new int[d_size][d_size];
+		refMatrix = new int[dSize][dSize];
 
-		for (int i = 0; i < d_size; ++i) {
+		for (int i = 0; i < dSize; ++i) {
 
 			int[] references = calculateBagReferences(i);
 
 			for (int j = 0; j < references.length; ++j)
-				ref_matrix[i][references[j]] = 1;
+				refMatrix[i][references[j]] = 1;
 		}
 	}
 
@@ -245,17 +245,17 @@ public class MIMLkNN extends MIMLClassifier {
 	 */
 	protected int[] calculateBagReferences(int indexBag) throws Exception {
 		// Nearest neighbors of the selected bag
-		int[] nearestNeighbors = new int[num_references];
+		int[] nearestNeighbors = new int[nReferences];
 		// Store indices in priority queue, sorted by distance to selected bag
-		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(d_size,
-				(a, b) -> Double.compare(distance_matrix[indexBag][a], distance_matrix[indexBag][b]));
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(dSize,
+				(a, b) -> Double.compare(distanceMatrix[indexBag][a], distanceMatrix[indexBag][b]));
 
-		for (int i = 0; i < d_size; ++i) {
+		for (int i = 0; i < dSize; ++i) {
 			if (i != indexBag)
 				pq.add(i);
 		}
-		// Get the R (num_references) nearest neighbors
-		for (int i = 0; i < num_references; ++i)
+		// Get the R (nReferences) nearest neighbors
+		for (int i = 0; i < nReferences; ++i)
 			nearestNeighbors[i] = pq.poll();
 
 		return nearestNeighbors;
@@ -270,11 +270,11 @@ public class MIMLkNN extends MIMLClassifier {
 	 */
 	protected int[] getReferences(int indexBag) {
 
-		int[] references = new int[num_references];
+		int[] references = new int[nReferences];
 		int idx = 0;
 
-		for (int i = 0; i < d_size; ++i) {
-			if (ref_matrix[indexBag][i] == 1) {
+		for (int i = 0; i < dSize; ++i) {
+			if (refMatrix[indexBag][i] == 1) {
 				references[idx] = i;
 				idx++;
 			}
@@ -292,17 +292,17 @@ public class MIMLkNN extends MIMLClassifier {
 	 */
 	protected int[] getCiters(int indexBag) {
 
-		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(num_references,
-				(a, b) -> Double.compare(distance_matrix[indexBag][a], distance_matrix[indexBag][b]));
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(nReferences,
+				(a, b) -> Double.compare(distanceMatrix[indexBag][a], distanceMatrix[indexBag][b]));
 
-		for (int i = 0; i < d_size; ++i)
-			if (ref_matrix[i][indexBag] == 1)
+		for (int i = 0; i < dSize; ++i)
+			if (refMatrix[i][indexBag] == 1)
 				pq.add(i);
 
-		int citers = (num_citers < pq.size()) ? num_citers : pq.size();
+		int citers = (nCiters < pq.size()) ? nCiters : pq.size();
 		// Nearest citers of the selected bag
 		int[] nearestCiters = new int[citers];
-		// Get the C (num_citers or pq.size()) nearest citers
+		// Get the C (nCiters or pq.size()) nearest citers
 		for (int i = 0; i < citers; ++i)
 			nearestCiters[i] = pq.poll();
 
@@ -381,8 +381,8 @@ public class MIMLkNN extends MIMLClassifier {
 	 */
 	protected double[][] getWeightsMatrix() {
 
-		Matrix tMatrix = new Matrix(t_matrix);
-		Matrix phiMatrix = new Matrix(phi_matrix);
+		Matrix tMatrix = new Matrix(this.tMatrix);
+		Matrix phiMatrix = new Matrix(this.phiMatrix);
 		Matrix phiMatrixT = phiMatrix.transpose();
 
 		Matrix A = phiMatrixT.times(phiMatrix);
@@ -441,7 +441,7 @@ public class MIMLkNN extends MIMLClassifier {
 	 * @return The num citers.
 	 */
 	public int getNumCiters() {
-		return num_citers;
+		return nCiters;
 	}
 
 	/**
@@ -451,7 +451,7 @@ public class MIMLkNN extends MIMLClassifier {
 	 * @param numCiters The new num citers.
 	 */
 	public void setNumCiters(int numCiters) {
-		this.num_citers = numCiters;
+		this.nCiters = numCiters;
 	}
 
 	/**
@@ -461,7 +461,7 @@ public class MIMLkNN extends MIMLClassifier {
 	 * @return The num references.
 	 */
 	public int getNumReferences() {
-		return num_references;
+		return nReferences;
 	}
 
 	/**
@@ -471,7 +471,7 @@ public class MIMLkNN extends MIMLClassifier {
 	 * @param numReferences The new num references.
 	 */
 	public void setNumReferences(int numReferences) {
-		this.num_references = numReferences;
+		this.nReferences = numReferences;
 	}
 
 	/*
@@ -484,8 +484,8 @@ public class MIMLkNN extends MIMLClassifier {
 	@Override
 	public void configure(Configuration configuration) {
 
-		this.num_references = configuration.getInt("nReferences", 1);
-		this.num_citers = configuration.getInt("nCiters", 1);
+		this.nReferences = configuration.getInt("nReferences", 1);
+		this.nCiters = configuration.getInt("nCiters", 1);
 
 		try {
 			// Get the name of the metric class
