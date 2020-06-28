@@ -153,14 +153,14 @@ public class MIMLStatistics {
 	}
 
 	/**
-	 * This method calculates a matrix with the coocurrences of pairs of labels. It
+	 * This method calculates a matrix with the cooncurrences of pairs of labels. It
 	 * requires the method calculateStats to be previously called.
 	 *
 	 * @param mlDataSet A multi-label dataset.
-	 * @return A coocurrences matrix of pairs of labels.
+	 * @return A cooncurrences matrix of pairs of labels.
 	 */
-	public double[][] calculateCoocurrence(MIMLInstances mlDataSet) {
-		return mlstatistics.calculateCoocurrence(mlDataSet.getMLDataSet());
+	public double[][] calculateCooncurrence(MIMLInstances mlDataSet) {
+		return mlstatistics.calculateCooncurrence(mlDataSet.getMLDataSet());
 	}
 
 	/**
@@ -387,24 +387,24 @@ public class MIMLStatistics {
 
 	/**
 	 * Returns cooCurrenceMatrix in textual representation. It requires the method
-	 * calculateCoocurrence to be previously called.
+	 * calculateCooncurrence to be previously called.
 	 * 
 	 * @return CooCurrenceMatrix in textual representation.
 	 */
-	public String coocurrenceToString() {
+	public String cooncurrenceToString() {
 
-		return mlstatistics.coocurrenceToString();
+		return mlstatistics.cooncurrenceToString();
 	}
 
 	/**
 	 * Returns cooCurrenceMatrix in CSV representation. It requires the method
-	 * calculateCoocurrence to be previously called.
+	 * calculateCooncurrence to be previously called.
 	 * 
 	 * @return CooCurrenceMatrix in CSV representation.
 	 */
-	public String coocurrenceToCSV() {
+	public String cooncurrenceToCSV() {
 
-		return mlstatistics.coocurrenceToCSV();
+		return mlstatistics.cooncurrenceToCSV();
 	}
 
 	/**
@@ -433,42 +433,6 @@ public class MIMLStatistics {
 	}
 
 	/**
-	 * Returns the average number of instances per bag.
-	 * 
-	 * @return Instances per bag.
-	 */
-	public double getAvgInstancesPerBag() {
-		return milstatistics.getAvgInstancesPerBag();
-	}
-
-	/**
-	 * Returns the number of attributes per bag.
-	 * 
-	 * @return Attributes per bag.
-	 */
-	public int getAttributesPerBag() {
-		return milstatistics.getAttributesPerBag();
-	}
-
-	/**
-	 * Returns the number of bags.
-	 * 
-	 * @return Number of bags.
-	 */
-	public int getnumBags() {
-		return milstatistics.getnumBags();
-	}
-
-	/**
-	 * Returns the distribution of number of instances per bags.
-	 * 
-	 * @return distributionBags.
-	 */
-	public HashMap<Integer, Integer> getDistributionBags() {
-		return milstatistics.getDistributionBags();
-	}
-
-	/**
 	 * Returns distributionBags in textual representation.
 	 * 
 	 * @return String with bags distribution.
@@ -486,33 +450,6 @@ public class MIMLStatistics {
 	protected String distributionBagsToCSV() {
 
 		return (milstatistics.distributionBagsToCSV());
-	}
-
-	/**
-	 * Returns the minimum number of instances per bag.
-	 * 
-	 * @return minInstancesPerBag.
-	 */
-	public int getMinInstancesPerBag() {
-		return milstatistics.getMinInstancesPerBag();
-	}
-
-	/**
-	 * Returns the maximum number of instances per bag.
-	 * 
-	 * @return maxInstancesPerBag.
-	 */
-	public int getMaxInstancesPerBag() {
-		return milstatistics.getMaxInstancesPerBag();
-	}
-
-	/**
-	 * Returns the total number of instances.
-	 * 
-	 * @return totalInstances.
-	 */
-	public int getTotalInstances() {
-		return milstatistics.getTotalInstances();
 	}
 
 	/**

@@ -185,8 +185,8 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 
 		String arffFileTrain = configuration.subset("data").getString("trainFile");
 		String xmlFileName = configuration.subset("data").getString("xmlFile");
-
 		String arffFileTest = configuration.subset("data").getString("testFile");
+		seed = configuration.getInt("seed", 1);
 
 		try {
 

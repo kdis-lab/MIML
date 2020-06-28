@@ -104,7 +104,7 @@ public class MIMLClassifierToMI extends MIMLClassifier {
 	@Override
 	public void configure(Configuration configuration) {
 		// Get the transformation classifier method
-		String transformName = configuration.getString("transformMethod[@name]");
+		String transformName = configuration.getString("transformationMethod[@name]");
 		// Instantiate the transformation classifier class used in the experiment
 		Class<? extends MultiLabelLearner> clsClass = null;
 		try {
@@ -156,7 +156,7 @@ public class MIMLClassifierToMI extends MIMLClassifier {
 		}
 
 		ConfigParameters.setClassifierName(baseName);
-		ConfigParameters.setTransformMethod(transformName);
+		ConfigParameters.setTransformationMethod(transformName);
 		ConfigParameters.setIsDegenerative(true);
 	}
 }

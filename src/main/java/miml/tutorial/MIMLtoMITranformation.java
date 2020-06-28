@@ -18,13 +18,14 @@ import java.io.File;
 
 import miml.data.MIMLInstances;
 import miml.data.MLSave;
+import miml.transformation.mimlTOmi.BRTransformation;
 import miml.transformation.mimlTOmi.LPTransformation;
 import weka.core.Instances;
 import weka.core.Utils;
 
 /**
  * 
- * Class for basic handling of MIML to MIL LP transformation.
+ * Class for basic handling of MIML to MIL LP and BR transformation.
  * 
  * @author Ana I. Reyes Melero
  * @author Eva Gibaja
@@ -32,7 +33,7 @@ import weka.core.Utils;
  * @version 20170507
  *
  */
-public class MIMLtoMILTranformation {
+public class MIMLtoMITranformation {
 	/** Shows the help on command line. */
 	public static void showUse() {
 		System.out.println("Program parameters:");
@@ -69,9 +70,21 @@ public class MIMLtoMILTranformation {
 		System.out.println("Loading the dataset....");
 
 		MIMLInstances mimlDataSet = new MIMLInstances(arffFileName, xmlFileName);
+
+		System.out.println("===================Label Powerset=====================");
 		LPTransformation lp = new LPTransformation();
-		Instances transform = lp.transformBags(mimlDataSet);
-		MLSave.saveArff(transform, arffFileResult);
+		Instances transformed = lp.transformBags(mimlDataSet);
+		MLSave.saveArff(transformed, arffFileResult);
+
+		System.out.println("===================Binary Relevance=====================");
+		BRTransformation br = new BRTransformation(mimlDataSet);
+		for (int i = 0; i < mimlDataSet.getNumLabels(); i++) {
+			transformed = br.transformBags(i);
+			MLSave.saveArff(transformed, i + arffFileResult);
+		}
+
+		// Saves arff file
+		MLSave.saveXml(mimlDataSet, xmlFileName);
 
 		System.out.println("The program has finished.");
 	}

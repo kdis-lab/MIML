@@ -91,42 +91,6 @@ public class MIStatistics {
 	}
 
 	/**
-	 * Returns the average number of instances per bag.
-	 * 
-	 * @return Average number of instances per bag.
-	 */
-	public double getAvgInstancesPerBag() {
-		return avgInstancesPerBag;
-	}
-
-	/**
-	 * Returns the number of attributes per bag.
-	 * 
-	 * @return Number of attributes per bag.
-	 */
-	public int getAttributesPerBag() {
-		return attributesPerBag;
-	}
-
-	/**
-	 * Returns the number of bags.
-	 * 
-	 * @return Number of bags.
-	 */
-	public int getnumBags() {
-		return numBags;
-	}
-
-	/**
-	 * Returns the distribution of number of instances per bags.
-	 * 
-	 * @return Distribution of number of instances per bags.
-	 */
-	public HashMap<Integer, Integer> getDistributionBags() {
-		return distributionBags;
-	}
-
-	/**
 	 * Returns distributionBags in textual representation.
 	 * 
 	 * @return DistributionBags in textual representation.
@@ -193,30 +157,4 @@ public class MIStatistics {
 		return (sb.toString());
 	}
 
-	/**
-	 * Returns the minimum number of instances per bag.
-	 * 
-	 * @return Minimum number of instances per bag.
-	 */
-	public int getMinInstancesPerBag() {
-		return minInstancesPerBag;
-	}
-
-	/**
-	 * Returns the maximum number of instances per bag.
-	 * 
-	 * @return Maximum number of instances per bag.
-	 */
-	public int getMaxInstancesPerBag() {
-		return maxInstancesPerBag;
-	}
-
-	/**
-	 * Returns the total number of instances.
-	 * 
-	 * @return Total number of instances.
-	 */
-	public int getTotalInstances() {
-		return totalInstances;
-	}
 }

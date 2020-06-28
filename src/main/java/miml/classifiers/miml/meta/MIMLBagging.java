@@ -68,7 +68,7 @@ public class MIMLBagging extends MIMLClassifier {
 	int samplePercentage = 100;
 
 	/**
-	 * Number of classifies in the ensemble.
+	 * Number of classifiers in the ensemble.
 	 */
 	protected int numClassifiers = 5;
 

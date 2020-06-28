@@ -60,7 +60,7 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	/**
 	 * The transform method.
 	 */
-	protected MIMLtoML transformMethod;
+	protected MIMLtoML transformationMethod;
 
 	/**
 	 * The miml dataset.
@@ -71,14 +71,14 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	 * Basic constructor to initialize the classifier.
 	 *
 	 * @param baseClassifier  The base classification algorithm.
-	 * @param transformMethod Algorithm used as transformation method from MIML to
+	 * @param transformationMethod Algorithm used as transformation method from MIML to
 	 *                        ML.
 	 * @throws Exception To be handled in an upper level.
 	 */
-	public MIMLClassifierToML(MultiLabelLearner baseClassifier, MIMLtoML transformMethod) throws Exception {
+	public MIMLClassifierToML(MultiLabelLearner baseClassifier, MIMLtoML transformationMethod) throws Exception {
 		super();
 		this.baseClassifier = baseClassifier;
-		this.transformMethod = transformMethod;
+		this.transformationMethod = transformationMethod;
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	@Override
 	public void buildInternal(MIMLInstances mimlDataSet) throws Exception {
 		// Transforms a dataset
-		MultiLabelInstances mlDataSet = transformMethod.transformDataset(mimlDataSet);
+		MultiLabelInstances mlDataSet = transformationMethod.transformDataset(mimlDataSet);
 		baseClassifier.build(mlDataSet);
 	}
 
@@ -106,7 +106,7 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	 */
 	@Override
 	protected MultiLabelOutput makePredictionInternal(MIMLBag bag) throws Exception {
-		Instance instance = transformMethod.transformInstance(bag);
+		Instance instance = transformationMethod.transformInstance(bag);
 		return baseClassifier.makePrediction(instance);
 	}
 
@@ -140,7 +140,7 @@ public class MIMLClassifierToML extends MIMLClassifier {
 		}
 
 		// Get the string with the base classifier class
-		String transformerName = configuration.getString("transformMethod[@name]");
+		String transformerName = configuration.getString("transformationMethod[@name]");
 		// Instance class
 		Class<? extends MIMLtoML> transformerClass = null;
 		try {
@@ -150,14 +150,14 @@ public class MIMLClassifierToML extends MIMLClassifier {
 			System.exit(1);
 		}
 		try {
-			this.transformMethod = Objects.requireNonNull(transformerClass).getConstructor().newInstance();
+			this.transformationMethod = Objects.requireNonNull(transformerClass).getConstructor().newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
 
 		ConfigParameters.setClassifierName(classifierName);
-		ConfigParameters.setTransformMethod(transformerName);
+		ConfigParameters.setTransformationMethod(transformerName);
 		ConfigParameters.setIsDegenerative(true);
 	}
 

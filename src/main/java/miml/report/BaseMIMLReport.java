@@ -16,6 +16,7 @@
 package miml.report;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.configuration2.Configuration;
@@ -143,7 +144,7 @@ public class BaseMIMLReport extends MIMLReport {
 		if (ConfigParameters.getIsDegenerative()) {
 			// Write header
 			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getClassifierName() + ","
-					+ ConfigParameters.getTransformMethod() + "," + ConfigParameters.getDataFileName() + ","
+					+ ConfigParameters.getTransformationMethod() + "," + ConfigParameters.getDataFileName() + ","
 					+ ConfigParameters.getConfigFileName() + "," + evaluator.getAvgTrainTime() + ",");
 		} else {
 			// Write header
@@ -210,6 +211,10 @@ public class BaseMIMLReport extends MIMLReport {
 		StringBuilder sb = new StringBuilder();
 		String measureName;
 
+		if(this.std) {
+			System.out.println("[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible calculate std value");
+		}
+		
 		// All evaluator measures
 		List<Measure> measures = evaluationHoldout.getMeasures();
 		// Measures selected by user
@@ -245,7 +250,7 @@ public class BaseMIMLReport extends MIMLReport {
 		if (ConfigParameters.getIsDegenerative()) {
 			// Write header
 			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getClassifierName() + ","
-					+ ConfigParameters.getTransformMethod() + "," + ConfigParameters.getDataFileName() + ","
+					+ ConfigParameters.getTransformationMethod() + "," + ConfigParameters.getDataFileName() + ","
 					+ ConfigParameters.getConfigFileName() + "," + evaluator.getTrainTime() + ","
 					+ evaluator.getTestTime() + ",");
 		} else {
@@ -298,7 +303,7 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.header) {
 			sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
 			sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
-			sb.append("Transform method: " + ConfigParameters.getTransformMethod()
+			sb.append("Transform method: " + ConfigParameters.getTransformationMethod()
 					+ System.getProperty("line.separator"));
 			sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
 			sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
@@ -362,6 +367,10 @@ public class BaseMIMLReport extends MIMLReport {
 	 */
 	protected String holdoutToString(EvaluatorHoldout evaluator) throws Exception {
 
+		if(this.std) {
+			System.out.println("[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible  to calculate std value");
+		}
+		
 		Evaluation evaluationHoldout = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
 		StringBuilder sb = new StringBuilder();
@@ -375,7 +384,7 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.header) {
 			sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
 			sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
-			sb.append("Transform method: " + ConfigParameters.getTransformMethod()
+			sb.append("Transform method: " + ConfigParameters.getTransformationMethod()
 					+ System.getProperty("line.separator"));
 			sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
 			sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
@@ -439,9 +448,11 @@ public class BaseMIMLReport extends MIMLReport {
 	 */
 	@Override
 	public void configure(Configuration configuration) {
+		
 		this.filename = configuration.getString("fileName");
-		this.std = configuration.getBoolean("standardDeviation", true);
+		this.std = configuration.getBoolean("standardDeviation", false);
 		this.header = configuration.getBoolean("header", true);
+		
 		this.labels = configuration.getBoolean("measures[@perLabel]", true);
 
 		int measuresLength = configuration.getList("measures.measure").size();

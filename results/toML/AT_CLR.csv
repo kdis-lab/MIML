@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToML,mulan.classifier.transformation.CalibratedLabelRanking,miml.transformation.mimlTOml.ArithmeticTransformation,miml_birds_random_80train.arff,MIMLtoML_AT_CLR.config,188,275,0.1860902255639097,0.017857142857142856,0.07097288676236044,0.06823810281144978

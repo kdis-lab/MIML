@@ -1,3 +1,18 @@
+/*    This program is free software; you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation; either version 2 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program; if not, write to the Free Software
+ *    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
+
 package miml.core;
 
 import java.util.ArrayList;
@@ -12,6 +27,17 @@ import weka.filters.Filter;
 import weka.filters.unsupervised.instance.RemovePercentage;
 import weka.filters.unsupervised.instance.Resample;
 
+/**
+ * 
+ * This class has utilies that can be used anywhere in the library.
+ * 
+ * @author Aurora Esteban Toscano
+ * @author Alvaro A. Belmonte
+ * @author Eva Gibaja
+ * @author Amelia Zafra
+ * @version 20200626
+ *
+ */
 public final class Utils {
 
 	/**
@@ -48,6 +74,7 @@ public final class Utils {
 	 *
 	 * @param mimlDataSet     The MIML dataset to be splited.
 	 * @param percentageTrain The percentage (0-100) to be used in train.
+	 * @param seed Seed use to randomize.
 	 * @return A list with the dataset splited.
 	 * @throws Exception To be handled in an upper level.
 	 */

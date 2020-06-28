@@ -39,7 +39,7 @@ public final class ConfigParameters {
 	protected static String classifierName = "";
 	
 	/** The transform method used in the experimentation. */
-	protected static String transformMethod = "";
+	protected static String transformationMethod = "";
 	
 	protected static Boolean isDegenerative = false;
 
@@ -119,17 +119,17 @@ public final class ConfigParameters {
 	 * 
 	 * @return The transform method used in the experiment.
 	 */
-	public static String getTransformMethod() {
-		return transformMethod;
+	public static String getTransformationMethod() {
+		return transformationMethod;
 	}
 
 	/**
 	 * Sets the transform method used in the experiment.
 	 * 
-	 * @param transformMethod The transform method used in the experiment.
+	 * @param transformationMethod The transform method used in the experiment.
 	 */
-	public static void setTransformMethod(String transformMethod) {
-		ConfigParameters.transformMethod = transformMethod;
+	public static void setTransformationMethod(String transformationMethod) {
+		ConfigParameters.transformationMethod = transformationMethod;
 	}
 	
 	/**

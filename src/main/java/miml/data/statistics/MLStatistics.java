@@ -85,8 +85,8 @@ public class MLStatistics {
 	protected int maxCount;
 
 	// features not pre-computed
-	/** Coocurrence matrix. */
-	double coocurrenceMatrix[][];
+	/** Cooncurrence matrix. */
+	double cooncurrenceMatrix[][];
 	/**
 	 * Phi matrix values in [-1,1] where -1 = inverse relation, 0 = no relation, 1 =
 	 * direct relation.
@@ -274,14 +274,14 @@ public class MLStatistics {
 	}
 
 	/**
-	 * This method calculates a matrix with the coocurrences of pairs of labels. It
+	 * This method calculates a matrix with the cooncurrences of pairs of labels. It
 	 * requires the method calculateStats to be previously called.
 	 *
 	 * @param mlDataSet A multi-label dataset.
-	 * @return A coocurrences matrix of pairs of labels.
+	 * @return A cooncurrences matrix of pairs of labels.
 	 */
-	public double[][] calculateCoocurrence(MultiLabelInstances mlDataSet) {
-		coocurrenceMatrix = new double[numLabels][numLabels];
+	public double[][] calculateCooncurrence(MultiLabelInstances mlDataSet) {
+		cooncurrenceMatrix = new double[numLabels][numLabels];
 		int[] labelIndices = mlDataSet.getLabelIndices();
 		for (int k = 0; k < numExamples; k++) {
 			Instance temp = mlDataSet.getDataSet().instance(k);
@@ -289,12 +289,12 @@ public class MLStatistics {
 				for (int j = 0; j < numLabels; j++) {
 					if ((i < j) && (temp.stringValue(labelIndices[i]).equals("1")
 							&& temp.stringValue(labelIndices[j]).equals("1"))) {
-						coocurrenceMatrix[i][j]++;
+						cooncurrenceMatrix[i][j]++;
 					}
 				}
 			}
 		}
-		return coocurrenceMatrix;
+		return cooncurrenceMatrix;
 	}
 
 	/**
@@ -702,16 +702,16 @@ public class MLStatistics {
 
 	/**
 	 * Returns cooCurrenceMatrix in textual representation. It requires the method
-	 * calculateCoocurrence to be previously called.
+	 * calculateCooncurrence to be previously called.
 	 * 
 	 * @return string
 	 */
-	public String coocurrenceToString() {
+	public String cooncurrenceToString() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < numLabels; i++) {
 			sb.append("\n");
 			for (int j = 0; j < numLabels; j++) {
-				sb.append(coocurrenceMatrix[i][j] + "\t");
+				sb.append(cooncurrenceMatrix[i][j] + "\t");
 			}
 		}
 		return sb.toString();
@@ -719,16 +719,16 @@ public class MLStatistics {
 
 	/**
 	 * Returns cooCurrenceMatrix in CSV representation. It requires the method
-	 * calculateCoocurrence to be previously called.
+	 * calculateCooncurrence to be previously called.
 	 * 
 	 * @return string
 	 */
-	public String coocurrenceToCSV() {
+	public String cooncurrenceToCSV() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < numLabels; i++) {
 			sb.append("\n");
 			for (int j = 0; j < numLabels; j++) {
-				sb.append(coocurrenceMatrix[i][j] + ";");
+				sb.append(cooncurrenceMatrix[i][j] + ";");
 			}
 		}
 		return sb.toString();

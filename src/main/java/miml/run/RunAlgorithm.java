@@ -39,23 +39,23 @@ public class RunAlgorithm {
 	 *
 	 * @param args The argument (route of config file with the option -c).
 	 */
-	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
-		
 
 		try {
 			// example execution => -c configurations/MIMLClassifier/MIMLkNN.config
 			ConfigLoader loader = new ConfigLoader(Utils.getOption("c", args));
-			
+
 			System.out.println("" + new Date() + ": " + "Loading classifier");
 			IMIMLClassifier classifier = loader.loadClassifier();
 
 			System.out.println("" + new Date() + ": " + "Loading evaluation method");
 			IEvaluator evaluator = loader.loadEvaluator();
-			evaluator.runExperiment(classifier);
-
+			
+			System.out.println("" + new Date() + ": " + "Loading report");
 			IReport report = loader.loadReport();
 			
+			evaluator.runExperiment(classifier);
+
 			report.saveReport(report.toCSV(evaluator));
 			System.out.println("" + new Date() + ": " + "Experiment ended");
 		} catch (Exception e) {

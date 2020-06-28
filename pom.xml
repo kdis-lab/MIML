@@ -16,10 +16,11 @@
 
 		<!-- Maven plugins -->
 		<compiler.plugin.version>3.8.0</compiler.plugin.version>
-		
+
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+
 
 	<repositories>
 		<repository>
@@ -98,17 +99,17 @@
 			<artifactId>multiInstanceFilters</artifactId>
 			<version>1.0.10</version>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>mulan</groupId>
 			<artifactId>mulan</artifactId>
-			<version>1.5</version>
+			<version>1.5.0</version>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- INDICAR VERSIÓN MINIMA DE LA JDK -->
+			<!-- MINIMAL JDK VERSION -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -118,29 +119,43 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-	        
-			<!-- PARA AÑADIR DEPENDENCIAS AL JAR -->
+	
+			<!-- GENERATE SOURCE CODE -->
 			<plugin>
-		         <artifactId>maven-assembly-plugin</artifactId>
-		         <configuration>
-		             <archive>
-		                 <manifest>
-		                     <mainClass>miml.run.RunAlgorithm</mainClass>
-		                 </manifest>
-		             </archive>
-		             <descriptorRefs>
-		                 <descriptorRef>jar-with-dependencies</descriptorRef>
-		             </descriptorRefs>
-		         </configuration>
-		         <executions>
-		             <execution>
-		                <id>make-assembly</id> <!-- this is used for inheritance merges -->
-		       			<phase>package</phase> <!-- bind to the packaging phase -->
-		                <goals>
-		                    <goal>single</goal>
-		                </goals>
-		            </execution>
-		        </executions>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- CREATE JAR WITH DEPENDENCIES -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>miml.run.RunAlgorithm</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

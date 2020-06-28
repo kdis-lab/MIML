@@ -1,4 +1,3 @@
-miml
 miml.classifiers.mi
 miml.classifiers.miml
 miml.classifiers.miml.lazy
@@ -10,7 +9,6 @@ miml.core.distance
 miml.data
 miml.data.statistics
 miml.evaluation
-miml.inProgress
 miml.report
 miml.run
 miml.transformation.mimlTOmi
