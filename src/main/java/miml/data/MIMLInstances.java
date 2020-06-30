@@ -255,7 +255,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	}
 
 	/**
-	 * Adds an attribute to the relational attribute with value ? at the last
+	 * Adds an attribute to the relational attribute with value '?' at the last
 	 * position.
 	 * 
 	 * @param newAttr The attribute to be added.
@@ -309,7 +309,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	}
 
 	/**
-	 * Adds a set of attributes to the relational attribute with values ? at the
+	 * Adds a set of attributes to the relational attribute with values '?' at the
 	 * last position of the relational attribute.
 	 * 
 	 * @param Attributes ArrayList of attributes to add.

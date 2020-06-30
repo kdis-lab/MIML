@@ -184,18 +184,18 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	}
 
 	/**
-	 * Gets the num folds used in the experiment.
+	 * Gets the number of folds used in the experiment.
 	 *
-	 * @return The num folds.
+	 * @return The number of folds.
 	 */
 	public int getNumFolds() {
 		return numFolds;
 	}
 
 	/**
-	 * Sets the num folds used in the experiment.
+	 * Sets the number of folds used in the experiment.
 	 *
-	 * @param numFolds The new num folds.
+	 * @param numFolds The new number of folds.
 	 */
 	public void setNumFolds(int numFolds) {
 		this.numFolds = numFolds;

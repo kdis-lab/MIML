@@ -286,7 +286,7 @@ public class MIMLBagging extends MIMLClassifier {
 	}
 
 	/**
-	 * Stablishes whether confidences or bipartions are used to combine classifiers
+	 * Stablishes whether confidences or bipartitions are used to combine classifiers
 	 * in the ensemble.
 	 *
 	 * @param useConfidences The value of the property.

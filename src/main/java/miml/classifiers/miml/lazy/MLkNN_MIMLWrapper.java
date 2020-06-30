@@ -43,37 +43,37 @@ public class MLkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	public MLkNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric) {
 		super(metric, 10);		
 		this.smooth =1.0;
-		this.classifier = new MLkNN(numOfNeighbors, smooth);
+		this.classifier = new MLkNN(numOfNeighbours, smooth);
 	}	
 	
 	/**
-	 * A constructor that sets the number of neighbors.
+	 * A constructor that sets the number of neighbours.
 	 *
 	 * @param metric
 	 *            The distance metric between bags considered by the classifier.
-	 * @param numOfNeighbors
-	 *            The number of neighbors.
+	 * @param numOfNeighbours
+	 *            The number of neighbours.
 	 */
-	public MLkNN_MIMLWrapper(int numOfNeighbors, DistanceFunction_MIMLWrapper metric) {
-		super(metric, numOfNeighbors);		
+	public MLkNN_MIMLWrapper(int numOfNeighbours, DistanceFunction_MIMLWrapper metric) {
+		super(metric, numOfNeighbours);		
 		this.smooth = 1.0;
-		this.classifier = new MLkNN(numOfNeighbors, smooth);
+		this.classifier = new MLkNN(numOfNeighbours, smooth);
 	}
 	
 	/**
-	 * A constructor that sets the number of neighbors and the value of smooth.
+	 * A constructor that sets the number of neighbours and the value of smooth.
 	 *
 	 * @param metric
 	 *            The distance metric between bags considered by the classifier.
-	 * @param numOfNeighbors
-	 *            The number of neighbors.
+	 * @param numOfNeighbours
+	 *            The number of neighbours.
 	 * @param smooth
 	 * 	          The smooth factor.           
 	 */
-	public MLkNN_MIMLWrapper(int numOfNeighbors, double smooth, DistanceFunction_MIMLWrapper metric) {
-		super(metric, numOfNeighbors);		
+	public MLkNN_MIMLWrapper(int numOfNeighbours, double smooth, DistanceFunction_MIMLWrapper metric) {
+		super(metric, numOfNeighbours);		
 		this.smooth = smooth;		
-		this.classifier = new MLkNN(numOfNeighbors, smooth);
+		this.classifier = new MLkNN(numOfNeighbours, smooth);
 	}			
 	
 	/**
@@ -92,7 +92,7 @@ public class MLkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 		
 		super.configure(configuration);		
 		this.smooth = configuration.getDouble("smooth");
-		this.classifier = new MLkNN(numOfNeighbors, smooth);
+		this.classifier = new MLkNN(numOfNeighbours, smooth);
 	}
 	
 	/**

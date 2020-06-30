@@ -26,7 +26,7 @@ import weka.core.Instances;
 
 /**
  * 
- * Class that performs a miniMaxc transformation to convert a MIMLIntances class
+ * Class that performs a miniMaxc transformation to convert a MIMLInstances class
  * to MultiLabelInstances. Each Bag is transformed into a single Instance in
  * which, for each attribute of the bag, its min and max value are included. For
  * instance, For instance, in the relation above, the resulting template is
@@ -44,7 +44,7 @@ import weka.core.Instances;
  * &#064;attribute label3 {0,1}<br>
  * &#064;attribute label4 {0,1}<br>
  * 
- * &#064;relation miniMaxTransformation<br>
+ * &#064;relation minMaxTransformation<br>
  * &#064;attribute id {bag1,bag2}<br>
  * &#064;attribute f1_min numeric<br>
  * &#064;attribute f1_max numeric<br>
@@ -63,7 +63,7 @@ import weka.core.Instances;
  * @version 20180610
  *
  */
-public class MiniMaxTransformation extends MIMLtoML {
+public class MinMaxTransformation extends MIMLtoML {
 
 	/** For serialization */
 	private static final long serialVersionUID = 4161911837824822046L;
@@ -74,13 +74,13 @@ public class MiniMaxTransformation extends MIMLtoML {
 	 * @param dataset MIMLInstances dataset.
 	 * @throws Exception To be handled in an upper level.
 	 */
-	public MiniMaxTransformation(MIMLInstances dataset) throws Exception {
+	public MinMaxTransformation(MIMLInstances dataset) throws Exception {
 		this.dataset = dataset;
 		prepareTemplate();
 		template.setRelationName(dataset.getDataSet().relationName() + "_minimax_transformation");
 	}
 
-	public MiniMaxTransformation() throws Exception {
+	public MinMaxTransformation() throws Exception {
 		super();
 	}
 

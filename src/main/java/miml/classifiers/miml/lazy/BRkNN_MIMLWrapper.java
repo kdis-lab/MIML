@@ -42,7 +42,7 @@ public class BRkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	 * <li>NONE: Standard BR.</li>
 	 * <li>EXTA: Predict top ranked label in case of empty prediction set.</li>
 	 * <li>EXTB: Predict top n ranked labels based on size of labelset in
-	 * neighbors.</li>
+	 * neighbours.</li>
 	 * </ul>
 	 */
 	private ExtensionType extension = ExtensionType.NONE;
@@ -66,16 +66,16 @@ public class BRkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	}
 
 	/**
-	 * A constructor that sets the number of neighbors.
+	 * A constructor that sets the number of neighbours.
 	 *
 	 * @param metric
 	 *            The distance metric between bags considered by the classifier.
-	 * @param numOfNeighbors
-	 *            the number of neighbors.
+	 * @param numOfNeighbours
+	 *            the number of neighbours.
 	 */
-	public BRkNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric, int numOfNeighbors) {
-		super(metric, numOfNeighbors);		
-		this.classifier = new BRkNN(numOfNeighbors);
+	public BRkNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric, int numOfNeighbours) {
+		super(metric, numOfNeighbours);		
+		this.classifier = new BRkNN(numOfNeighbours);
 	}
 
 	/**
@@ -83,15 +83,15 @@ public class BRkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	 *
 	 * @param metric
 	 *            The distance metric between bags considered by the classifier.
-	 * @param numOfNeighbors
-	 *            the number of neighbors
+	 * @param numOfNeighbours
+	 *            the number of neighbours
 	 * @param ext
 	 *            the extension to use (see {@link ExtensionType}).
 	 */
-	public BRkNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric, int numOfNeighbors, ExtensionType ext) {
-		super(metric, numOfNeighbors);		
+	public BRkNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric, int numOfNeighbours, ExtensionType ext) {
+		super(metric, numOfNeighbours);		
 		this.extension = ext;
-		this.classifier = new BRkNN(numOfNeighbors, ext);
+		this.classifier = new BRkNN(numOfNeighbours, ext);
 	}
 
 	/*
@@ -111,7 +111,7 @@ public class BRkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 			this.extension = ExtensionType.EXTB;
 		else
 			this.extension = ExtensionType.NONE;
-		this.classifier = new BRkNN(numOfNeighbors, extension);
+		this.classifier = new BRkNN(numOfNeighbours, extension);
 	}
 	
 	/***/

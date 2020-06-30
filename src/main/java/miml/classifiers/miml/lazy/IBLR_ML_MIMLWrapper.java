@@ -49,38 +49,38 @@ public class IBLR_ML_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	public IBLR_ML_MIMLWrapper(DistanceFunction_MIMLWrapper metric) {
 		super(metric, 10);
 		this.addFeatures = false;
-		this.classifier = new IBLR_ML(numOfNeighbors, addFeatures);
+		this.classifier = new IBLR_ML(numOfNeighbours, addFeatures);
 	}
 
 	/**
-	 * A constructor that sets the number of neighbors.
+	 * A constructor that sets the number of neighbours.
 	 *
 	 * @param metric
 	 *            The distance metric between bags considered by the classifier.
-	 * @param numOfNeighbors
-	 *            The number of neighbors.
+	 * @param numOfNeighbours
+	 *            The number of neighbours.
 	 */
-	public IBLR_ML_MIMLWrapper(int numOfNeighbors, DistanceFunction_MIMLWrapper metric) {
-		super(metric, numOfNeighbors);
+	public IBLR_ML_MIMLWrapper(int numOfNeighbours, DistanceFunction_MIMLWrapper metric) {
+		super(metric, numOfNeighbours);
 		this.addFeatures = false;
-		this.classifier = new IBLR_ML(numOfNeighbors, addFeatures);
+		this.classifier = new IBLR_ML(numOfNeighbours, addFeatures);
 	}
 
 	/**
-	 * A constructor that sets the number of neighbors and whether IBLR-ML or
+	 * A constructor that sets the number of neighbours and whether IBLR-ML or
 	 * IBLR-ML+ is used.
 	 *
 	 * @param metric
 	 *            The distance metric between bags considered by the classifier.
-	 * @param numOfNeighbors
-	 *            The number of neighbors.
+	 * @param numOfNeighbours
+	 *            The number of neighbours.
 	 * @param addFeatures
 	 *            If false IBLR-ML is used. If true, IBLR-ML+ is used.
 	 */
-	public IBLR_ML_MIMLWrapper(int numOfNeighbors, boolean addFeatures, DistanceFunction_MIMLWrapper metric) {
-		super(metric, numOfNeighbors);
+	public IBLR_ML_MIMLWrapper(int numOfNeighbours, boolean addFeatures, DistanceFunction_MIMLWrapper metric) {
+		super(metric, numOfNeighbours);
 		this.addFeatures = addFeatures;
-		this.classifier = new IBLR_ML(numOfNeighbors, addFeatures);
+		this.classifier = new IBLR_ML(numOfNeighbours, addFeatures);
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class IBLR_ML_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 
 		super.configure(configuration);
 		this.addFeatures = configuration.getBoolean("addFeatures");
-		this.classifier = new IBLR_ML(numOfNeighbors, addFeatures);
+		this.classifier = new IBLR_ML(numOfNeighbours, addFeatures);
 	}
 
 	/**

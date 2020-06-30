@@ -20,7 +20,7 @@ import miml.data.MIMLInstances;
 import miml.data.MLSave;
 import miml.transformation.mimlTOml.ArithmeticTransformation;
 import miml.transformation.mimlTOml.GeometricTransformation;
-import miml.transformation.mimlTOml.MiniMaxTransformation;
+import miml.transformation.mimlTOml.MinMaxTransformation;
 import mulan.data.MultiLabelInstances;
 import weka.core.Instance;
 import weka.core.Utils;
@@ -95,7 +95,7 @@ public class MIMLtoMLTransformation {
 		String arffFileResultMinMax = "data" + File.separator + "toyResultMinMax.arff";
 		String xmlFileResultMinMax = "data" + File.separator + "toyResultMinMax.xml";
 
-		MiniMaxTransformation miniMax = new MiniMaxTransformation(mimlDataSet);
+		MinMaxTransformation miniMax = new MinMaxTransformation(mimlDataSet);
 		// Transforms a single instance
 		instance = miniMax.transformInstance(mimlDataSet.getBag(0));
 		// Transforms a complete dataset

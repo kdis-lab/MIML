@@ -23,7 +23,7 @@ import weka.core.Instances;
 
 /**
  * 
- * Class that performs a geometric transformation to convert a MIMLIntances
+ * Class that performs a geometric transformation to convert a MIMLInstances
  * class to MultiLabelInstances. Each Bag is transformed into a single Instance
  * being the value of each attribute the geometric centor of its max and min
  * values computed as (min_value+max_value)/2.

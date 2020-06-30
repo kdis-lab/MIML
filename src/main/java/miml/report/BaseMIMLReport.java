@@ -50,7 +50,7 @@ public class BaseMIMLReport extends MIMLReport {
 	 * @param std      Whether the standard deviation of measures will be shown or
 	 *                 not (only valid for cross-validation evaluator).
 	 * @param labels   Whether the measures for each label will be shown (only valid
-	 *                 for Macros Average measures).
+	 *                 for Macro-Averaged measures).
 	 * @param header   Whether the header will be shown.
 	 */
 	public BaseMIMLReport(List<String> measures, String filename, boolean std, boolean labels, boolean header) {

@@ -35,8 +35,8 @@ public abstract class MultiLabelKNN_MIMLWrapper extends MIMLClassifier {
 	private static final long serialVersionUID = 1L;
 
    
-    /** Number of neighbors used in the k-nearest neighbor algorithm.*/
-    protected int numOfNeighbors;
+    /** Number of neighbours used in the k-nearest neighbor algorithm.*/
+    protected int numOfNeighbours;
 
 	
 	/** Metric for measure the distance between bags.*/
@@ -47,27 +47,27 @@ public abstract class MultiLabelKNN_MIMLWrapper extends MIMLClassifier {
 	
 	
 	/**
-	 * Constructor to initialize the classifier. It sets the numberOfNeighbors to 10
+	 * Constructor to initialize the classifier. It sets the numberOfNeighbours to 10
 	 * @param metric         The metric used by the algorithm to measure the
 	 *                       distance between bags.
 	 *                       
 	 */
 	public MultiLabelKNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric) {
 		this.metric = metric;
-		this.numOfNeighbors = 10;
+		this.numOfNeighbours = 10;
 	}	
 	
 	
 	/**
-	 * Constructor to initialize the classifier. It sets the numOfNeighbors to 10
+	 * Constructor to initialize the classifier. It sets the numOfNeighbours to 10
 	 * @param metric         The metric used by the algorithm to measure the
 	 *                       distance between bags.
-	 * @param numOfNeighbors The number of neighbors.                       
+	 * @param numOfNeighbours The number of neighbours.                       
 	 */
-	public MultiLabelKNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric, int numOfNeighbors)
+	public MultiLabelKNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric, int numOfNeighbours)
 	{ 
 		this.metric = metric;
-		this.numOfNeighbors = numOfNeighbors;		
+		this.numOfNeighbours = numOfNeighbours;		
 	}
 	
 	/**
@@ -81,7 +81,7 @@ public abstract class MultiLabelKNN_MIMLWrapper extends MIMLClassifier {
 	@Override
 	public void configure(Configuration configuration) {
 		
-		this.numOfNeighbors = configuration.getInt("numOfNeighbors");
+		this.numOfNeighbours = configuration.getInt("numOfNeighbours");
 		try {
 			//Get the name of the metric class
 			String metricName = configuration.getString("metric[@name]");
@@ -148,16 +148,16 @@ public abstract class MultiLabelKNN_MIMLWrapper extends MIMLClassifier {
 	 *
 	 * @return the number of neigbors
 	 */
-	public int getNumOfNeighbors() {
-		return numOfNeighbors;
+	public int getNumOfNeighbours() {
+		return numOfNeighbours;
 	}
 
 	/**
 	 * Sets the number of neigbors considered by the classifier.
 	 *
-	 * @param numOfNeighbors the new number of neigbors
+	 * @param numOfNeighbours the new number of neigbors
 	 */
-	public void setnumOfNeighbors(int numOfNeighbors) {
-		this.numOfNeighbors = numOfNeighbors;
+	public void setnumOfNeighbours(int numOfNeighbours) {
+		this.numOfNeighbours = numOfNeighbours;
 	}
 }

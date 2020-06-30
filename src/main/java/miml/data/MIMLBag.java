@@ -152,7 +152,7 @@ public class MIMLBag extends DenseInstance implements Instance {
 	}
 
 	/**
-	 * Sets the value of attrIndex attribute of the the instanceIndex to a certain value.
+	 * Sets the value of attrIndex attribute of the instanceIndex to a certain value.
 	 * 
 	 * @param instanceIndex
 	 * 		The index of the instance.

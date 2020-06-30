@@ -24,43 +24,49 @@ package miml.core;
  * @version 20190524
  */
 public final class ConfigParameters {
-	
 
-	/** The algorirthm used in the experimentation. */
-	protected static String algorirthmName = "";
-	
-	/** The config filename used in the experimentation. */
+	/** The algorithm used in the experimentation. */
+	protected static String algorithmName = "";
+
+	/** The configuration filename used in the experimentation. */
 	protected static String configFileName = "";
-	
+
 	/** The name of data file used in the experimentation. */
 	protected static String dataFileName = "";
-	
+
 	/** The classifier used in the experimentation. */
 	protected static String classifierName = "";
-	
-	/** The transform method used in the experimentation. */
-	protected static String transformationMethod = "";
-	
-	protected static Boolean isDegenerative = false;
 
 	/**
-	 * Gets the algorirthm name.
-	 *
-	 * @return The algorirthm name.
+	 * The name of the method used in the experiment if this is a transformation
+	 * method.
 	 */
-	public static String getAlgorirthmName() {
-		return algorirthmName;
-	}
-	
+	protected static String transformationMethod = "";
+
 	/**
-	 * Sets the algorirthm name.
-	 *
-	 * @param algorirthmName The new algorirthm name.
+	 * If the classifier configured in the experiment uses a method
+	 * transformation.
 	 */
-	public static void setAlgorirthmName(String algorirthmName) {
-		ConfigParameters.algorirthmName = algorirthmName;
+	protected static Boolean isTransformation = false;
+
+	/**
+	 * Gets the algorithm name.
+	 *
+	 * @return The algorithm name.
+	 */
+	public static String getAlgorithmName() {
+		return algorithmName;
 	}
-	
+
+	/**
+	 * Sets the algorithm name.
+	 *
+	 * @param algorirthmName The new algorithm name.
+	 */
+	public static void setAlgorithmName(String algorithmName) {
+		ConfigParameters.algorithmName = algorithmName;
+	}
+
 	/**
 	 * Gets the configuration file name.
 	 *
@@ -69,7 +75,7 @@ public final class ConfigParameters {
 	public static String getConfigFileName() {
 		return configFileName;
 	}
-	
+
 	/**
 	 * Sets the configuration file name.
 	 *
@@ -78,7 +84,7 @@ public final class ConfigParameters {
 	public static void setConfigFileName(String configFileName) {
 		ConfigParameters.configFileName = configFileName;
 	}
-	
+
 	/**
 	 * Gets the name of data file.
 	 *
@@ -87,7 +93,7 @@ public final class ConfigParameters {
 	public static String getDataFileName() {
 		return dataFileName;
 	}
-	
+
 	/**
 	 * Sets the data file name.
 	 *
@@ -108,6 +114,7 @@ public final class ConfigParameters {
 
 	/**
 	 * Sets the classifier name.
+	 * 
 	 * @param classifierName The classifier name.
 	 */
 	public static void setClassifierName(String classifierName) {
@@ -115,41 +122,39 @@ public final class ConfigParameters {
 	}
 
 	/**
-	 * Gets the transform method used in the experiment.
+	 * Gets the transformation method used in the experiment.
 	 * 
-	 * @return The transform method used in the experiment.
+	 * @return The transformation method used in the experiment.
 	 */
 	public static String getTransformationMethod() {
 		return transformationMethod;
 	}
 
 	/**
-	 * Sets the transform method used in the experiment.
+	 * Sets the transformation method used in the experiment.
 	 * 
-	 * @param transformationMethod The transform method used in the experiment.
+	 * @param transformationMethod The transformation method used in the experiment.
 	 */
 	public static void setTransformationMethod(String transformationMethod) {
 		ConfigParameters.transformationMethod = transformationMethod;
 	}
-	
+
 	/**
-	 * Gets if the method used is degenerative.
-	 * .
-	 * @return True if the method used is degenerative
+	 * Gets if the method used is transformation.
+	 * 
+	 * @return True if the method used is transformation.
 	 */
-	public static Boolean getIsDegenerative() {
-		return isDegenerative;
+	public static Boolean getIsTransformation() {
+		return isTransformation;
 	}
 
 	/**
-	 * Sets if the method used is degenerative.
+	 * Sets if the method used is transformation.
 	 * 
-	 * @param isDegenerative If the method used is degenerative.
+	 * @param isTransformation If the method used is transformation.
 	 */
-	public static void setIsDegenerative(Boolean isDegenerative) {
-		ConfigParameters.isDegenerative = isDegenerative;
+	public static void setIsTransformation(Boolean isTransformation) {
+		ConfigParameters.isTransformation = isTransformation;
 	}
-	
-	
-	
+
 }

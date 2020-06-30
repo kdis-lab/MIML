@@ -153,11 +153,11 @@ public class MIMLStatistics {
 	}
 
 	/**
-	 * This method calculates a matrix with the cooncurrences of pairs of labels. It
+	 * This method calculates a matrix with the coocurrences of pairs of labels. It
 	 * requires the method calculateStats to be previously called.
 	 *
 	 * @param mlDataSet A multi-label dataset.
-	 * @return A cooncurrences matrix of pairs of labels.
+	 * @return A coocurrences matrix of pairs of labels.
 	 */
 	public double[][] calculateCooncurrence(MIMLInstances mlDataSet) {
 		return mlstatistics.calculateCooncurrence(mlDataSet.getMLDataSet());

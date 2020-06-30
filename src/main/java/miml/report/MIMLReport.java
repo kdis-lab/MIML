@@ -59,7 +59,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	 * @param measures 		The list of selected measures which is going to be shown in the report.
 	 * @param filename     	The filename where the report's will be saved.
 	 * @param std         	Whether the standard deviation of measures will be shown or not (only valid for cross-validation evaluator).
-	 * @param labels 		Whether the measures for each label will be shown (only valid for Macros Average measures).
+	 * @param labels 		Whether the measures for each label will be shown (only valid for Macro-Averaged measures).
 	 * @param header 		Whether the header will be shown.
 	 */
 	public MIMLReport(List<String> measures, String filename, boolean std, boolean labels, boolean header) {
@@ -178,7 +178,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	}
 
 	/**
-	 * Checks if measure for each label (Macro Average Measures) is shown.
+	 * Checks if measure for each label (macro-averaged measures) is shown.
 	 *
 	 * @return True, if measure for each label is shown.
 	 */
@@ -187,7 +187,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	}
 
 	/**
-	 * Sets if measure for each label (Macro Average Measures) is shown.
+	 * Sets if measure for each label (macro-averaged measures) is shown.
 	 * 
 	 * @param labels The new labels configuration.
 	 */

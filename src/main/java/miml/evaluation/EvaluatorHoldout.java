@@ -73,9 +73,9 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Instantiates a new Holdout evaluator.
 	 *
-	 * @param mimlDataSet     the dataset to be used
-	 * @param percentageTrain the percentage of train
-	 * @throws Exception if occur an error during holdout experiment
+	 * @param mimlDataSet     The dataset to be used.
+	 * @param percentageTrain The percentage of train.
+	 * @throws Exception If occur an error during holdout experiment.
 	 */
 	public EvaluatorHoldout(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
 
