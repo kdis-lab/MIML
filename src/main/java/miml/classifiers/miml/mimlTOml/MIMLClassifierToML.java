@@ -158,7 +158,7 @@ public class MIMLClassifierToML extends MIMLClassifier {
 
 		ConfigParameters.setClassifierName(classifierName);
 		ConfigParameters.setTransformationMethod(transformerName);
-		ConfigParameters.setIsDegenerative(true);
+		ConfigParameters.setIsTransformation(true);
 	}
 
 }

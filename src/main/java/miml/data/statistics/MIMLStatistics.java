@@ -160,7 +160,7 @@ public class MIMLStatistics {
 	 * @return A coocurrences matrix of pairs of labels.
 	 */
 	public double[][] calculateCooncurrence(MIMLInstances mlDataSet) {
-		return mlstatistics.calculateCooncurrence(mlDataSet.getMLDataSet());
+		return mlstatistics.calculateCoocurrence(mlDataSet.getMLDataSet());
 	}
 
 	/**
@@ -393,7 +393,7 @@ public class MIMLStatistics {
 	 */
 	public String cooncurrenceToString() {
 
-		return mlstatistics.cooncurrenceToString();
+		return mlstatistics.coocurrenceToString();
 	}
 
 	/**
@@ -404,7 +404,7 @@ public class MIMLStatistics {
 	 */
 	public String cooncurrenceToCSV() {
 
-		return mlstatistics.cooncurrenceToCSV();
+		return mlstatistics.coocurrenceToCSV();
 	}
 
 	/**

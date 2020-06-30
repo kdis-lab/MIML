@@ -86,7 +86,7 @@ public class BaseMIMLReport extends MIMLReport {
 			measures = filterMeasures(measures);
 
 		if (this.header) {
-			if (ConfigParameters.getIsDegenerative()) {
+			if (ConfigParameters.getIsTransformation()) {
 				// Write header
 				sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile,"
 						+ "Train_time_ms(avg),");
@@ -141,14 +141,14 @@ public class BaseMIMLReport extends MIMLReport {
 			sb.append(System.getProperty("line.separator"));
 		}
 
-		if (ConfigParameters.getIsDegenerative()) {
+		if (ConfigParameters.getIsTransformation()) {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getClassifierName() + ","
+			sb.append(ConfigParameters.getAlgorithmName() + "," + ConfigParameters.getClassifierName() + ","
 					+ ConfigParameters.getTransformationMethod() + "," + ConfigParameters.getDataFileName() + ","
 					+ ConfigParameters.getConfigFileName() + "," + evaluator.getAvgTrainTime() + ",");
 		} else {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
+			sb.append(ConfigParameters.getAlgorithmName() + "," + ConfigParameters.getDataFileName() + ","
 					+ ConfigParameters.getConfigFileName() + "," + evaluator.getAvgTrainTime() + ",");
 		}
 
@@ -222,7 +222,7 @@ public class BaseMIMLReport extends MIMLReport {
 			measures = filterMeasures(measures);
 
 		if (this.header) {
-			if (ConfigParameters.getIsDegenerative()) {
+			if (ConfigParameters.getIsTransformation()) {
 				// Write header
 				sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile,"
 						+ "Train_time_ms," + "Test_time_ms,");
@@ -247,15 +247,15 @@ public class BaseMIMLReport extends MIMLReport {
 			sb.append(System.getProperty("line.separator"));
 		}
 
-		if (ConfigParameters.getIsDegenerative()) {
+		if (ConfigParameters.getIsTransformation()) {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getClassifierName() + ","
+			sb.append(ConfigParameters.getAlgorithmName() + "," + ConfigParameters.getClassifierName() + ","
 					+ ConfigParameters.getTransformationMethod() + "," + ConfigParameters.getDataFileName() + ","
 					+ ConfigParameters.getConfigFileName() + "," + evaluator.getTrainTime() + ","
 					+ evaluator.getTestTime() + ",");
 		} else {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
+			sb.append(ConfigParameters.getAlgorithmName() + "," + ConfigParameters.getDataFileName() + ","
 					+ ConfigParameters.getConfigFileName() + "," + evaluator.getTrainTime() + ","
 					+ evaluator.getTestTime() + ",");
 		}
@@ -301,7 +301,7 @@ public class BaseMIMLReport extends MIMLReport {
 			measures = filterMeasures(measures);
 
 		if (this.header) {
-			sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
+			sb.append("Algorithm: " + ConfigParameters.getAlgorithmName() + System.getProperty("line.separator"));
 			sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
 			sb.append("Transform method: " + ConfigParameters.getTransformationMethod()
 					+ System.getProperty("line.separator"));
@@ -382,7 +382,7 @@ public class BaseMIMLReport extends MIMLReport {
 			measures = filterMeasures(measures);
 
 		if (this.header) {
-			sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
+			sb.append("Algorithm: " + ConfigParameters.getAlgorithmName() + System.getProperty("line.separator"));
 			sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
 			sb.append("Transform method: " + ConfigParameters.getTransformationMethod()
 					+ System.getProperty("line.separator"));

@@ -61,7 +61,7 @@ public final class ConfigParameters {
 	/**
 	 * Sets the algorithm name.
 	 *
-	 * @param algorirthmName The new algorithm name.
+	 * @param algorithmName The new algorithm name.
 	 */
 	public static void setAlgorithmName(String algorithmName) {
 		ConfigParameters.algorithmName = algorithmName;

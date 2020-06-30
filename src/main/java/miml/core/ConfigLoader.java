@@ -109,7 +109,7 @@ public class ConfigLoader {
 			((IConfiguration) classifier).configure(configuration.subset("classifier"));
 						
 
-		ConfigParameters.setAlgorirthmName(classifier.getClass().getSimpleName());
+		ConfigParameters.setAlgorithmName(classifier.getClass().getSimpleName());
 
 		return classifier;
 	}
