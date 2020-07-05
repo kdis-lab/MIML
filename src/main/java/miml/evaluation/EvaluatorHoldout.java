@@ -17,7 +17,7 @@ package miml.evaluation;
 
 import java.io.File;
 import java.util.Date;
-import java.util.Random;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.configuration2.Configuration;
@@ -25,12 +25,10 @@ import org.apache.commons.configuration2.Configuration;
 import miml.classifiers.miml.IMIMLClassifier;
 import miml.core.ConfigParameters;
 import miml.core.IConfiguration;
+import miml.core.Utils;
 import miml.data.MIMLInstances;
 import mulan.evaluation.Evaluation;
 import mulan.evaluation.Evaluator;
-import weka.core.Instances;
-import weka.filters.Filter;
-import weka.filters.unsupervised.instance.RemovePercentage;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -64,8 +62,8 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Instantiates a new Holdout evaluator.
 	 *
-	 * @param trainData the train data used in the experiment
-	 * @param testData  the test data used in the experiment
+	 * @param trainData The train data used in the experiment.
+	 * @param testData  The test data used in the experiment.
 	 */
 	public EvaluatorHoldout(MIMLInstances trainData, MIMLInstances testData) {
 		this.trainData = trainData;
@@ -75,12 +73,15 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Instantiates a new Holdout evaluator.
 	 *
-	 * @param mimlDataSet     the dataset to be used
-	 * @param percentageTrain the percentage of train
-	 * @throws Exception if occur an error during holdout experiment
+	 * @param mimlDataSet     The dataset to be used.
+	 * @param percentageTrain The percentage of train.
+	 * @throws Exception If occur an error during holdout experiment.
 	 */
 	public EvaluatorHoldout(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
-		this.splitData(mimlDataSet, percentageTrain);
+
+		List<MIMLInstances> list = Utils.splitData(mimlDataSet, percentageTrain, seed);
+		this.trainData = list.get(0);
+		this.testData = list.get(1);
 	}
 
 	/**
@@ -121,39 +122,9 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	}
 
 	/**
-	 * Split data given a percentage.
-	 *
-	 * @param mimlDataSet the MIML dataset to be splited
-	 * @param percentageTrain the percentage (0-100) to be used in train
-	 * @throws Exception the exception
-	 */
-	private void splitData(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
-		// splits the data set into train and test
-		// copy of original data
-		Instances dataSet = new Instances(mimlDataSet.getDataSet());
-		dataSet.randomize(new Random(seed));
-
-		// obtains train set
-		RemovePercentage rmvp = new RemovePercentage();
-		rmvp.setInvertSelection(true);
-		rmvp.setPercentage(percentageTrain);
-		rmvp.setInputFormat(dataSet);
-		Instances trainDataSet = Filter.useFilter(dataSet, rmvp);
-
-		// obtains test set
-		rmvp = new RemovePercentage();
-		rmvp.setPercentage(percentageTrain);
-		rmvp.setInputFormat(dataSet);
-		Instances testDataSet = Filter.useFilter(dataSet, rmvp);
-
-		trainData = new MIMLInstances(trainDataSet, mimlDataSet.getLabelsMetaData());
-		testData = new MIMLInstances(testDataSet, mimlDataSet.getLabelsMetaData());
-	}
-	
-	/**
 	 * Gets the seed used in the experiment.
 	 *
-	 * @return the seed
+	 * @return The seed.
 	 */
 	public int getSeed() {
 		return seed;
@@ -162,7 +133,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Sets the seed used in the experiment.
 	 *
-	 * @param seed the new seed
+	 * @param seed The new seed.
 	 */
 	public void setSeed(int seed) {
 		this.seed = seed;
@@ -171,7 +142,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Gets the time spent in training.
 	 *
-	 * @return the train time
+	 * @return The train time.
 	 */
 	public long getTrainTime() {
 		return trainTime;
@@ -180,7 +151,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Gets the time spent in testing.
 	 *
-	 * @return the test time
+	 * @return The test time.
 	 */
 	public long getTestTime() {
 		return testTime;
@@ -199,18 +170,12 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/**
 	 * Gets the data used in the experiment.
 	 *
-	 * @return the data
+	 * @return The data.
 	 */
 	public MIMLInstances getData() {
 		return testData;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
-	 */
 	/*
 	 * @see
 	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
@@ -220,14 +185,16 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 
 		String arffFileTrain = configuration.subset("data").getString("trainFile");
 		String xmlFileName = configuration.subset("data").getString("xmlFile");
-
 		String arffFileTest = configuration.subset("data").getString("testFile");
+		seed = configuration.getInt("seed", 1);
 
 		try {
 
 			if (arffFileTest == null) {
-				this.splitData(new MIMLInstances(arffFileTrain, xmlFileName),
-						configuration.subset("data").getDouble("percentageTrain"));
+				List<MIMLInstances> list = Utils.splitData(new MIMLInstances(arffFileTrain, xmlFileName),
+						configuration.subset("data").getDouble("percentageTrain"), seed);
+				this.trainData = list.get(0);
+				this.testData = list.get(1);
 			} else {
 
 				trainData = new MIMLInstances(arffFileTrain, xmlFileName);

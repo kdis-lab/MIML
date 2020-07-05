@@ -1,2 +1,2 @@
-Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure,
-MIMLClassifierToML,mulan.classifier.lazy.BRkNN,miml.transformation.mimlTOml.MiniMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_BRkNN.config,3,16,0.11654135338345863,0.03571428571428571,0.12391555812608444,0.09716874136497049,
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToML,mulan.classifier.lazy.BRkNN,miml.transformation.mimlTOml.MinMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_BRkNN.config,4,19,0.17669172932330826,0.0,0.14811789088104876,0.15242692644925007

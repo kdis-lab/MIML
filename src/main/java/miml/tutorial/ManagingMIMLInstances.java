@@ -22,6 +22,7 @@ import miml.data.MIMLInstances;
 import miml.data.statistics.MIMLStatistics;
 import mulan.data.InvalidDataFormatException;
 import weka.core.Instance;
+import weka.core.Utils;
 
 /**
  * 
@@ -52,13 +53,8 @@ public class ManagingMIMLInstances {
 
 		try {
 
-			// String arffFileName = Utils.getOption("f", args);
-			// String xmlFileName = Utils.getOption("x", args);
-			// String arffFileName = "data+File.separator+miml_text_data.arff";
-			// String xmlFileName = "data+File.separator+miml_text_data.xml";
-
-			String arffFileName = "data" + File.separator + "toy.arff";
-			String xmlFileName = "data" + File.separator + "toy.xml";
+			String arffFileName = Utils.getOption("f", args);
+			String xmlFileName = Utils.getOption("x", args);
 
 			// Parameter checking
 			if (arffFileName.isEmpty()) {
@@ -104,8 +100,7 @@ public class ManagingMIMLInstances {
 			}
 
 			// Shows MIML metrics
-			MIMLStatistics statsMIML = new MIMLStatistics();
-			statsMIML.calculateStats(mimlDataSet);
+			MIMLStatistics statsMIML = new MIMLStatistics(mimlDataSet);
 			System.out.println(statsMIML.toString());
 
 		} catch (InvalidDataFormatException e) {

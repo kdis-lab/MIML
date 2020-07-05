@@ -30,7 +30,6 @@ import java.util.Set;
 
 import miml.data.MIMLInstances;
 import mulan.data.LabelSet;
-import weka.core.Utils;
 
 /**
  * Class with methods to obtain information about a MIML dataset.
@@ -43,35 +42,40 @@ import weka.core.Utils;
  */
 public class MIMLStatistics {
 
-	/**
-	 * Class with methods to obtain information about a MI dataset
-	 * @see MIStatistics
-	 */
-	protected MIStatistics milstatistics = new MIStatistics();
-	/**
-	 * Class with methods to obtain information about a ML dataset
-	 * @see MLStatistics
-	 */
-	protected MLStatistics mlstatistics = new MLStatistics();
+	/** A MIML data set */
+	MIMLInstances dataSet;
 
 	/**
-	 * Calculates various MLML statistics.
+	 * Class with methods to obtain information about a MI dataset.
+	 * 
+	 * @see MIStatistics
+	 */
+	protected MIStatistics milstatistics;
+	/**
+	 * Class with methods to obtain information about a ML dataset.
+	 * 
+	 * @see MLStatistics
+	 */
+	protected MLStatistics mlstatistics;
+
+	/**
+	 * Constructor.
 	 * 
 	 * @param dataSet A MIML data set.
 	 */
-	public void calculateStats(MIMLInstances dataSet) {
-
-		mlstatistics.calculateStats(dataSet.getMLDataSet());
-
-		milstatistics.calculateStats(dataSet.getDataSet());
-
+	public MIMLStatistics(MIMLInstances dataSet) {
+		this.dataSet = dataSet;
+		mlstatistics = new MLStatistics(dataSet.getMLDataSet());
+		milstatistics = new MIStatistics(dataSet.getDataSet());
+		mlstatistics.calculateStats();
+		milstatistics.calculateStats();
 	}
 
 	/**
 	 * Gets the Phi correlation matrix. It requires the method calculatePhiChi2 to
 	 * be previously called.
 	 * 
-	 * @return phi
+	 * @return phi.
 	 */
 	public double[][] getPhi() {
 		return mlstatistics.getPhi();
@@ -81,7 +85,7 @@ public class MIMLStatistics {
 	 * Gets the Chi2 correlation matrix. It requires the method calculatePhiChi2 to
 	 * be previously called.
 	 * 
-	 * @return chi2
+	 * @return chi2.
 	 */
 	public double[][] getChi2() {
 		return mlstatistics.getChi2();
@@ -101,7 +105,7 @@ public class MIMLStatistics {
 	 * Computes the density as the cardinality/numLabels. It the method
 	 * calculateStats to be previously called.
 	 * 
-	 * @return double
+	 * @return density.
 	 */
 	public double density() {
 		return mlstatistics.density();
@@ -155,7 +159,7 @@ public class MIMLStatistics {
 	 * @param mlDataSet A multi-label dataset.
 	 * @return A coocurrences matrix of pairs of labels.
 	 */
-	public double[][] calculateCoocurrence(MIMLInstances mlDataSet) {
+	public double[][] calculateCooncurrence(MIMLInstances mlDataSet) {
 		return mlstatistics.calculateCoocurrence(mlDataSet.getMLDataSet());
 	}
 
@@ -254,17 +258,17 @@ public class MIMLStatistics {
 	 * @return double
 	 */
 	public double averageIR(double[] IR) {
-		return Utils.mean(IR);
+		return mlstatistics.averageIR(IR);
 	}
 
 	/**
 	 * Computes the variance of any IR vector.
 	 * 
 	 * @param IR An IR vector previously computed.
-	 * @return double.
+	 * @return Variance of any IR vector.
 	 */
 	public double varianceIR(double[] IR) {
-		return Utils.variance(IR);
+		return mlstatistics.varianceIR(IR);
 	}
 
 	/**
@@ -275,7 +279,7 @@ public class MIMLStatistics {
 	 * More information in Jesse Read. 2010. Scalable Multi-label Classification.
 	 * Ph.D. Dissertation. University of Waikato.
 	 * 
-	 * @return double
+	 * @return Proportion of unique label combinations.
 	 */
 	public double pUnique() {
 		return mlstatistics.pUnique();
@@ -289,7 +293,7 @@ public class MIMLStatistics {
 	 * More information in Jesse Read. 2010. Scalable Multi-label Classification.
 	 * Ph.D. Dissertation. University of Waikato.
 	 * 
-	 * @return double
+	 * @return pMax.
 	 */
 	public double pMax() {
 		// return (1.0*maxCount*peak)/numInstances; to consider two or more most
@@ -312,7 +316,7 @@ public class MIMLStatistics {
 	 * Computes the average labelSkew.
 	 * 
 	 * @param skew The IR for each labelSet previously computed.
-	 * @return double
+	 * @return Average labelSkew.
 	 */
 	public double averageSkew(HashMap<LabelSet, Double> skew) {
 		return mlstatistics.averageSkew(skew);
@@ -322,7 +326,7 @@ public class MIMLStatistics {
 	 * Computes the skewRatio as peak/base. It requires the method calculateStats to
 	 * be previously called.
 	 * 
-	 * @return double
+	 * @return SkewRatio as peak/base.
 	 */
 	public double skewRatio() {
 		return mlstatistics.skewRatio();
@@ -332,7 +336,7 @@ public class MIMLStatistics {
 	 * Returns statistics in textual representation. It requires the method
 	 * calculateStats to be previously called.
 	 * 
-	 * @return string
+	 * @return Statistics in textual representation.
 	 * 
 	 * 
 	 */
@@ -352,7 +356,7 @@ public class MIMLStatistics {
 	 * Returns statistics in CSV representation. It requires the method
 	 * calculateStats to be previously called.
 	 * 
-	 * @return string
+	 * @return Statistics in CSV representation.
 	 */
 	public String toCSV() {
 		StringBuffer sb = new StringBuffer();
@@ -363,7 +367,7 @@ public class MIMLStatistics {
 	 * Returns labelSkew in textual representation.
 	 * 
 	 * @param skew The IR for each labelSet previously computed.
-	 * @return string
+	 * @return LabelSkew in textual representation.
 	 */
 	protected String distributionBagsToString(HashMap<LabelSet, Double> skew) {
 
@@ -374,7 +378,7 @@ public class MIMLStatistics {
 	 * Returns labelSkew in CSV representation.
 	 * 
 	 * @param skew The IR for each labelSet previously computed.
-	 * @return string
+	 * @return LabelSkew in CSV representation.
 	 */
 	protected String distributionBagsToCSV(HashMap<LabelSet, Double> skew) {
 
@@ -383,22 +387,22 @@ public class MIMLStatistics {
 
 	/**
 	 * Returns cooCurrenceMatrix in textual representation. It requires the method
-	 * calculateCoocurrence to be previously called.
+	 * calculateCooncurrence to be previously called.
 	 * 
-	 * @return string
+	 * @return CooCurrenceMatrix in textual representation.
 	 */
-	public String coocurrenceToString() {
+	public String cooncurrenceToString() {
 
 		return mlstatistics.coocurrenceToString();
 	}
 
 	/**
 	 * Returns cooCurrenceMatrix in CSV representation. It requires the method
-	 * calculateCoocurrence to be previously called.
+	 * calculateCooncurrence to be previously called.
 	 * 
-	 * @return string
+	 * @return CooCurrenceMatrix in CSV representation.
 	 */
-	public String coocurrenceToCSV() {
+	public String cooncurrenceToCSV() {
 
 		return mlstatistics.coocurrenceToCSV();
 	}
@@ -409,7 +413,7 @@ public class MIMLStatistics {
 	 * 
 	 * @param matrix Matrix with Phi correlations.
 	 * 
-	 * @return string
+	 * @return Phi correlations in textual representation.
 	 */
 	public String correlationsToString(double matrix[][]) {
 
@@ -421,7 +425,7 @@ public class MIMLStatistics {
 	 * calculatePhiChi2 to be previously called.
 	 * 
 	 * @param matrix Matrix with Phi correlations.
-	 * @return String
+	 * @return Phi correlations in CSV representation.
 	 */
 	public String correlationsToCSV(double matrix[][]) {
 
@@ -429,45 +433,9 @@ public class MIMLStatistics {
 	}
 
 	/**
-	 * Returns the average number of instances per bag.
-	 * 
-	 * @return instancesPerBag
-	 */
-	public double getAvgInstancesPerBag() {
-		return milstatistics.getAttributesPerBag();
-	}
-
-	/**
-	 * Returns the number of attributes per bag.
-	 * 
-	 * @return attributesPerBag
-	 */
-	public int getAttributesPerBag() {
-		return milstatistics.getAttributesPerBag();
-	}
-
-	/**
-	 * Returns the number of bags.
-	 * 
-	 * @return numBags
-	 */
-	public int getnumBags() {
-		return milstatistics.getnumBags();
-	}
-
-	/**
-	 * Returns the distribution of number of instances per bags.
-	 * 
-	 * @return distributionBags
-	 */
-	public HashMap<Integer, Integer> getDistributionBags() {
-		return milstatistics.getDistributionBags();
-	}
-
-	/**
 	 * Returns distributionBags in textual representation.
 	 * 
-	 * @return string
+	 * @return String with bags distribution.
 	 */
 	protected String distributionBagsToString() {
 
@@ -477,7 +445,7 @@ public class MIMLStatistics {
 	/**
 	 * Returns distributionBags in CSV representation.
 	 * 
-	 * @return string
+	 * @return CSV with bags distribution.
 	 */
 	protected String distributionBagsToCSV() {
 
@@ -485,29 +453,20 @@ public class MIMLStatistics {
 	}
 
 	/**
-	 * Returns the minimum number of instances per bag.
+	 * Returns the dataset used to calculate the statistics.
 	 * 
-	 * @return minInstancesPerBag
+	 * @return  A MIML data set.
 	 */
-	public int getMinInstancesPerBag() {
-		return milstatistics.getMinInstancesPerBag();
+	public MIMLInstances getDataSet() {
+		return dataSet;
 	}
 
 	/**
-	 * Returns the maximum number of instances per bag.
+	 * Set the dataset used.
 	 * 
-	 * @return maxInstancesPerBag
+	 * @param dataSet  A MIML data set.
 	 */
-	public int getMaxInstancesPerBag() {
-		return milstatistics.getMaxInstancesPerBag();
-	}
-
-	/**
-	 * Returns the total number of instances.
-	 * 
-	 * @return totalInstances
-	 */
-	public int getTotalInstances() {
-		return milstatistics.getTotalInstances();
+	public void setDataSet(MIMLInstances dataSet) {
+		this.dataSet = dataSet;
 	}
 }

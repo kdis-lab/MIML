@@ -32,9 +32,8 @@ import mulan.evaluation.Evaluator;
 import mulan.evaluation.MultipleEvaluation;
 import weka.core.Instances;
 
-// TODO: Auto-generated Javadoc
 /**
- * Class that allow evaluate an algorithm applying a cross-validation method
+ * Class that allow evaluate an algorithm applying a cross-validation method.
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
@@ -65,9 +64,9 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	 * Instantiates a new Holdout evaluator.
 	 *
 	 * @param data
-	 *            the data used in the experiment
+	 *            The data used in the experiment.
 	 * @param numFolds
-	 *            the number of folds used in the cross-validation
+	 *            The number of folds used in the cross-validation.
 	 */
 	public EvaluatorCV(MIMLInstances data, int numFolds) {
 		this.data = data;
@@ -138,8 +137,8 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Calculate the mean of given array.
 	 *
-	 * @param array the array with long values
-	 * @return the mean of all array's values
+	 * @param array The array with long values.
+	 * @return The mean of all array's values.
 	 */
 	protected double meanArray(long array[])
 	{
@@ -153,8 +152,8 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Calculate the standard deviation of given array.
 	 *
-	 * @param array the array with long values
-	 * @return the standard deviation of all array's values
+	 * @param array the array with long values.
+	 * @return The standard deviation of all array's values.
 	 */
 	protected double stdArray(long array[])
 	{
@@ -169,7 +168,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Gets the time spent in training in each fold.
 	 *
-	 * @return the train time
+	 * @return The train time.
 	 */
 	public long[] getTrainTime() {
 		return trainTime;
@@ -178,25 +177,25 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Gets the time spent in testing in each fold.
 	 *
-	 * @return the test time
+	 * @return The test time.
 	 */
 	public long[] getTestTime() {
 		return testTime;
 	}
 
 	/**
-	 * Gets the num folds used in the experiment.
+	 * Gets the number of folds used in the experiment.
 	 *
-	 * @return the num folds
+	 * @return The number of folds.
 	 */
 	public int getNumFolds() {
 		return numFolds;
 	}
 
 	/**
-	 * Sets the num folds used in the experiment.
+	 * Sets the number of folds used in the experiment.
 	 *
-	 * @param numFolds the new num folds
+	 * @param numFolds The new number of folds.
 	 */
 	public void setNumFolds(int numFolds) {
 		this.numFolds = numFolds;
@@ -205,7 +204,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Gets the seed used in the experiment.
 	 *
-	 * @return the seed
+	 * @return The seed.
 	 */
 	public int getSeed() {
 		return seed;
@@ -214,7 +213,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Sets the seed used in the experiment.
 	 *
-	 * @param seed the new seed
+	 * @param seed The new seed
 	 */
 	public void setSeed(int seed) {
 		this.seed = seed;
@@ -223,7 +222,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Gets the average time of all folds in train.
 	 *
-	 * @return the average time of all folds
+	 * @return The average time of all folds.
 	 */
 	public double getAvgTrainTime() {
 		return meanArray(trainTime);
@@ -232,7 +231,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Gets the average time of all folds in test.
 	 *
-	 * @return the average time of all folds
+	 * @return The average time of all folds.
 	 */
 	public double getAvgTestTime() {
 		return meanArray(testTime);
@@ -241,7 +240,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
     /**
      * Gets the standard deviation time of all folds in train.
      *
-     * @return the standard deviation time of all folds
+     * @return The standard deviation time of all folds.
      */
     public double getStdTrainTime()
     {   	
@@ -251,7 +250,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
     /**
      * Gets the standard deviation time of all folds in test.
      *
-     * @return the standard deviation time of all folds
+     * @return The standard deviation time of all folds.
      */
     public double getStdTestTime()
     {   	
@@ -271,7 +270,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Gets the data used in the experiment.
 	 *
-	 * @return the data
+	 * @return The data.
 	 */
 	public MIMLInstances getData() {
 		return data;

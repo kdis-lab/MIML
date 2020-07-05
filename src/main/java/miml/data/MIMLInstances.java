@@ -109,8 +109,8 @@ public class MIMLInstances extends MultiLabelInstances {
 	 * {@link Instances} considering just the relational information. Neither
 	 * identification attribute of the Bag nor label attributes are included.
 	 * 
-	 * @param bagIndex Index of the bag
-	 * @return a bag or an instance from the index of the dataset
+	 * @param bagIndex Index of the bag.
+	 * @return A bag or an instance from the index of the dataset.
 	 * @throws Exception If bagIndex exceeds the number of bags in the dataset. To
 	 *                   be handled in an upper level.
 	 */
@@ -145,9 +145,9 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Gets an instance of a bag.
 	 * 
-	 * @param bagIndex      The index of the bag in the data set,
+	 * @param bagIndex      The index of the bag in the data set.
 	 * @param instanceIndex Is the index of the instance in the bag.
-	 * @return Instance
+	 * @return Instance.
 	 * @throws IndexOutOfBoundsException To be handled in an upper level.
 	 */
 	public Instance getInstance(int bagIndex, int instanceIndex) throws IndexOutOfBoundsException {
@@ -157,7 +157,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Gets the number of bags of the dataset.
 	 * 
-	 * @return int
+	 * @return The number of bags of the dataset.
 	 */
 	public int getNumBags() {
 		return this.getNumInstances();
@@ -167,7 +167,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	 * Gets the number of instances of a bag.
 	 * 
 	 * @param bagIndex A bag index.
-	 * @return int
+	 * @return The number of instances of a bag
 	 * @throws Exception To be handled in an upper level.
 	 */
 	public int getNumInstances(int bagIndex) throws Exception {
@@ -191,7 +191,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	 * &#064;attribute label3 {0,1}<br>
 	 * &#064;attribute label4 {0,1}<br>
 	 * 
-	 * @return int
+	 * @return The number of attributes of the dataset.
 	 */
 	public int getNumAttributes() {
 		return this.getDataSet().numAttributes();
@@ -216,7 +216,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	 * &#064;attribute label4 {0,1}<br>
 	 * 
 	 * 
-	 * @return int
+	 * @return The total number of attributes of the dataset.
 	 */
 	public int getNumAttributesWithRelational() {
 		return this.getDataSet().numAttributes() + this.getNumAttributesInABag() - 1;
@@ -239,7 +239,7 @@ public class MIMLInstances extends MultiLabelInstances {
 	 * &#064;attribute label3 {0,1}<br>
 	 * &#064;attribute label4 {0,1}<br>
 	 * 
-	 * @return int
+	 * @return The number of attributes per bag.
 	 */
 	public int getNumAttributesInABag() {
 		return this.getDataSet().instance(0).relationalValue(1).numAttributes();
@@ -248,20 +248,20 @@ public class MIMLInstances extends MultiLabelInstances {
 	/**
 	 * Returns the dataset as MultiLabelInstances.
 	 * 
-	 * @return MultiLabelInstances
+	 * @return MultiLabelInstances.
 	 */
 	public MultiLabelInstances getMLDataSet() {
 		return this;
 	}
 
 	/**
-	 * Adds an attribute to the relational attribute with value ? at the last
-	 * position
+	 * Adds an attribute to the relational attribute with value '?' at the last
+	 * position.
 	 * 
-	 * @param newAttr The attribute to be added
-	 * @throws InvalidDataFormatException if occurred an error creating new dataset
+	 * @param newAttr The attribute to be added.
+	 * @throws InvalidDataFormatException if occurred an error creating new dataset.
 	 * 
-	 * @return new dataset
+	 * @return new dataset.
 	 */
 	public MIMLInstances insertAttributeToBags(Attribute newAttr) throws InvalidDataFormatException {
 
@@ -309,13 +309,13 @@ public class MIMLInstances extends MultiLabelInstances {
 	}
 
 	/**
-	 * Adds a set of attributes to the relational attribute with values ? at the
-	 * last position of the relational attribute
+	 * Adds a set of attributes to the relational attribute with values '?' at the
+	 * last position of the relational attribute.
 	 * 
-	 * @param Attributes ArrayList of attributes to add
-	 * @throws InvalidDataFormatException if occurred an error creating new dataset
+	 * @param Attributes ArrayList of attributes to add.
+	 * @throws InvalidDataFormatException if occurred an error creating new dataset.
 	 * 
-	 * @return new dataset
+	 * @return new dataset.
 	 */
 	public MIMLInstances insertAttributesToBags(ArrayList<Attribute> Attributes) throws InvalidDataFormatException {
 

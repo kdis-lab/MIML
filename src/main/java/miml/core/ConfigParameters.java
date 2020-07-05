@@ -16,7 +16,7 @@
 package miml.core;
 
 /**
- * Class used to save config parameters to be used in reports.
+ * Class used to save configuration parameters to be used in reports.
  * 
  * @author Alvaro A. Belmonte
  * @author Amelia Zafra
@@ -24,70 +24,76 @@ package miml.core;
  * @version 20190524
  */
 public final class ConfigParameters {
-	
 
-	/** The algorirthm used in the experimentation. */
-	protected static String algorirthmName = "";
-	
-	/** The config filename used in the experimentation. */
+	/** The algorithm used in the experimentation. */
+	protected static String algorithmName = "";
+
+	/** The configuration filename used in the experimentation. */
 	protected static String configFileName = "";
-	
-	/** The data filename used in the experimentation. */
+
+	/** The name of data file used in the experimentation. */
 	protected static String dataFileName = "";
-	
+
 	/** The classifier used in the experimentation. */
 	protected static String classifierName = "";
-	
-	/** The transform method used in the experimentation. */
-	protected static String transformMethod = "";
-	
-	protected static Boolean isDegenerative = false;
 
 	/**
-	 * Gets the algorirthm name.
-	 *
-	 * @return the algorirthm name
+	 * The name of the method used in the experiment if this is a transformation
+	 * method.
 	 */
-	public static String getAlgorirthmName() {
-		return algorirthmName;
-	}
-	
+	protected static String transformationMethod = "";
+
 	/**
-	 * Sets the algorirthm name.
-	 *
-	 * @param algorirthmName the new algorirthm name
+	 * If the classifier configured in the experiment uses a method
+	 * transformation.
 	 */
-	public static void setAlgorirthmName(String algorirthmName) {
-		ConfigParameters.algorirthmName = algorirthmName;
-	}
-	
+	protected static Boolean isTransformation = false;
+
 	/**
-	 * Gets the config file name.
+	 * Gets the algorithm name.
 	 *
-	 * @return the config file name
+	 * @return The algorithm name.
+	 */
+	public static String getAlgorithmName() {
+		return algorithmName;
+	}
+
+	/**
+	 * Sets the algorithm name.
+	 *
+	 * @param algorithmName The new algorithm name.
+	 */
+	public static void setAlgorithmName(String algorithmName) {
+		ConfigParameters.algorithmName = algorithmName;
+	}
+
+	/**
+	 * Gets the configuration file name.
+	 *
+	 * @return The configuration file name.
 	 */
 	public static String getConfigFileName() {
 		return configFileName;
 	}
-	
+
 	/**
-	 * Sets the config file name.
+	 * Sets the configuration file name.
 	 *
-	 * @param configFileName the new config file name
+	 * @param configFileName The new configuration file name.
 	 */
 	public static void setConfigFileName(String configFileName) {
 		ConfigParameters.configFileName = configFileName;
 	}
-	
+
 	/**
-	 * Gets the data file name.
+	 * Gets the name of data file.
 	 *
-	 * @return the data file name
+	 * @return The name of data file.
 	 */
 	public static String getDataFileName() {
 		return dataFileName;
 	}
-	
+
 	/**
 	 * Sets the data file name.
 	 *
@@ -98,48 +104,57 @@ public final class ConfigParameters {
 	}
 
 	/**
-	 * Gets the classifier name
+	 * Gets the classifier name.
 	 * 
-	 * @return the classifier name
+	 * @return The classifier name.
 	 */
 	public static String getClassifierName() {
 		return classifierName;
 	}
 
 	/**
-	 * Sets the classifier name
-	 * @param classifierName the classifier name
+	 * Sets the classifier name.
+	 * 
+	 * @param classifierName The classifier name.
 	 */
 	public static void setClassifierName(String classifierName) {
 		ConfigParameters.classifierName = classifierName;
 	}
 
 	/**
-	 * Gets the transform method used in the experiment
+	 * Gets the transformation method used in the experiment.
 	 * 
-	 * @return the transform method used in the experiment
+	 * @return The transformation method used in the experiment.
 	 */
-	public static String getTransformMethod() {
-		return transformMethod;
+	public static String getTransformationMethod() {
+		return transformationMethod;
 	}
 
 	/**
-	 * Sets the transform method used in the experiment
+	 * Sets the transformation method used in the experiment.
 	 * 
-	 * @param transformMethod the transform method used in the experiment
+	 * @param transformationMethod The transformation method used in the experiment.
 	 */
-	public static void setTransformMethod(String transformMethod) {
-		ConfigParameters.transformMethod = transformMethod;
-	}
-	
-	public static Boolean getIsDegenerative() {
-		return isDegenerative;
+	public static void setTransformationMethod(String transformationMethod) {
+		ConfigParameters.transformationMethod = transformationMethod;
 	}
 
-	public static void setIsDegenerative(Boolean isDegenerative) {
-		ConfigParameters.isDegenerative = isDegenerative;
+	/**
+	 * Gets if the method used is transformation.
+	 * 
+	 * @return True if the method used is transformation.
+	 */
+	public static Boolean getIsTransformation() {
+		return isTransformation;
 	}
-	
-	
-	
+
+	/**
+	 * Sets if the method used is transformation.
+	 * 
+	 * @param isTransformation If the method used is transformation.
+	 */
+	public static void setIsTransformation(Boolean isTransformation) {
+		ConfigParameters.isTransformation = isTransformation;
+	}
+
 }

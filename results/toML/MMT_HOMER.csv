@@ -1,2 +1,2 @@
-Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure,
-MIMLClassifierToML,mulan.classifier.meta.HOMER,miml.transformation.mimlTOml.MiniMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_HOMER.config,183,9,0.18139097744360894,0.017857142857142856,0.11340852130325814,0.11510000847529453,
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToML,mulan.classifier.meta.HOMER,miml.transformation.mimlTOml.MinMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_HOMER.config,218,12,0.18139097744360894,0.017857142857142856,0.11340852130325814,0.11510000847529453

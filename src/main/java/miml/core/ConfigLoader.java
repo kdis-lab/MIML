@@ -40,13 +40,13 @@ import miml.report.IReport;
  */
 public class ConfigLoader {
 
-	/** Configuration object */
+	/** Configuration object. */
 	protected Configuration configuration;
 
 	/**
 	 * Gets the experiment's configuration.
 	 *
-	 * @return The configuration
+	 * @return The configuration used during experimentation.
 	 */
 	public Configuration getConfiguration() {
 		return configuration;
@@ -55,7 +55,7 @@ public class ConfigLoader {
 	/**
 	 * Sets the configuration for the experiment.
 	 *
-	 * @param configuration A new configuration
+	 * @param configuration A new configuration.
 	 */
 	public void setConfiguration(Configuration configuration) {
 		this.configuration = configuration;
@@ -64,8 +64,8 @@ public class ConfigLoader {
 	/**
 	 * Constructor that sets the configuration file
 	 *
-	 * @param path the path of config file
-	 * @throws ConfigurationException the configuration exception
+	 * @param path The path of config file.
+	 * @throws ConfigurationException if occurred an error during the loading of the configuration.
 	 */
 	public ConfigLoader(String path) throws ConfigurationException {
 		
@@ -91,8 +91,8 @@ public class ConfigLoader {
 	/**
 	 * Read current configuration to load and configure the classifier.
 	 *
-	 * @return A MIML classifier
-	 * @throws Exception the exception
+	 * @return A MIMLClassifier.
+	 * @throws Exception if the classifier couldn't be loaded correctly.
 	 */
 	@SuppressWarnings("unchecked")
 	public IMIMLClassifier loadClassifier() throws Exception {
@@ -109,7 +109,7 @@ public class ConfigLoader {
 			((IConfiguration) classifier).configure(configuration.subset("classifier"));
 						
 
-		ConfigParameters.setAlgorirthmName(classifier.getClass().getSimpleName());
+		ConfigParameters.setAlgorithmName(classifier.getClass().getSimpleName());
 
 		return classifier;
 	}
@@ -117,13 +117,11 @@ public class ConfigLoader {
 	/**
 	 * Read current configuration to load and configure the evaluator.
 	 *
-	 * @return A evaluator for MIML Classifiers
-	 * @throws ClassNotFoundException the class not found exception
-	 * @throws InstantiationException the instantiation exception
-	 * @throws IllegalAccessException the illegal access exception
+	 * @return A evaluator for MIML Classifiers.
+	 * @throws Exception if the class loaded can't be loaded.
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public IEvaluator loadEvaluator() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public IEvaluator loadEvaluator() throws Exception {
 
 		IEvaluator evaluator = null;
 
@@ -143,12 +141,10 @@ public class ConfigLoader {
 	 * Read current configuration to load and configure the report.
 	 *
 	 * @return the MIML report
-	 * @throws ClassNotFoundException if the class doesn't exist
-	 * @throws InstantiationException if specified class object cannot be instantiated
-	 * @throws IllegalAccessException if not have access to the definition of the specified class
+	 * @throws Exception if the class can't be loaded.
 	 */
 	@SuppressWarnings("unchecked")
-	public IReport loadReport() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public IReport loadReport() throws Exception {
 
 		IReport report = null;
 

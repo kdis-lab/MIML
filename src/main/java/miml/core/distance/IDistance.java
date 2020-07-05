@@ -21,7 +21,7 @@ import miml.data.MIMLBag;
 import weka.core.Instances;
 
 /**
- * Interface to implements the metrics used to measure the distance between bags
+ * Interface to implements the metrics used to measure the distance between {@link MIMLBag}
  * of a data sets.
  *
  * @author Alvaro A. Belmonte
@@ -32,22 +32,22 @@ import weka.core.Instances;
 public interface IDistance extends Serializable {
 
 	/**
-	 * Get the distance between two MIML bags.
+	 * Get the distance between two {@link MIMLBag}.
 	 *
-	 * @param first  first Bag
-	 * @param second second Bag
-	 * @return distance between two bags
-	 * @throws Exception if occurred an error during distance calculation
+	 * @param first  First bag.
+	 * @param second Second bag.
+	 * @return Distance between two bags.
+	 * @throws Exception if occurred an error during distance calculation,
 	 */
 	public double distance(MIMLBag first, MIMLBag second) throws Exception;
 
 	/**
-	 * Get the distance between two bags in the form of a set of instances.
+	 * Get the distance between two bags in the form of a set of {@link Instances}.
 	 *
-	 * @param first  first Bag as Instances
-	 * @param second second Bag as Instances
-	 * @return distance between two bags
-	 * @throws Exception if occurred an error during distance calculation
+	 * @param first  First bag as instances.
+	 * @param second Second Bag as Instances.
+	 * @return Distance between two bags.
+	 * @throws Exception if occurred an error during distance calculation.
 	 */
 	public double distance(Instances first, Instances second) throws Exception;
 

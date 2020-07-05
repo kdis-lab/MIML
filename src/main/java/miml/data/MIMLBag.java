@@ -57,7 +57,7 @@ public class MIMLBag extends DenseInstance implements Instance {
 	 * 
 	 * @param bagIndex
 	 *            The index number.
-	 * @return Instance
+	 * @return Instance.
 	 * 
 	 */
 	public Instance getInstance(int bagIndex) {
@@ -82,7 +82,7 @@ public class MIMLBag extends DenseInstance implements Instance {
 	 * &#064;attribute label3 {0,1}<br>
 	 * &#064;attribute label4 {0,1}<br>
 	 * 
-	 * @return int
+	 * @return Total number of attributes of the Bag.
 	 */
 	public int getNumAttributesWithRelational() {
 		return this.numAttributes() + this.relationalValue(1).numAttributes() - 1;
@@ -104,7 +104,7 @@ public class MIMLBag extends DenseInstance implements Instance {
 	 * &#064;attribute label3 {0,1}<br>
 	 * &#064;attribute label4 {0,1}<br>
 	 * 
-	 * @return int
+	 * @return The number of attributes.
 	 */
 	public int getNumAttributesInABag() {
 		return this.relationalValue(1).numAttributes();
@@ -113,7 +113,7 @@ public class MIMLBag extends DenseInstance implements Instance {
 	/**
 	 * Gets the number of instances of the Bag.
 	 * 
-	 * @return int
+	 * @return The number of instances of the Bag.
 	 */
 	public int getNumInstances() {
 		return this.relationalValue(1).numInstances();
@@ -142,7 +142,7 @@ public class MIMLBag extends DenseInstance implements Instance {
 	 * &#064;attribute f2 numeric<br>
 	 * &#064;attribute f3 numeric<br>
 	 * 
-	 * @return Instances
+	 * @return Instances.
 	 * @throws Exception
 	 *             To be handled in an upper level.
 	 */
@@ -151,14 +151,15 @@ public class MIMLBag extends DenseInstance implements Instance {
 		return bags;
 	}
 
-	/**Sets the value of attrIndex attribute of the the instanceIndex to a certain value
+	/**
+	 * Sets the value of attrIndex attribute of the instanceIndex to a certain value.
 	 * 
 	 * @param instanceIndex
-	 * 		The index of the instance
+	 * 		The index of the instance.
 	 * @param attrIndex
-	 * 		The index of the attribute
+	 * 		The index of the attribute.
 	 * @param value
-	 * 		The value to be set
+	 * 		The value to be set.
 	 */
 	public void setValue(int instanceIndex, int attrIndex, double value)
 	{

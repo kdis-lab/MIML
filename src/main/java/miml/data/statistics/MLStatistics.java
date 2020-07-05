@@ -53,7 +53,7 @@ import weka.filters.unsupervised.attribute.Remove;
  * @version 20150925
  */
 public class MLStatistics {
-
+	
 	// Basic features
 	/** The number of labels. */
 	protected int numLabels;
@@ -99,6 +99,19 @@ public class MLStatistics {
 	 */
 	double chi2[][] = null;
 
+	/** Multi label dataset */
+	private MultiLabelInstances mlDataSet;
+	
+	/**
+	 * Constructor.
+	 * 
+	 * @param mlDataSet MultiLabel dataset.
+	 */
+	public MLStatistics(MultiLabelInstances mlDataSet) {
+		this.mlDataSet = mlDataSet;
+		calculateStats();
+	}
+	
 	/**
 	 * Gets the Phi correlation matrix. It requires the method calculatePhiChi2 to
 	 * be previously called.
@@ -121,10 +134,8 @@ public class MLStatistics {
 
 	/**
 	 * Calculates various ML statistics.
-	 * 
-	 * @param mlDataSet A ML data set.
 	 */
-	public void calculateStats(MultiLabelInstances mlDataSet) {
+	protected void calculateStats() {
 
 		// Initialize basic properties
 		numLabels = mlDataSet.getNumLabels();
@@ -690,7 +701,7 @@ public class MLStatistics {
 	}
 
 	/**
-	 * Returns cooCurrenceMatrix in textual representation. It requires the method
+	 * Returns coocurrenceMatrix in textual representation. It requires the method
 	 * calculateCoocurrence to be previously called.
 	 * 
 	 * @return string
@@ -707,7 +718,7 @@ public class MLStatistics {
 	}
 
 	/**
-	 * Returns cooCurrenceMatrix in CSV representation. It requires the method
+	 * Returns coocurrenceMatrix in CSV representation. It requires the method
 	 * calculateCoocurrence to be previously called.
 	 * 
 	 * @return string

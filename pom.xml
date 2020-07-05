@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>Miml</groupId>
+	<groupId>miml</groupId>
 	<artifactId>miml</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
@@ -16,21 +16,26 @@
 
 		<!-- Maven plugins -->
 		<compiler.plugin.version>3.8.0</compiler.plugin.version>
-		<install.plugin.version>2.5.2</install.plugin.version>
-		
+
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
-	<dependencies>
 
+	<repositories>
+		<repository>
+			<id>local</id>
+			<url>file://${basedir}/src/main/resources</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
-
 
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
 		<dependency>
@@ -67,7 +72,6 @@
 			<version>2.4</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-dev -->
 		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
@@ -82,7 +86,6 @@
 			<version>1.0.1</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/multiInstanceLearning -->
 		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
@@ -96,20 +99,17 @@
 			<artifactId>multiInstanceFilters</artifactId>
 			<version>1.0.10</version>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>mulan</groupId>
 			<artifactId>mulan</artifactId>
-			<scope>system</scope>
-			<version>1.5</version>
-			<systemPath>${basedir}/src/main/resources/mulan-1-5-0.jar</systemPath>
+			<version>1.5.0</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
 		<plugins>
-			<!-- INDICAR VERSIÓN MINIMA DE LA JDK -->
+			<!-- MINIMAL JDK VERSION -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -119,57 +119,44 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
-			<!-- PARA AÑADIR DEPENDENCIA DE MULAN AL PROYECTO AUTOMÁTICAMENTE -->
+	
+			<!-- GENERATE SOURCE CODE -->
 			<plugin>
-	            <groupId>org.apache.maven.plugins</groupId>
-	            <artifactId>maven-install-plugin</artifactId>
-	            <version>${install.plugin.version}</version>
-	            <executions>
-	                <execution>
-	                    <id>install-external</id>
-	                    <phase>clean</phase>
-		                    <configuration>
-		                        <file>${basedir}/src/main/resources/mulan-1-5-0.jar</file>
-		                        <repositoryLayout>default</repositoryLayout>
-		                        <groupId>Mulan</groupId>
-		                        <artifactId>mulan</artifactId>
-		                        <version>1.5</version>
-		                        <packaging>jar</packaging>
-		                        <generatePom>false</generatePom>
-		                    </configuration>
-	                    <goals>
-	                        <goal>install-file</goal>
-	                    </goals>
-	                </execution>
-	            </executions>
-	        </plugin>
-	        
-			<!-- PARA AÑADIR DEPENDENCIAS AL JAR -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- CREATE JAR WITH DEPENDENCIES -->
 			<plugin>
-		         <artifactId>maven-assembly-plugin</artifactId>
-		         <configuration>
-		             <archive>
-		                 <manifest>
-		                     <mainClass>miml.run.RunAlgorithm</mainClass>
-		                 </manifest>
-		             </archive>
-		             <descriptorRefs>
-		                 <descriptorRef>jar-with-dependencies</descriptorRef>
-		             </descriptorRefs>
-		             
-		         </configuration>
-		         <executions>
-		             <execution>
-		                <id>make-assembly</id> <!-- this is used for inheritance merges -->
-		       			<phase>package</phase> <!-- bind to the packaging phase -->
-		                <goals>
-		                    <goal>single</goal>
-		                </goals>
-		            </execution>
-		        </executions>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>miml.run.RunAlgorithm</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

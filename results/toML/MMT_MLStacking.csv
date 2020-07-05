@@ -1,2 +1,2 @@
-Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure,
-MIMLClassifierToML,mulan.classifier.transformation.MultiLabelStacking,miml.transformation.mimlTOml.MiniMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_MLStacking.config,2141,9,0.16165413533834583,0.03571428571428571,0.10676691729323311,0.0970516308596804,
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToML,mulan.classifier.transformation.MultiLabelStacking,miml.transformation.mimlTOml.MinMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_MLStacking.config,160892,14,0.6832706766917295,0.0,0.10628844839371154,0.10199637700426602

@@ -23,7 +23,7 @@ import weka.core.Instances;
 
 /**
  * 
- * Class that performs an arithmetic transformation to convert a MIMLIntances
+ * Class that performs an arithmetic transformation to convert a MIMLInstances
  * class to MultiLabelInstances. This arithmetic transformation transforms each
  * Bag into a single Instance being the value of each attribute the mean value
  * of the instances in the bag.

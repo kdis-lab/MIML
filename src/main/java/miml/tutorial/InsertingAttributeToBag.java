@@ -20,13 +20,14 @@ import java.util.ArrayList;
 
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
-import miml.data.MLSaver;
+import miml.data.MLSave;
 import weka.core.Attribute;
+import weka.core.Utils;
 
 /**
  * 
  * Class implementing an example of inserting a new attribute to the relational attribute of the
- * dataset with {0,1} values
+ * dataset with {0,1} values.
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
@@ -35,11 +36,22 @@ import weka.core.Attribute;
  *
  */
 public class InsertingAttributeToBag {
-
+	
+	/** Shows the help on command line. */
+	public static void showUse() {
+		System.out.println("Program parameters:");
+		System.out.println("\t-f arffPathFile Name -> path of arff source file.");
+		System.out.println("\t-x xmlPathFileName -> path of xml file.");
+		System.out.println("Example:");
+		System.out.println("\tjava -jar InsertingAttributesToBag -f data" + File.separator + "toy.arff -x data"
+				+ File.separator + "toy.xml");
+		System.exit(-1);
+	}
+	
 	public static void main(String[] args) throws Exception {
 
-		String arffFileName = "data" + File.separator + "toy.arff";
-		String xmlFileName = "data" + File.separator + "toy.xml";
+		String arffFileName = Utils.getOption("f", args);
+		String xmlFileName = Utils.getOption("x", args);
 
 		// Loads the dataset
 		System.out.println("Loading the dataset....");
@@ -63,7 +75,7 @@ public class InsertingAttributeToBag {
 				value++;
 			}
 		}
-		MLSaver.saveArff(result.getDataSet(), "data" + File.separator + "new.arff");
+		MLSave.saveArff(result.getDataSet(), "data" + File.separator + "new.arff");
 		
 	}
 	

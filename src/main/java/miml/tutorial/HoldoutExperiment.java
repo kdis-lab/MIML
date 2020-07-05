@@ -18,11 +18,11 @@ package miml.tutorial;
 import java.io.File;
 
 import miml.classifiers.miml.lazy.MIMLkNN;
-import miml.core.ConfigParameters;
 import miml.core.distance.MaximalHausdorff;
 import miml.data.MIMLInstances;
 import miml.evaluation.EvaluatorHoldout;
 import miml.report.BaseMIMLReport;
+import weka.core.Utils;
 
 /**
  * 
@@ -36,16 +36,27 @@ import miml.report.BaseMIMLReport;
  *
  */
 public class HoldoutExperiment {
+
+	/** Shows the help on command line. */
+	public static void showUse() {
+		System.out.println("Program parameters:");
+		System.out.println("\t-f arffPathFile Name -> path of arff source file.");
+		System.out.println("\t-x xmlPathFileName -> path of xml file.");
+		System.out.println("\t-t arffPathFileTrain Name -> path of arff train file.");
+		System.out.println("\t-y arffPathFileTest -> path of arff test file.");
+		System.out.println("Example:");
+		System.out.println("\tjava -jar HoldoutExperiment -f data" + File.separator + "miml_birds.arff -x data"
+				+ File.separator + "miml_birds.xml -t data" + File.separator + "miml_birds_random_80train.arff"
+				+ File.separator + " -y data" + File.separator + "miml_birds_random_20test.arff");
+		System.exit(-1);
+	}
+
 	public static void main(String[] args) throws Exception {
 
-		ConfigParameters.setConfigFileName("EXAMPLE");
-		ConfigParameters.setDataFileName("miml_birds.arff");
-		ConfigParameters.setAlgorirthmName("MIMLkNN");
-
-		String arffFileName = "data" + File.separator + "miml_birds.arff";
-		String xmlFileName = "data" + File.separator + "miml_birds.xml";
-		String arffFileNameTrain = "data" + File.separator + "miml_birds_random_80train.arff";
-		String arffFileNameTest = "data" + File.separator + "miml_birds_random_20test.arff";
+		String arffFileName = Utils.getOption("f", args);
+		String xmlFileName = Utils.getOption("x", args);
+		String arffFileNameTrain = Utils.getOption("t", args);
+		String arffFileNameTest = Utils.getOption("y", args);
 
 		// Loads the dataset
 		System.out.println("Loading datasets...");
@@ -54,7 +65,7 @@ public class HoldoutExperiment {
 		MIMLInstances mimlDataSetTest = new MIMLInstances(arffFileNameTest, xmlFileName);
 
 		// MIML report
-		BaseMIMLReport report = new BaseMIMLReport(null, "example.csv", true, true);
+		BaseMIMLReport report = new BaseMIMLReport(null, "example.csv", true, true, false);
 
 		// Cross-validation evaluator
 		EvaluatorHoldout holdoutTT = new EvaluatorHoldout(mimlDataSetTrain, mimlDataSetTest);

@@ -16,6 +16,7 @@
 package miml.report;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.configuration2.Configuration;
@@ -40,19 +41,22 @@ import mulan.evaluation.measure.Measure;
  */
 public class BaseMIMLReport extends MIMLReport {
 
-	
 	/**
 	 * Basic constructor to initialize the report.
 	 *
-	 * @param measures 		the list of selected measures which is going to be shown in the report
-	 * @param filename     	the filename where the report's will be saved
-	 * @param std         	whether the standard deviation of measures will be shown or not (only valid for cross-validation evaluator)
-	 * @param labels 		whether the measures for each label will be shown (only valid for Macros Average measures)
+	 * @param measures The list of selected measures which is going to be shown in
+	 *                 the report.
+	 * @param filename The filename where the report's will be saved.
+	 * @param std      Whether the standard deviation of measures will be shown or
+	 *                 not (only valid for cross-validation evaluator).
+	 * @param labels   Whether the measures for each label will be shown (only valid
+	 *                 for Macro-Averaged measures).
+	 * @param header   Whether the header will be shown.
 	 */
-	public BaseMIMLReport(List<String> measures, String filename, boolean std, boolean labels) {
+	public BaseMIMLReport(List<String> measures, String filename, boolean std, boolean labels, boolean header) {
 		super();
 	}
-	
+
 	/**
 	 * No-argument constructor for xml configuration.
 	 */
@@ -62,11 +66,11 @@ public class BaseMIMLReport extends MIMLReport {
 	/**
 	 * Read the cross-validation results and transform to CSV format.
 	 *
-	 * @param evaluator the evaluator
-	 * @return the string with CSV content
-	 * @throws Exception the exception
+	 * @param evaluator The evaluator.
+	 * @return String with CSV content.
+	 * @throws Exception To be handled in an upper level.
 	 */
-	private String crossValidationToCSV(EvaluatorCV evaluator) throws Exception {
+	protected String crossValidationToCSV(EvaluatorCV evaluator) throws Exception {
 
 		MultipleEvaluation evaluationCrossValidation = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
@@ -81,66 +85,70 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		if(ConfigParameters.getIsDegenerative()) {
-			// Write header
-			sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile," + "Train_time_ms(avg),");
-		} else {
-			// Write header
-			sb.append("Algorithm," + "Dataset," + "ConfigurationFile," + "Train_time_ms(avg),");
-		}
-		
-		if (this.std) {
-			sb.append("Train_time_ms(std),");
-		}
+		if (this.header) {
+			if (ConfigParameters.getIsTransformation()) {
+				// Write header
+				sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile,"
+						+ "Train_time_ms(avg),");
+			} else {
+				// Write header
+				sb.append("Algorithm," + "Dataset," + "ConfigurationFile," + "Train_time_ms(avg),");
+			}
 
-		sb.append("Test_time_ms(avg),");
-
-		if (this.std) {
-			sb.append("Test_time_ms(std),");
-		}
-
-		// Write measure's names
-		for (Measure m : measures) {
-			measureName = m.getName();
-			sb.append(measureName + ",");
-			// If std label is activated standard deviation is written
 			if (this.std) {
+				sb.append("Train_time_ms(std),");
+			}
 
-				sb.append(measureName + " Std,");
+			sb.append("Test_time_ms(avg),");
 
-				if (m instanceof MacroAverageMeasure && this.labels) {
+			if (this.std) {
+				sb.append("Test_time_ms(std),");
+			}
 
-					for (int i = 0; i < data.getNumLabels(); i++) {
-						sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
-								+ ",");
-						sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
-								+ " Std,");
+			// Write measure's names
+			for (Measure m : measures) {
+				measureName = m.getName();
+				sb.append(measureName + ",");
+				// If std label is activated standard deviation is written
+				if (this.std) {
+
+					sb.append(measureName + " Std,");
+
+					if (m instanceof MacroAverageMeasure && this.labels) {
+
+						for (int i = 0; i < data.getNumLabels(); i++) {
+							sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+									+ ",");
+							sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+									+ " Std,");
+						}
+					} else if (m instanceof MacroAverageMeasure) {
+						for (int i = 0; i < data.getNumLabels(); i++) {
+							sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+									+ ",");
+						}
 					}
-				} else if (m instanceof MacroAverageMeasure) {
+				}
+
+				else if (m instanceof MacroAverageMeasure && this.labels) {
 					for (int i = 0; i < data.getNumLabels(); i++) {
 						sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
 								+ ",");
 					}
 				}
 			}
-
-			else if (m instanceof MacroAverageMeasure && this.labels) {
-				for (int i = 0; i < data.getNumLabels(); i++) {
-					sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ",");
-				}
-			}
+			sb.setLength(sb.length() - 1);
+			sb.append(System.getProperty("line.separator"));
 		}
 
-		sb.append(System.getProperty("line.separator"));
-		
-		if(ConfigParameters.getIsDegenerative()) {
+		if (ConfigParameters.getIsTransformation()) {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + ","  + ConfigParameters.getClassifierName() + ","
-					+ ConfigParameters.getTransformMethod() + "," + ConfigParameters.getDataFileName() + ","
-					+ ConfigParameters.getConfigFileName() + ","  + evaluator.getAvgTrainTime() + ",");
+			sb.append(ConfigParameters.getAlgorithmName() + "," + ConfigParameters.getClassifierName() + ","
+					+ ConfigParameters.getTransformationMethod() + "," + ConfigParameters.getDataFileName() + ","
+					+ ConfigParameters.getConfigFileName() + "," + evaluator.getAvgTrainTime() + ",");
 		} else {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
+			sb.append(ConfigParameters.getAlgorithmName() + "," + ConfigParameters.getDataFileName() + ","
 					+ ConfigParameters.getConfigFileName() + "," + evaluator.getAvgTrainTime() + ",");
 		}
 
@@ -183,7 +191,7 @@ public class BaseMIMLReport extends MIMLReport {
 			}
 
 		}
-
+		sb.setLength(sb.length() - 1);
 		sb.append(System.getProperty("line.separator"));
 		return sb.toString();
 	}
@@ -191,11 +199,11 @@ public class BaseMIMLReport extends MIMLReport {
 	/**
 	 * Read the holdout results and transform to CSV format.
 	 *
-	 * @param evaluator the evaluator
-	 * @return the string with CSV content
-	 * @throws Exception the exception
+	 * @param evaluator The evaluator.
+	 * @return String with CSV content.
+	 * @throws Exception To be handled in an upper level
 	 */
-	private String holdoutToCSV(EvaluatorHoldout evaluator) throws Exception {
+	protected String holdoutToCSV(EvaluatorHoldout evaluator) throws Exception {
 
 		Evaluation evaluationHoldout = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
@@ -203,45 +211,53 @@ public class BaseMIMLReport extends MIMLReport {
 		StringBuilder sb = new StringBuilder();
 		String measureName;
 
+		if(this.std) {
+			System.out.println("[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible calculate std value");
+		}
+		
 		// All evaluator measures
 		List<Measure> measures = evaluationHoldout.getMeasures();
 		// Measures selected by user
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		if(ConfigParameters.getIsDegenerative()) {
-			// Write header
-			sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile," + "Train_time_ms," + "Test_time_ms,");
-		} else {
-			// Write header
-			sb.append("Algorithm," + "Dataset," + "ConfigurationFile,"+ "Train_time_ms," + "Test_time_ms,");
-		}
-		// Write measure's names
-		for (Measure m : measures) {
-			measureName = m.getName();
-			sb.append(measureName + ",");
+		if (this.header) {
+			if (ConfigParameters.getIsTransformation()) {
+				// Write header
+				sb.append("Algorithm," + "Classifier," + "Transform method," + "Dataset," + "ConfigurationFile,"
+						+ "Train_time_ms," + "Test_time_ms,");
+			} else {
+				// Write header
+				sb.append("Algorithm," + "Dataset," + "ConfigurationFile," + "Train_time_ms," + "Test_time_ms,");
+			}
+			// Write measure's names
+			for (Measure m : measures) {
+				measureName = m.getName();
+				sb.append(measureName + ",");
 
-			if (m instanceof MacroAverageMeasure && this.labels) {
+				if (m instanceof MacroAverageMeasure && this.labels) {
 
-				for (int i = 0; i < data.getNumLabels(); i++) {
-					sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ",");
+					for (int i = 0; i < data.getNumLabels(); i++) {
+						sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+								+ ",");
+					}
 				}
 			}
+			sb.setLength(sb.length() - 1);
+			sb.append(System.getProperty("line.separator"));
 		}
 
-		sb.append(System.getProperty("line.separator"));
-
-		if(ConfigParameters.getIsDegenerative()) {
+		if (ConfigParameters.getIsTransformation()) {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + ","  + ConfigParameters.getClassifierName() + ","
-					+ ConfigParameters.getTransformMethod() + "," + ConfigParameters.getDataFileName() + ","
-					+ ConfigParameters.getConfigFileName() + ","  + evaluator.getTrainTime() + "," + evaluator.getTestTime()
-					+ ",");
+			sb.append(ConfigParameters.getAlgorithmName() + "," + ConfigParameters.getClassifierName() + ","
+					+ ConfigParameters.getTransformationMethod() + "," + ConfigParameters.getDataFileName() + ","
+					+ ConfigParameters.getConfigFileName() + "," + evaluator.getTrainTime() + ","
+					+ evaluator.getTestTime() + ",");
 		} else {
 			// Write header
-			sb.append(ConfigParameters.getAlgorirthmName() + "," + ConfigParameters.getDataFileName() + ","
-					+ ConfigParameters.getConfigFileName() + ","+ evaluator.getTrainTime() + "," + evaluator.getTestTime()
-					+ ",");
+			sb.append(ConfigParameters.getAlgorithmName() + "," + ConfigParameters.getDataFileName() + ","
+					+ ConfigParameters.getConfigFileName() + "," + evaluator.getTrainTime() + ","
+					+ evaluator.getTestTime() + ",");
 		}
 
 		// Write value for each measure
@@ -257,6 +273,7 @@ public class BaseMIMLReport extends MIMLReport {
 
 		}
 
+		sb.setLength(sb.length() - 1);
 		sb.append(System.getProperty("line.separator"));
 		return sb.toString();
 	}
@@ -264,11 +281,11 @@ public class BaseMIMLReport extends MIMLReport {
 	/**
 	 * Read the cross-validation results and transform to plain text.
 	 *
-	 * @param evaluator the evaluator
-	 * @return the string with the content
-	 * @throws Exception the exception
+	 * @param evaluator The evaluator.
+	 * @return String with the content.
+	 * @throws Exception To be handled in an upper level
 	 */
-	private String crossValidationToString(EvaluatorCV evaluator) throws Exception {
+	protected String crossValidationToString(EvaluatorCV evaluator) throws Exception {
 
 		MultipleEvaluation evaluationCrossValidation = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
@@ -283,11 +300,15 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
-		sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
-		sb.append("Transform method: " + ConfigParameters.getTransformMethod() + System.getProperty("line.separator"));
-		sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
-		sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
+		if (this.header) {
+			sb.append("Algorithm: " + ConfigParameters.getAlgorithmName() + System.getProperty("line.separator"));
+			sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
+			sb.append("Transform method: " + ConfigParameters.getTransformationMethod()
+					+ System.getProperty("line.separator"));
+			sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
+			sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
+		}
+
 		sb.append("Train time avg (ms): " + evaluator.getAvgTrainTime() + System.getProperty("line.separator"));
 
 		if (this.std) {
@@ -314,7 +335,8 @@ public class BaseMIMLReport extends MIMLReport {
 				if (m instanceof MacroAverageMeasure && this.labels) {
 
 					for (int i = 0; i < data.getNumLabels(); i++) {
-						sb.append(measureName + " - " + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ": ");
+						sb.append(measureName + " - " + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
+								+ ": ");
 						sb.append(String.format("%.4f", evaluationCrossValidation.getMean(measureName, i)));
 						sb.append("\u00B1");
 						sb.append(String.format("%.4f", evaluationCrossValidation.getStd(measureName, i)));
@@ -322,15 +344,14 @@ public class BaseMIMLReport extends MIMLReport {
 						sb.append(System.getProperty("line.separator"));
 					}
 				}
-			}
-			else if(m instanceof MacroAverageMeasure && this.labels) {
+			} else if (m instanceof MacroAverageMeasure && this.labels) {
 				for (int i = 0; i < data.getNumLabels(); i++) {
-					sb.append(measureName + " - " + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ": ");
+					sb.append(
+							measureName + " - " + data.getDataSet().attribute(data.getLabelIndices()[i]).name() + ": ");
 					sb.append(String.format("%.4f", evaluationCrossValidation.getMean(measureName, i)));
 					sb.append(System.getProperty("line.separator"));
 				}
-			}
-			else {
+			} else {
 				sb.append(System.getProperty("line.separator"));
 			}
 		}
@@ -340,12 +361,16 @@ public class BaseMIMLReport extends MIMLReport {
 	/**
 	 * Read the holdout results and transform to plain text.
 	 *
-	 * @param evaluator the evaluator
-	 * @return the string with the content
-	 * @throws Exception the exception
+	 * @param evaluator The evaluator.
+	 * @return String with the content.
+	 * @throws Exception To be handled in an upper level.
 	 */
-	private String holdoutToString(EvaluatorHoldout evaluator) throws Exception {
+	protected String holdoutToString(EvaluatorHoldout evaluator) throws Exception {
 
+		if(this.std) {
+			System.out.println("[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible  to calculate std value");
+		}
+		
 		Evaluation evaluationHoldout = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
 		StringBuilder sb = new StringBuilder();
@@ -356,11 +381,15 @@ public class BaseMIMLReport extends MIMLReport {
 		if (this.measures != null)
 			measures = filterMeasures(measures);
 
-		sb.append("Algorithm: " + ConfigParameters.getAlgorirthmName() + System.getProperty("line.separator"));
-		sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
-		sb.append("Transform method: " + ConfigParameters.getTransformMethod() + System.getProperty("line.separator"));
-		sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
-		sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
+		if (this.header) {
+			sb.append("Algorithm: " + ConfigParameters.getAlgorithmName() + System.getProperty("line.separator"));
+			sb.append("Classifier: " + ConfigParameters.getClassifierName() + System.getProperty("line.separator"));
+			sb.append("Transform method: " + ConfigParameters.getTransformationMethod()
+					+ System.getProperty("line.separator"));
+			sb.append("Dataset: " + ConfigParameters.getDataFileName() + System.getProperty("line.separator"));
+			sb.append("Config File: " + ConfigParameters.getConfigFileName() + System.getProperty("line.separator"));
+		}
+
 		sb.append("Train time (ms): " + evaluator.getTrainTime() + System.getProperty("line.separator"));
 		sb.append("Test time (ms): " + evaluator.getTestTime() + System.getProperty("line.separator"));
 
@@ -419,18 +448,23 @@ public class BaseMIMLReport extends MIMLReport {
 	 */
 	@Override
 	public void configure(Configuration configuration) {
+		
 		this.filename = configuration.getString("fileName");
-		this.std = configuration.getBoolean("standardDeviation", true);
-		this.labels = configuration.getBoolean("macroMeasuresLabels", true);
+		this.std = configuration.getBoolean("standardDeviation", false);
+		this.header = configuration.getBoolean("header", true);
+		
+		this.labels = configuration.getBoolean("measures[@perLabel]", true);
 
 		int measuresLength = configuration.getList("measures.measure").size();
 
-		if (measuresLength > 0)
+		if (measuresLength > 0) {
 			measures = new ArrayList<String>();
 
-		for (int i = 0; i < measuresLength; ++i) {
-			measures.add(configuration.getString("measures.measure(" + i + ")"));
+			for (int i = 0; i < measuresLength; ++i) {
+				measures.add(configuration.getString("measures.measure(" + i + ")"));
+			}
 		}
+
 	}
 
 }
