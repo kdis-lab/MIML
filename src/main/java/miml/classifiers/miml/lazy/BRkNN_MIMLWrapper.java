@@ -36,6 +36,7 @@ public class BRkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	 */
 
 	private static final long serialVersionUID = 1L;
+
 	/**
 	 * The type of extension to be used:
 	 * <ul>
