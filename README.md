@@ -71,7 +71,8 @@ The documentattion can be found in the doc folder and includes:
 The format of data is based on the Weka's format for MI learning and on the Mulan's format for ML learning. Concretely, each data set is represented by two files: 
 
 * An *xml* file based on Mulan's format containing the description of labels. Its aim is to identify those attributes in the *arff* file representing labels. Note that the class attributes do not need to be the last attributes in the *arff* file and also their order in both at the *arff* and the *xml* file does not matter. A hierarchy of labels can be represented by nesting the label tags. The following is an example of *xml* file with 4 labels:
-    
+
+''' xml    
 <?xml version="1.0" encoding="utf-8"?>
 <labels xmlns="http://mulan.sourceforge.net/labels">
   <label name="label1"></label>
@@ -79,6 +80,7 @@ The format of data is based on the Weka's format for MI learning and on the Mula
   <label name="label3"></label>
   <label name="label4"></label>
 </labels>
+'''
 
     
     The following is an example of *xml*  file with a hierarchy of labels:
