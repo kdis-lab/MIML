@@ -13,12 +13,77 @@ MIML is a modular Java library whose aim is to ease the development, testing and
 
 ## Methods included
 
-| Label Transformation | MI Algorithm (Weka) |
-| ------------- | ------------- |
-|BR | Contenido de la celda  |
-|   | CitationKNN  |
-| LP  | MIWrapper  |
-|   | SimpleMI  |
+<table>
+<tbody>
+  <tr>
+    <td colspan="2">MIML to MI problem</td>
+  </tr>
+  <tr>
+    <td>Label Transformation</td>
+    <td>MI Algorithm (Weka)</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>CitationKNN</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>MDD</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>MIDD</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>MIBoost</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>MILR</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>MIOptimalBall</td>
+  </tr>
+  <tr>
+    <td>BR</td>
+    <td>MIRI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>MISMO</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>MISVM</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>MITI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>MIWrapper</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SimpleMI</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>CitationKNN</td>
+  </tr>
+  <tr>
+    <td>LP</td>
+    <td>MIWrapper</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>SimpleMI</td>
+  </tr>
+</tbody>
+</table>
 
 
 | Bag transformation | ML Algorithm (Mulan) |
