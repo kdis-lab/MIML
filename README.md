@@ -81,9 +81,8 @@ The format of data is based on the Weka's format for MI learning and on the Mula
   <label name="label4"></label>
 </labels>
 ```
-
     
-    The following is an example of *xml*  file with a hierarchy of labels:
+The following is an example of *xml*  file with a hierarchy of labels:
     
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -120,7 +119,7 @@ The format of data is based on the Weka's format for MI learning and on the Mula
         
     Next, an example of \textit{arff} file is showed. In the example, each bag contains instances described by 3 numeric attributes and there are 4 labels. The dataset has two bags, the first one with 3 instances and the second one with 2 instances.
 
-```arff
+```
        
 @relation toy
 @attribute id {bag1,bag2}
@@ -136,9 +135,7 @@ The format of data is based on the Weka's format for MI learning and on the Mula
 @data
 bag1,"42,-198,-109\n42.9,-191,-142\n3,4,6",1,0,0,1
 bag2,"12,-98,10\n42.5,-19,-12",0,1,1,0 
-```arff    
-
-
+```   
 
 ## Citation
 This work has been performed by A. Belmonte, A. Zafra and E. Gibaja and is currently in a reviewing process.
