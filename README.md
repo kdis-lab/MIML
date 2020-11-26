@@ -2,6 +2,7 @@
 * [What is MIML library?](https://github.com/kdis-lab/MIML/blob/master/README.md#what-is-miml-library)
 * [Installation, tutorials and documentation](https://github.com/kdis-lab/MIML/blob/master/README.md#installation-tutorials-and-documentation)
 * [Methods included](https://github.com/kdis-lab/MIML/blob/master/README.md#methods-included)
+* [MIML library data format](https://github.com/kdis-lab/MIML/blob/master/README.md#miml-library-data-format)
 * [References](https://github.com/kdis-lab/MIML/blob/master/README.md#references)
 * [Citation](https://github.com/kdis-lab/MIML/blob/master/README.md#citation)
 * [License](https://github.com/kdis-lab/MIML/blob/master/README.md#license)
