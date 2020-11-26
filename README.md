@@ -66,6 +66,80 @@ The documentattion can be found in the doc folder and includes:
 | MLkNN  | Contenido de la celda  |
 
 
+## MIML library data format
+
+The format of data is based on the Weka's format for MI learning and on the Mulan's format for ML learning. Concretely, each data set is represented by two files: 
+
+* An *xml* file based on Mulan's format containing the description of labels. Its aim is to identify those attributes in the *arff* file representing labels. Note that the class attributes do not need to be the last attributes in the *arff* file and also their order in both at the *arff* and the *xml* file does not matter. A hierarchy of labels can be represented by nesting the label tags. The following is an example of *xml* file with 4 labels:
+    
+<?xml version="1.0" encoding="utf-8"?>
+<labels xmlns="http://mulan.sourceforge.net/labels">
+  <label name="label1"></label>
+  <label name="label2"></label>
+  <label name="label3"></label>
+  <label name="label4"></label>
+</labels>
+
+    
+    The following is an example of *xml*  file with a hierarchy of labels:
+    
+
+<?xml version="1.0" encoding="utf-8"?>
+<labels xmlns="http://mulan.sourceforge.net/labels">
+    <label name="sports"> 
+        <label name="football"></label>
+        <label name="basketball"></label> 
+    </label>
+    <label name="arts"> 
+        <label name="sculpture"></label>
+        <label name="photography"></label> 
+    </label>
+</labels>
+
+    
+    
+* An *arff* (*Attribute-Relation File Format*) file based on Weka's multi-instance format containing the data. This file is organized in two parts: header and data. 
+  * *Header*: it contains the name of the relation and a list with the attributes and their data types.        
+     The first line of the file contains the *@relation* relation-name sentence, which defines the name of the dataset. This is a string and it must be quoted if the relation-name includes spaces.
+            Next, on the first level, there are only two attributes and the attributes corresponding to the labels.
+            
+                *bag-id*. Nominal attribute. Unique bag identifier for each bag.
+                *bag. Relational attribute. Contains instances attributes.                
+                *labels*. One binary attribute for each label (nominal with 0 or 1 value).          
+            
+
+         Attributes are defined with \textit{@attribute \textless attribute-name\textgreater\textless data-type\textgreater} sentences. There is a line per attribute.
+            \begin{itemize}
+                \item Numeric attributes are specified by \emph{numeric}.
+                \item In case of nominal attributes, the list of values must be specified with curly brackets and separated by commas: \textit{\{value$_1$, value$_2$, ..., value$_N$\}}.
+            \end{itemize}
+            
+        \item \emph{Data:} it begins with \textit{@data} and describes each example (\emph{bag}) in a line. The order of attributes in each line must be the same in which they were defined in the previous header. Each attribute value is separated by comma (,) and all lines must have the same number of attributes. Decimal position is marked with a dot (.). The data of the relational attribute is surrounded by single (') or double (") quotes, Weka recognizes both formats, and the single instances inside the bag are separated by line-feeds (\textit{\textbackslash n}). 
+        
+    Next, an example of \textit{arff} file is showed. In the example, each bag contains instances described by 3 numeric attributes and there are 4 labels. The dataset has two bags, the first one with 3 instances and the second one with 2 instances.
+        
+         \begin{lstlisting}[style=XML]
+@relation toy
+@attribute id {bag1,bag2}
+@attribute bag relational
+  @attribute f1 numeric 
+  @attribute f2 numeric 
+  @attribute f3 numeric 
+@end bag
+@attribute label1 {0,1}
+@attribute label2 {0,1}
+@attribute label3 {0,1}
+@attribute label4 {0,1}
+@data
+bag1,"42,-198,-109\n42.9,-191,-142\n3,4,6",1,0,0,1
+bag2,"12,-98,10\n42.5,-19,-12",0,1,1,0 
+\end{lstlisting}
+        
+    \end{itemize}
+    
+
+
+
 ## Citation
 This work has been performed by A. Belmonte, A. Zafra and E. Gibaja and is currently in a reviewing process.
 
