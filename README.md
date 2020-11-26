@@ -1,4 +1,4 @@
-* MIML Library
+* MIML library
 * Installation, tutorials and documentation
 * Methods included
 * External software
