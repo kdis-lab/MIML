@@ -85,7 +85,7 @@ The format of data is based on the Weka's format for MI learning and on the Mula
     
     The following is an example of *xml*  file with a hierarchy of labels:
     
-
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <labels xmlns="http://mulan.sourceforge.net/labels">
     <label name="sports"> 
@@ -97,7 +97,7 @@ The format of data is based on the Weka's format for MI learning and on the Mula
         <label name="photography"></label> 
     </label>
 </labels>
-
+```
     
     
 * An *arff* (*Attribute-Relation File Format*) file based on Weka's multi-instance format containing the data. This file is organized in two parts: header and data. 
@@ -119,8 +119,9 @@ The format of data is based on the Weka's format for MI learning and on the Mula
         \item \emph{Data:} it begins with \textit{@data} and describes each example (\emph{bag}) in a line. The order of attributes in each line must be the same in which they were defined in the previous header. Each attribute value is separated by comma (,) and all lines must have the same number of attributes. Decimal position is marked with a dot (.). The data of the relational attribute is surrounded by single (') or double (") quotes, Weka recognizes both formats, and the single instances inside the bag are separated by line-feeds (\textit{\textbackslash n}). 
         
     Next, an example of \textit{arff} file is showed. In the example, each bag contains instances described by 3 numeric attributes and there are 4 labels. The dataset has two bags, the first one with 3 instances and the second one with 2 instances.
-        
-         \begin{lstlisting}[style=XML]
+
+```arff
+       
 @relation toy
 @attribute id {bag1,bag2}
 @attribute bag relational
@@ -135,10 +136,7 @@ The format of data is based on the Weka's format for MI learning and on the Mula
 @data
 bag1,"42,-198,-109\n42.9,-191,-142\n3,4,6",1,0,0,1
 bag2,"12,-98,10\n42.5,-19,-12",0,1,1,0 
-\end{lstlisting}
-        
-    \end{itemize}
-    
+```arff    
 
 
 
