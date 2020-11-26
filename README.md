@@ -2,7 +2,7 @@
 * [What is MIML library?](https://github.com/kdis-lab/MIML/blob/master/README.md#what-is-miml-library)
 * [Installation, tutorials and documentation](https://github.com/kdis-lab/MIML/blob/master/README.md#installation-tutorials-and-documentation)
 * [Methods included](https://github.com/kdis-lab/MIML/blob/master/README.md#methods-included)
-* [External software](https://github.com/kdis-lab/MIML/blob/master/README.md#external-software)
+* [References](https://github.com/kdis-lab/MIML/blob/master/README.md#references)
 * [Citation](https://github.com/kdis-lab/MIML/blob/master/README.md#external-software)(https://github.com/kdis-lab/MIML/blob/master/README.md#citation)
 * [License](https://github.com/kdis-lab/MIML/blob/master/README.md#license)
 
@@ -13,7 +13,27 @@ MIML is a modular Java library whose aim is to ease the development, testing and
 
 ## Methods included
 
-## External software
+| Label Transformation | MI Algorithm (Weka) |
+| ------------- | ------------- |
+|BR | Contenido de la celda  |
+|   | CitationKNN  |
+| LP  | MIWrapper  |
+|   | SimpleMI  |
+
+
+| Bag transformation | ML Algorithm (Mulan) |
+| ------------- | ------------- |
+| Contenido de la celda  | Contenido de la celda  |
+| Contenido de la celda  | Contenido de la celda  |
+
+
+| MIML method |  |
+| ------------- | ------------- |
+| Contenido de la celda  | Contenido de la celda  |
+| Contenido de la celda  | Contenido de la celda  |
+
+
+## References
 
 ## Citation
 This work has been performed by A. Belmonte, A. Zafra and E. Gibaja and is currently in a reviewing process.
