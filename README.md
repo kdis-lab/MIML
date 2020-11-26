@@ -3,7 +3,7 @@
 * [Installation, tutorials and documentation](https://github.com/kdis-lab/MIML/blob/master/README.md#installation-tutorials-and-documentation)
 * [Methods included](https://github.com/kdis-lab/MIML/blob/master/README.md#methods-included)
 * [References](https://github.com/kdis-lab/MIML/blob/master/README.md#references)
-* [Citation](https://github.com/kdis-lab/MIML/blob/master/README.md#external-software)(https://github.com/kdis-lab/MIML/blob/master/README.md#citation)
+* [Citation](https://github.com/kdis-lab/MIML/blob/master/README.md#citation)
 * [License](https://github.com/kdis-lab/MIML/blob/master/README.md#license)
 
 ## What is MIML library?
@@ -33,16 +33,32 @@ MIML is a modular Java library whose aim is to ease the development, testing and
 |                      | SimpleMI            |
 
 
-| Bag transformation | ML Algorithm (Mulan) |
-| ------------- | ------------- |
-| Contenido de la celda  | Contenido de la celda  |
-| Contenido de la celda  | Contenido de la celda  |
+|  MIML to ML problem  |                     |
+|:--------------------:|---------------------|
+| Bag Transformation | ML Algorithm (Mulan) |
+|                      | BR        |
+|                      | LP                 |
+|                      | RPC                |
+|                      | CLR             |
+|                      | BRkNN                |
+|          Arithmetic            | DMLkNN       |
+|          Geometric          | IBLR                |
+|          Min-Max            | MLkNN               |
+|                      | HOMER               |
+|                      | RAkEL               |
+|                      | PS           |
+|                      | EPS            |
+|                      | CC         |
+|                    | ECC           |
+|                      | MLStacking            |
 
 
 | MIML method |  |
 | ------------- | ------------- |
-| Contenido de la celda  | Contenido de la celda  |
-| Contenido de la celda  | Contenido de la celda  |
+| Bagging  | Contenido de la celda  |
+| MIMLkNN  | Contenido de la celda  |
+| MLkNN  | Contenido de la celda  |
+
 
 
 ## References
