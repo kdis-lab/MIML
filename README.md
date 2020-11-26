@@ -1,8 +1,13 @@
+* MIML Library
+* Installation, tutorials and documentation
+* Methods included
+* External software
+
 # MIML Library
 A Java library for MIML learning.
 
-#Installation, tutorials and documentation
+# Installation, tutorials and documentation
 
-#Methods included
+# Methods included
 
-#External software
+# External software
