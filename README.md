@@ -6,7 +6,7 @@
 # MIML Library
 A Java library for MIML learning.
 
-# Installation, tutorials and documentation
+# [Installation, tutorials and documentation](https://github.com/kdis-lab/MIML/blob/master/README.md#installation-tutorials-and-documentation)
 
 # Methods included
 
