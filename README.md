@@ -1,4 +1,4 @@
-* MIML library
+* [MIML library](https://github.com/kdis-lab/MIML/blob/master/README.md#miml-library)
 * Installation, tutorials and documentation
 * Methods included
 * External software
