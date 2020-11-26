@@ -19,4 +19,4 @@ MIML is a modular Java library whose aim is to ease the development, testing and
 This work has been performed by A. Belmonte, A. Zafra and E. Gibaja and is currently in a reviewing process.
 
 ## License
-MIML library is released under the [GNU General Public License GPLv2 or ](https://www.gnu.org/licenses/old-licenses/old-licenses.html#GPL).
+MIML library is released under the GNU General Public License [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
