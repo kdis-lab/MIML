@@ -115,12 +115,11 @@ The following is an example of *xml*  file with a hierarchy of labels:
                 \item In case of nominal attributes, the list of values must be specified with curly brackets and separated by commas: \textit{\{value$_1$, value$_2$, ..., value$_N$\}}.
             \end{itemize}
             
-        \item \emph{Data:} it begins with \textit{@data} and describes each example (\emph{bag}) in a line. The order of attributes in each line must be the same in which they were defined in the previous header. Each attribute value is separated by comma (,) and all lines must have the same number of attributes. Decimal position is marked with a dot (.). The data of the relational attribute is surrounded by single (') or double (") quotes, Weka recognizes both formats, and the single instances inside the bag are separated by line-feeds (\textit{\textbackslash n}). 
+     *Data*: it begins with *@data* and describes each example (*bag*) in a line. The order of attributes in each line must be the same in which they were defined in the previous header. Each attribute value is separated by comma (,) and all lines must have the same number of attributes. Decimal position is marked with a dot (.). The data of the relational attribute is surrounded by single (') or double (") quotes, Weka recognizes both formats, and the single instances inside the bag are separated by line-feeds (\n). 
         
-    Next, an example of \textit{arff} file is showed. In the example, each bag contains instances described by 3 numeric attributes and there are 4 labels. The dataset has two bags, the first one with 3 instances and the second one with 2 instances.
+    Next, an example of *arff* file is showed. In the example, each bag contains instances described by 3 numeric attributes and there are 4 labels. The dataset has two bags, the first one with 3 instances and the second one with 2 instances.
 
-```
-       
+```       
 @relation toy
 @attribute id {bag1,bag2}
 @attribute bag relational
