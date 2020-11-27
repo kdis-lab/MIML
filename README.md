@@ -112,9 +112,10 @@ The following is an example of *xml*  file with a hierarchy of labels:
        * *&lt;bag-id>*. Nominal attribute. Unique bag identifier for each bag.
        * *&lt;bag>*. Relational attribute. Contains instances attributes.                
        * *&lt;labels>*. One binary attribute for each label (nominal with 0 or 1 value).                   
-     Attributes are defined with *@attribute &lt;attribute-name> &lt;data-type>* sentences. There is a line per attribute.    
-             * Numeric attributes are specified by *numeric*.
-             * In case of nominal attributes, the list of values must be specified with curly brackets and separated by commas: *{value_1, value_2, ..., value_N}*.
+     
+    Attributes are defined with *@attribute &lt;attribute-name> &lt;data-type>* sentences. There is a line per attribute.    
+       * Numeric attributes are specified by *numeric*.
+       * In case of nominal attributes, the list of values must be specified with curly brackets and separated by commas: *{value_1, value_2, ..., value_N}*.
             
    * *Data*: it begins with *@data* and describes each example (*bag*) in a line. The order of attributes in each line must be the same in which they were defined in the previous header. Each attribute value is separated by comma (,) and all lines must have the same number of attributes. Decimal position is marked with a dot (.). The data of the relational attribute is surrounded by single (') or double (") quotes, Weka recognizes both formats, and the single instances inside the bag are separated by line-feeds ('\n'). 
         
