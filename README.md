@@ -21,30 +21,30 @@ The documentattion can be found in the doc folder and includes:
 ## Methods included
 MIML includes a set of algorithms according to this taxonomy.
 
-* MIML to MI approach. Trasnforming the MIML problem to MI and then using any MI algorithm to solve the problemby. To this end, a transformation of labels is applied. Currently two label transformation have been included: BR and LP. Next tables show the MI algorithms available for each label transformation.
+* MIML to MI approach. This aprroach transforms the MIML problem to MI and then uses any MI algorithm to solve the problem. To this end, a transformation at labels level is applied. Currently two label transformations have been included: BR and LP. Next tables show the MI Weka algorithms available for each label transformation.
 
 
-| Label Transformation | MI Algorithm (Weka) |
-|:--------------------:|---------------------|
-|                      | CitationKNN         |
-|                      | MDD                 |
-|                      | MIDD                |
-|                      | MIBoost             |
-|                      | MILR                |
-|                      | MIOptimalBall       |
-|          BR          | MIRI                |
-|                      | MISMO               |
-|                      | MISVM               |
-|                      | MITI                |
-|                      | MIWrapper           |
-|                      | SimpleMI            |
+| BR Transformation|
+|:---------------------|
+|CitationKNN            |
+|MDD                 |
+|MIDD                |
+|MIBoost             |
+|MILR                |
+|MIOptimalBall       |
+|MIRI                |
+|MISMO               |
+|MISVM               |
+|MITI                |
+|MIWrapper           |
+|SimpleMI            |
 
 
-| Label Transformation | MI Algorithm (Weka) |
-|:--------------------:|---------------------|
-|                      | CitationKNN         |
-|          LP          | MIWrapper           |
-|                      | SimpleMI            |
+| LP Transformation |
+|:--------------------|
+|CitationKNN         |
+|MIWrapper           |
+|SimpleMI            |
 
 * MIML to ML approach. 
 
@@ -161,7 +161,7 @@ Hendrik Blockeel, David Page, and Ashwin Srinivasan. Multi-instance tree learnin
 
 Leo Breiman. Bagging predictors. Machine learning, 24(2):123–140, 1996. 
 
-Weiwei Cheng and Eyke H¨ullermeier. Combining instance-based learning and logistic regression for multilabel classification. Machine Learning, 76(2-3):211–225, 2009.
+Weiwei Cheng and Eyke Hüllermeier. Combining instance-based learning and logistic regression for multilabel classification. Machine Learning, 76(2-3):211–225, 2009.
 
 Thomas G Dietterich, Richard H Lathrop, and Tom´as Lozano-Pérez. Solving the multiple instance problem with axis-parallel rectangles. Artificial intelligence, 89(1-2):31–71, 1997.
 
