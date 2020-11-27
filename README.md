@@ -155,29 +155,29 @@ Leo Breiman. Bagging predictors. Machine learning, 24(2):123–140, 1996.
 
 Weiwei Cheng and Eyke H¨ullermeier. Combining instance-based learning and logistic regression for multilabel classification. Machine Learning, 76(2-3):211–225, 2009.
 
-Thomas G Dietterich, Richard H Lathrop, and Tom´as Lozano-P´erez. Solving the multiple instance problem with axis-parallel rectangles. Artificial intelligence, 89(1-2):31–71, 1997.
+Thomas G Dietterich, Richard H Lathrop, and Tom´as Lozano-Pérez. Solving the multiple instance problem with axis-parallel rectangles. Artificial intelligence, 89(1-2):31–71, 1997.
 
 Lin Dong. A comparison of multi-instance learning algorithms. Master’s thesis, The University of Waikato, 2006. 
 
 E. T. Frank and X. Xu. Applying propositional learning algorithms to multi-instance data. Technical report, University of Waikato, Department of Computer Science, University of
 Waikato, Hamilton, NZ, 06 2003.
 
-Johannes F¨urnkranz, Eyke H¨ullermeier, Eneldo Loza menc´ıa, and Klaus Brinker. Multilabel classification via calibrated label ranking. Machine Learning, 73(2):133 – 153, 2008.
+Johannes Fürnkranz, Eyke H¨ullermeier, Eneldo Loza mencía, and Klaus Brinker. Multilabel classification via calibrated label ranking. Machine Learning, 73(2):133 – 153, 2008.
 
-Thomas G¨artner, Peter A Flach, Adam Kowalczyk, and Alex J Smola. Multi-instance kernels. In ICML, volume 2, pages 179–186, 2002.
+Thomas Gärtner, Peter A Flach, Adam Kowalczyk, and Alex J Smola. Multi-instance kernels. In ICML, volume 2, pages 179–186, 2002.
 
-Eva Gibaja and Sebasti´an Ventura. A tutorial on multilabel learning. ACM Computing Surveys (CSUR), 47(3):52, 2015.
+Eva Gibaja and Sebastián Ventura. A tutorial on multilabel learning. ACM Computing Surveys (CSUR), 47(3):52, 2015.
 
 Mark Hall, Eibe Frank, Geoffrey Holmes, Bernhard Pfahringer, Peter Reutemann, and Ian H. Witten. The weka data mining software: an update. ACM SIGKDD explorations
 newsletter, 11(1):10–18, 2009.
 
 F. Herrera, S. Ventura., R. Bello, C. Cornelis, A. Zafra, D. S´anchez-Tarrag´o, and S. Vluymans. Multiple Instance Learning. Foundations and Algorithms. Springer, 2016.
 
-Eyke H¨ullermeier, Johannes F¨urnkranz, Weiwei Cheng, and Klaus Brinker. Label ranking by learning pairwise preferences. Artificial Intelligence, 172:1897–1916, 2008.
+Eyke Hüllermeier, Johannes Fürnkranz, Weiwei Cheng, and Klaus Brinker. Label ranking by learning pairwise preferences. Artificial Intelligence, 172:1897–1916, 2008.
 
 LAMDA. Lamda learning and mining from data. http://www.lamda.nju.edu.cn/Data.ashx, 2019. Accessed: 2020-07-19.
 
-Oded Maron and Tom´as Lozano-P´erez. A framework for multiple-instance learning. In Proceedings of the 1997 Conference on Advances in Neural Information Processing Systems
+Oded Maron and Tomás Lozano-Pérez. A framework for multiple-instance learning. In Proceedings of the 1997 Conference on Advances in Neural Information Processing Systems
 10, NIPS ’97, pages 570–576, Cambridge, MA, USA, 1998. MIT Press. ISBN 0-262-10076-2. URL http://dl.acm.org/citation.cfm?id=302528.302753.
 
 Soumya Ray and Mark Craven. Supervised versus multiple instance learning: An empirical comparison. In Proceedings of the 22nd international conference on Machine learning,
