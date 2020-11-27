@@ -25,8 +25,8 @@ MIML includes a set of algorithms according to this taxonomy.
 
 
 | BR Transformation|
-|:---------------------|
-|CitationKNN            |
+|:-------------------|
+|CitationKNN         |
 |MDD                 |
 |MIDD                |
 |MIBoost             |
