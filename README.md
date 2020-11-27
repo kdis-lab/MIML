@@ -102,7 +102,7 @@ The following is an example of *xml*  file with a hierarchy of labels:
     
 * An *arff* (*Attribute-Relation File Format*) file based on Weka's multi-instance format containing the data. This file is organized in two parts: header and data. 
   * *Header*: it contains the name of the relation and a list with the attributes and their data types.        
-  * The first line of the file contains the *@relation &lt;relation-name>* sentence, which defines the name of the dataset. This is a string and it must be quoted if the relation-name includes spaces.
+        * The first line of the file contains the *@relation &lt;relation-name>* sentence, which defines the name of the dataset. This is a string and it must be quoted if the relation-name includes spaces.
   * Next, on the first level, there are defined only two attributes and the attributes corresponding to the labels.            
              * *&lt;bag-id>*. Nominal attribute. Unique bag identifier for each bag.
              * *&lt;bag>*. Relational attribute. Contains instances attributes.                
@@ -113,7 +113,7 @@ The following is an example of *xml*  file with a hierarchy of labels:
             
    * *Data*: it begins with *@data* and describes each example (*bag*) in a line. The order of attributes in each line must be the same in which they were defined in the previous header. Each attribute value is separated by comma (,) and all lines must have the same number of attributes. Decimal position is marked with a dot (.). The data of the relational attribute is surrounded by single (') or double (") quotes, Weka recognizes both formats, and the single instances inside the bag are separated by line-feeds ('\n'). 
         
-    Next, an example of *arff* file is showed. In the example, each bag contains instances described by 3 numeric attributes and there are 4 labels. The dataset has two bags, the first one with 3 instances and the second one with 2 instances.
+    Next, an example of *arff* file is shown. In the example, each bag contains instances described by 3 numeric attributes and there are 4 labels. The dataset has two bags, the first one with 3 instances and the second one with 2 instances.
 
 ```       
 @relation toy
