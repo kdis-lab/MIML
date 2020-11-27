@@ -19,10 +19,13 @@ The documentattion can be found in the doc folder and includes:
 
 
 ## Methods included
+MIML includes a set of algorithms according to this taxonomy.
 
-|  MIML to MI problem  |                     |
-|:--------------------:|---------------------|
+* MIML to MI approach. Trasnforming the MIML problem to MI and then using any MI algorithm to solve the problemby. To this end, a transformation of labels is applied. Currently two label transformation have been included: BR and LP. Next tables show the MI algorithms available for each label transformation.
+
+
 | Label Transformation | MI Algorithm (Weka) |
+|:--------------------:|---------------------|
 |                      | CitationKNN         |
 |                      | MDD                 |
 |                      | MIDD                |
@@ -35,14 +38,18 @@ The documentattion can be found in the doc folder and includes:
 |                      | MITI                |
 |                      | MIWrapper           |
 |                      | SimpleMI            |
+
+
+| Label Transformation | MI Algorithm (Weka) |
+|:--------------------:|---------------------|
 |                      | CitationKNN         |
 |          LP          | MIWrapper           |
 |                      | SimpleMI            |
 
+* MIML to ML approach. 
 
-|  MIML to ML problem  |                     |
-|:--------------------:|---------------------|
 | Bag Transformation | ML Algorithm (Mulan) |
+|:--------------------:|---------------------|
 |                      | BR                 |
 |                      | LP                 |
 |                      | RPC                |
@@ -59,12 +66,13 @@ The documentattion can be found in the doc folder and includes:
 |                    | ECC           |
 |                      | MLStacking            |
 
+* MIML solving without transformation. 
 
-| MIML method |  |
-| ------------- | ------------- |
-| Bagging  | Contenido de la celda  |
-| MIMLkNN  | Contenido de la celda  |
-| MLkNN  | Contenido de la celda  |
+| MIML method | 
+| ------------- |
+| Bagging  | 
+| MIMLkNN  | 
+| MLkNN  |
 
 
 ## MIML library data format
