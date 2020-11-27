@@ -100,9 +100,9 @@ The following is an example of *xml*  file with a hierarchy of labels:
 ```
     
 * Primer nivel
-    * Segundo nivel
-          * Tercer nivel
-                * Cuarto nivel
+  * Segundo nivel
+    * Tercer nivel
+      * Cuarto nivel
 * Primer nivel
 
 * An *arff* (*Attribute-Relation File Format*) file based on Weka's multi-instance format containing the data. This file is organized in two parts: header and data. 
