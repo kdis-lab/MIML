@@ -71,7 +71,7 @@ The documentattion can be found in the doc folder and includes:
 
 The format of data is based on the Weka's format for MI learning and on the Mulan's format for ML learning. Concretely, each data set is represented by two files: 
 
-* An *xml* file based on Mulan's format containing the description of labels. Its aim is to identify those attributes in the *arff* file representing labels. Note that the class attributes do not need to be the last attributes in the *arff* file and also their order in both at the *arff* and the *xml* file does not matter. A hierarchy of labels can be represented by nesting the label tags. The following is an example of *xml* file with 4 labels:
+* An *xml* file based on [Mulan's format](http://mulan.sourceforge.net/format.html) containing the description of labels. Its aim is to identify those attributes in the *arff* file representing labels. Note that the class attributes do not need to be the last attributes in the *arff* file and also their order in both at the *arff* and the *xml* file does not matter. A hierarchy of labels can be represented by nesting the label tags. The following is an example of *xml* file with 4 labels:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -99,13 +99,7 @@ The following is an example of *xml*  file with a hierarchy of labels:
 </labels>
 ```
     
-* Primer nivel
-  * Segundo nivel
-    * Tercer nivel
-      * Cuarto nivel
-* Primer nivel
-
-* An *arff* (*Attribute-Relation File Format*) file based on Weka's multi-instance format containing the data. This file is organized in two parts: header and data. 
+* An *arff* (*Attribute-Relation File Format*) file based on [Weka's multi-instance format](https://weka.wikispaces.com/Multi-instance+classification) containing the data. This file is organized in two parts: header and data. 
   * *Header*: it contains the name of the relation and a list with the attributes and their data types.        
      * The first line of the file contains the *@relation &lt;relation-name>* sentence, which defines the name of the dataset. This is a string and it must be quoted if the relation-name includes spaces.
      * Next, on the first level, there are defined only two attributes and the attributes corresponding to the labels.            
