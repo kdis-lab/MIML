@@ -99,7 +99,12 @@ The following is an example of *xml*  file with a hierarchy of labels:
 </labels>
 ```
     
-    
+* Primer nivel
+    * Segundo nivel
+          * Tercer nivel
+                * Cuarto nivel
+* Primer nivel
+
 * An *arff* (*Attribute-Relation File Format*) file based on Weka's multi-instance format containing the data. This file is organized in two parts: header and data. 
   * *Header*: it contains the name of the relation and a list with the attributes and their data types.        
         * The first line of the file contains the *@relation &lt;relation-name>* sentence, which defines the name of the dataset. This is a string and it must be quoted if the relation-name includes spaces.
