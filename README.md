@@ -102,8 +102,8 @@ The following is an example of *xml*  file with a hierarchy of labels:
     
 * An *arff* (*Attribute-Relation File Format*) file based on Weka's multi-instance format containing the data. This file is organized in two parts: header and data. 
   * *Header*: it contains the name of the relation and a list with the attributes and their data types.        
-        * The first line of the file contains the *@relation &lt;relation-name>* sentence, which defines the name of the dataset. This is a string and it must be quoted if the relation-name includes spaces.
-   * Next, on the first level, there are defined only two attributes and the attributes corresponding to the labels.            
+  * The first line of the file contains the *@relation &lt;relation-name>* sentence, which defines the name of the dataset. This is a string and it must be quoted if the relation-name includes spaces.
+  * Next, on the first level, there are defined only two attributes and the attributes corresponding to the labels.            
              * *&lt;bag-id>*. Nominal attribute. Unique bag identifier for each bag.
              * *&lt;bag>*. Relational attribute. Contains instances attributes.                
              * *&lt;labels>*. One binary attribute for each label (nominal with 0 or 1 value).                   
