@@ -11,7 +11,7 @@
 MIML is a modular Java library whose aim is to ease the development, testing and comparison of classification algorithms for multi-instance multi-label learning (MIML). It includes three different approaches for solving a MIML problem: transforming the problem to multi-instance, transforming the problem to multi-label problem, and solving directly the MIML problem. Besides, it provides holdout and cross-validation procedures, standard metrics for performance evaluation as well as report generation. Algorithms can be executed by means of *xml* configuration files. It is platform-independent, extensible, free and open source. It is based in both [Weka](https://www.cs.waikato.ac.nz/ml/weka/) and [Mulan](https://github.com/tsoumakas/mulan) frameworks.
 
 ## Installation, tutorials and documentation
-User manual can be found in the userManual folder and includes:
+[User manual](https://github.com/kdis-lab/MIML/blob/master/userManual/MIML-UserManual.pdf) can be found in the userManual folder and includes:
 * Detailed steps for getting and running the library.
 * A description of MIML library architecture.
 * Examples for managing MIML data.
