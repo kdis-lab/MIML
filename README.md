@@ -1,5 +1,6 @@
 # MIML: A Java library for MIML learning
 * [What is MIML library?](https://github.com/kdis-lab/MIML/blob/master/README.md#what-is-miml-library)
+* [Getting the library](https://github.com/kdis-lab/MIML/blob/master/README.md#getting)
 * [Tutorials and documentation](https://github.com/kdis-lab/MIML/blob/master/README.md#installation-tutorials-and-documentation)
 * [Methods included](https://github.com/kdis-lab/MIML/blob/master/README.md#methods-included)
 * [MIML library data format](https://github.com/kdis-lab/MIML/blob/master/README.md#miml-library-data-format)
@@ -9,6 +10,13 @@
 
 ## What is MIML library?
 MIML is a modular Java library whose aim is to ease the development, testing and comparison of classification algorithms for multi-instance multi-label learning (MIML). It includes 32 classificaton algorithms for solving MIML problems. Algorithms are included on three different approaches for solving a MIML problem: transforming the problem to multi-instance, transforming the problem to multi-label problem and solving directly the MIML problem. Besides, it provides holdout and cross-validation procedures, standard metrics for performance evaluation as well as report generation. Algorithms can be executed by means of *xml* configuration files. It is platform-independent, extensible, free and open source. It is based in both [Weka](https://www.cs.waikato.ac.nz/ml/weka/) and [Mulan](https://github.com/tsoumakas/mulan) frameworks.
+
+## Getting the library
+
+Before downloading the library, it is necessary to have Java Development Kit version 8 or higher installed. 
+
+The project can be download using maven tool, java project or from a compiled version (jar file). Detailed information about getting and running the library can be consulted in [user manual](https://github.com/kdis-lab/MIML/blob/master/userManual/MIML-UserManual.pdf).
+
 
 ## Tutorials and documentation
 [MIML User manual](https://github.com/kdis-lab/MIML/blob/master/userManual/MIML-UserManual.pdf) can be found in the userManual folder and includes:
