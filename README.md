@@ -18,7 +18,9 @@ MIML is a modular Java library whose aim is to ease the development, testing and
 * Examples for running each classification MIML algorithm included in the library.
 * Examples for developing new classification MIML algorithm in the library.
 
-Moreover, the source code includes the tutorial folder where there are java examples of different functionalities of MIML library. Finally, in configuration folder can be found configuration files to run any library algorithm. These files can be used as a basis to modify any configuration parameter in the experimentation of these algorithms.
+[API](https://github.com/kdis-lab/MIML/tree/master/apidoc) can be found in apidoc folder.
+
+Moreover, the source code includes the tutorial folder where there are java examples of different functionalities of MIML library. Finally, in configuration folder, it can be found configuration files to run any library algorithm. These files can be used as a basis to modify any configuration parameter in the experimentation of these algorithms.
 
 ## Methods included
 MIML includes a set of algorithms according to this taxonomy.
