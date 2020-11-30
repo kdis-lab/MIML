@@ -50,60 +50,42 @@ MIML includes a set of algorithms according to this taxonomy.
 * MIML to MI approach. This aprroach transforms the MIML problem to MI and then uses any MI algorithm to solve the problem. To this end, a transformation at labels level is applied. Currently two label transformations have been included: BR and LP.
   * BR transformation.
     * CitationkNN
-  
-* LP transformation
-
-| BR Transformation|
-|:-------------------|
-|CitationKNN         |
-|MDD                 |
-|MIDD                |
-|MIBoost             |
-|MILR                |
-|MIOptimalBall       |
-|MIRI                |
-|MISMO               |
-|MISVM               |
-|MITI                |
-|MIWrapper           |
-|SimpleMI            |
-
-
-| LP Transformation |
-|:--------------------|
-|CitationKNN         |
-|MIWrapper           |
-|SimpleMI            |
-
+    * MDD
+    * MIDD
+    * MIBoost
+    * MILR
+    * MIOptimalBall
+    * MIRI
+    * MISMO
+    * MISVM
+    * MITI
+    * MIWrapper
+    * SimpleMI  
+  * LP transformation
+    * CitationkNN
+    * MIWrapper
+    * SimpleMI  
 * MIML to ML approach. 
-
-| Bag Transformation | ML Algorithm (Mulan) |
-|:--------------------:|---------------------|
-|                      | BR                 |
-|                      | LP                 |
-|                      | RPC                |
-|                      | CLR                |
-|                      | BRkNN                |
-|          Arithmetic            | DMLkNN       |
-|          Geometric          | IBLR                |
-|          Min-Max            | MLkNN               |
-|                      | HOMER               |
-|                      | RAkEL               |
-|                      | PS           |
-|                      | EPS            |
-|                      | CC         |
-|                    | ECC           |
-|                      | MLStacking            |
-
+  * Bag transformation (Arithmetic, geometric and min-max).
+    * BR
+    * LP
+    * RPC
+    * CLR
+    * BRkNN
+    * DMLkNN
+    * IBLR
+    * MLkNN
+    * HOMER
+    * RAkEL
+    * PS
+    * EPS
+    * CC
+    * ECC
+    * MLStacking
 * MIML solving without transformation. 
-
-| MIML method | 
-| ------------- |
-| Bagging  | 
-| MIMLkNN  | 
-| MLkNN  |
-
-
+  * Bagging   
+  * MIMLkNN  
+  
 ## MIML library data format
 
 The format of data is based on the Weka's format for MI learning and on the Mulan's format for ML learning. Concretely, each data set is represented by two files: 
