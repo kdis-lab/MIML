@@ -45,17 +45,16 @@ Moreover, the source code includes the tutorial folder where there are java exam
 
 
 ## Methods included
-MIML includes a set of algorithms according to this taxonomy.
 
-* MIML to MI approach. This aprroach transforms the MIML problem to MI and then uses any MI algorithm to solve the problem. To this end, a transformation at labels level is applied. Currently two label transformations have been included: BR and LP.
+MIML includes a set of algorithms according to the following three approaches:
+1 MIML to MI approach. This aprroach transforms the MIML problem to MI and then uses any MI algorithm to solve the problem. To this end, a transformation at labels level is applied. Currently two label transformations have been included: BR and LP.
   * BR transformation.
     * CitationkNN, MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM, MITI, MIWrapper, SimpleMI.
   * LP transformation.
     * CitationkNN, MIWrapper, SimpleMI.  
-* MIML to ML approach. 
-  * Bag transformation (Arithmetic, geometric and min-max).
+2 MIML to ML approach. This approach transforms the MIML problem to ML and then uses any ML algorithm to solve the problem. To this end, a transformation at bag level is performed. Currently, three bag transformations have been included: arithmetic, geometric and min-max. Te following are the ML algorithms considered by the librery.
     * BR, LP, RPC, CLR, BRkNN, DMLkNN, IBLR, MLkNN, HOMER, RAkEL, PS, EPS, CC, ECC, MLStacking.
-* MIML solving without transformation. 
+3 MIML solving without transformation. Currently two algorithms have been included.
   * Bagging   
   * MIMLkNN
   
