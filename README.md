@@ -49,42 +49,16 @@ MIML includes a set of algorithms according to this taxonomy.
 
 * MIML to MI approach. This aprroach transforms the MIML problem to MI and then uses any MI algorithm to solve the problem. To this end, a transformation at labels level is applied. Currently two label transformations have been included: BR and LP.
   * BR transformation.
-    * CitationkNN
-    * MDD
-    * MIDD
-    * MIBoost
-    * MILR
-    * MIOptimalBall
-    * MIRI
-    * MISMO
-    * MISVM
-    * MITI
-    * MIWrapper
-    * SimpleMI  
-  * LP transformation
-    * CitationkNN
-    * MIWrapper
-    * SimpleMI  
+    * CitationkNN, MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM, MITI, MIWrapper, SimpleMI.
+  * LP transformation.
+    * CitationkNN, MIWrapper, SimpleMI.  
 * MIML to ML approach. 
   * Bag transformation (Arithmetic, geometric and min-max).
-    * BR
-    * LP
-    * RPC
-    * CLR
-    * BRkNN
-    * DMLkNN
-    * IBLR
-    * MLkNN
-    * HOMER
-    * RAkEL
-    * PS
-    * EPS
-    * CC
-    * ECC
-    * MLStacking
+    * BR, LP, RPC, CLR, BRkNN, DMLkNN, IBLR, MLkNN, HOMER, RAkEL, PS, EPS, CC, ECC, MLStacking.
 * MIML solving without transformation. 
   * Bagging   
-  * MIMLkNN  
+  * MIMLkNN
+  
   
 ## MIML library data format
 
