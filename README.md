@@ -48,8 +48,8 @@ Moreover, the source code includes the tutorial folder where there are java exam
 MIML includes a set of algorithms according to this taxonomy.
 
 * MIML to MI approach. This aprroach transforms the MIML problem to MI and then uses any MI algorithm to solve the problem. To this end, a transformation at labels level is applied. Currently two label transformations have been included: BR and LP.
-* BR transformation.
-  * CitationkNN
+  * BR transformation.
+    * CitationkNN
   
 * LP transformation
 
