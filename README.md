@@ -134,4 +134,4 @@ This work has been performed by A. Belmonte, A. Zafra and E. Gibaja and is curre
 MIML library is released under the GNU General Public License [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
 
 ## Reporting bugs
-Feel free to open an [issue]( https//github.com/kdis-lab/miml/issues) at Github if anything is not working as expected. Merge request are also encouraged, it will be carfully reviewed and merged if everything is all right.
+Feel free to open an [issue](https://github.com/kdis-lab/MIML/issues) at Github if anything is not working as expected. Merge request are also encouraged, it will be carfully reviewed and merged if everything is all right.
