@@ -1,0 +1,16 @@
+@relation toy
+
+ @attribute id {bag1,bag2}
+ @attribute bag relational
+   @attribute f1 numeric
+   @attribute f2 numeric
+   @attribute f3 numeric
+ @end bag
+ @attribute label1 {0,1}
+ @attribute label2 {0,1}
+ @attribute label3 {0,1}
+ @attribute label4 {0,1}
+ 
+ @data
+ bag1,"42,-198,-109\n42,-191,-142\n3,4,6",1,0,0,1
+ bag2,"12,-98,10\n42,-19,-12\n31,42,66",0,1,1,0
