@@ -47,13 +47,17 @@ Moreover, the source code includes the tutorial folder where there are java exam
 ## Methods included
 
 MIML includes a set of algorithms according to the following three approaches:
+
 1 MIML to MI approach. This aprroach transforms the MIML problem to MI and then uses any MI algorithm to solve the problem. To this end, a transformation at labels level is applied. Currently two label transformations have been included: BR and LP.
   * BR transformation.
     * CitationkNN, MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM, MITI, MIWrapper, SimpleMI.
   * LP transformation.
-    * CitationkNN, MIWrapper, SimpleMI. If MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM or MITI are run withan LP transformation the following execution error is raised *Cannot handle multi-valued nominalclass!*. This is due to the philosophy of the LP method which obtains one multi-class dataset andthese algorithms are only able to deal with binary class data. 
+    * CitationkNN, MIWrapper, SimpleMI.
+      * Note that if MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM or MITI are run withan LP transformation the following execution error is raised *Cannot handle multi-valued nominalclass!*. This is due to the philosophy of the LP method which obtains one multi-class dataset andthese algorithms are only able to deal with binary class data. 
+
 2 MIML to ML approach. This approach transforms the MIML problem to ML and then uses any ML algorithm to solve the problem. To this end, a transformation at bag level is performed. Currently, three bag transformations have been included: arithmetic, geometric and min-max. Te following are the ML algorithms considered by the librery.
   * BR, LP, RPC, CLR, BRkNN, DMLkNN, IBLR, MLkNN, HOMER, RAkEL, PS, EPS, CC, ECC, MLStacking.
+
 3 MIML solving without transformation. Currently two algorithms have been included.
   * Bagging   
   * MIMLkNN
