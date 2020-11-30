@@ -1,15 +1,19 @@
 # MIML: A Java library for MIML learning
 * [What is MIML library?](https://github.com/kdis-lab/MIML/blob/master/README.md#what-is-miml-library)
+* [Description of the project](https://github.com/kdis-lab/MIML/blob/master/README.md#description-of-the-project)
 * [Getting the library](https://github.com/kdis-lab/MIML/blob/master/README.md#getting)
 * [Tutorials and documentation](https://github.com/kdis-lab/MIML/blob/master/README.md#installation-tutorials-and-documentation)
 * [Methods included](https://github.com/kdis-lab/MIML/blob/master/README.md#methods-included)
 * [MIML library data format](https://github.com/kdis-lab/MIML/blob/master/README.md#miml-library-data-format)
-* [References](https://github.com/kdis-lab/MIML/blob/master/README.md#references)
 * [Citation](https://github.com/kdis-lab/MIML/blob/master/README.md#citation)
 * [License](https://github.com/kdis-lab/MIML/blob/master/README.md#license)
+* [References](https://github.com/kdis-lab/MIML/blob/master/README.md#references)
+
 
 ## What is MIML library?
 MIML is a modular Java library whose aim is to ease the development, testing and comparison of classification algorithms for multi-instance multi-label learning (MIML). It includes 32 classificaton algorithms for solving MIML problems. Algorithms are included on three different approaches for solving a MIML problem: transforming the problem to multi-instance, transforming the problem to multi-label problem and solving directly the MIML problem. Besides, it provides holdout and cross-validation procedures, standard metrics for performance evaluation as well as report generation. Algorithms can be executed by means of *xml* configuration files. It is platform-independent, extensible, free and open source. It is based in both [Weka](https://www.cs.waikato.ac.nz/ml/weka/) and [Mulan](https://github.com/tsoumakas/mulan) frameworks.
+
+## Description of the project
 
 ## Getting the library
 
@@ -29,6 +33,7 @@ The project can be download using maven tool, java project or from a compiled ve
 [MIML API](https://github.com/kdis-lab/MIML/tree/master/apidoc) can be found in apidoc folder.
 
 Moreover, the source code includes the tutorial folder where there are java examples of different functionalities of MIML library. Finally, in configuration folder, it can be found configuration files to run any library algorithm. These files can be used as a basis to modify any configuration parameter in the experimentation of these algorithms.
+
 
 ## Methods included
 MIML includes a set of algorithms according to this taxonomy.
