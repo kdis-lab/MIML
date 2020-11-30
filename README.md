@@ -51,9 +51,9 @@ MIML includes a set of algorithms according to the following three approaches:
   * BR transformation.
     * CitationkNN, MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM, MITI, MIWrapper, SimpleMI.
   * LP transformation.
-    * CitationkNN, MIWrapper, SimpleMI.  
+    * CitationkNN, MIWrapper, SimpleMI. If MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM or MITI are run withan LP transformation the following execution error is raised *Cannot handle multi-valued nominalclass!*. This is due to the philosophy of the LP method which obtains one multi-class dataset andthese algorithms are only able to deal with binary class data. 
 2 MIML to ML approach. This approach transforms the MIML problem to ML and then uses any ML algorithm to solve the problem. To this end, a transformation at bag level is performed. Currently, three bag transformations have been included: arithmetic, geometric and min-max. Te following are the ML algorithms considered by the librery.
-    * BR, LP, RPC, CLR, BRkNN, DMLkNN, IBLR, MLkNN, HOMER, RAkEL, PS, EPS, CC, ECC, MLStacking.
+  * BR, LP, RPC, CLR, BRkNN, DMLkNN, IBLR, MLkNN, HOMER, RAkEL, PS, EPS, CC, ECC, MLStacking.
 3 MIML solving without transformation. Currently two algorithms have been included.
   * Bagging   
   * MIMLkNN
@@ -208,5 +208,6 @@ Z. Younes, F. Abdallah, and T. Denoeux. Multi-label classification algorithm der
 
 Min-Ling Zhang and Zhi-Hua Zhou. Ml-knn: A lazy learning approach to multi-label learning. Pattern recognition, 40(7):2038–2048, 2007.
 
-M.L. Zhang. A k-nearest neighbor based multi-instance multi-label learning algorithm. In Proceedings of the 22nd International Conference on Tools with Artificial Intelligence,
-volume 2, pages 207–212, 2010.
+M.L. Zhang. A k-nearest neighbor based multi-instance multi-label learning algorithm. In Proceedings of the 22nd International Conference on Tools with Artificial Intelligence, volume 2, pages 207–212, 2010.
+
+Zhi H. Zhou and Min L. Zhang. Multi-instance multi-label learning with application to sceneclassification. InNIPS, pages 1609–1616, 2006
