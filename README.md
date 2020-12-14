@@ -38,11 +38,9 @@ In this Github project you can find the following items:
 
 ## Getting the library
 
-Before downloading the library, it is necessary to have Java Development Kit version 8 or higher installed. 
-
 The project can be download using maven tool, java project or from a compiled version (jar file). Detailed information about getting and running the library can be consulted in [user's manual](https://github.com/kdis-lab/MIML/blob/master/userManual/MIML-UserManual.pdf).
 
-To install and run the MIML library the following requirements are needed:
+Before downloading the library, it is necessary to have Java Development Kit version 8 or higher installed. Besides, these following dependences are needed:
 |Dependence|Version|
 |-----------|-----------|
 |Java|1.8|
