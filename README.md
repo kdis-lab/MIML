@@ -53,14 +53,14 @@ Before downloading the library, it is necessary to have Java 1.8 installed. Besi
 
 
 ## Tutorials and documentation
-[MIML user's manual](https://github.com/kdis-lab/MIML/blob/master/documentation/MIML-UserManual.pdf) can be found in the userManual folder and includes:
+[MIML user's manual](https://github.com/kdis-lab/MIML/blob/master/documentation/MIML-UserManual.pdf) can be found in the [*documentation*](https://github.com/kdis-lab/MIML/blob/master/documentation) folder and includes:
 * Detailed steps for getting and running the library.
 * A description of MIML library architecture.
 * Examples for managing MIML data.
 * Examples for running each classification MIML algorithm included in the library.
 * Examples for developing new classification MIML algorithm in the library.
 
-[MIML API](https://github.com/kdis-lab/MIML/tree/master/documentation/apidoc) can be found in apidoc folder.
+[MIML API](https://github.com/kdis-lab/MIML/tree/master/documentation/apidoc) can be found in the [*documentation*](https://github.com/kdis-lab/MIML/blob/master/documentation) folder.
 
 Moreover, the source code includes the *tutorial* folder where there are java examples of different functionalities of MIML library. Finally, in *configuration* folder, it can be found configuration files to run any library algorithm. These files can be used as a basis to modify any configuration parameter in the experimentation of these algorithms.
 
