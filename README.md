@@ -15,7 +15,9 @@ MIML is a modular Java library whose aim is to ease the development, testing and
 
 ## Description of the project
 In this Github project you can find the following directories:
-* [*main folder*](https://github.com/kdis-lab/MIML/tree/master/). Contains all the project as wekll as a copy of the [user's manual](https://github.com/kdis-lab/MIML/blob/master/MIML-UserManual.pdf).
+* JavaProject. Contains the distribution of the MIML library as a common Java project with the following folders:
+* MavenProyect. Contains the distribution of the MIML library as a Maven project with the following folders:
+                *[*main folder*](https://github.com/kdis-lab/MIML/tree/master/). Contains all the project as wekll as a copy of the [user's manual](https://github.com/kdis-lab/MIML/blob/master/MIML-UserManual.pdf).
 * [*apidoc*](https://github.com/kdis-lab/MIML/tree/master/apidoc). Contains the javadoc documentation of the API in html format.
 * [*configurations*](https://github.com/kdis-lab/MIML/tree/master/configurations). Contains an example of *xml* configuration file for each of the algorithms included in the library.
 * [*data*](https://github.com/kdis-lab/MIML/tree/master/data). Contains some examples of datasets. Particularly, birds dataset in included with the distribution of the librery.
