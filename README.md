@@ -21,7 +21,7 @@ In this Github project you can find the following folders:
 * [*dist*](https://github.com/kdis-lab/MIML/tree/master/dist). Contains the distribution of the MIML library as a *jar* file. Concretely, the folder contains:
   * [*configurations*](https://github.com/kdis-lab/MIML/tree/master/dist/configurations). Contains an example of *xml* configuration file for each of the algorithms included in the library.
   * [*data*](https://github.com/kdis-lab/MIML/tree/master/dist/data). Contains some examples of datasets. Particularly, *birds* dataset in included with the distribution of the library.
-  * [*miml-1.0.jar*](https://github.com/kdis-lab/MIML/tree/master/dist/miml-1.0.jar). The *jar* file packaged with all its dependences. 
+  * [*miml-1.0.jar*](https://github.com/kdis-lab/MIML/tree/master/dist/miml-1.0.jar). The *jar* file packaged with all its dependencies. 
 * [*javaProject*](https://github.com/kdis-lab/MIML/tree/master/javaProject). Contains the distribution of the MIML library as a common Java project with the following folders:  
   * [*configurations*](https://github.com/kdis-lab/MIML/tree/master/javaProject/configurations). Contains an example of *xml* configuration file for each of the algorithms included in the library.
   * [*data*](https://github.com/kdis-lab/MIML/tree/master/javaProject/data). Contains some examples of datasets. Particularly, *birds* dataset in included with the distribution of the library.
@@ -39,8 +39,8 @@ In this Github project you can find the following folders:
 
 The project can be download using maven tool, java project or from a compiled version (*jar* file). Detailed information about getting and running the library can be consulted in [user's manual](https://github.com/kdis-lab/MIML/blob/master/documentation/MIML-UserManual.pdf).
 
-Before downloading the library, it is necessary to have **Java 1.8** installed. Besides, the following versions of dependences are needed:
-|Dependence|Version|
+Before downloading the library, it is necessary to have **Java 1.8** installed. Besides, the following versions of dependencies are needed:
+|Dependency|Version|
 |-----------|-----------|
 |Weka|3.7.10|
 |Mulan|1.5|
