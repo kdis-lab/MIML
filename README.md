@@ -21,7 +21,7 @@ In this Github project you can find the following folders:
 * [*dist*](https://github.com/kdis-lab/MIML/tree/master/dist). Contains the distribution of the MIML library as a *jar* file. Concretely, the folder contains:
   * [*configurations*](https://github.com/kdis-lab/MIML/tree/master/dist/configurations). Contains an example of *xml* configuration file for each of the algorithms included in the library.
   * [*data*](https://github.com/kdis-lab/MIML/tree/master/dist/data). Contains some examples of datasets. Particularly, *birds* dataset in included with the distribution of the library.
-  * The *jar* file packaged with all its dependences. 
+  * [*miml-1.0.jar*](https://github.com/kdis-lab/MIML/tree/master/dist/miml-1.0.jar). The *jar* file packaged with all its dependences. 
 * [*javaProject*](https://github.com/kdis-lab/MIML/tree/master/javaProject). Contains the distribution of the MIML library as a common Java project with the following folders:  
   * [*configurations*](https://github.com/kdis-lab/MIML/tree/master/javaProject/configurations). Contains an example of *xml* configuration file for each of the algorithms included in the library.
   * [*data*](https://github.com/kdis-lab/MIML/tree/master/javaProject/data). Contains some examples of datasets. Particularly, *birds* dataset in included with the distribution of the library.
