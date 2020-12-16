@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms(avg),Test_time_ms(avg),Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToML,mulan.classifier.lazy.MLkNN,miml.transformation.mimlTOml.GeometricTransformation,miml_birds.arff,MIMLtoML_GT_MLkNN.config,25.4,14.4,0.08986941036802534,0.14548872180451128,0.33440989007552474,0.24172374823575846

@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Average Precision,Coverage,OneError
+MIMLClassifierToML,mulan.classifier.transformation.Pairwise,miml.transformation.mimlTOml.GeometricTransformation,miml_birds_random_80train.arff,MIMLtoML_GT_RPC.config,38,171,0.3105956558286832,9.660714285714286,0.8214285714285714

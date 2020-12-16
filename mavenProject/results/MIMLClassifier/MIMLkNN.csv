@@ -1,0 +1,2 @@
+Algorithm,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLkNN,miml_birds_random_80train.arff,MIMLkNN.config,454,314,0.35338345864661663,0.017857142857142856,0.10580937898915906,0.13529004368001735

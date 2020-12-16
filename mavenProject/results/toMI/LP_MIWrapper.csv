@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms(avg),Test_time_ms(avg),Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToMI,weka.classifiers.mi.MIWrapper,miml.classifiers.miml.mimlTOmi.MIMLLabelPowerset,miml_birds.arff,MIMLtoMI_LP_MIWrapper.config,9.4,14.0,0.1324462471969398,0.08515037593984963,0.087135602163303,0.09499406048420739
