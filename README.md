@@ -1,6 +1,6 @@
 # MIML: A Java library for MIML learning
 * [What is MIML library?](https://github.com/kdis-lab/MIML/blob/master/README.md#what-is-miml-library)
-* [Repository description](https://github.com/kdis-lab/MIML/blob/master/README.md#description-of-the-project)
+* [Repository description](https://github.com/kdis-lab/MIML/blob/master/README.md#repository-description)
 * [Getting the library](https://github.com/kdis-lab/MIML/blob/master/README.md#getting-the-library)
 * [Tutorials and documentation](https://github.com/kdis-lab/MIML/blob/master/README.md#tutorials-and-documentation)
 * [Methods included](https://github.com/kdis-lab/MIML/blob/master/README.md#methods-included)
@@ -19,7 +19,7 @@ In this Github repository, you can find the following folders:
   * [*user's manual*](https://github.com/kdis-lab/MIML/blob/master/documentation/MIML-UserManual.pdf). The user's manual in *pdf*.
   * [*apidoc*](https://github.com/kdis-lab/MIML/tree/master/documentation/apidoc). It contains the javadoc documentation of the API in *html* format.
 * [*dist*](https://github.com/kdis-lab/MIML/tree/master/dist). It contains the distribution of the MIML library as a *jar* file. Concretely, the folder contains:
-  * [*configurations*](https://github.com/kdis-lab/MIML/tree/master/dist/configurations). It contains an example of *xml* configuration file for each of the algorithms included in the library.
+  * [*configurations*](https://github.com/kdis-lab/MIML/tree/master/dist/configurations). It contains an example of *xml* configuration file for each algorithm included in the library.
   * [*data*](https://github.com/kdis-lab/MIML/tree/master/dist/data). It contains some examples of datasets. Particularly, *birds* dataset in included with the distribution of the library.
   * [*miml-1.0.jar*](https://github.com/kdis-lab/MIML/tree/master/dist/miml-1.0.jar). The *jar* file packaged with all its dependencies. 
 * [*javaProject*](https://github.com/kdis-lab/MIML/tree/master/javaProject). It contains the distribution of the MIML library as a common Java project with the following folders:  
