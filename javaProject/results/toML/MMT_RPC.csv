@@ -1,2 +1,0 @@
-Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms(avg),Train_time_ms(std),Test_time_ms(avg),Test_time_ms(std),Average Precision,Average Precision Std,Coverage,Coverage Std,OneError,OneError Std
-MIMLClassifierToML,mulan.classifier.transformation.Pairwise,miml.transformation.mimlTOml.MinMaxTransformation,miml_birds.arff,MIMLtoML_MMT_RPC.config,31.2,8.109253973085316,307.8,22.63095225570502,0.6278645441017462,0.03852900641736514,5.135213032581453,0.37465494706092933,0.38621553884711785,0.049193005823091

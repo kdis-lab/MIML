@@ -1,2 +1,0 @@
-Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
-MIMLClassifierToML,mulan.classifier.lazy.IBLR_ML,miml.transformation.mimlTOml.MinMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_IBLR_ML.config,397,18,0.18233082706766912,0.017857142857142856,0.10078415736310473,0.1088891117502199

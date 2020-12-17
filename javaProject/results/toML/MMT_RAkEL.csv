@@ -1,2 +1,0 @@
-Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
-MIMLClassifierToML,mulan.classifier.meta.RAkEL,miml.transformation.mimlTOml.MinMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_RAkEL.config,556,15,0.1795112781954886,0.017857142857142856,0.07211516553621818,0.06632803919085986
