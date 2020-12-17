@@ -31,7 +31,7 @@ In this Github repository, you can find the following folders:
 
 ## Getting the library
 
-The project can be download using maven tool, java project or from a compiled version (*jar* file). Detailed information about getting and running the library can be consulted in [user's manual](https://github.com/kdis-lab/MIML/blob/master/documentation/MIML-UserManual.pdf).
+The project can be download using maven tool or from a compiled version (*jar* file). Detailed information about getting and running the library can be consulted in [user's manual](https://github.com/kdis-lab/MIML/blob/master/documentation/MIML-UserManual.pdf).
 
 Before downloading the library, it is necessary to have **Java 1.8** installed. Besides, the following versions of dependencies are needed:
 |Dependency|Version|
