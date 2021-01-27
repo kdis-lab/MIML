@@ -7,6 +7,10 @@ miml.classifiers.miml.mimlTOml
 miml.core
 miml.core.distance
 miml.data
+miml.data.partitioning
+miml.data.partitioning.iterative
+miml.data.partitioning.powerset
+miml.data.partitioning.random
 miml.data.statistics
 miml.evaluation
 miml.report

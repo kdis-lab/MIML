@@ -110,8 +110,11 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	public void saveReport(String report) throws FileNotFoundException {
 
 		File file = new File(filename);
-		file.getParentFile().mkdirs();
-
+		
+		if (file.getParentFile() != null) {
+			file.getParentFile().mkdirs();
+		}
+		
 		try {
 			file.createNewFile();
 			Files.write(Paths.get(filename), report.getBytes(), StandardOpenOption.APPEND);

@@ -39,7 +39,7 @@ import weka.core.Utils;
 public class GeneratePartitions {
 
 	/**
-	 * Shows the help on command line. 
+	 * Shows the help on command line.
 	 */
 	public static void showUse() {
 		System.out.println("Program parameters:");
@@ -77,35 +77,37 @@ public class GeneratePartitions {
 	/**
 	 * Main method.
 	 * 
-	 * @param args Command line arguments.
-	 *             <ul>
-	 *             <li>-f filename.arff -&gt; name of the filename to be
-	 *             partitioned</li>
-	 *             <li>-x file.xml</li>
-	 *             <li>-[t|c] value
-	 *             <ul>
-	 *             <li>-t double_percentage -&gt; train-test and tranin
-	 *             percentage</li>
-	 *             <li>-c integer_nFolds -&gt; cross-validation and number of
-	 *             folds</li>
-	 *             </ul>
-	 *             </li>
-	 *             <li>-s 0|1|2
-	 *             <ul>
-	 *             <li>-s 0 -&gt; random stratification (by default)</li>
-	 *             <li>-s 1 -&gt; iterative stratification</li>
-	 *             <li>-s 2 -&gt; label powerset stratification</li>
-	 *             </ul>
-	 *             *
-	 *             <li>-o OutputFile (without extension)
-	 *             <ul>
-	 *             <li>train-test -&gt; OutputFile_train.arff and
-	 *             OutputFile_test.arff</li>
-	 *             <li>cross-validation -&gt; OutputFile_1.arff ...
-	 *             OutputFile_nFolds.arff</li>
-	 *             </ul>
-	 *             </ul>
-	 * @throws Exception To be handled.
+	 * @param args
+	 *            Command line arguments.
+	 *            <ul>
+	 *            <li>-f filename.arff -&gt; name of the filename to be
+	 *            partitioned</li>
+	 *            <li>-x file.xml</li>
+	 *            <li>-[t|c] value
+	 *            <ul>
+	 *            <li>-t double_percentage -&gt; train-test and tranin
+	 *            percentage</li>
+	 *            <li>-c integer_nFolds -&gt; cross-validation and number of
+	 *            folds</li>
+	 *            </ul>
+	 *            </li>
+	 *            <li>-s 0|1|2
+	 *            <ul>
+	 *            <li>-s 0 -&gt; random stratification (by default)</li>
+	 *            <li>-s 1 -&gt; iterative stratification</li>
+	 *            <li>-s 2 -&gt; label powerset stratification</li>
+	 *            </ul>
+	 *            *
+	 *            <li>-o OutputFile (without extension)
+	 *            <ul>
+	 *            <li>train-test -&gt; OutputFile_train.arff and
+	 *            OutputFile_test.arff</li>
+	 *            <li>cross-validation -&gt; OutputFile_1.arff ...
+	 *            OutputFile_nFolds.arff</li>
+	 *            </ul>
+	 *            </ul>
+	 * @throws Exception
+	 *             To be handled.
 	 */
 	public static void main(String[] args) throws Exception {
 		MultiLabelInstances[] partitions = null;
@@ -201,22 +203,21 @@ public class GeneratePartitions {
 				rounds = engine.getRounds(foldsValue);
 			}
 
-		}
+			// Save partition (folds and rounds of train and test)
+			for (int i = 0; i < partitions.length; i++) {
 
-		// Save partition (folds and rounds of train and test)
-		for (int i = 0; i < partitions.length; i++) {
+				// Save folds
+				String aux = new String(outputFile + "_fold_" + (i + 1));
+				MLSave.saveArff(partitions[i], aux + ".arff");
 
-			// Save folds
-			String aux = new String(outputFile + "_fold_" + (i + 1));
-			MLSave.saveArff(partitions[i], aux + ".arff");
+				// Save rounds
+				aux = new String(outputFile + "_train_" + (i + 1));
+				MLSave.saveArff(rounds[i][0], new String(aux + ".arff"));
 
-			// Save rounds
-			aux = new String(outputFile + "_train_" + (i + 1));
-			MLSave.saveArff(rounds[i][0], new String(aux + ".arff"));
+				aux = new String(outputFile + "_test_" + (i + 1));
+				MLSave.saveArff(rounds[i][1], new String(aux + ".arff"));
 
-			aux = new String(outputFile + "_test_" + (i + 1));
-			MLSave.saveArff(rounds[i][1], new String(aux + ".arff"));
-
+			}
 		}
 
 	}
