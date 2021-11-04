@@ -50,7 +50,7 @@ public class DMLkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	public DMLkNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric) {
 		super(metric, 10);		
 		this.smooth = 1.0;
-		this.classifier = new DMLkNN(numOfNeighbours, smooth);
+		this.classifier = new DMLkNN(10, smooth);
 	}
 	
 	/**
@@ -88,6 +88,7 @@ public class DMLkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	 * No-arg constructor for xml configuration
 	 */
 	public DMLkNN_MIMLWrapper() {
+
 	}
 
 	/*
@@ -98,9 +99,8 @@ public class DMLkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	 */
 	@Override
 	public void configure(Configuration configuration) {
-
 		super.configure(configuration);
-		this.smooth = configuration.getDouble("smooth");
+		this.smooth = configuration.getDouble("smooth", 1.0);
 		this.classifier = new DMLkNN(numOfNeighbours, smooth);
 	}
 

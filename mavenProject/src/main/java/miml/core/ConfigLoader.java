@@ -25,8 +25,6 @@ import org.apache.commons.configuration2.builder.fluent.XMLBuilderParameters;
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
 import miml.classifiers.miml.IMIMLClassifier;
-import miml.classifiers.miml.mimlTOmi.MIMLClassifierToMI;
-import miml.classifiers.miml.mimlTOml.MIMLClassifierToML;
 import miml.evaluation.IEvaluator;
 import miml.report.IReport;
 
@@ -85,7 +83,7 @@ public class ConfigLoader {
 		}
 
 		ConfigParameters.setConfigFileName(new File(path).getName());
-
+ 
 	}
 
 	/**
@@ -103,7 +101,8 @@ public class ConfigLoader {
 		// Instantiate the classifier class used in the experiment
 		Class<? extends IMIMLClassifier> clsClass = (Class<? extends IMIMLClassifier>) Class.forName(clsName);
 
-		classifier = clsClass.newInstance();
+		//classifier = clsClass.newInstance(); //Java 8
+		classifier = clsClass.getDeclaredConstructor().newInstance(); //Java 9
 		// Configure the classifier
 		if (classifier instanceof IMIMLClassifier)
 			((IConfiguration) classifier).configure(configuration.subset("classifier"));
@@ -129,7 +128,10 @@ public class ConfigLoader {
 		// Instantiate the evaluator class used in the experiment
 		Class<? extends IEvaluator> evalClass = (Class<? extends IEvaluator>) Class.forName(evalName);
 
-		evaluator = evalClass.newInstance();
+		
+		//evaluator = evalClass.newInstance(); //Java8
+		evaluator = evalClass.getDeclaredConstructor().newInstance(); //Java9
+		
 		// Configure the evaluator
 		if (evaluator instanceof IEvaluator)
 			((IConfiguration) evaluator).configure(configuration.subset("evaluator"));
@@ -153,8 +155,9 @@ public class ConfigLoader {
 		// Instantiate the report class used in the experiment
 		Class<? extends IReport> clsClass = (Class<? extends IReport>) Class.forName(reportName);
 
-		report = clsClass.newInstance();
-
+		//report = clsClass.newInstance(); //Java8
+		report = clsClass.getDeclaredConstructor().newInstance(); //Java9
+		
 		// Configure the report
 		if (report instanceof IReport)
 			((IConfiguration) report).configure(configuration.subset("report"));

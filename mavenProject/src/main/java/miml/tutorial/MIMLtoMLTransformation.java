@@ -21,6 +21,7 @@ import miml.data.MLSave;
 import miml.transformation.mimlTOml.ArithmeticTransformation;
 import miml.transformation.mimlTOml.GeometricTransformation;
 import miml.transformation.mimlTOml.MinMaxTransformation;
+import miml.transformation.mimlTOml.PropositionalTransformation;
 import mulan.data.MultiLabelInstances;
 import weka.core.Instance;
 import weka.core.Utils;
@@ -32,7 +33,7 @@ import weka.core.Utils;
  * @author Ana I. Reyes Melero
  * @author Eva Gibaja
  * @author Amelia Zafra
- * @version 20170507
+ * @version 20210604
  *
  */
 public class MIMLtoMLTransformation {
@@ -48,6 +49,8 @@ public class MIMLtoMLTransformation {
 	}
 
 	public static void main(String[] args) throws Exception {
+		
+		//-f data/miml_birds.arff -x data/miml_birds.xml
 		
 		String arffFileName = Utils.getOption("f", args);
 		String xmlFileName = Utils.getOption("x", args);
@@ -74,6 +77,8 @@ public class MIMLtoMLTransformation {
 		ArithmeticTransformation ari = new ArithmeticTransformation(mimlDataSet);
 		// Transforms a single instance
 		Instance instance = ari.transformInstance(mimlDataSet.getBag(0));
+		instance.numAttributes();
+		
 		// Transforms a complete dataset
 		MultiLabelInstances result = ari.transformDataset();
 		MLSave.saveArff(result, arffFileResultAri);
@@ -84,8 +89,11 @@ public class MIMLtoMLTransformation {
 		String xmlFileResultGeo = "data" + File.separator + "toyResultGeo.xml";
 
 		GeometricTransformation geo = new GeometricTransformation(mimlDataSet);
+		
 		// Transforms a single instance
 		instance = geo.transformInstance(mimlDataSet.getBag(0));
+		instance.numAttributes();
+		
 		// Transforms a complete dataset
 		result = geo.transformDataset();
 		MLSave.saveArff(result, arffFileResultGeo);
@@ -96,12 +104,29 @@ public class MIMLtoMLTransformation {
 		String xmlFileResultMinMax = "data" + File.separator + "toyResultMinMax.xml";
 
 		MinMaxTransformation miniMax = new MinMaxTransformation(mimlDataSet);
-		// Transforms a single instance
+		
+		// Transforms a single instance, returns a set of instances
 		instance = miniMax.transformInstance(mimlDataSet.getBag(0));
+		instance.numAttributes();
+		
 		// Transforms a complete dataset
 		result = miniMax.transformDataset();
 		MLSave.saveArff(result, arffFileResultMinMax);
 		MLSave.saveXml(result, xmlFileResultMinMax);
+		
+		
+		System.out.println("=============Propositional=====================");
+		String arffFileResultPropositional = "data" + File.separator + "toyResultPropositional.arff";
+		String xmlFileResultPropositional = "data" + File.separator + "toyPropositional.xml";
+
+		PropositionalTransformation propositional = new PropositionalTransformation(mimlDataSet);
+		// Transforms a single instance
+		result = propositional.transformInstance(mimlDataSet.getBag(0));		
+		
+		// Transforms a complete dataset
+		result = propositional.transformDataset();
+		MLSave.saveArff(result, arffFileResultPropositional);
+		MLSave.saveXml(result, xmlFileResultPropositional);
 
 	}
 

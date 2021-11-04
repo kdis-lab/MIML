@@ -15,8 +15,7 @@
 
 package miml.core.distance;
 
-import miml.data.MIMLBag;
-import weka.core.EuclideanDistance;
+import miml.data.MIMLInstances;
 import weka.core.Instance;
 import weka.core.Instances;
 
@@ -27,38 +26,24 @@ import weka.core.Instances;
  * @author Alvaro A. Belmonte
  * @author Amelia Zafra
  * @author Eva Gigaja
- * @version 20180619
+ * @version 20210604
  */
-public class MinimalHausdorff implements IDistance {
+public class MinimalHausdorff extends HausdorffDistance {
 
 	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -4225065329008023904L;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see core.distance.IDistance#distance(data.Bag, data.Bag)
-	 */
-	@Override
-	public double distance(MIMLBag first, MIMLBag second) throws Exception {
-
-		EuclideanDistance euclideanDistance = new EuclideanDistance(first.getBagAsInstances());
-		double finalDistance = Double.MAX_VALUE;
-
-		for (Instance u : first.getBagAsInstances()) {
-
-			for (Instance v : second.getBagAsInstances()) {
-
-				double distance = euclideanDistance.distance(u, v);
-
-				if (distance < finalDistance)
-					finalDistance = distance;
-			}
-		}
-
-		return finalDistance;
-	}
-
+	
+	public MinimalHausdorff()
+	{
+		super();
+	}	
+	
+	public MinimalHausdorff(MIMLInstances bags) throws Exception
+	{
+		super(bags);
+	}	
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -67,9 +52,6 @@ public class MinimalHausdorff implements IDistance {
 	 */
 	@Override
 	public double distance(Instances first, Instances second) throws Exception {
-
-		EuclideanDistance euclideanDistance = new EuclideanDistance(first);
-		euclideanDistance.setDontNormalize(true);
 
 		int nInstances = second.size();
 		double finalDistance = Double.MAX_VALUE;
@@ -80,7 +62,7 @@ public class MinimalHausdorff implements IDistance {
 
 			for (int j = 0; j < nInstances; ++j) {
 
-				double distance = euclideanDistance.distance(u, second.instance(j));
+				double distance = dfun.distance(u, second.instance(j));
 
 				if (distance < finalDistance)
 					finalDistance = distance;

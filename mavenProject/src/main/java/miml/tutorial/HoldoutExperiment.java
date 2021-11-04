@@ -44,20 +44,26 @@ public class HoldoutExperiment {
 		System.out.println("\t-x xmlPathFileName -> path of xml file.");
 		System.out.println("\t-t arffPathFileTrain Name -> path of arff train file.");
 		System.out.println("\t-y arffPathFileTest -> path of arff test file.");
+		System.out.println("\t-r reportPathFileName -> path of report file.");
 		System.out.println("Example:");
 		System.out.println("\tjava -jar HoldoutExperiment -f data" + File.separator + "miml_birds.arff -x data"
 				+ File.separator + "miml_birds.xml -t data" + File.separator + "miml_birds_random_80train.arff"
-				+ File.separator + " -y data" + File.separator + "miml_birds_random_20test.arff");
+				+ File.separator + " -y data" + File.separator + "miml_birds_random_20test.arff -r output"
+				+ File.separator + "miml_birds_report.csv");
 		System.exit(-1);
 	}
 
 	public static void main(String[] args) throws Exception {
 
+		//-f  data/birds.arff -x data/birds.xml -t data/birds.arff -y data/birds.arff -r results/report.csv
+		
 		String arffFileName = Utils.getOption("f", args);
 		String xmlFileName = Utils.getOption("x", args);
 		String arffFileNameTrain = Utils.getOption("t", args);
 		String arffFileNameTest = Utils.getOption("y", args);
+		String reportFileName = Utils.getOption("r", args);
 
+		
 		// Loads the dataset
 		System.out.println("Loading datasets...");
 		MIMLInstances mimlDataSet = new MIMLInstances(arffFileName, xmlFileName);
@@ -65,7 +71,7 @@ public class HoldoutExperiment {
 		MIMLInstances mimlDataSetTest = new MIMLInstances(arffFileNameTest, xmlFileName);
 
 		// MIML report
-		BaseMIMLReport report = new BaseMIMLReport(null, "example.csv", true, true, false);
+		BaseMIMLReport report = new BaseMIMLReport(null, reportFileName, false, false, false);
 
 		// Cross-validation evaluator
 		EvaluatorHoldout holdoutTT = new EvaluatorHoldout(mimlDataSetTrain, mimlDataSetTest);
@@ -73,17 +79,19 @@ public class HoldoutExperiment {
 
 		// Load first classifier
 		System.out.println("Loading MIMLkNN classifier...");
-		MIMLkNN mimlknn = new MIMLkNN(new MaximalHausdorff());
+		MIMLkNN mimlknn = new MIMLkNN(new MaximalHausdorff(mimlDataSet));
 
 		System.out.println("\n");
 
 		System.out.println("-Example using MIMLkNN with train/test datasets:\n");
 		holdoutTT.runExperiment(mimlknn);
 		System.out.println(report.toString(holdoutTT) + "\n\n");
+		report.saveReport(report.toCSV(holdoutTT));
 
 		System.out.println("-Example using MIMLkNN with dataset split:\\n");
 		holdoutSplit.runExperiment(mimlknn);
 		System.out.println(report.toString(holdoutSplit) + "\n\n");
+		report.saveReport(report.toCSV(holdoutTT));
 
 		System.out.println("The program has finished.");
 	}

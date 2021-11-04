@@ -14,36 +14,39 @@
  */
 package miml.classifiers.miml.lazy;
 
-import java.io.Serializable;
 import java.util.Enumeration;
 
 import miml.core.distance.IDistance;
 import miml.data.MIMLBag;
-import weka.core.DistanceFunction;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.core.NormalizableDistance;
 import weka.core.neighboursearch.PerformanceStats;
 
-public class DistanceFunction_MIMLWrapper implements Serializable, DistanceFunction {
+/**
+ * Wrapper for using IDistance metrics of MIML package with Mulan Lazy
+ * algorithms.
+ */
+public class DistanceFunction_MIMLWrapper extends NormalizableDistance {
 
-	/**
-	 * Wrapper for using IDistance metrics of MIML package with Mulan Lazy
-	 * algorithms.
-	 */
 	private static final long serialVersionUID = 1111038321156350822L;
 
 	/** Metric to measure distance between bags. */
-	IDistance metric;
+	protected IDistance metric;
 
 	/**
 	 * Sets the metric to be used.
 	 * 
 	 * @param metric The metric to be used.
 	 */
-	public void setMetric(IDistance metric) {
-		this.metric = metric;
+	public void setMetric(IDistance metric) {		
+		this.metric = metric;		
 	}
-
+	
+	public IDistance getMetric() {		
+		return metric;		
+	}
+	
 	/**
 	 * Constructor that sets the metric to be used.
 	 * 
@@ -118,7 +121,7 @@ public class DistanceFunction_MIMLWrapper implements Serializable, DistanceFunct
 	 * weka.core.Instance, weka.core.neighboursearch.PerformanceStats)
 	 */
 	@Override
-	public double distance(Instance arg0, Instance arg1, PerformanceStats arg2) throws Exception {
+	public double distance(Instance arg0, Instance arg1, PerformanceStats arg2) {
 		return distance(arg0, arg1, Double.POSITIVE_INFINITY, arg2);
 	}
 
@@ -140,8 +143,7 @@ public class DistanceFunction_MIMLWrapper implements Serializable, DistanceFunct
 	 */
 	@Override
 	public void setInstances(Instances insts) {
-		// TODO Auto-generated method stub
-
+		super.setInstances(insts);
 	}
 
 	/*
@@ -151,8 +153,8 @@ public class DistanceFunction_MIMLWrapper implements Serializable, DistanceFunct
 	 */
 	@Override
 	public Instances getInstances() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return super.getInstances();
 	}
 
 	/*
@@ -215,8 +217,7 @@ public class DistanceFunction_MIMLWrapper implements Serializable, DistanceFunct
 	 */
 	@Override
 	public void update(Instance ins) {
-		// TODO Auto-generated method stub
-
+		super.update(ins);
 	}
 
 	/*
@@ -228,6 +229,24 @@ public class DistanceFunction_MIMLWrapper implements Serializable, DistanceFunct
 	public Enumeration<?> listOptions() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String getRevision() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String globalInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected double updateDistance(double currDist, double diff) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

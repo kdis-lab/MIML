@@ -78,7 +78,7 @@ public abstract class CrossValidationBase extends PartitionerBase {
 	 *            The folds.
 	 * @return MultiLabelInstances[][] a nfolds x 2 matrix. Each row represents a
 	 *         fold being column 0 the train set and the column 1 the test set.
-	 * @throws Exception 
+	 * @throws Exception To be handled.
 	 */
 	public static MultiLabelInstances[][] foldsToRounds(MultiLabelInstances Folds[]) throws Exception {
 		int nFolds = Folds.length;

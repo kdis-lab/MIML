@@ -21,7 +21,7 @@ import miml.data.MIMLBag;
 import weka.core.Instances;
 
 /**
- * Interface to implements the metrics used to measure the distance between {@link MIMLBag}
+ * Interface to implement the metrics used to measure the distance between {@link MIMLBag}
  * of a data sets.
  *
  * @author Alvaro A. Belmonte
@@ -50,5 +50,4 @@ public interface IDistance extends Serializable {
 	 * @throws Exception if occurred an error during distance calculation.
 	 */
 	public double distance(Instances first, Instances second) throws Exception;
-
 }

@@ -18,8 +18,7 @@ package miml.core.distance;
 import java.util.Arrays;
 import java.util.stream.DoubleStream;
 
-import miml.data.MIMLBag;
-import weka.core.EuclideanDistance;
+import miml.data.MIMLInstances;
 import weka.core.Instance;
 import weka.core.Instances;
 
@@ -30,56 +29,23 @@ import weka.core.Instances;
  * @author Alvaro A. Belmonte
  * @author Amelia Zafra
  * @author Eva Gigaja
- * @version 20180619
+ * @version 20210604
  */
-public class AverageHausdorff implements IDistance {
+public class AverageHausdorff extends HausdorffDistance{
 
 	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -2002702276955682922L;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see core.distance.IDistance#distance(data.Bag, data.Bag)
-	 */
-	@Override
-	public double distance(MIMLBag first, MIMLBag second) throws Exception {
-
-		EuclideanDistance euclideanDistance = new EuclideanDistance(first.getBagAsInstances());
-
-		int nInstances = second.getBagAsInstances().size();
-
-		int idx = 0;
-		double sumU = 0.0;
-		double[] minDistancesV = new double[nInstances];
-		Arrays.fill(minDistancesV, Double.MAX_VALUE);
-
-		for (Instance u : first.getBagAsInstances()) {
-
-			double minDistance = Double.MAX_VALUE;
-
-			for (Instance v : second.getBagAsInstances()) {
-
-				double distance = euclideanDistance.distance(u, v);
-
-				if (distance < minDistance)
-					minDistance = distance;
-
-				if (distance < minDistancesV[idx])
-					minDistancesV[idx] = distance;
-
-				idx++;
-			}
-
-			idx = 0;
-			sumU += minDistance;
-		}
-
-		double sumV = DoubleStream.of(minDistancesV).sum();
-
-		return (sumU + sumV) / (first.getNumInstances() + second.getNumInstances());
-	}
-
+	
+	public AverageHausdorff()
+	{
+		super();
+	}	
+	
+	public AverageHausdorff(MIMLInstances bags) throws Exception
+	{
+		super(bags);
+	}	
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -89,8 +55,6 @@ public class AverageHausdorff implements IDistance {
 	@Override
 	public double distance(Instances first, Instances second) throws Exception {
 
-		EuclideanDistance euclideanDistance = new EuclideanDistance(first);
-		euclideanDistance.setDontNormalize(true);
 
 		int nInstances = second.size();
 
@@ -107,7 +71,7 @@ public class AverageHausdorff implements IDistance {
 
 			for (int j = 0; j < nInstances; ++j) {
 
-				double distance = euclideanDistance.distance(u, second.instance(j));
+				double distance = dfun.distance(u, second.instance(j));
 
 				if (distance < minDistance)
 					minDistance = distance;
@@ -126,5 +90,8 @@ public class AverageHausdorff implements IDistance {
 
 		return (sumU + sumV) / (first.size() + second.size());
 	}
+
+
+
 
 }

@@ -131,7 +131,19 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 			}
 
 		multipleEvaluation = new MultipleEvaluation(Evaluations, data);
+		try {
 		multipleEvaluation.calculateStatistics();
+		}
+		catch(Exception e)
+		{
+			for(int j=0; j<Evaluations.length; j++)
+			{	
+			    System.out.println("\nPrinting "+j+"/"+Evaluations.length);
+				System.out.println(Evaluations[j].toString());			
+			}
+			e.printStackTrace();			
+		}
+
 	}
 	
 	/**

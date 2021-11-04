@@ -17,6 +17,7 @@ package miml.classifiers.miml.lazy;
 import org.apache.commons.configuration2.Configuration;
 
 import miml.classifiers.miml.MIMLClassifier;
+import miml.core.distance.HausdorffDistance;
 import miml.core.distance.IDistance;
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
@@ -24,9 +25,8 @@ import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelOutput;
 import mulan.classifier.lazy.MultiLabelKNN;
 import weka.core.DistanceFunction;
-import weka.core.Instance;
 
-/**Wrapper for clas MultiLabelKNN of Mulan to work with MIML data*/
+/**Wrapper for class MultiLabelKNN of Mulan to work with MIML data*/
 public abstract class MultiLabelKNN_MIMLWrapper extends MIMLClassifier {
 	
 	/**
@@ -44,8 +44,7 @@ public abstract class MultiLabelKNN_MIMLWrapper extends MIMLClassifier {
 	
 	/** Mulan MultiLabelKNN classifier. */
 	protected MultiLabelKNN classifier;		
-	
-	
+    
 	/**
 	 * Constructor to initialize the classifier. It sets the numberOfNeighbours to 10
 	 * @param metric         The metric used by the algorithm to measure the
@@ -81,7 +80,7 @@ public abstract class MultiLabelKNN_MIMLWrapper extends MIMLClassifier {
 	@Override
 	public void configure(Configuration configuration) {
 		
-		this.numOfNeighbours = configuration.getInt("numOfNeighbours");
+		this.numOfNeighbours = configuration.getInt("numOfNeighbours", 10);
 		try {
 			//Get the name of the metric class
 			String metricName = configuration.getString("metric[@name]");
@@ -89,8 +88,8 @@ public abstract class MultiLabelKNN_MIMLWrapper extends MIMLClassifier {
 			Class<? extends IDistance> metricClass =
 					(Class <? extends IDistance>) Class.forName(metricName);
 			
-			this.metric = new DistanceFunction_MIMLWrapper(metricClass.newInstance());
-		
+			//this.metric = new DistanceFunction_MIMLWrapper(metricClass.newInstance()); //Java 8			
+			this.metric = new DistanceFunction_MIMLWrapper(metricClass.getDeclaredConstructor().newInstance()); //Java 9
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -102,17 +101,24 @@ public abstract class MultiLabelKNN_MIMLWrapper extends MIMLClassifier {
 	@Override
 	protected void buildInternal(MIMLInstances trainingSet) throws Exception {
 			if(classifier==null)		        
-		            throw new Exception("The MLkNN classifier is null.");		    
-			classifier.setDfunc(metric);
+		            throw new Exception("The MultiLabelKNN classifier is null.");		
 			
+			IDistance m = metric.getMetric();
+				((HausdorffDistance)m).setInstances(trainingSet);			
+			
+			classifier.setDfunc(metric);			
 			classifier.build(trainingSet.getMLDataSet());		
 	}
 
 	@Override
 	protected MultiLabelOutput makePredictionInternal(MIMLBag instance) throws Exception, InvalidDataException {
 		
-		Instance bagAsInstance = instance;
-		MultiLabelOutput predictions = classifier.makePrediction(bagAsInstance);
+		
+			IDistance m = metric.getMetric();
+			((HausdorffDistance)m).update(instance);			
+				
+		
+		MultiLabelOutput predictions = classifier.makePrediction(instance);
 		
 		return predictions;
 	}

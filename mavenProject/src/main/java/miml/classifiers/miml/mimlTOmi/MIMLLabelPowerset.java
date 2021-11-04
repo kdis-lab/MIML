@@ -34,6 +34,7 @@ public class MIMLLabelPowerset extends LabelPowerset {
 	 * (non-Javadoc)
 	 * @see mulan.classifier.transformation.LabelPowerset#buildInternal(mulan.data.MultiLabelInstances)
 	 */
+	@Override
 	protected void buildInternal(MultiLabelInstances mlData) throws Exception {
 		Instances transformedData;
 		LPTransformation lp = new LPTransformation();

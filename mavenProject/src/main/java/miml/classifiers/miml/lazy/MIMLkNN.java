@@ -22,6 +22,7 @@ import java.util.Set;
 import org.apache.commons.configuration2.Configuration;
 
 import miml.classifiers.miml.MIMLClassifier;
+import miml.core.distance.HausdorffDistance;
 import miml.core.distance.IDistance;
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
@@ -57,7 +58,7 @@ public class MIMLkNN extends MIMLClassifier {
 	protected int num_references = 1;
 
 	/** Metric for measure the distance between bags. */
-	protected IDistance metric;
+	protected IDistance metric = null;
 
 	/** MIML data. */
 	protected MIMLInstances dataset;
@@ -117,6 +118,8 @@ public class MIMLkNN extends MIMLClassifier {
 		if (trainingSet == null) {
 			throw new ArgumentNullException("trainingSet");
 		}
+		
+		((HausdorffDistance) metric).setInstances(trainingSet);
 
 		this.dataset = trainingSet;
 		d_size = trainingSet.getNumBags();
@@ -151,6 +154,8 @@ public class MIMLkNN extends MIMLClassifier {
 	 */
 	@Override
 	protected MultiLabelOutput makePredictionInternal(MIMLBag instance) throws Exception, InvalidDataException {
+
+		((HausdorffDistance) metric).update(instance);
 
 		// Create a new distances matrix
 		double[][] distanceMatrixCopy = distance_matrix.clone();
@@ -497,7 +502,8 @@ public class MIMLkNN extends MIMLClassifier {
 			// Instance class
 			Class<? extends IDistance> metricClass = (Class<? extends IDistance>) Class.forName(metricName);
 
-			this.metric = metricClass.newInstance();
+			//this.metric = metricClass.newInstance(); //Java 8
+			this.metric = metricClass.getDeclaredConstructor().newInstance(); //Java 9
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);

@@ -49,7 +49,7 @@ public class IBLR_ML_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	public IBLR_ML_MIMLWrapper(DistanceFunction_MIMLWrapper metric) {
 		super(metric, 10);
 		this.addFeatures = false;
-		this.classifier = new IBLR_ML(numOfNeighbours, addFeatures);
+		this.classifier = new IBLR_ML(10, addFeatures);
 	}
 
 	/**
@@ -97,9 +97,8 @@ public class IBLR_ML_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	 */
 	@Override
 	public void configure(Configuration configuration) {
-
 		super.configure(configuration);
-		this.addFeatures = configuration.getBoolean("addFeatures");
+		this.addFeatures = configuration.getBoolean("addFeatures", false);
 		this.classifier = new IBLR_ML(numOfNeighbours, addFeatures);
 	}
 

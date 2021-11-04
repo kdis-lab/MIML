@@ -192,7 +192,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 
 			if (arffFileTest == null) {
 				List<MIMLInstances> list = Utils.splitData(new MIMLInstances(arffFileTrain, xmlFileName),
-						configuration.subset("data").getDouble("percentageTrain"), seed);
+						configuration.subset("data").getDouble("percentageTrain", 80), seed);
 				this.trainData = list.get(0);
 				this.testData = list.get(1);
 			} else {

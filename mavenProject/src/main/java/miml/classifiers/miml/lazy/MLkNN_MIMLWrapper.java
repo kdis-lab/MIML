@@ -18,12 +18,13 @@ import org.apache.commons.configuration2.Configuration;
 
 import mulan.classifier.lazy.MLkNN;
 
-/**Wrapper for ML-kNN (Multi-Label k Nearest Neighbours) algorithm of
- * Mulan Library. For more information, see: <br>
+/**
+ * Wrapper for ML-kNN (Multi-Label k Nearest Neighbours) algorithm of Mulan
+ * Library. For more information, see: <br>
  * <br>
- * Min-Ling Zhang, Zhi-Hua Zhou (2007). ML-KNN: A lazy learning approach to multi-label learning. Pattern Recogn.. 40(7):2038--2048.
- * <br>
- * */
+ * Min-Ling Zhang, Zhi-Hua Zhou (2007). ML-KNN: A lazy learning approach to
+ * multi-label learning. Pattern Recogn.. 40(7):2038--2048. <br>
+ */
 public class MLkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 
 	/**
@@ -33,68 +34,64 @@ public class MLkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 
 	/** Smooth factor */
 	protected double smooth = 1.0;
-	
+
 	/**
 	 * Default constructor.
 	 * 
-	 * @param metric
-	 *            The distance metric between bags considered by the classifier.
+	 * @param metric The distance metric between bags considered by the classifier.
 	 */
 	public MLkNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric) {
-		super(metric, 10);		
-		this.smooth =1.0;
-		this.classifier = new MLkNN(numOfNeighbours, smooth);
-	}	
-	
+		super(metric, 10);
+		this.smooth = 1.0;
+		this.classifier = new MLkNN(10, smooth);
+	}
+
 	/**
 	 * A constructor that sets the number of neighbours.
 	 *
-	 * @param metric
-	 *            The distance metric between bags considered by the classifier.
-	 * @param numOfNeighbours
-	 *            The number of neighbours.
+	 * @param metric          The distance metric between bags considered by the
+	 *                        classifier.
+	 * @param numOfNeighbours The number of neighbours.
 	 */
 	public MLkNN_MIMLWrapper(int numOfNeighbours, DistanceFunction_MIMLWrapper metric) {
-		super(metric, numOfNeighbours);		
+		super(metric, numOfNeighbours);
 		this.smooth = 1.0;
 		this.classifier = new MLkNN(numOfNeighbours, smooth);
 	}
-	
+
 	/**
 	 * A constructor that sets the number of neighbours and the value of smooth.
 	 *
-	 * @param metric
-	 *            The distance metric between bags considered by the classifier.
-	 * @param numOfNeighbours
-	 *            The number of neighbours.
-	 * @param smooth
-	 * 	          The smooth factor.           
+	 * @param metric          The distance metric between bags considered by the
+	 *                        classifier.
+	 * @param numOfNeighbours The number of neighbours.
+	 * @param smooth          The smooth factor.
 	 */
 	public MLkNN_MIMLWrapper(int numOfNeighbours, double smooth, DistanceFunction_MIMLWrapper metric) {
-		super(metric, numOfNeighbours);		
-		this.smooth = smooth;		
+		super(metric, numOfNeighbours);
+		this.smooth = smooth;
 		this.classifier = new MLkNN(numOfNeighbours, smooth);
-	}			
-	
+	}
+
 	/**
 	 *  No-arg constructor for xml configuration   
 	*/
-	public MLkNN_MIMLWrapper() {	
+	public MLkNN_MIMLWrapper() {
 	}
-		
-	
+
 	/*
 	 * (non-Javadoc)
-	 * @see miml.core.IConfiguration#configure(org.apache.commons.configuration2.Configuration)
+	 * 
+	 * @see miml.core.IConfiguration#configure(org.apache.commons.configuration2.
+	 * Configuration)
 	 */
 	@Override
-	public void configure(Configuration configuration) {
-		
-		super.configure(configuration);		
-		this.smooth = configuration.getDouble("smooth");
+	public void configure(Configuration configuration) {		
+		super.configure(configuration);
+		this.smooth = configuration.getDouble("smooth", 1.0);
 		this.classifier = new MLkNN(numOfNeighbours, smooth);
 	}
-	
+
 	/**
 	 * Gets the smooth factor considered by the classifier.
 	 *

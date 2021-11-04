@@ -105,6 +105,24 @@
 			<artifactId>mulan</artifactId>
 			<version>1.5.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>lamda</groupId>
+			<artifactId>lamda</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/lamda.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>javabuilder</groupId>
+			<artifactId>javabuilder</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/javabuilder.jar</systemPath>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -119,7 +137,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-	
+
 			<!-- GENERATE SOURCE CODE -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

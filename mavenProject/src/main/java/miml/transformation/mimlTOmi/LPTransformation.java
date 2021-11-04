@@ -93,6 +93,7 @@ class MIMLLabelPowersetTransformation extends LabelPowersetTransformation {
 	 * @return Transformed instance.
 	 * @throws Exception To be handled in an upper level.
 	 */
+	@Override
 	public Instance transformInstance(Instance instance, int[] labelIndices) throws Exception {
 
 		// Prepares a dataset with a single instance

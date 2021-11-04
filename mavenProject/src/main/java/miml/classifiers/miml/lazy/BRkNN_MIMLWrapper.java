@@ -64,6 +64,7 @@ public class BRkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	public BRkNN_MIMLWrapper(DistanceFunction_MIMLWrapper metric) {
 		super(metric, 10);
 		this.classifier = new BRkNN(10);
+		classifier.setDfunc(metric);
 	}
 
 	/**
@@ -103,7 +104,6 @@ public class BRkNN_MIMLWrapper extends MultiLabelKNN_MIMLWrapper {
 	 */
 	@Override
 	public void configure(Configuration configuration) {
-
 		super.configure(configuration);
 		String ext = configuration.getString("extension");
 		if (ext.equalsIgnoreCase("EXTA"))

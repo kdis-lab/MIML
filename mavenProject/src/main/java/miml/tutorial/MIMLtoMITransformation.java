@@ -33,7 +33,7 @@ import weka.core.Utils;
  * @version 20170507
  *
  */
-public class MIMLtoMITranformation {
+public class MIMLtoMITransformation {
 	/** Shows the help on command line. */
 	public static void showUse() {
 		System.out.println("Program parameters:");
@@ -48,6 +48,8 @@ public class MIMLtoMITranformation {
 
 	public static void main(String[] args) throws Exception {
 
+		//-f data/miml_birds.arff -x data/miml_birds.xml -o data/miml_birds_result.arff
+		
 		String arffFileName = Utils.getOption("f", args);
 		String xmlFileName = Utils.getOption("x", args);
 		String arffFileResult = Utils.getOption("o", args);

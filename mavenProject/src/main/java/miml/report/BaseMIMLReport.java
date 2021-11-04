@@ -16,7 +16,6 @@
 package miml.report;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.configuration2.Configuration;
@@ -54,13 +53,14 @@ public class BaseMIMLReport extends MIMLReport {
 	 * @param header   Whether the header will be shown.
 	 */
 	public BaseMIMLReport(List<String> measures, String filename, boolean std, boolean labels, boolean header) {
-		super();
+		super(measures, filename, std, labels, header);
 	}
 
 	/**
 	 * No-argument constructor for xml configuration.
 	 */
 	public BaseMIMLReport() {
+		super();
 	}
 
 	/**
@@ -115,22 +115,14 @@ public class BaseMIMLReport extends MIMLReport {
 					sb.append(measureName + " Std,");
 
 					if (m instanceof MacroAverageMeasure && this.labels) {
-
 						for (int i = 0; i < data.getNumLabels(); i++) {
 							sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
 									+ ",");
 							sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
 									+ " Std,");
 						}
-					} else if (m instanceof MacroAverageMeasure) {
-						for (int i = 0; i < data.getNumLabels(); i++) {
-							sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
-									+ ",");
-						}
 					}
-				}
-
-				else if (m instanceof MacroAverageMeasure && this.labels) {
+				} else if (m instanceof MacroAverageMeasure && this.labels) {
 					for (int i = 0; i < data.getNumLabels(); i++) {
 						sb.append(measureName + "-" + data.getDataSet().attribute(data.getLabelIndices()[i]).name()
 								+ ",");
@@ -177,10 +169,6 @@ public class BaseMIMLReport extends MIMLReport {
 						sb.append(evaluationCrossValidation.getMean(measureName, i) + ",");
 						sb.append(evaluationCrossValidation.getStd(measureName, i) + ",");
 					}
-				} else if (m instanceof MacroAverageMeasure) {
-					for (int i = 0; i < data.getNumLabels(); i++) {
-						sb.append(evaluationCrossValidation.getMean(measureName, i) + ",");
-					}
 				}
 			}
 
@@ -211,10 +199,11 @@ public class BaseMIMLReport extends MIMLReport {
 		StringBuilder sb = new StringBuilder();
 		String measureName;
 
-		if(this.std) {
-			System.out.println("[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible calculate std value");
+		if (this.std) {
+			System.out.println(
+					"[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible calculate std value");
 		}
-		
+
 		// All evaluator measures
 		List<Measure> measures = evaluationHoldout.getMeasures();
 		// Measures selected by user
@@ -367,10 +356,11 @@ public class BaseMIMLReport extends MIMLReport {
 	 */
 	protected String holdoutToString(EvaluatorHoldout evaluator) throws Exception {
 
-		if(this.std) {
-			System.out.println("[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible  to calculate std value");
+		if (this.std) {
+			System.out.println(
+					"[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible  to calculate std value");
 		}
-		
+
 		Evaluation evaluationHoldout = evaluator.getEvaluation();
 		MIMLInstances data = evaluator.getData();
 		StringBuilder sb = new StringBuilder();
@@ -448,11 +438,11 @@ public class BaseMIMLReport extends MIMLReport {
 	 */
 	@Override
 	public void configure(Configuration configuration) {
-		
+
 		this.filename = configuration.getString("fileName");
 		this.std = configuration.getBoolean("standardDeviation", false);
 		this.header = configuration.getBoolean("header", true);
-		
+
 		this.labels = configuration.getBoolean("measures[@perLabel]", true);
 
 		int measuresLength = configuration.getList("measures.measure").size();

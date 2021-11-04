@@ -188,7 +188,9 @@ public class MIMLBagging extends MIMLClassifier {
 			// Instance class
 			Class<? extends IMIMLClassifier> clsClass = (Class<? extends IMIMLClassifier>) Class.forName(clsName);
 
-			this.baseLearner = clsClass.newInstance();
+			//this.baseLearner = clsClass.newInstance(); //Java 8
+			this.baseLearner = clsClass.getDeclaredConstructor().newInstance(); //Java9
+			
 			// Configure the classifier
 			if (this.baseLearner instanceof MIMLClassifier)
 				((IConfiguration) this.baseLearner).configure(configuration.subset("baseLearner"));

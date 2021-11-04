@@ -30,6 +30,9 @@ import mulan.classifier.MultiLabelLearner;
 import mulan.classifier.MultiLabelOutput;
 import mulan.data.MultiLabelInstances;
 import weka.core.Instance;
+import weka.core.Instances;
+import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Remove;
 
 /**
  * <p>
@@ -66,6 +69,11 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	 * The miml dataset.
 	 */
 	protected MIMLInstances mimlDataset;
+	
+	
+	Remove removeFilter; 
+	MultiLabelInstances mlDataSetWithBagId;
+	
 
 	/**
 	 * Basic constructor to initialize the classifier.
@@ -94,9 +102,22 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	 */
 	@Override
 	public void buildInternal(MIMLInstances mimlDataSet) throws Exception {
+		
+		this.mimlDataset = mimlDataSet;
+		
 		// Transforms a dataset
-		MultiLabelInstances mlDataSet = transformationMethod.transformDataset(mimlDataSet);
-		baseClassifier.build(mlDataSet);
+		mlDataSetWithBagId = transformationMethod.transformDataset(mimlDataSet);		
+		
+		// Deletes bagIdAttribute
+		removeFilter = new Remove();
+		int indexToRemove[] = {0};
+		removeFilter.setAttributeIndicesArray(indexToRemove);		
+		removeFilter.setInputFormat(mlDataSetWithBagId.getDataSet());
+		Instances newData = Filter.useFilter(mlDataSetWithBagId.getDataSet(), removeFilter);
+		
+		MultiLabelInstances withoutBagId = new MultiLabelInstances(newData, mimlDataSet.getLabelsMetaData());	
+		
+		baseClassifier.build(withoutBagId);
 	}
 
 	/*
@@ -106,8 +127,15 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	 */
 	@Override
 	protected MultiLabelOutput makePredictionInternal(MIMLBag bag) throws Exception {
+		
 		Instance instance = transformationMethod.transformInstance(bag);
-		return baseClassifier.makePrediction(instance);
+		
+		// Delete bagIdAttribute
+		Instances newData = new Instances(this.mlDataSetWithBagId.getDataSet(), 0);
+		newData.add(instance);		
+		newData = Filter.useFilter(newData, removeFilter);		
+		
+		return baseClassifier.makePrediction(newData.get(0));
 	}
 
 	/*

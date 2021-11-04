@@ -41,7 +41,8 @@ public class GeneratePartitions {
 	/**
 	 * Shows the help on command line.
 	 */
-	public static void showUse() {
+	public static void showUse() {		
+		  
 		System.out.println("Program parameters:");
 		// Files
 		System.out.println("\t -f file.arff");
@@ -115,6 +116,9 @@ public class GeneratePartitions {
 
 		MultiLabelInstances mlDataSet = null;
 
+		//-f data\toy.arff -x data\toy.xml -c 3 -s 2 -o toy
+		//-f data\miml_birds.arff -x data\miml_birds.xml -t 80 -s 1 -o miml_birds
+		
 		// Gets option values
 		String arffName = Utils.getOption("f", args);
 		String sTargets = Utils.getOption("x", args);
@@ -216,10 +220,8 @@ public class GeneratePartitions {
 
 				aux = new String(outputFile + "_test_" + (i + 1));
 				MLSave.saveArff(rounds[i][1], new String(aux + ".arff"));
-
 			}
 		}
-
 	}
 
 }

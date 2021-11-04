@@ -31,7 +31,7 @@ import weka.core.Instances;
  * @author Ana I. Reyes Melero
  * @author Eva Gibaja
  * @author Amelia Zafra
- * @version 20180610
+ * @version 20210604
  *
  */
 public class ArithmeticTransformation extends MIMLtoML {
@@ -96,36 +96,7 @@ public class ArithmeticTransformation extends MIMLtoML {
 		this.prepareTemplate();
 		template.setRelationName(dataset.getDataSet().relationName() + "_arithmetic_transformation");
 
-		Instances newData = new Instances(template);
-		int labelIndices[] = dataset.getLabelIndices();
-		Instance newInst = new DenseInstance(newData.numAttributes());
-		newInst.setDataset(newData); // Sets the reference to the dataset
-
-		// For all bags in the dataset
-		double nBags = dataset.getNumBags();
-		for (int i = 0; i < nBags; i++) {
-			// retrieves a bag
-			MIMLBag bag = dataset.getBag(i);
-			// sets the bagLabel
-			newInst.setValue(0, bag.value(0));
-
-			// retrieves instances (relational value) for each bag
-			Instances instances = bag.getBagAsInstances();
-			// for all attributes in bag
-			for (int j = 0, attIdx = 1; j < instances.numAttributes(); j++, attIdx++) {
-				double value = instances.meanOrMode(j);
-				newInst.setValue(attIdx, value);
-			}
-
-			// inserts label information into the instance
-			for (int j = 0; j < labelIndices.length; j++) {
-				newInst.setValue(updatedLabelIndices[j], dataset.getBag(i).value(labelIndices[j]));
-			}
-
-			newData.add(newInst);
-		}
-
-		return new MultiLabelInstances(newData, dataset.getLabelsMetaData());
+		return transformDataset();
 	}
 
 	@Override
@@ -160,27 +131,7 @@ public class ArithmeticTransformation extends MIMLtoML {
 		this.prepareTemplate();
 		template.setRelationName(dataset.getDataSet().relationName() + "_arithmetic_transformation");
 
-		int labelIndices[] = dataset.getLabelIndices();
-		Instance newInst = new DenseInstance(template.numAttributes());
+		return transformInstance(bag);
 
-		// sets the bagLabel
-		newInst.setDataset(bag.dataset()); // Sets the reference to the dataset
-		newInst.setValue(0, bag.value(0));
-
-		// retrieves instances (relational value)
-		Instances instances = bag.getBagAsInstances();
-		// For all attributes in bag
-		for (int j = 0, attIdx = 1; j < instances.numAttributes(); j++, attIdx++) {
-			double value = instances.meanOrMode(j);
-			newInst.setValue(attIdx, value);
-		}
-
-		// Insert label information into the instance
-		for (int j = 0; j < labelIndices.length; j++) {
-			newInst.setValue(updatedLabelIndices[j], bag.value(labelIndices[j]));
-		}
-
-		return newInst;
 	}
-
 }

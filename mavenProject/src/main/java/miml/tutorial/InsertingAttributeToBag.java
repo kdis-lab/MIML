@@ -50,6 +50,8 @@ public class InsertingAttributeToBag {
 	
 	public static void main(String[] args) throws Exception {
 
+		//-f data/miml_birds.arff -x data/miml_birds.xml
+		
 		String arffFileName = Utils.getOption("f", args);
 		String xmlFileName = Utils.getOption("x", args);
 

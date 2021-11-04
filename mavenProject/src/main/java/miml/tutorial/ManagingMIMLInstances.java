@@ -51,6 +51,8 @@ public class ManagingMIMLInstances {
 
 	public static void main(String[] args) {
 
+		//-f data/miml_birds.arff -x data/miml_birds.xml
+		
 		try {
 
 			String arffFileName = Utils.getOption("f", args);
@@ -90,6 +92,7 @@ public class ManagingMIMLInstances {
 				System.out.println("\tAttributesWithRelational: " + bag.getNumAttributesWithRelational());
 
 				// Shows all instances in the bag
+				
 				for (int j = 0; j < bag.getNumInstances(); j++) {
 					// Recovers an instance
 					Instance instance = mimlDataSet.getInstance(i, j);
