@@ -47,6 +47,8 @@ Before downloading the library, it is necessary to have **Java 1.8** installed. 
 |commons-configuration|2.4|
 |commons-collections|4.2|
 |commons-beanutils|1.9.3|
+|lamda||
+|javabuilder||
 
 
 ## Tutorials and documentation
@@ -77,7 +79,7 @@ MIML includes a set of algorithms according to the following three approaches:
   * BR, LP, RPC, CLR, BRkNN, DMLkNN, IBLR, MLkNN, HOMER, RAkEL, PS, EPS, CC, ECC, MLStacking.
 
 3 **MIML solving without transformation**. Currently the following algorithms have been included:
-  * Bagging, MIMLkNN
+  * Bagging, MIMLkNN, MIMLRBF_MIMLWrapper, EnMIMLNNmetric_MIMWrapper, MIMLNN_MIMLWrapper, IBLR_MIMLWrapper, BRkNN_MIMLWrapper and DMLkNN_MIMLWrapper.
   
   
 ## MIML library data format
