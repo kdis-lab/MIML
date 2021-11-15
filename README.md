@@ -79,7 +79,7 @@ MIML includes a set of algorithms according to the following three approaches:
   * BR, LP, RPC, CLR, BRkNN, DMLkNN, IBLR, MLkNN, HOMER, RAkEL, PS, EPS, CC, ECC, MLStacking.
 
 3 **MIML solving without transformation**. Currently the following algorithms have been included:
-  * Bagging, MIMLkNN, MIMLRBF, EnMIMLNNmetric, MIMLNN
+  * Bagging, MIMLkNN, MIMLRBF_MIMLWrapper, EnMIMLNNmetric_MIMWrapper, MIMLNN_MIMLWrapper, IBLR_MIMLWrapper, BRkNN_MIMLWrapper and DMLkNN_MIMLWrapper.
   
   
 ## MIML library data format
