@@ -47,7 +47,7 @@ Before downloading the library, it is necessary to have **Java 1.8** installed. 
 |commons-configuration|2.4|
 |commons-collections|4.2|
 |commons-beanutils|1.9.3|
-|lamda||
+|libnn||
 |javabuilder||
 
 
