@@ -21,7 +21,7 @@ import com.mathworks.toolbox.javabuilder.MWCellArray;
 import com.mathworks.toolbox.javabuilder.MWClassID;
 import com.mathworks.toolbox.javabuilder.MWException;
 import com.mathworks.toolbox.javabuilder.MWNumericArray;
-import lamda.EnMIMLNNmetric;
+import libnn.EnMIMLNNmetric;
 
 import miml.classifiers.miml.MIMLClassifier;
 import miml.data.MIMLBag;

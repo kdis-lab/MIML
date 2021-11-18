@@ -107,11 +107,11 @@
 		</dependency>
 
 		<dependency>
-			<groupId>lamda</groupId>
-			<artifactId>lamda</artifactId>
+			<groupId>libnn</groupId>
+			<artifactId>libnn</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/src/main/resources/lamda.jar</systemPath>
+			<systemPath>${basedir}/src/main/resources/libnn.jar</systemPath>
 		</dependency>
 
 		<dependency>

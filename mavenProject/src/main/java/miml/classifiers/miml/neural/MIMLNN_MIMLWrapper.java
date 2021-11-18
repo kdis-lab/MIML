@@ -22,7 +22,7 @@ import com.mathworks.toolbox.javabuilder.MWClassID;
 import com.mathworks.toolbox.javabuilder.MWException;
 import com.mathworks.toolbox.javabuilder.MWNumericArray;
 
-import lamda.MIMLNN;
+import libnn.MIMLNN;
 
 import miml.classifiers.miml.MIMLClassifier;
 import miml.data.MIMLBag;

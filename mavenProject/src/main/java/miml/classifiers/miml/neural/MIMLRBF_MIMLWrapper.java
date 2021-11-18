@@ -27,7 +27,7 @@ import miml.data.MIMLInstances;
 import miml.data.MWWrapper;
 import mulan.classifier.InvalidDataException;
 import mulan.classifier.MultiLabelOutput;
-import lamda.MIMLRBF;
+import libnn.MIMLRBF;
 
 /**
  * <p>
