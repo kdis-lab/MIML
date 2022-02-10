@@ -49,18 +49,21 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 
 	/** If macro measures are broken down by labels. */
 	protected boolean labels;
-	
+
 	/** If the header is going to be printed. */
 	protected boolean header;
 
 	/**
 	 * Basic constructor to initialize the report.
 	 *
-	 * @param measures 		The list of selected measures which is going to be shown in the report.
-	 * @param filename     	The filename where the report's will be saved.
-	 * @param std         	Whether the standard deviation of measures will be shown or not (only valid for cross-validation evaluator).
-	 * @param labels 		Whether the measures for each label will be shown (only valid for Macro-Averaged measures).
-	 * @param header 		Whether the header will be shown.
+	 * @param measures The list of selected measures which is going to be shown in
+	 *                 the report.
+	 * @param filename The filename where the report's will be saved.
+	 * @param std      Whether the standard deviation of measures will be shown or
+	 *                 not (only valid for cross-validation evaluator).
+	 * @param labels   Whether the measures for each label will be shown (only valid
+	 *                 for Macro-Averaged measures).
+	 * @param header   Whether the header will be shown.
 	 */
 	public MIMLReport(List<String> measures, String filename, boolean std, boolean labels, boolean header) {
 		this.measures = measures;
@@ -69,14 +72,14 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 		this.labels = labels;
 		this.header = header;
 	}
-	
+
 	/**
 	 * No-argument constructor for xml configuration.
 	 */
 	public MIMLReport() {
-		
+
 	}
-	
+
 	/**
 	 * Filter measures chosen to be shown in the experiment report.
 	 *
@@ -110,11 +113,11 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	public void saveReport(String report) throws FileNotFoundException {
 
 		File file = new File(filename);
-		
+
 		if (file.getParentFile() != null) {
 			file.getParentFile().mkdirs();
 		}
-		
+
 		try {
 			file.createNewFile();
 			Files.write(Paths.get(filename), report.getBytes(), StandardOpenOption.APPEND);
@@ -206,7 +209,7 @@ public abstract class MIMLReport implements IReport, IConfiguration {
 	public boolean isHeader() {
 		return header;
 	}
-	
+
 	/**
 	 * Sets if header is shown.
 	 * 

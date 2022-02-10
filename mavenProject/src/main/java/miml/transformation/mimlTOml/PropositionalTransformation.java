@@ -64,10 +64,12 @@ public class PropositionalTransformation {
 		template.setRelationName(dataset.getDataSet().relationName() + "_propositional_transformation");
 	}
 
-	/** Returns the value of includeBagId property.
-	 * @return  The value of includeBagId property.
-	 * */
-	
+	/**
+	 * Returns the value of includeBagId property.
+	 * 
+	 * @return The value of includeBagId property.
+	 */
+
 	public boolean isIncludeBagId() {
 		return includeBagId;
 	}
@@ -85,8 +87,9 @@ public class PropositionalTransformation {
 	/**
 	 * Constructor.
 	 * 
-	 * @param dataset MIMLInstances dataset.
-	 * @param includeBagId true if the bagId will be included in the final transformation
+	 * @param dataset      MIMLInstances dataset.
+	 * @param includeBagId true if the bagId will be included in the transformed
+	 *                     dataset
 	 * 
 	 * @throws Exception To be handled in an upper level.
 	 */
@@ -131,11 +134,11 @@ public class PropositionalTransformation {
 				}
 				newData.add(newInst);
 			}
-		}    
+		}
 		if (includeBagId)
-		    return new MultiLabelInstances(newData, dataset.getLabelsMetaData());
+			return new MultiLabelInstances(newData, dataset.getLabelsMetaData());
 		else
-		    return removeBagId(new MultiLabelInstances(newData, dataset.getLabelsMetaData()));			
+			return removeBagId(new MultiLabelInstances(newData, dataset.getLabelsMetaData()));
 	}
 
 	public MultiLabelInstances transformDataset(MIMLInstances dataset) throws Exception {
@@ -178,7 +181,7 @@ public class PropositionalTransformation {
 		if (includeBagId)
 			return new MultiLabelInstances(result, dataset.getLabelsMetaData());
 		else
-		    return removeBagId(new MultiLabelInstances(result, dataset.getLabelsMetaData()));		
+			return removeBagId(new MultiLabelInstances(result, dataset.getLabelsMetaData()));
 
 	}
 
@@ -190,23 +193,7 @@ public class PropositionalTransformation {
 
 		return transformInstance(bag);
 	}
-	
-	
-	public static MultiLabelInstances removeBagId(MultiLabelInstances mlDataSetWithBagId) throws Exception
-	{
-		Remove removeFilter;
-		
-		// Deletes bagIdAttribute from dataset
-		removeFilter = new Remove();
-		int indexToRemove[] = { 0 };
-		removeFilter.setAttributeIndicesArray(indexToRemove);
-		removeFilter.setInputFormat(mlDataSetWithBagId.getDataSet());
-		Instances newData = Filter.useFilter(mlDataSetWithBagId.getDataSet(), removeFilter);
-		MultiLabelInstances withoutBagId = new MultiLabelInstances(newData, mlDataSetWithBagId.getLabelsMetaData());		
-		
-		return withoutBagId;	
-	}	
-	
+
 	/**
 	 * Prepares a template to perform the transformation from MIMLInstances to
 	 * MultiLabelInstances. This template includes: the bag label attribute, all
@@ -255,5 +242,27 @@ public class PropositionalTransformation {
 			template.insertAttributeAt(attr, updatedLabelIndices[i]);
 		}
 	}
-	
+
+	/**
+	 * Removes the bagId attribute in MultiLabelInstances.
+	 * 
+	 * @param mlDataSetWithBagId A MultiLabelInstances dataset corresponding with
+	 *                           the propositional representation of MIML data being
+	 *                           the first attribute the bagID.
+	 * @return MultiLabelInstances without first bagIdAttribute
+	 * @throws Exception To be handled in an upper level.
+	 */
+	public static MultiLabelInstances removeBagId(MultiLabelInstances mlDataSetWithBagId) throws Exception {
+		Remove removeFilter;
+
+		// Deletes bagIdAttribute from dataset
+		removeFilter = new Remove();
+		int indexToRemove[] = { 0 };
+		removeFilter.setAttributeIndicesArray(indexToRemove);
+		removeFilter.setInputFormat(mlDataSetWithBagId.getDataSet());
+		Instances newData = Filter.useFilter(mlDataSetWithBagId.getDataSet(), removeFilter);
+		MultiLabelInstances withoutBagId = new MultiLabelInstances(newData, mlDataSetWithBagId.getLabelsMetaData());
+
+		return withoutBagId;
+	}
 }

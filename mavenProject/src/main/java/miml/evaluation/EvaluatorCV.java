@@ -63,10 +63,8 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	/**
 	 * Instantiates a new Holdout evaluator.
 	 *
-	 * @param data
-	 *            The data used in the experiment.
-	 * @param numFolds
-	 *            The number of folds used in the cross-validation.
+	 * @param data     The data used in the experiment.
+	 * @param numFolds The number of folds used in the cross-validation.
 	 */
 	public EvaluatorCV(MIMLInstances data, int numFolds) {
 		this.data = data;
@@ -132,50 +130,44 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 
 		multipleEvaluation = new MultipleEvaluation(Evaluations, data);
 		try {
-		multipleEvaluation.calculateStatistics();
-		}
-		catch(Exception e)
-		{
-			for(int j=0; j<Evaluations.length; j++)
-			{	
-			    System.out.println("\nPrinting "+j+"/"+Evaluations.length);
-				System.out.println(Evaluations[j].toString());			
+			multipleEvaluation.calculateStatistics();
+		} catch (Exception e) {
+			for (int j = 0; j < Evaluations.length; j++) {
+				System.out.println("\nPrinting " + j + "/" + Evaluations.length);
+				System.out.println(Evaluations[j].toString());
 			}
-			e.printStackTrace();			
+			e.printStackTrace();
 		}
 
 	}
-	
+
 	/**
 	 * Calculate the mean of given array.
 	 *
 	 * @param array The array with long values.
 	 * @return The mean of all array's values.
 	 */
-	protected double meanArray(long array[])
-	{
+	protected double meanArray(long array[]) {
 		double sum = 0;
 		for (int i = 0; i < array.length; i++)
 			sum += array[i];
 		return sum / array.length;
-		
+
 	}
-	
+
 	/**
 	 * Calculate the standard deviation of given array.
 	 *
 	 * @param array the array with long values.
 	 * @return The standard deviation of all array's values.
 	 */
-	protected double stdArray(long array[])
-	{
-		double mean = meanArray(array);	    
+	protected double stdArray(long array[]) {
+		double mean = meanArray(array);
 		double sum = 0;
-		for (int i=0; i< array.length; i++)
+		for (int i = 0; i < array.length; i++)
 			sum += Math.pow((array[i] - mean), 2);
 		return Math.sqrt(sum / array.length);
 	}
-	
 
 	/**
 	 * Gets the time spent in training in each fold.
@@ -249,25 +241,23 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 		return meanArray(testTime);
 	}
 
-    /**
-     * Gets the standard deviation time of all folds in train.
-     *
-     * @return The standard deviation time of all folds.
-     */
-    public double getStdTrainTime()
-    {   	
-       return stdArray(trainTime);	
-    }
+	/**
+	 * Gets the standard deviation time of all folds in train.
+	 *
+	 * @return The standard deviation time of all folds.
+	 */
+	public double getStdTrainTime() {
+		return stdArray(trainTime);
+	}
 
-    /**
-     * Gets the standard deviation time of all folds in test.
-     *
-     * @return The standard deviation time of all folds.
-     */
-    public double getStdTestTime()
-    {   	
-       return stdArray(testTime);	
-    }
+	/**
+	 * Gets the standard deviation time of all folds in test.
+	 *
+	 * @return The standard deviation time of all folds.
+	 */
+	public double getStdTestTime() {
+		return stdArray(testTime);
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -308,7 +298,6 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 		} catch (InvalidDataFormatException e) {
 			e.printStackTrace();
 		}
-		
 
 		ConfigParameters.setDataFileName(new File(arffFile).getName());
 

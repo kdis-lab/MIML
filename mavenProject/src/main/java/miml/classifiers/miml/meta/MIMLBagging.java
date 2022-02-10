@@ -64,8 +64,8 @@ public class MIMLBagging extends MIMLClassifier {
 	 */
 	boolean useConfidences = false;
 
-	/** The size of the sample. */
-	int samplePercentage = 100;
+	/** The size of the sample to build each base classifier. */
+	double samplePercentage = 100;
 
 	/**
 	 * Number of classifiers in the ensemble.
@@ -98,6 +98,19 @@ public class MIMLBagging extends MIMLClassifier {
 		this.numClassifiers = numClassifiers;
 	}
 
+	/**
+	 * Constructor of the class. Its default setting is: @li
+	 * sampleWithReplacement=false @li threshold=0.5.
+	 *
+	 * @param baseLearner      The base learner to be used.
+	 * @param numClassifiers   The number of base classifiers in the ensemble.
+	 * @param samplePercentage The size of the sample to build each base classifier.
+	 */
+	public MIMLBagging(IMIMLClassifier baseLearner, int numClassifiers, double samplePercentage) {
+		this(baseLearner, numClassifiers);
+		this.samplePercentage = samplePercentage;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -111,7 +124,8 @@ public class MIMLBagging extends MIMLClassifier {
 
 		for (int i = 0; i < numClassifiers; i++) {
 			ensemble[i] = baseLearner.makeCopy();
-			Instances sample = Utils.resample(trainingSet.getDataSet(), samplePercentage, sampleWithReplacement, seed + i);
+			Instances sample = Utils.resample(trainingSet.getDataSet(), samplePercentage, sampleWithReplacement,
+					seed + i);
 
 			System.out.println("\t\tBase Classifier " + i + ": " + sample.numInstances() + "/"
 					+ trainingSet.getNumBags() + " bags");
@@ -179,8 +193,8 @@ public class MIMLBagging extends MIMLClassifier {
 		this.sampleWithReplacement = configuration.getBoolean("sampleWithReplacement", true);
 		this.useConfidences = configuration.getBoolean("useConfidences", false);
 
-		this.samplePercentage = configuration.getInt("samplePercentage", 90);
-		this.numClassifiers = configuration.getInt("numClassifiers", 5);
+		this.samplePercentage = configuration.getDouble("samplePercentage", 100);
+		this.numClassifiers = configuration.getInt("numClassifiers", 10);
 
 		try {
 			// Get the base classifier name
@@ -188,9 +202,9 @@ public class MIMLBagging extends MIMLClassifier {
 			// Instance class
 			Class<? extends IMIMLClassifier> clsClass = (Class<? extends IMIMLClassifier>) Class.forName(clsName);
 
-			//this.baseLearner = clsClass.newInstance(); //Java 8
-			this.baseLearner = clsClass.getDeclaredConstructor().newInstance(); //Java9
-			
+			// this.baseLearner = clsClass.newInstance(); //Java 8
+			this.baseLearner = clsClass.getDeclaredConstructor().newInstance(); // Java9
+
 			// Configure the classifier
 			if (this.baseLearner instanceof MIMLClassifier)
 				((IConfiguration) this.baseLearner).configure(configuration.subset("baseLearner"));
@@ -224,7 +238,7 @@ public class MIMLBagging extends MIMLClassifier {
 	 *
 	 * @return The sample percentage.
 	 */
-	public int getSamplePercentage() {
+	public double getSamplePercentage() {
 		return samplePercentage;
 	}
 
@@ -234,7 +248,7 @@ public class MIMLBagging extends MIMLClassifier {
 	 * @param samplePercentage The size of the sample referring the original one.
 	 */
 
-	public void setSamplePercentage(int samplePercentage) {
+	public void setSamplePercentage(double samplePercentage) {
 		this.samplePercentage = samplePercentage;
 	}
 
@@ -242,7 +256,8 @@ public class MIMLBagging extends MIMLClassifier {
 	 * Returns true if the algorithm is configured with sampling and false
 	 * otherwise.
 	 *
-	 * @return True if the algorithm is configured with sampling and false otherwise.
+	 * @return True if the algorithm is configured with sampling and false
+	 *         otherwise.
 	 */
 	public boolean isSampleWithReplacement() {
 		return sampleWithReplacement;
@@ -288,8 +303,8 @@ public class MIMLBagging extends MIMLClassifier {
 	}
 
 	/**
-	 * Stablishes whether confidences or bipartitions are used to combine classifiers
-	 * in the ensemble.
+	 * Stablishes whether confidences or bipartitions are used to combine
+	 * classifiers in the ensemble.
 	 *
 	 * @param useConfidences The value of the property.
 	 */

@@ -1,2 +1,2 @@
 Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
-MIMLClassifierToML,mulan.classifier.meta.RAkEL,miml.transformation.mimlTOml.GeometricTransformation,miml_birds_random_80train.arff,MIMLtoML_GT_RAkEL.config,304,17,0.16635338345864656,0.017857142857142856,0.12116830537883168,0.11234525708209918
+MIMLClassifierToML,mulan.classifier.meta.RAkEL,miml.transformation.mimlTOml.GeometricTransformation,miml_birds_random_80train.arff,MIMLtoML_GT_RAkEL.config,631,159,0.12651821862348184,0.038461538461538464,0.1757076514816453,0.19624778386388295

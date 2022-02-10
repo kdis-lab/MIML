@@ -40,7 +40,7 @@ public final class MLSave {
 
 	private MLSave() {
 	}
-	
+
 	/**
 	 * Writes an arff file with a multi-label dataset. MIML format is also
 	 * supported.
@@ -95,7 +95,7 @@ public final class MLSave {
 	 *
 	 * @param instances A multi-label dataset.
 	 * @param pathName  Name and path for file to write.
-	 * @throws java.io.IOException To be handled in an upper level.
+	 * @throws java.io.IOException               To be handled in an upper level.
 	 * @throws mulan.data.LabelsBuilderException To be handled in an upper level.
 	 */
 	public static void saveXml(MultiLabelInstances instances, String pathName)
@@ -109,7 +109,7 @@ public final class MLSave {
 	 *
 	 * @param instances A dataset.
 	 * @param pathName  Name and path for file to write.
-	 * @throws java.io.IOException To be handled in an upper level.
+	 * @throws java.io.IOException               To be handled in an upper level.
 	 * @throws mulan.data.LabelsBuilderException To be handled in an upper level.
 	 */
 	public static void saveXml(Instances instances, String pathName) throws IOException, LabelsBuilderException {

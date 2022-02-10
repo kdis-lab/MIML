@@ -32,9 +32,9 @@ import java.util.Objects;
 
 /**
  * <p>
- * Class implementing the transformation algorithm for MIML data to solve it with
- * MI learning. For more information, see <em>Zhou, Z. H., &#38; Zhang, M. L.
- * (2007). Multi-instance multi-label learning with application to scene
+ * Class implementing the transformation algorithm for MIML data to solve it
+ * with MI learning. For more information, see <em>Zhou, Z. H., &#38; Zhang, M.
+ * L. (2007). Multi-instance multi-label learning with application to scene
  * classification. In Advances in neural information processing systems (pp.
  * 1609-1616).</em>
  * </p>

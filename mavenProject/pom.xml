@@ -107,19 +107,15 @@
 		</dependency>
 
 		<dependency>
-			<groupId>libnn</groupId>
-			<artifactId>libnn</artifactId>
+			<groupId>MWalgorithms</groupId>
+			<artifactId>MWalgorithms</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/resources/libnn.jar</systemPath>
 		</dependency>
 
 		<dependency>
 			<groupId>javabuilder</groupId>
 			<artifactId>javabuilder</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/src/main/resources/javabuilder.jar</systemPath>
+			<version>1.0</version>			
 		</dependency>
 
 

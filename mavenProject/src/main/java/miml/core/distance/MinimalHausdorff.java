@@ -33,17 +33,14 @@ public class MinimalHausdorff extends HausdorffDistance {
 	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -4225065329008023904L;
 
-	
-	public MinimalHausdorff()
-	{
+	public MinimalHausdorff() {
 		super();
-	}	
-	
-	public MinimalHausdorff(MIMLInstances bags) throws Exception
-	{
+	}
+
+	public MinimalHausdorff(MIMLInstances bags) throws Exception {
 		super(bags);
-	}	
-	
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 

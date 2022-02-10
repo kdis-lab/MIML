@@ -16,15 +16,9 @@
 package miml.core;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import org.apache.commons.configuration2.Configuration;
-
-import miml.data.MIMLInstances;
 import weka.core.Instances;
 import weka.filters.Filter;
-import weka.filters.unsupervised.instance.RemovePercentage;
 import weka.filters.unsupervised.instance.Resample;
 
 /**
@@ -69,41 +63,6 @@ public final class Utils {
 		return resampled;
 	}
 
-	/**
-	 * Split data given a percentage.
-	 *
-	 * @param mimlDataSet     The MIML dataset to be splited.
-	 * @param percentageTrain The percentage (0-100) to be used in train.
-	 * @param seed Seed use to randomize.
-	 * @return A list with the dataset splited.
-	 * @throws Exception To be handled in an upper level.
-	 */
-	public static List<MIMLInstances> splitData(MIMLInstances mimlDataSet, double percentageTrain, int seed) throws Exception {
-		// splits the data set into train and test
-		// copy of original data
-		Instances dataSet = new Instances(mimlDataSet.getDataSet());
-		dataSet.randomize(new Random(seed));
-
-		// obtains train set
-		RemovePercentage rmvp = new RemovePercentage();
-		rmvp.setInvertSelection(true);
-		rmvp.setPercentage(percentageTrain);
-		rmvp.setInputFormat(dataSet);
-		Instances trainDataSet = Filter.useFilter(dataSet, rmvp);
-
-		// obtains test set
-		rmvp = new RemovePercentage();
-		rmvp.setPercentage(percentageTrain);
-		rmvp.setInputFormat(dataSet);
-		Instances testDataSet = Filter.useFilter(dataSet, rmvp);
-		
-		List<MIMLInstances> datasets = new ArrayList<MIMLInstances>();
-		datasets.add(new MIMLInstances(trainDataSet, mimlDataSet.getLabelsMetaData()));
-		datasets.add(new MIMLInstances(testDataSet, mimlDataSet.getLabelsMetaData()));
-
-		return datasets;
-	}
-	
 	/**
 	 * Read the configuration parameters for a specific Multi Label classifier's
 	 * constructor

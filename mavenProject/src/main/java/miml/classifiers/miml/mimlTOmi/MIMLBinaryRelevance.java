@@ -11,19 +11,19 @@ import weka.classifiers.Classifier;
  * @author Eva Gigaja
  * @version 20180619
  */
-public class MIMLBinaryRelevance extends BinaryRelevance{
+public class MIMLBinaryRelevance extends BinaryRelevance {
 
 	/**
 	 * Generated Serial version UID.
 	 */
 	private static final long serialVersionUID = 1706817441965109002L;
 
-    /**
-     * Creates a new instance.
-     *
-     * @param classifier The base-level classification algorithm that will be
-     * used for training each of the binary models.
-     */
+	/**
+	 * Creates a new instance.
+	 *
+	 * @param classifier The base-level classification algorithm that will be used
+	 *                   for training each of the binary models.
+	 */
 	public MIMLBinaryRelevance(Classifier classifier) {
 		super(classifier);
 		// TODO Auto-generated constructor stub

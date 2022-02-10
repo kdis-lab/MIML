@@ -455,7 +455,7 @@ public class MIMLStatistics {
 	/**
 	 * Returns the dataset used to calculate the statistics.
 	 * 
-	 * @return  A MIML data set.
+	 * @return A MIML data set.
 	 */
 	public MIMLInstances getDataSet() {
 		return dataSet;
@@ -464,7 +464,7 @@ public class MIMLStatistics {
 	/**
 	 * Set the dataset used.
 	 * 
-	 * @param dataSet  A MIML data set.
+	 * @param dataSet A MIML data set.
 	 */
 	public void setDataSet(MIMLInstances dataSet) {
 		this.dataSet = dataSet;

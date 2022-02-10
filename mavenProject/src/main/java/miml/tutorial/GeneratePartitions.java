@@ -41,8 +41,8 @@ public class GeneratePartitions {
 	/**
 	 * Shows the help on command line.
 	 */
-	public static void showUse() {		
-		  
+	public static void showUse() {
+
 		System.out.println("Program parameters:");
 		// Files
 		System.out.println("\t -f file.arff");
@@ -78,37 +78,35 @@ public class GeneratePartitions {
 	/**
 	 * Main method.
 	 * 
-	 * @param args
-	 *            Command line arguments.
-	 *            <ul>
-	 *            <li>-f filename.arff -&gt; name of the filename to be
-	 *            partitioned</li>
-	 *            <li>-x file.xml</li>
-	 *            <li>-[t|c] value
-	 *            <ul>
-	 *            <li>-t double_percentage -&gt; train-test and tranin
-	 *            percentage</li>
-	 *            <li>-c integer_nFolds -&gt; cross-validation and number of
-	 *            folds</li>
-	 *            </ul>
-	 *            </li>
-	 *            <li>-s 0|1|2
-	 *            <ul>
-	 *            <li>-s 0 -&gt; random stratification (by default)</li>
-	 *            <li>-s 1 -&gt; iterative stratification</li>
-	 *            <li>-s 2 -&gt; label powerset stratification</li>
-	 *            </ul>
-	 *            *
-	 *            <li>-o OutputFile (without extension)
-	 *            <ul>
-	 *            <li>train-test -&gt; OutputFile_train.arff and
-	 *            OutputFile_test.arff</li>
-	 *            <li>cross-validation -&gt; OutputFile_1.arff ...
-	 *            OutputFile_nFolds.arff</li>
-	 *            </ul>
-	 *            </ul>
-	 * @throws Exception
-	 *             To be handled.
+	 * @param args Command line arguments.
+	 *             <ul>
+	 *             <li>-f filename.arff -&gt; name of the filename to be
+	 *             partitioned</li>
+	 *             <li>-x file.xml</li>
+	 *             <li>-[t|c] value
+	 *             <ul>
+	 *             <li>-t double_percentage -&gt; train-test and tranin
+	 *             percentage</li>
+	 *             <li>-c integer_nFolds -&gt; cross-validation and number of
+	 *             folds</li>
+	 *             </ul>
+	 *             </li>
+	 *             <li>-s 0|1|2
+	 *             <ul>
+	 *             <li>-s 0 -&gt; random stratification (by default)</li>
+	 *             <li>-s 1 -&gt; iterative stratification</li>
+	 *             <li>-s 2 -&gt; label powerset stratification</li>
+	 *             </ul>
+	 *             *
+	 *             <li>-o OutputFile (without extension)
+	 *             <ul>
+	 *             <li>train-test -&gt; OutputFile_train.arff and
+	 *             OutputFile_test.arff</li>
+	 *             <li>cross-validation -&gt; OutputFile_1.arff ...
+	 *             OutputFile_nFolds.arff</li>
+	 *             </ul>
+	 *             </ul>
+	 * @throws Exception To be handled.
 	 */
 	public static void main(String[] args) throws Exception {
 		MultiLabelInstances[] partitions = null;
@@ -116,9 +114,9 @@ public class GeneratePartitions {
 
 		MultiLabelInstances mlDataSet = null;
 
-		//-f data\toy.arff -x data\toy.xml -c 3 -s 2 -o toy
-		//-f data\miml_birds.arff -x data\miml_birds.xml -t 80 -s 1 -o miml_birds
-		
+		// -f data\toy.arff -x data\toy.xml -c 3 -s 2 -o toy
+		// -f data\miml_birds.arff -x data\miml_birds.xml -t 80 -s 1 -o miml_birds
+
 		// Gets option values
 		String arffName = Utils.getOption("f", args);
 		String sTargets = Utils.getOption("x", args);

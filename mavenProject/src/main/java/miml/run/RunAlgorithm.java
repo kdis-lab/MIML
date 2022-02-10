@@ -50,10 +50,10 @@ public class RunAlgorithm {
 
 			System.out.println("" + new Date() + ": " + "Loading evaluation method");
 			IEvaluator<?> evaluator = loader.loadEvaluator();
-			
+
 			System.out.println("" + new Date() + ": " + "Loading report");
 			IReport report = loader.loadReport();
-			
+
 			evaluator.runExperiment(classifier);
 
 			report.saveReport(report.toCSV(evaluator));

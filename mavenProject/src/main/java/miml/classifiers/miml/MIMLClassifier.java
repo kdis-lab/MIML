@@ -30,10 +30,11 @@ import weka.core.SerializedObject;
 
 /**
  * This java class is based on the mulan.data.Statistics.java class provided in
- * the Mulan java framework for multi-label learning <em>Tsoumakas, G., Katakis, I.,
- * Vlahavas, I. (2010) "Mining Multi-label Data", Data Mining and Knowledge
- * Discovery Handbook, O. Maimon, L. Rokach (Ed.), Springer, 2nd edition, 2010.</em>
- * Our contribution is mainly related with providing a framework to work with MIML data.
+ * the Mulan java framework for multi-label learning <em>Tsoumakas, G., Katakis,
+ * I., Vlahavas, I. (2010) "Mining Multi-label Data", Data Mining and Knowledge
+ * Discovery Handbook, O. Maimon, L. Rokach (Ed.), Springer, 2nd edition,
+ * 2010.</em> Our contribution is mainly related with providing a framework to
+ * work with MIML data.
  * 
  * @author Ana I. Reyes
  * @author Eva Gibaja
@@ -149,9 +150,9 @@ public abstract class MIMLClassifier implements IConfiguration, IMIMLClassifier 
 		if (!isModelInitialized()) {
 			throw new ModelInitializationException("The model has not been trained.");
 		}
-		
-		instance.setValue(labelIndices[labelIndices.length-1], 1);
-		
+
+		instance.setValue(labelIndices[labelIndices.length - 1], 1);
+
 		return makePredictionInternal(new MIMLBag(instance));
 	}
 

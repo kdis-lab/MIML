@@ -43,15 +43,14 @@ public class MIMLtoMLTransformation {
 		System.out.println("\t-f arffPathFile Name -> path of arff source file.");
 		System.out.println("\t-x xmlPathFileName -> path of xml file.");
 		System.out.println("Example:");
-		System.out.println("\tjava -jar exampleMIMLtoMILTransformation -f data" + File.separator + "toy.arff -x data"
-				+ File.separator + "toy.xml");
+		System.out.println("\t-f data" + File.separator + "toy.arff -x data" + File.separator + "toy.xml");
 		System.exit(-1);
 	}
 
 	public static void main(String[] args) throws Exception {
-		
-		//-f data/miml_birds.arff -x data/miml_birds.xml
-		
+
+		// -f data/miml_birds.arff -x data/miml_birds.xml
+
 		String arffFileName = Utils.getOption("f", args);
 		String xmlFileName = Utils.getOption("x", args);
 
@@ -71,58 +70,57 @@ public class MIMLtoMLTransformation {
 		MIMLInstances mimlDataSet = new MIMLInstances(arffFileName, xmlFileName);
 
 		System.out.println("=============Arithmetic=====================");
-		String arffFileResultAri = "data" + File.separator + "toyResultAri.arff";
-		String xmlFileResultAri = "data" + File.separator + "toyResultAri.xml";
+		String arffFileResultAri = "data" + File.separator + "resultAri.arff";
+		String xmlFileResultAri = "data" + File.separator + "resultAri.xml";
 
 		ArithmeticTransformation ari = new ArithmeticTransformation(mimlDataSet);
 		// Transforms a single instance
 		Instance instance = ari.transformInstance(mimlDataSet.getBag(0));
 		instance.numAttributes();
-		
+
 		// Transforms a complete dataset
 		MultiLabelInstances result = ari.transformDataset();
 		MLSave.saveArff(result, arffFileResultAri);
 		MLSave.saveXml(result, xmlFileResultAri);
 
 		System.out.println("=============Geometric=====================");
-		String arffFileResultGeo = "data" + File.separator + "toyResultGeo.arff";
-		String xmlFileResultGeo = "data" + File.separator + "toyResultGeo.xml";
+		String arffFileResultGeo = "data" + File.separator + "resultGeo.arff";
+		String xmlFileResultGeo = "data" + File.separator + "resultGeo.xml";
 
 		GeometricTransformation geo = new GeometricTransformation(mimlDataSet);
-		
+
 		// Transforms a single instance
 		instance = geo.transformInstance(mimlDataSet.getBag(0));
 		instance.numAttributes();
-		
+
 		// Transforms a complete dataset
 		result = geo.transformDataset();
 		MLSave.saveArff(result, arffFileResultGeo);
 		MLSave.saveXml(result, xmlFileResultGeo);
 
 		System.out.println("=============MinMax=====================");
-		String arffFileResultMinMax = "data" + File.separator + "toyResultMinMax.arff";
-		String xmlFileResultMinMax = "data" + File.separator + "toyResultMinMax.xml";
+		String arffFileResultMinMax = "data" + File.separator + "resultMinMax.arff";
+		String xmlFileResultMinMax = "data" + File.separator + "resultMinMax.xml";
 
 		MinMaxTransformation miniMax = new MinMaxTransformation(mimlDataSet);
-		
+
 		// Transforms a single instance, returns a set of instances
 		instance = miniMax.transformInstance(mimlDataSet.getBag(0));
 		instance.numAttributes();
-		
+
 		// Transforms a complete dataset
 		result = miniMax.transformDataset();
 		MLSave.saveArff(result, arffFileResultMinMax);
 		MLSave.saveXml(result, xmlFileResultMinMax);
-		
-		
+
 		System.out.println("=============Propositional=====================");
-		String arffFileResultPropositional = "data" + File.separator + "toyResultPropositional.arff";
-		String xmlFileResultPropositional = "data" + File.separator + "toyPropositional.xml";
+		String arffFileResultPropositional = "data" + File.separator + "resultPropositional.arff";
+		String xmlFileResultPropositional = "data" + File.separator + "resultPropositional.xml";
 
 		PropositionalTransformation propositional = new PropositionalTransformation(mimlDataSet);
 		// Transforms a single instance
-		result = propositional.transformInstance(mimlDataSet.getBag(0));		
-		
+		result = propositional.transformInstance(mimlDataSet.getBag(0));
+
 		// Transforms a complete dataset
 		result = propositional.transformDataset();
 		MLSave.saveArff(result, arffFileResultPropositional);

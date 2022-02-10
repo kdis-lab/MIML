@@ -26,10 +26,10 @@ import weka.core.Instances;
 
 /**
  * 
- * Class that performs a miniMaxc transformation to convert a MIMLInstances class
- * to MultiLabelInstances. Each Bag is transformed into a single Instance in
- * which, for each attribute of the bag, its min and max value are included. For
- * instance, For instance, in the relation above, the resulting template is
+ * Class that performs a miniMaxc transformation to convert a MIMLInstances
+ * class to MultiLabelInstances. Each Bag is transformed into a single Instance
+ * in which, for each attribute of the bag, its min and max value are included.
+ * For instance, For instance, in the relation above, the resulting template is
  * showed.
  * 
  * &#064;relation toy<br>

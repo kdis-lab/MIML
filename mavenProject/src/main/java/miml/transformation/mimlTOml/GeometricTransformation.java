@@ -31,7 +31,7 @@ import weka.core.Instances;
  * @author Ana I. Reyes Melero
  * @author Eva Gibaja
  * @author Amelia Zafra
-	 * @version 20210604
+ * @version 20210604
  *
  */
 public class GeometricTransformation extends MIMLtoML {
@@ -43,8 +43,7 @@ public class GeometricTransformation extends MIMLtoML {
 	 * Constructor
 	 * 
 	 * @param dataset MIMLInstances dataset.
-	 * @throws Exception To be handled in an upper
-	 *                   level.
+	 * @throws Exception To be handled in an upper level.
 	 */
 	public GeometricTransformation(MIMLInstances dataset) throws Exception {
 		this.dataset = dataset;

@@ -45,54 +45,71 @@ public class HoldoutExperiment {
 		System.out.println("\t-t arffPathFileTrain Name -> path of arff train file.");
 		System.out.println("\t-y arffPathFileTest -> path of arff test file.");
 		System.out.println("\t-r reportPathFileName -> path of report file.");
-		System.out.println("Example:");
+		System.out.println("Example1:");
 		System.out.println("\tjava -jar HoldoutExperiment -f data" + File.separator + "miml_birds.arff -x data"
-				+ File.separator + "miml_birds.xml -t data" + File.separator + "miml_birds_random_80train.arff"
-				+ File.separator + " -y data" + File.separator + "miml_birds_random_20test.arff -r output"
-				+ File.separator + "miml_birds_report.csv");
+				+ File.separator + "miml_birds.xml -r output" + File.separator + "miml_birds_report.csv");
+		System.out.println("Example2:");
+		System.out.println("\tjava -jar HoldoutExperiment -x data" + File.separator + "miml_birds.xml -t data"
+				+ File.separator + "miml_birds_random_80train.arff" + File.separator + " -y data" + File.separator
+				+ "miml_birds_random_20test.arff -r output" + File.separator + "miml_birds_report.csv");
 		System.exit(-1);
 	}
 
 	public static void main(String[] args) throws Exception {
 
-		//-f  data/birds.arff -x data/birds.xml -t data/birds.arff -y data/birds.arff -r results/report.csv
-		
-		String arffFileName = Utils.getOption("f", args);
-		String xmlFileName = Utils.getOption("x", args);
-		String arffFileNameTrain = Utils.getOption("t", args);
-		String arffFileNameTest = Utils.getOption("y", args);
-		String reportFileName = Utils.getOption("r", args);
-
-		
-		// Loads the dataset
-		System.out.println("Loading datasets...");
-		MIMLInstances mimlDataSet = new MIMLInstances(arffFileName, xmlFileName);
-		MIMLInstances mimlDataSetTrain = new MIMLInstances(arffFileNameTrain, xmlFileName);
-		MIMLInstances mimlDataSetTest = new MIMLInstances(arffFileNameTest, xmlFileName);
+		// Example 1 => -x data/miml_birds.xml -f data/miml_birds.arff -r
+		// results/report.csv
+		// Example 2 => -x data/miml_birds.xml -t data/miml_birds_random_80train.arff -y
+		// data/miml_birds_random_20test.arff -r results/report.csv
 
 		// MIML report
+		String reportFileName = Utils.getOption("r", args);
 		BaseMIMLReport report = new BaseMIMLReport(null, reportFileName, false, false, false);
 
-		// Cross-validation evaluator
-		EvaluatorHoldout holdoutTT = new EvaluatorHoldout(mimlDataSetTrain, mimlDataSetTest);
-		EvaluatorHoldout holdoutSplit = new EvaluatorHoldout(mimlDataSet, 80);
-
-		// Load first classifier
+		// Loads classifier
 		System.out.println("Loading MIMLkNN classifier...");
-		MIMLkNN mimlknn = new MIMLkNN(new MaximalHausdorff(mimlDataSet));
+		MIMLkNN mimlknn = new MIMLkNN(new MaximalHausdorff());
 
-		System.out.println("\n");
+		System.out.println("Loading datasets...");
 
-		System.out.println("-Example using MIMLkNN with train/test datasets:\n");
-		holdoutTT.runExperiment(mimlknn);
-		System.out.println(report.toString(holdoutTT) + "\n\n");
-		report.saveReport(report.toCSV(holdoutTT));
+		String xmlFileName = Utils.getOption("x", args);
+		String arffFileName = Utils.getOption("f", args);
 
-		System.out.println("-Example using MIMLkNN with dataset split:\\n");
-		holdoutSplit.runExperiment(mimlknn);
-		System.out.println(report.toString(holdoutSplit) + "\n\n");
-		report.saveReport(report.toCSV(holdoutTT));
+		if (arffFileName.equals("")) {
+			// Holdout evaluation providing train and test partitions
+			String arffFileNameTrain = Utils.getOption("t", args);
+			String arffFileNameTest = Utils.getOption("y", args);
+			MIMLInstances mimlDataSetTrain = new MIMLInstances(arffFileNameTrain, xmlFileName);
+			MIMLInstances mimlDataSetTest = new MIMLInstances(arffFileNameTest, xmlFileName);
+
+			// Evaluator with train and test partitions
+			EvaluatorHoldout holdoutTT = new EvaluatorHoldout(mimlDataSetTrain, mimlDataSetTest);
+
+			System.out.println("\n");
+
+			System.out.println("-Example using MIMLkNN with train/test datasets:\n");
+			holdoutTT.runExperiment(mimlknn);
+			System.out.println(report.toString(holdoutTT) + "\n\n");
+			report.saveReport(report.toCSV(holdoutTT));
+
+		}
+
+		else {
+
+			// Holdout evaluation providing percentageTrain
+			MIMLInstances mimlDataSet = new MIMLInstances(arffFileName, xmlFileName);
+
+			// Evaluator with a percentage of train
+			double percentageTrain = 80;
+			EvaluatorHoldout holdoutSplit = new EvaluatorHoldout(mimlDataSet, percentageTrain);
+
+			System.out.println("-Example using MIMLkNN with percentage of train:\\n");
+			holdoutSplit.runExperiment(mimlknn);
+			System.out.println(report.toString(holdoutSplit) + "\n\n");
+			report.saveReport(report.toCSV(holdoutSplit));
+		}
 
 		System.out.println("The program has finished.");
+
 	}
 }

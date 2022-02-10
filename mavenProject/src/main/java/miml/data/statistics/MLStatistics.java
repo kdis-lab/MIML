@@ -53,7 +53,7 @@ import weka.filters.unsupervised.attribute.Remove;
  * @version 20150925
  */
 public class MLStatistics {
-	
+
 	// Basic features
 	/** The number of labels. */
 	protected int numLabels;
@@ -101,7 +101,7 @@ public class MLStatistics {
 
 	/** Multi label dataset */
 	private MultiLabelInstances mlDataSet;
-	
+
 	/**
 	 * Constructor.
 	 * 
@@ -111,7 +111,7 @@ public class MLStatistics {
 		this.mlDataSet = mlDataSet;
 		calculateStats();
 	}
-	
+
 	/**
 	 * Gets the Phi correlation matrix. It requires the method calculatePhiChi2 to
 	 * be previously called.
@@ -599,9 +599,9 @@ public class MLStatistics {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("\n-------------------------");
-		sb.append("\n ML - Summary------------------");
-		sb.append("\n-------------------------");
+		sb.append("\n----------------------------");
+		sb.append("\nML Statistics---------------");
+		sb.append("\n----------------------------");
 		sb.append("\nNumber of labels: " + numLabels);
 		sb.append("\nNumber of examples: " + numExamples);
 		sb.append("\nNumber of attributes (without labels):" + numAttributes);
@@ -610,7 +610,7 @@ public class MLStatistics {
 		sb.append("\n\tnominal:" + numNominal);
 		sb.append("\nCardinality:" + cardinality());
 		sb.append("\nDensity:" + density());
-		sb.append("\nExamples of cardinality:");
+		sb.append("\nNumber of patterns with n labels:");
 		for (int j = 0; j <= numLabels; j++) {
 			sb.append("\n\t[" + j + "]:" + this.distributionLabelsPerExample[j]);
 		}
@@ -631,7 +631,7 @@ public class MLStatistics {
 		sb.append("\n\tMean: " + averageIR(IR));
 		sb.append("\n\tVariance: " + varianceIR(IR));
 
-		sb.append("\nIterClassIR:");
+		sb.append("\nInterClassIR:");
 		IR = this.interClassIR();
 		for (int i = 0; i < IR.length; i++) {
 			sb.append("\n\tLabel[" + i + "]: " + IR[i]);

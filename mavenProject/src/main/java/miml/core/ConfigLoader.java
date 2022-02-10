@@ -63,10 +63,11 @@ public class ConfigLoader {
 	 * Constructor that sets the configuration file
 	 *
 	 * @param path The path of config file.
-	 * @throws ConfigurationException if occurred an error during the loading of the configuration.
+	 * @throws ConfigurationException if occurred an error during the loading of the
+	 *                                configuration.
 	 */
 	public ConfigLoader(String path) throws ConfigurationException {
-		
+
 		Parameters params = new Parameters();
 
 		XMLBuilderParameters px = params.xml();
@@ -83,7 +84,7 @@ public class ConfigLoader {
 		}
 
 		ConfigParameters.setConfigFileName(new File(path).getName());
- 
+
 	}
 
 	/**
@@ -101,12 +102,11 @@ public class ConfigLoader {
 		// Instantiate the classifier class used in the experiment
 		Class<? extends IMIMLClassifier> clsClass = (Class<? extends IMIMLClassifier>) Class.forName(clsName);
 
-		//classifier = clsClass.newInstance(); //Java 8
-		classifier = clsClass.getDeclaredConstructor().newInstance(); //Java 9
+		// classifier = clsClass.newInstance(); //Java 8
+		classifier = clsClass.getDeclaredConstructor().newInstance(); // Java 9
 		// Configure the classifier
 		if (classifier instanceof IMIMLClassifier)
 			((IConfiguration) classifier).configure(configuration.subset("classifier"));
-						
 
 		ConfigParameters.setAlgorithmName(classifier.getClass().getSimpleName());
 
@@ -128,10 +128,9 @@ public class ConfigLoader {
 		// Instantiate the evaluator class used in the experiment
 		Class<? extends IEvaluator> evalClass = (Class<? extends IEvaluator>) Class.forName(evalName);
 
-		
-		//evaluator = evalClass.newInstance(); //Java8
-		evaluator = evalClass.getDeclaredConstructor().newInstance(); //Java9
-		
+		// evaluator = evalClass.newInstance(); //Java8
+		evaluator = evalClass.getDeclaredConstructor().newInstance(); // Java9
+
 		// Configure the evaluator
 		if (evaluator instanceof IEvaluator)
 			((IConfiguration) evaluator).configure(configuration.subset("evaluator"));
@@ -155,9 +154,9 @@ public class ConfigLoader {
 		// Instantiate the report class used in the experiment
 		Class<? extends IReport> clsClass = (Class<? extends IReport>) Class.forName(reportName);
 
-		//report = clsClass.newInstance(); //Java8
-		report = clsClass.getDeclaredConstructor().newInstance(); //Java9
-		
+		// report = clsClass.newInstance(); //Java8
+		report = clsClass.getDeclaredConstructor().newInstance(); // Java9
+
 		// Configure the report
 		if (report instanceof IReport)
 			((IConfiguration) report).configure(configuration.subset("report"));

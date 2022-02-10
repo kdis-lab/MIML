@@ -28,21 +28,18 @@ import weka.core.Instances;
  * @author Eva Gigaja
  * @version 20210604
  */
-public class MaximalHausdorff extends HausdorffDistance{
+public class MaximalHausdorff extends HausdorffDistance {
 
 	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -4225065329008023904L;
 
-	public MaximalHausdorff()
-	{
+	public MaximalHausdorff() {
 		super();
-	}	
-	
-	public MaximalHausdorff(MIMLInstances bags) throws Exception
-	{
+	}
+
+	public MaximalHausdorff(MIMLInstances bags) throws Exception {
 		super(bags);
-	}	
-	
+	}
 
 	/*
 	 * (non-Javadoc)

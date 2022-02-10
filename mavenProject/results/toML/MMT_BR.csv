@@ -1,2 +1,2 @@
 Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
-MIMLClassifierToML,mulan.classifier.transformation.BinaryRelevance,miml.transformation.mimlTOml.MinMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_BR.config,11,103,0.18890977443609017,0.017857142857142856,0.056551635499003904,0.05442451807394772
+MIMLClassifierToML,mulan.classifier.transformation.BinaryRelevance,miml.transformation.mimlTOml.MinMaxTransformation,miml_birds_random_80train.arff,MIMLtoML_MMT_BR.config,113,336,0.09514170040485832,0.21153846153846154,0.4842422799079145,0.42892078681552376

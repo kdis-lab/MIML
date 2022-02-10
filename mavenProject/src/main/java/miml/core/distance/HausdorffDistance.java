@@ -10,20 +10,21 @@ public abstract class HausdorffDistance implements IDistance {
 
 	/**  */
 	private static final long serialVersionUID = -1709140241905927188L;
-	DistanceFunction dfun = null;	
+	DistanceFunction dfun = null;
 	Instances dataSet = null;
-	
+
 	public HausdorffDistance() {
 		this.dfun = new EuclideanDistance();
 	}
 
-	public HausdorffDistance(MIMLInstances bags) throws Exception
-	{setInstances(bags);}
-	
-	public boolean hasInstances() {
-		return (dfun.getInstances()!= null);		
+	public HausdorffDistance(MIMLInstances bags) throws Exception {
+		setInstances(bags);
 	}
-	
+
+	public boolean hasInstances() {
+		return (dfun.getInstances() != null);
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -37,27 +38,24 @@ public abstract class HausdorffDistance implements IDistance {
 
 		return (distance(firstDataset, secondDataset));
 	}
-	
+
 	public void setInstances(MIMLInstances bags) throws Exception {
-		if(bags.getNumBags()<1)
-			throw new Exception("To compute distance at least one bag is needed to initalize data set");		
-		
+		if (bags.getNumBags() < 1)
+			throw new Exception("To compute distance at least one bag is needed to initalize data set");
+
 		dataSet = new Instances(bags.getBagAsInstances(0));
-		for(int i=1; i<bags.getNumBags(); i++)
-		{
-			Instances bag_i= bags.getBag(i).getBagAsInstances();
+		for (int i = 1; i < bags.getNumBags(); i++) {
+			Instances bag_i = bags.getBag(i).getBagAsInstances();
 			dataSet.addAll(bag_i);
-		}	
-			
-		this.dfun = new EuclideanDistance(dataSet);		
+		}
+
+		this.dfun = new EuclideanDistance(dataSet);
 	}
-	
-	public void update(MIMLBag bag) throws Exception
-	{
+
+	public void update(MIMLBag bag) throws Exception {
 		Instances relational = bag.getBagAsInstances();
-		for(int i=0; i<relational.numInstances(); i++)
-		{
+		for (int i = 0; i < relational.numInstances(); i++) {
 			this.dfun.update(relational.get(i));
-		}		
+		}
 	}
 }

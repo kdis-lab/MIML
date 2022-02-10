@@ -19,8 +19,8 @@ import mulan.data.InvalidDataFormatException;
 import mulan.data.MultiLabelInstances;
 
 /**
- * General scheme for train test partitioning of multi-output data. MOR, MIML and MVML
- * formats are also supported.
+ * General scheme for train test partitioning of multi-output data. MOR, MIML
+ * and MVML formats are also supported.
  * 
  * @author Eva Gibaja
  * @version 20201029
@@ -30,12 +30,9 @@ public abstract class TrainTestBase extends PartitionerBase {
 	/**
 	 * Constructor.
 	 * 
-	 * @param seed
-	 *            Seed for randomization
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param seed      Seed for randomization
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public TrainTestBase(int seed, MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(seed, mlDataSet);
@@ -44,10 +41,8 @@ public abstract class TrainTestBase extends PartitionerBase {
 	/**
 	 * Default constructor.
 	 * 
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public TrainTestBase(MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(mlDataSet);
@@ -57,13 +52,11 @@ public abstract class TrainTestBase extends PartitionerBase {
 	 * Returns a array with two multi-label random datasets corresponding to the
 	 * train and test sets respectively.
 	 *
-	 * @param percentageTrain
-	 *            Percentage of train dataset.
+	 * @param percentageTrain Percentage of train dataset.
 	 * @return MultiLabelInstances[].<br>
 	 *         MultiLabelInstances[0] is the train set. <br>
 	 *         MultiLabelInstances[1] is the test set.
-	 * @throws java.lang.Exception
-	 *             To be handled.
+	 * @throws java.lang.Exception To be handled.
 	 */
 	public abstract MultiLabelInstances[] split(double percentageTrain) throws Exception;
 

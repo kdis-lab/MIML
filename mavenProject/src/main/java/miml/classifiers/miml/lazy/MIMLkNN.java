@@ -33,13 +33,11 @@ import weka.core.matrix.Matrix;
 import weka.core.matrix.SingularValueDecomposition;
 
 /**
- * <p>
  * Class implementing the MIMLkNN algorithm for MIML data. For more information,
  * see <em>Zhang, M. L. (2010, October). A k-nearest neighbor based
  * multi-instance multi-label learning algorithm. In 2010 22nd IEEE
  * International Conference on Tools with Artificial Intelligence (Vol.2, pp.
  * 207-212). IEEE.</em>
- * </p>
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
@@ -118,7 +116,7 @@ public class MIMLkNN extends MIMLClassifier {
 		if (trainingSet == null) {
 			throw new ArgumentNullException("trainingSet");
 		}
-		
+
 		((HausdorffDistance) metric).setInstances(trainingSet);
 
 		this.dataset = trainingSet;
@@ -502,8 +500,8 @@ public class MIMLkNN extends MIMLClassifier {
 			// Instance class
 			Class<? extends IDistance> metricClass = (Class<? extends IDistance>) Class.forName(metricName);
 
-			//this.metric = metricClass.newInstance(); //Java 8
-			this.metric = metricClass.getDeclaredConstructor().newInstance(); //Java 9
+			// this.metric = metricClass.newInstance(); //Java 8
+			this.metric = metricClass.getDeclaredConstructor().newInstance(); // Java 9
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);

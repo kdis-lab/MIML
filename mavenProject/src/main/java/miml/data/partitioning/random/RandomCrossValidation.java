@@ -49,12 +49,9 @@ public class RandomCrossValidation extends CrossValidationBase {
 	/**
 	 * Constructor.
 	 * 
-	 * @param seed
-	 *            Seed for randomization
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled.
+	 * @param seed      Seed for randomization
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled.
 	 */
 	public RandomCrossValidation(int seed, MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(seed, mlDataSet);
@@ -63,10 +60,8 @@ public class RandomCrossValidation extends CrossValidationBase {
 	/**
 	 * Default constructor.
 	 * 
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled.
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled.
 	 */
 	public RandomCrossValidation(MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(mlDataSet);

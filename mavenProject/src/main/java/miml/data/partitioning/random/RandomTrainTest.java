@@ -40,12 +40,9 @@ public class RandomTrainTest extends TrainTestBase {
 	/**
 	 * Constructor.
 	 * 
-	 * @param seed
-	 *            Seed for randomization
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param seed      Seed for randomization
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public RandomTrainTest(int seed, MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(seed, mlDataSet);
@@ -54,10 +51,8 @@ public class RandomTrainTest extends TrainTestBase {
 	/**
 	 * Default constructor.
 	 * 
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public RandomTrainTest(MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(mlDataSet);

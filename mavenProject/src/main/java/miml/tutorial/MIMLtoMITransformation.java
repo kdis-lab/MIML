@@ -41,15 +41,15 @@ public class MIMLtoMITransformation {
 		System.out.println("\t-o arffPathFile Name -> path of arff output file.");
 		System.out.println("\t-x xmlPathFileName -> path of xml file.");
 		System.out.println("Example:");
-		System.out.println("\tjava -jar exampleMIMLtoMILTransformation -f data" + File.separator + "toy.arff -x data"
-				+ File.separator + "toy.xml -o data" + File.separator + "toyResult.arff");
+		System.out.println("\t-f data" + File.separator + "toy.arff -x data" + File.separator + "toy.xml -o data"
+				+ File.separator + "toyResult.arff");
 		System.exit(-1);
 	}
 
 	public static void main(String[] args) throws Exception {
 
-		//-f data/miml_birds.arff -x data/miml_birds.xml -o data/miml_birds_result.arff
-		
+		// -f data/miml_birds.arff -x data/miml_birds.xml -o data/miml_birds_toMI.arff
+
 		String arffFileName = Utils.getOption("f", args);
 		String xmlFileName = Utils.getOption("x", args);
 		String arffFileResult = Utils.getOption("o", args);
@@ -76,13 +76,14 @@ public class MIMLtoMITransformation {
 		System.out.println("===================Label Powerset=====================");
 		LPTransformation lp = new LPTransformation();
 		Instances transformed = lp.transformBags(mimlDataSet);
-		MLSave.saveArff(transformed, arffFileResult);
+		MLSave.saveArff(transformed, "data" + File.separator + "resultLP.arff");
+		;
 
 		System.out.println("===================Binary Relevance=====================");
 		BRTransformation br = new BRTransformation(mimlDataSet);
 		for (int i = 0; i < mimlDataSet.getNumLabels(); i++) {
 			transformed = br.transformBags(i);
-			MLSave.saveArff(transformed, i + arffFileResult);
+			MLSave.saveArff(transformed, "data" + File.separator + "resultBR_" + i + ".arff");
 		}
 
 		// Saves arff file

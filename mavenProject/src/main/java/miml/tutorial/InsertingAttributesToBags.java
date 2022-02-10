@@ -24,11 +24,10 @@ import miml.data.MLSave;
 import weka.core.Attribute;
 import weka.core.Utils;
 
-
 /**
  * 
- * Class implementing an example of inserting a new group of attributes to the relational attribute of the
- * dataset with {0,1} values.
+ * Class implementing an example of inserting a new group of attributes to the
+ * relational attribute of the dataset with {0,1} values.
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
@@ -37,7 +36,7 @@ import weka.core.Utils;
  *
  */
 public class InsertingAttributesToBags {
-	
+
 	/** Shows the help on command line. */
 	public static void showUse() {
 		System.out.println("Program parameters:");
@@ -51,8 +50,8 @@ public class InsertingAttributesToBags {
 
 	public static void main(String[] args) throws Exception {
 
-		//-f data/miml_birds.arff -x data/miml_birds.xml
-		
+		// -f data/miml_birds.arff -x data/miml_birds.xml
+
 		String arffFileName = Utils.getOption("f", args);
 		String xmlFileName = Utils.getOption("x", args);
 
@@ -84,7 +83,7 @@ public class InsertingAttributesToBags {
 				}
 			}
 		}
-		MLSave.saveArff(result.getDataSet(), "data" + File.separator + "new.arff");
+		MLSave.saveArff(result.getDataSet(), "data" + File.separator + "miml_birds_addedAttributes.arff");
 	}
 
 }

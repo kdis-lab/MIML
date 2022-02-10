@@ -26,8 +26,8 @@ import weka.core.Utils;
 
 /**
  * 
- * Class implementing an example of inserting a new attribute to the relational attribute of the
- * dataset with {0,1} values.
+ * Class implementing an example of inserting a new attribute to the relational
+ * attribute of the dataset with {0,1} values.
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
@@ -36,7 +36,7 @@ import weka.core.Utils;
  *
  */
 public class InsertingAttributeToBag {
-	
+
 	/** Shows the help on command line. */
 	public static void showUse() {
 		System.out.println("Program parameters:");
@@ -47,11 +47,11 @@ public class InsertingAttributeToBag {
 				+ File.separator + "toy.xml");
 		System.exit(-1);
 	}
-	
+
 	public static void main(String[] args) throws Exception {
 
-		//-f data/miml_birds.arff -x data/miml_birds.xml
-		
+		// -f data/miml_birds.arff -x data/miml_birds.xml
+
 		String arffFileName = Utils.getOption("f", args);
 		String xmlFileName = Utils.getOption("x", args);
 
@@ -65,9 +65,10 @@ public class InsertingAttributeToBag {
 		values.add("1");
 		Attribute attr = new Attribute(newName, values);
 
-		//This inserts the attribute into bags and sets it as '?' for all instances and all bags
-		MIMLInstances result = mimlDataSet.insertAttributeToBags(attr);		
-		
+		// This inserts the attribute into bags and sets it as '?' for all instances and
+		// all bags
+		MIMLInstances result = mimlDataSet.insertAttributeToBags(attr);
+
 		// provides {0,1} values for the attribute added
 		int value = 0;
 		for (int i = 0; i < result.getNumBags(); i++) {
@@ -77,8 +78,8 @@ public class InsertingAttributeToBag {
 				value++;
 			}
 		}
-		MLSave.saveArff(result.getDataSet(), "data" + File.separator + "new.arff");
-		
+		MLSave.saveArff(result.getDataSet(), "data" + File.separator + "miml_birds_addedAttribute.arff");
+
 	}
-	
+
 }

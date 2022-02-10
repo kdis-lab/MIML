@@ -35,12 +35,9 @@ public class LabelPowersetCrossValidation extends CrossValidationBase {
 	/**
 	 * Constructor.
 	 * 
-	 * @param seed
-	 *            Seed for randomization
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param seed      Seed for randomization
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public LabelPowersetCrossValidation(int seed, MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(seed, mlDataSet);
@@ -49,10 +46,8 @@ public class LabelPowersetCrossValidation extends CrossValidationBase {
 	/**
 	 * Default constructor.
 	 * 
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public LabelPowersetCrossValidation(MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(mlDataSet);

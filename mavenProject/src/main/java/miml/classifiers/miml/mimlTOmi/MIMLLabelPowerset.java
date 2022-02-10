@@ -20,19 +20,21 @@ public class MIMLLabelPowerset extends LabelPowerset {
 	 * Generated Serial version UID.
 	 */
 	private static final long serialVersionUID = -515679901670889755L;
-	
-    /**
-     * Constructor that initializes the learner with a base classifier.
-     *
-     * @param classifier The base single-label classification algorithm.
-     */
+
+	/**
+	 * Constructor that initializes the learner with a base classifier.
+	 *
+	 * @param classifier The base single-label classification algorithm.
+	 */
 	public MIMLLabelPowerset(Classifier classifier) {
 		super(classifier);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see mulan.classifier.transformation.LabelPowerset#buildInternal(mulan.data.MultiLabelInstances)
+	 * 
+	 * @see mulan.classifier.transformation.LabelPowerset#buildInternal(mulan.data.
+	 * MultiLabelInstances)
 	 */
 	@Override
 	protected void buildInternal(MultiLabelInstances mlData) throws Exception {

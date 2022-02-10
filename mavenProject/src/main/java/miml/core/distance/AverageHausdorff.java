@@ -31,21 +31,19 @@ import weka.core.Instances;
  * @author Eva Gigaja
  * @version 20210604
  */
-public class AverageHausdorff extends HausdorffDistance{
+public class AverageHausdorff extends HausdorffDistance {
 
 	/** Generated Serial version UID. */
 	private static final long serialVersionUID = -2002702276955682922L;
-	
-	public AverageHausdorff()
-	{
+
+	public AverageHausdorff() {
 		super();
-	}	
-	
-	public AverageHausdorff(MIMLInstances bags) throws Exception
-	{
+	}
+
+	public AverageHausdorff(MIMLInstances bags) throws Exception {
 		super(bags);
-	}	
-	
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -54,7 +52,6 @@ public class AverageHausdorff extends HausdorffDistance{
 	 */
 	@Override
 	public double distance(Instances first, Instances second) throws Exception {
-
 
 		int nInstances = second.size();
 
@@ -90,8 +87,5 @@ public class AverageHausdorff extends HausdorffDistance{
 
 		return (sumU + sumV) / (first.size() + second.size());
 	}
-
-
-
 
 }

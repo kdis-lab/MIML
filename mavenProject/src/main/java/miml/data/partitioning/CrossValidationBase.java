@@ -19,10 +19,9 @@ import mulan.data.InvalidDataFormatException;
 import mulan.data.MultiLabelInstances;
 import weka.core.Instances;
 
-
 /**
- * General scheme for cross validation partitioners of multi-output data. MOR, MIML
- * and MVML formats are also supported.
+ * General scheme for cross validation partitioners of multi-output data. MOR,
+ * MIML and MVML formats are also supported.
  * 
  * @author Eva Gibaja
  * @version 20201029
@@ -32,12 +31,9 @@ public abstract class CrossValidationBase extends PartitionerBase {
 	/**
 	 * Constructor.
 	 * 
-	 * @param seed
-	 *            Seed for randomization
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param seed      Seed for randomization
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public CrossValidationBase(int seed, MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(seed, mlDataSet);
@@ -46,10 +42,8 @@ public abstract class CrossValidationBase extends PartitionerBase {
 	/**
 	 * Default constructor.
 	 * 
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public CrossValidationBase(MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(mlDataSet);
@@ -58,12 +52,10 @@ public abstract class CrossValidationBase extends PartitionerBase {
 	/**
 	 * Returns the train and test sets for each fold.
 	 *
-	 * @param nFolds
-	 *            Number of folds.
+	 * @param nFolds Number of folds.
 	 * @return MultiLabelInstances[][] a nfolds x 2 matrix. Each row represents a
 	 *         fold being column 0 the train set and the column 1 the test set.
-	 * @throws mulan.data.InvalidDataFormatException
-	 *             To be handled.
+	 * @throws mulan.data.InvalidDataFormatException To be handled.
 	 */
 	public MultiLabelInstances[][] getRounds(int nFolds) throws Exception {
 		MultiLabelInstances Folds[] = getFolds(nFolds);
@@ -74,8 +66,7 @@ public abstract class CrossValidationBase extends PartitionerBase {
 	 * Returns the train and test sets for each fold. This method is static being
 	 * useful if the user has partitions.
 	 *
-	 * @param Folds
-	 *            The folds.
+	 * @param Folds The folds.
 	 * @return MultiLabelInstances[][] a nfolds x 2 matrix. Each row represents a
 	 *         fold being column 0 the train set and the column 1 the test set.
 	 * @throws Exception To be handled.
@@ -87,38 +78,36 @@ public abstract class CrossValidationBase extends PartitionerBase {
 		// All partitions will have the relation name of the original one.
 		// This allows multi-view definitions of data stored in @relation to be
 		// maintained.
-		String relationName = Folds[0].getDataSet().relationName();		
-		
+		String relationName = Folds[0].getDataSet().relationName();
+
 		for (int i = 0; i < nFolds; i++) {
 			// Prepares test partition
-			Instances test  =  new Instances(Folds[i].getDataSet());
-			test.addAll(new Instances(Folds[i].getDataSet()));			
-			
-			// Prepares train partition
-			Instances train =  new Instances(Folds[i].getDataSet());
+			Instances test = new Instances(Folds[i].getDataSet());
+			test.addAll(new Instances(Folds[i].getDataSet()));
+
+			// Prepares empty train partition
+			Instances train = new Instances(Folds[i].getDataSet(), 0);
 			for (int j = 0; j < nFolds; j++) {
-				if (j != i)					
-						train.addAll(new Instances(Folds[j].getDataSet()));				
+				if (j != i)
+					train.addAll(new Instances(Folds[j].getDataSet()));
 			}
 
-			Partition[i][0] =new MultiLabelInstances(new Instances(train), Folds[i].getLabelsMetaData());
+			Partition[i][0] = new MultiLabelInstances(new Instances(train), Folds[i].getLabelsMetaData());
 			Partition[i][0].getDataSet().setRelationName(relationName);
 
-			Partition[i][1] =new MultiLabelInstances(new Instances(test), Folds[i].getLabelsMetaData());
-			Partition[i][1].getDataSet().setRelationName(relationName);	
-		}			
+			Partition[i][1] = new MultiLabelInstances(new Instances(test), Folds[i].getLabelsMetaData());
+			Partition[i][1].getDataSet().setRelationName(relationName);
+		}
 		return Partition;
 	}
 
 	/**
 	 * Splits a dataset into nfolds partitions.
 	 *
-	 * @param nFolds
-	 *            Number of folds.
+	 * @param nFolds Number of folds.
 	 * @return MultiLabelInstances[] a vector of nFolds. Each element represents a
 	 *         fold.
-	 * @throws mulan.data.InvalidDataFormatException
-	 *             To be handled.
+	 * @throws mulan.data.InvalidDataFormatException To be handled.
 	 */
 	public abstract MultiLabelInstances[] getFolds(int nFolds) throws InvalidDataFormatException;
 

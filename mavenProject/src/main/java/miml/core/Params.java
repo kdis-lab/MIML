@@ -76,6 +76,5 @@ public class Params {
 	public void setObjects(Object[] objects) {
 		this.objects = objects;
 	}
-	
-	
+
 }

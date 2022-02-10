@@ -44,14 +44,14 @@ public class MIStatistics {
 	int totalInstances;
 	/** The distribution of number of instances per bag. */
 	HashMap<Integer, Integer> distributionBags;
-	/** Instances dataset*/
+	/** Instances dataset */
 	Instances dataSet;
-	
+
 	public MIStatistics(Instances dataSet) {
 		this.dataSet = dataSet;
 		calculateStats();
 	}
-	
+
 	/**
 	 * Calculates various MIML statistics, such as instancesPerBag and
 	 * attributesPerBag.

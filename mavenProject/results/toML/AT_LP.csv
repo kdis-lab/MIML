@@ -1,2 +1,2 @@
 Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
-MIMLClassifierToML,mulan.classifier.transformation.LabelPowerset,miml.transformation.mimlTOml.ArithmeticTransformation,miml_birds_random_80train.arff,MIMLtoML_AT_LP.config,188,196,0.17387218045112776,0.017857142857142856,0.1492352676563203,0.14348039215686273
+MIMLClassifierToML,mulan.classifier.transformation.LabelPowerset,miml.transformation.mimlTOml.ArithmeticTransformation,miml_birds_random_80train.arff,MIMLtoML_AT_LP.config,224,292,0.13360323886639677,0.09615384615384616,0.24813432181853234,0.26563881242456083

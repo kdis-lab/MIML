@@ -28,7 +28,6 @@ import org.apache.commons.configuration2.Configuration;
 
 public interface IConfiguration {
 
-	
 	/**
 	 * Method to configure the class with the given configuration.
 	 * 

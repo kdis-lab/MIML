@@ -33,14 +33,11 @@ public abstract class PartitionerBase {
 	/** A copy of the instances to generate partitions */
 	protected MultiLabelInstances workingSet;
 
-
 	/**
 	 * Constructor of the class
 	 * 
-	 * @param mlDataSet
-	 *            The multi-label data set
-	 * @throws InvalidDataFormatException
-	 *             To be handled.
+	 * @param mlDataSet The multi-label data set
+	 * @throws InvalidDataFormatException To be handled.
 	 */
 	public PartitionerBase(MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super();
@@ -52,18 +49,14 @@ public abstract class PartitionerBase {
 	/**
 	 * Constructor of the class
 	 * 
-	 * @param seed
-	 *            Seed for randomization
-	 * @param mlDataSet
-	 *            The multi-label data set
-	 * @throws InvalidDataFormatException
-	 *             To be handled.
+	 * @param seed      Seed for randomization
+	 * @param mlDataSet The multi-label data set
+	 * @throws InvalidDataFormatException To be handled.
 	 */
 	public PartitionerBase(int seed, MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		this(mlDataSet);
 		// set seed value
 		this.seed = seed;
 	}
-	
 
 }

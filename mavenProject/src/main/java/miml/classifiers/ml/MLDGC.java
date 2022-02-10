@@ -26,11 +26,10 @@ import weka.core.Utils;
 import weka.core.neighboursearch.LinearNNSearch;
 
 /**
- * Implementation of MLDGC (Multi-Label Data Gravitation Model) algorithm, see: <br>
- * <br>
- * Oscar Reyes, Carlos Morell, Sebastián Ventura (2016). Effective lazy learning
- * algorithm based on a data gravitation model for multi-label learning.
- * Information Sciences. Vol 340, issue C. <br>
+ * Implementation of MLDGC (Multi-Label Data Gravitation Model) algorithm. For
+ * more information see: <em> Oscar Reyes, Carlos Morell, Sebastián Ventura
+ * (2016). Effective lazy learning algorithm based on a data gravitation model
+ * for multi-label learning. Information Sciences. Vol 340, issue C. </em>
  *
  * @author Eva Gigaja
  * @version 20210604
@@ -42,16 +41,22 @@ public class MLDGC extends MultiLabelKNN {
 
 	/** Neighborhood-based Gravitation Coefficient for each training example */
 	protected double NGC[] = null;
-	
-    /** Densities*/
+
+	/** Densities */
 	protected double densities[] = null;
-	
-	/** Weights*/
+
+	/** Weights */
 	protected double weights[] = null;
 
 	/** Searching of neighborhood */
 	protected LinearNNESearch elnn;
-	
+
+	/**
+	 * Whether neighborhood is extended with all the neighbors with the same
+	 * distance. The default value is false.
+	 */
+	boolean extNeigh = false;
+
 	/** Values used to normalize weights */
 	protected double weight_max = Double.NEGATIVE_INFINITY;
 	protected double weight_min = Double.POSITIVE_INFINITY;
@@ -66,7 +71,8 @@ public class MLDGC extends MultiLabelKNN {
 	}
 
 	/**
-	 * Constructor initializing the number of neighbors. By default Euclidean Distance.
+	 * Constructor initializing the number of neighbors. By default Euclidean
+	 * Distance.
 	 *
 	 * @param numOfNeighbors the number of neighbors
 	 */
@@ -80,7 +86,7 @@ public class MLDGC extends MultiLabelKNN {
 	 * Constructor initializing the number of neighbors and the distance function.
 	 *
 	 * @param numOfNeighbors the number of neighbors
-	 * @param dfunc distance function
+	 * @param dfunc          distance function
 	 */
 	public MLDGC(int numOfNeighbors, DistanceFunction dfunc) {
 		super();
@@ -92,8 +98,8 @@ public class MLDGC extends MultiLabelKNN {
 	protected void buildInternal(MultiLabelInstances trainSet) throws Exception {
 
 		super.buildInternal(trainSet);
-	
-		elnn = new LinearNNESearch(trainSet.getDataSet());		
+
+		elnn = new LinearNNESearch(trainSet.getDataSet());
 		elnn.setDistanceFunction(dfunc);
 		elnn.setInstances(train);
 		elnn.setMeasurePerformance(false);
@@ -134,22 +140,31 @@ public class MLDGC extends MultiLabelKNN {
 	 *
 	 * @param instance1 the first instance.
 	 * @param instance2 the second instance.
+	 * @return the label distance between two instances.
 	 */
 	protected double labelDistance(Instance instance1, Instance instance2) {
 		double symmetricDifference = 0;
+		int activeLabels = 0;
 		for (int i = 0; i < this.labelIndices.length; i++) {
 			if (instance1.value(labelIndices[i]) != instance2.value(labelIndices[i]))
 				symmetricDifference++;
+			if ((Utils.eq(instance1.value(labelIndices[i]), 1.0)) || (Utils.eq(instance2.value(labelIndices[i]), 1.0)))
+				activeLabels++;
 		}
-		return symmetricDifference / labelIndices.length;
+
+		return symmetricDifference / labelIndices.length; // HammingLoss
+		// return symmetricDifference / activeLabels; //Adjusted HammingLoss, considers
+		// averaging by active labels instead all labels
 	}
 
-	
 	/**
-	 * Given a neighborhood and an instance, computes neighborhood-weight and neighborhood-density.
+	 * Given a neighborhood and an instance, computes neighborhood-weight and
+	 * neighborhood-density.
 	 *
-	 * @param instance1 the first instance.
-	 * @param instance2 the second instance.
+	 * @param knn      The neighborhood of the instance.
+	 * @param instance The instance for which weight and density are computed.
+	 * @param index    The index of the instance for which weight and density are
+	 *                 computed.
 	 */
 	protected void computeWeightDensity(Instances knn, Instance instance, int index) {
 		double weight = 1;
@@ -159,10 +174,17 @@ public class MLDGC extends MultiLabelKNN {
 		double PdisF = 0;
 		double PdisY_disF = 0;
 
-		for (int i = 0; i < knn.numInstances(); i++) {
-			double dl = labelDistance(instance, knn.instance(i));
-			double df = dfunc.distance(instance, knn.instance(i));
-			//System.out.println("df: "+df);
+		int k;
+		if (!extNeigh)
+			k = numOfNeighbors;
+		else
+			k = knn.numInstances();
+
+		for (int i = 0; i < k; i++) {
+			Instance neighbor = knn.instance(i);
+			double dl = labelDistance(instance, neighbor);
+			double df = dfunc.distance(instance, neighbor);
+
 			density += (1 - dl) / df;
 
 			PdisY += dl;
@@ -174,9 +196,9 @@ public class MLDGC extends MultiLabelKNN {
 		density = 1 + density;
 
 		// compute weight
-		PdisY = PdisY / knn.numInstances();
-		PdisF = PdisF / knn.numInstances();
-		PdisY_disF = PdisY_disF / knn.numInstances();
+		PdisY = PdisY / k;
+		PdisF = PdisF / k;
+		PdisY_disF = PdisY_disF / k;
 		if ((PdisY == 0 || PdisY == 1))
 			weight = 0;
 		else
@@ -195,16 +217,21 @@ public class MLDGC extends MultiLabelKNN {
 	protected MultiLabelOutput makePredictionInternal(Instance instance) throws Exception {
 
 		dfunc.update(instance);
-			
+
 		boolean[] bipartition = new boolean[labelIndices.length];
 		double confidence[] = new double[labelIndices.length];
 
 		Instances knn = elnn.kNearestNeighbours(instance, numOfNeighbors);
 		int indices[] = elnn.kNearestNeighboursIndices(instance, numOfNeighbors);
 
-		
-		double gforce[] = new double[knn.numInstances()];
-		for (int index = 0, i = 0; i < knn.numInstances(); i++) {
+		int k;
+		if (!extNeigh)
+			k = numOfNeighbors;
+		else
+			k = knn.numInstances();
+
+		double gforce[] = new double[k];
+		for (int index = 0, i = 0; i < k; i++) {
 			Instance particle = knn.instance(i);
 			index = indices[i];
 			double distance = dfunc.distance(instance, particle);
@@ -216,7 +243,7 @@ public class MLDGC extends MultiLabelKNN {
 			double negativeGF = 0.0;
 
 			// computes positiveGF and negativeGF
-			for (int i = 0; i < knn.numInstances(); i++) {
+			for (int i = 0; i < k; i++) {
 				Instance neighbor = knn.instance(i);
 				if (Utils.eq(neighbor.value(labelIndices[l]), 1.0))
 					positiveGF += gforce[i];
@@ -231,12 +258,29 @@ public class MLDGC extends MultiLabelKNN {
 				bipartition[l] = false;
 
 			confidence[l] = positiveGF / (positiveGF + negativeGF);
-
 		}
-		
+
 		MultiLabelOutput output = new MultiLabelOutput(bipartition, confidence);
 
 		return output;
+	}
+
+	/**
+	 * Gets the value of the property isExtNeigh.
+	 * 
+	 * @return the value of the property isExtNeigh.
+	 */
+	public boolean isExtNeigh() {
+		return extNeigh;
+	}
+
+	/**
+	 * Sets the value of the property isExtNeigh.
+	 * 
+	 * @param extNeigh the value to be set.
+	 */
+	public void setExtNeigh(boolean extNeigh) {
+		this.extNeigh = extNeigh;
 	}
 
 	@Override
@@ -251,11 +295,11 @@ public class MLDGC extends MultiLabelKNN {
 		private static final long serialVersionUID = 1L;
 
 		public LinearNNESearch(Instances insts) throws Exception {
-			super(insts);				    
+			super(insts);
 		}
 
 		public int[] kNearestNeighboursIndices(Instance target, int kNN) throws Exception {
-			// debug
+
 			boolean print = false;
 
 			if (m_Stats != null)

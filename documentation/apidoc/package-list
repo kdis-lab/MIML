@@ -5,7 +5,7 @@ miml.classifiers.miml.meta
 miml.classifiers.miml.mimlTOmi
 miml.classifiers.miml.mimlTOml
 miml.classifiers.miml.neural
-miml.classifiers.miml.optimizer
+miml.classifiers.miml.optimization
 miml.classifiers.ml
 miml.core
 miml.core.distance

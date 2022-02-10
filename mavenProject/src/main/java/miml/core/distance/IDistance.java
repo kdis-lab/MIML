@@ -21,8 +21,8 @@ import miml.data.MIMLBag;
 import weka.core.Instances;
 
 /**
- * Interface to implement the metrics used to measure the distance between {@link MIMLBag}
- * of a data sets.
+ * Interface to implement the metrics used to measure the distance between
+ * {@link MIMLBag} of a data sets.
  *
  * @author Alvaro A. Belmonte
  * @author Amelia Zafra

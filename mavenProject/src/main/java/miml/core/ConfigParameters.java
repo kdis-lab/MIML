@@ -44,8 +44,7 @@ public final class ConfigParameters {
 	protected static String transformationMethod = "";
 
 	/**
-	 * If the classifier configured in the experiment uses a method
-	 * transformation.
+	 * If the classifier configured in the experiment uses a method transformation.
 	 */
 	protected static Boolean isTransformation = false;
 

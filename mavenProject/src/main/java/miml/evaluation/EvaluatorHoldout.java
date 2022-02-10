@@ -25,8 +25,8 @@ import org.apache.commons.configuration2.Configuration;
 import miml.classifiers.miml.IMIMLClassifier;
 import miml.core.ConfigParameters;
 import miml.core.IConfiguration;
-import miml.core.Utils;
 import miml.data.MIMLInstances;
+import mulan.data.InvalidDataFormatException;
 import mulan.evaluation.Evaluation;
 import mulan.evaluation.Evaluator;
 
@@ -64,8 +64,9 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	 *
 	 * @param trainData The train data used in the experiment.
 	 * @param testData  The test data used in the experiment.
+	 * @throws InvalidDataFormatException To be handled.
 	 */
-	public EvaluatorHoldout(MIMLInstances trainData, MIMLInstances testData) {
+	public EvaluatorHoldout(MIMLInstances trainData, MIMLInstances testData) throws InvalidDataFormatException {
 		this.trainData = trainData;
 		this.testData = testData;
 	}
@@ -79,7 +80,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	 */
 	public EvaluatorHoldout(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
 
-		List<MIMLInstances> list = Utils.splitData(mimlDataSet, percentageTrain, seed);
+		List<MIMLInstances> list = MIMLInstances.splitData(mimlDataSet, percentageTrain, seed);
 		this.trainData = list.get(0);
 		this.testData = list.get(1);
 	}
@@ -191,7 +192,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 		try {
 
 			if (arffFileTest == null) {
-				List<MIMLInstances> list = Utils.splitData(new MIMLInstances(arffFileTrain, xmlFileName),
+				List<MIMLInstances> list = MIMLInstances.splitData(new MIMLInstances(arffFileTrain, xmlFileName),
 						configuration.subset("data").getDouble("percentageTrain", 80), seed);
 				this.trainData = list.get(0);
 				this.testData = list.get(1);

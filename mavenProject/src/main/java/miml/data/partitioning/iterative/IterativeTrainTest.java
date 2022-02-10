@@ -59,12 +59,9 @@ public class IterativeTrainTest extends TrainTestBase {
 	/**
 	 * Constructor.
 	 * 
-	 * @param seed
-	 *            Seed for randomization
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param seed      Seed for randomization
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public IterativeTrainTest(int seed, MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(seed, mlDataSet);
@@ -73,10 +70,8 @@ public class IterativeTrainTest extends TrainTestBase {
 	/**
 	 * Default constructor.
 	 * 
-	 * @param mlDataSet
-	 *            A multi-label dataset
-	 * @throws InvalidDataFormatException
-	 *             To be handled
+	 * @param mlDataSet A multi-label dataset
+	 * @throws InvalidDataFormatException To be handled
 	 */
 	public IterativeTrainTest(MultiLabelInstances mlDataSet) throws InvalidDataFormatException {
 		super(mlDataSet);
@@ -248,12 +243,9 @@ public class IterativeTrainTest extends TrainTestBase {
 	/**
 	 * Returns the number of examples per label in each fold.
 	 *
-	 * @param dataSet
-	 *            A dataset.
-	 * @param numLabels
-	 *            Number of labels.
-	 * @param labelIndices
-	 *            Array with label indices.
+	 * @param dataSet      A dataset.
+	 * @param numLabels    Number of labels.
+	 * @param labelIndices Array with label indices.
 	 * @return int[]
 	 */
 	/* Function that returns the number of examples per label in each fold */
@@ -480,12 +472,9 @@ public class IterativeTrainTest extends TrainTestBase {
 	/**
 	 * Returns the relevant labels of one instance.
 	 *
-	 * @param instance
-	 *            An instance
-	 * @param numLabels
-	 *            The number of labels
-	 * @param labelIndices
-	 *            The label indices
+	 * @param instance     An instance
+	 * @param numLabels    The number of labels
+	 * @param labelIndices The label indices
 	 * @return boolean[]
 	 */
 	private boolean[] getTrueLabels(Instance instance, int numLabels, int[] labelIndices) {
