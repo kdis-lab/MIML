@@ -20,12 +20,15 @@ import org.apache.commons.configuration2.Configuration;
 import mulan.classifier.lazy.DMLkNN;
 
 /**
- * Wrapper for DMLKNN (Dependent Multi-Label k Nearest Neighbours) algorighm of
- * Mulan Library. For more information, see <em>Zoulficar Younes, Fahed
- * Abdallah, Thierry Denceaux (2008). Multi-label classification algorithm
- * derived from k-nearest neighbor rule with label dependencies. In Proceedings
- * of 16th European Signal Processing Conference (EUSIPCO 2008), Lausanne,
- * Switzerland</em>.
+ * DMIMLkNN is the adaptation to the MIML framework of the DMLkNN[1] multi-label
+ * algorithm. To perform this adaptation, DMIMLkNN maintains the treatment of
+ * labels of DMLkNN but computes the proximity between bags with a
+ * multi-instance measure of distance.
+ * 
+ * <em>[1] Zoulficar Younes, Fahed Abdallah, Thierry Denceaux (2008).
+ * Multi-label classification algorithm derived from k-nearest neighbor rule
+ * with label dependencies. In Proceedings of 16th European Signal Processing
+ * Conference (EUSIPCO 2008), Lausanne, Switzerland</em>.
  */
 public class DMIMLkNN extends MultiInstanceMultiLabelKNN {
 

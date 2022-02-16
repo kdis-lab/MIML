@@ -19,10 +19,14 @@ import org.apache.commons.configuration2.Configuration;
 import mulan.classifier.lazy.IBLR_ML;
 
 /**
- * Wrapper for IBLR-ML and IBLR-ML+ methods of Mulan Library. For more
- * information, see<em> Weiwei Cheng, Eyke Hullermeier (2009). Combining
- * instance-based learning and logistic regression for multilabel
- * classification. Machine Learning. 76(2-3):211-225. </em>
+ * MIMLIBLR is the adaptation to the MIML framework of the IBLR_ML[1]
+ * multi-label algorithm. To perform this adaptation, MIMLIBLR maintains the
+ * treatment of labels of IBLR_ML but computes the proximity between bags with a
+ * multi-instance measure of distance.
+ * 
+ * <em>[1] Weiwei Cheng, Eyke Hullermeier (2009). Combining instance-based
+ * learning and logistic regression for multilabel classification. Machine
+ * Learning. 76(2-3):211-225. </em>
  */
 
 public class MIMLIBLR extends MultiInstanceMultiLabelKNN {

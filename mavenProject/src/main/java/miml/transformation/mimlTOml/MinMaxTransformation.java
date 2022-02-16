@@ -77,7 +77,7 @@ public class MinMaxTransformation extends MIMLtoML {
 	public MinMaxTransformation(MIMLInstances dataset) throws Exception {
 		this.dataset = dataset;
 		prepareTemplate();
-		template.setRelationName(dataset.getDataSet().relationName() + "_minimax_transformation");
+		template.setRelationName(dataset.getDataSet().relationName() + "_min_max_transformation");
 	}
 
 	public MinMaxTransformation() throws Exception {
@@ -124,7 +124,7 @@ public class MinMaxTransformation extends MIMLtoML {
 
 		this.dataset = dataset;
 		prepareTemplate();
-		template.setRelationName(dataset.getDataSet().relationName() + "_minimax_transformation");
+		template.setRelationName(dataset.getDataSet().relationName() + "_min_max_transformation");
 
 		return transformDataset();
 	}
@@ -159,7 +159,7 @@ public class MinMaxTransformation extends MIMLtoML {
 	public Instance transformInstance(MIMLInstances dataset, MIMLBag bag) throws Exception {
 		this.dataset = dataset;
 		prepareTemplate();
-		template.setRelationName(dataset.getDataSet().relationName() + "_minimax_transformation");
+		template.setRelationName(dataset.getDataSet().relationName() + "_min_max_transformation");
 
 		return transformInstance(bag);
 	}

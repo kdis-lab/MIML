@@ -30,11 +30,12 @@ import mulan.classifier.MultiLabelOutput;
 import weka.core.Instances;
 
 /**
- * <p>
- * Class implementing an ensemble algorithm using bagging. For more information,
- * see <em>Breiman, L. (1996). Bagging predictors. Machine learning, 24(2),
+ * MIMLBagging is the adaptation of the traditional bagging strategy of the
+ * machine learning [1] that does not need any previous transformation of the
+ * problem.
+ * 
+ * <em>[1]Breiman, L. (1996). Bagging predictors. Machine learning, 24(2),
  * 123-140.</em>
- * </p>
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja

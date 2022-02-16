@@ -20,10 +20,14 @@ import org.apache.commons.configuration2.Configuration;
 import miml.classifiers.ml.MLDGC;
 
 /**
- * Wrapper for MLDGC (Multi-Label Data Gravitation Model) algorithm. For more
- * information see: <em> Oscar Reyes, Carlos Morell, Sebastián Ventura (2016).
- * Effective lazy learning algorithm based on a data gravitation model for
- * multi-label learning. Information Sciences. Vol 340, issue C. </em>
+ * MIMLDGC is the adaptation to the MIML framework of the MLDGC[1] multi-label
+ * algorithm. To perform this adaptation, MIMLDGC maintains the treatment of
+ * labels of MLDGC but computes the proximity between bags with a multi-instance
+ * measure of distance.
+ * 
+ * <em> [1] Oscar Reyes, Carlos Morell, Sebastián Ventura (2016). Effective lazy
+ * learning algorithm based on a data gravitation model for multi-label
+ * learning. Information Sciences. Vol 340, issue C. </em>
  */
 public class MIMLDGC extends MultiInstanceMultiLabelKNN {
 

@@ -1,2 +1,2 @@
 Algorithm,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
-MIMLBagging,miml_birds_random_80train.arff,MIMLBagging.config,776,946,0.08198380566801619,0.21153846153846154,0.49808612440191385,0.40434419381787806
+MIMLBagging,miml_birds_random_80train.arff,MIMLBagging.config,2273,2372,0.08198380566801619,0.21153846153846154,0.49808612440191385,0.40434419381787806

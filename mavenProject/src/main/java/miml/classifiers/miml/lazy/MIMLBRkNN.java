@@ -20,11 +20,14 @@ import mulan.classifier.lazy.BRkNN;
 import mulan.classifier.lazy.BRkNN.ExtensionType;
 
 /**
- * Wrapper for BRkNN of Mulan Library. BRkNN is the simple BR implementation of
- * the KNN algorithm. For more information, see<em> Eleftherios Spyromitros,
- * Grigorios Tsoumakas, Ioannis Vlahavas: An Empirical Study of Lazy Multilabel
- * Classification Algorithms. In: Proc. 5th Hellenic Conference on Artificial
- * Intelligence (SETN 2008), 2008. </em>
+ * MIMLBRkNN is the adaptation to the MIML framework of the BRkNN[1] multi-label
+ * algorithm. To perform this adaptation, MIMLBRkNN maintains the treatment of
+ * labels of BRkNN but computes the proximity between bags with a multi-instance
+ * measure of distance.
+ * 
+ * <em>[1] Eleftherios Spyromitros, Grigorios Tsoumakas, Ioannis Vlahavas: An
+ * Empirical Study of Lazy Multilabel Classification Algorithms. In: Proc. 5th
+ * Hellenic Conference on Artificial Intelligence (SETN 2008), 2008. </em>
  */
 public class MIMLBRkNN extends MultiInstanceMultiLabelKNN {
 
