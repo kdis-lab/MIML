@@ -22,8 +22,7 @@ import mulan.classifier.lazy.BRkNN.ExtensionType;
 /**
  * MIMLBRkNN is the adaptation to the MIML framework of the BRkNN[1] multi-label
  * algorithm. To perform this adaptation, MIMLBRkNN maintains the treatment of
- * labels of BRkNN but computes the proximity between bags with a multi-instance
- * measure of distance.
+ * labels of BRkNN but uses a multi-instance measure of distance.
  * 
  * <em>[1] Eleftherios Spyromitros, Grigorios Tsoumakas, Ioannis Vlahavas: An
  * Empirical Study of Lazy Multilabel Classification Algorithms. In: Proc. 5th

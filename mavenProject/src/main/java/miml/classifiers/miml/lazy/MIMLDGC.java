@@ -22,8 +22,7 @@ import miml.classifiers.ml.MLDGC;
 /**
  * MIMLDGC is the adaptation to the MIML framework of the MLDGC[1] multi-label
  * algorithm. To perform this adaptation, MIMLDGC maintains the treatment of
- * labels of MLDGC but computes the proximity between bags with a multi-instance
- * measure of distance.
+ * labels of MLDGC but uses a multi-instance measure of distance.
  * 
  * <em> [1] Oscar Reyes, Carlos Morell, Sebastián Ventura (2016). Effective lazy
  * learning algorithm based on a data gravitation model for multi-label

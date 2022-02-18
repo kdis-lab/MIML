@@ -78,8 +78,8 @@ public class CrossValidationExperiment {
 		// MIML report
 		boolean printStd = true, printMetricsPerLabel = false, printHeader = true;
 		BaseMIMLReport report = new BaseMIMLReport(null, reportFileName, printStd, printMetricsPerLabel, printHeader);
-		ConfigParameters.setConfigFileName("Java app"); // value for ConfigurationFile column in the report
-		ConfigParameters.setDataFileName(arffFileName); // value for Dataset column in the report
+		ConfigParameters.setConfigFileName("Java app"); // value for ConfigurationFile column in the csv report
+		ConfigParameters.setDataFileName(arffFileName); // value for Dataset column in the csv report
 
 		// Cross-validation evaluator
 		EvaluatorCV cv = new EvaluatorCV(mimlDataSet, 5);
@@ -90,45 +90,46 @@ public class CrossValidationExperiment {
 		MIMLClassifierToMI mimltomi = new MIMLClassifierToMI(new MIMLLabelPowerset(new SimpleMI()));
 		MIMLClassifierToML mimltoml = new MIMLClassifierToML(new DMLkNN(), new GeometricTransformation());
 		MIMLBRkNN miml_brknn = new MIMLBRkNN(new MIMLDistanceFunction(new AverageHausdorff()));
-		MIMLRBF mimlrbf = new MIMLRBF(0.1, 0.6);
 		MIMLBagging mimlbagging = new MIMLBagging(
 				new MIMLClassifierToML(new LabelPowerset(new J48()), new MinMaxTransformation()), 10);
+		MIMLRBF mimlrbf = new MIMLRBF(0.1, 0.6); // MW classifier
 
 		System.out.println("\n");
 
 		System.out.println("-First example cross-validation using MIMLkNN:\n");
-		ConfigParameters.setAlgorithmName("MIMLkNN"); // value for Algorithm column in the report
+		ConfigParameters.setAlgorithmName("MIMLkNN"); // value for Algorithm column in the csv report
 		cv.runExperiment(mimlknn);
 		System.out.println(report.toString(cv) + "\n\n");
 		report.saveReport(report.toCSV(cv));
 		report.setHeader(false); // Header is shown just for the first row
 
 		System.out.println("-Second example cross-validation using MIMLtoMI transformation:\n");
-		ConfigParameters.setAlgorithmName("toMI_LP_SimpleMI"); // value for Algorithm column in the report
+		ConfigParameters.setAlgorithmName("toMI_LP_SimpleMI"); // value for Algorithm column in the csv report
 		cv.runExperiment(mimltomi);
 		System.out.println(report.toString(cv) + "\n\n");
 		report.saveReport(report.toCSV(cv));
 
 		System.out.println("-Third example cross-validation using MIMLtoML transformation:\n");
-		ConfigParameters.setAlgorithmName("toML_GT_DMLkNN"); // value for Algorithm column in the report
+		ConfigParameters.setAlgorithmName("toML_GT_DMLkNN"); // value for Algorithm column in the csv report
 		cv.runExperiment(mimltoml);
 		System.out.println(report.toString(cv));
 		report.saveReport(report.toCSV(cv));
 
 		System.out.println("-Fourth example cross-validation using MIML_BRkNN:\n");
-		ConfigParameters.setAlgorithmName("MIML_BRkNN_AveH"); // value for Algorithm column in the report
+		ConfigParameters.setAlgorithmName("MIML_BRkNN_AveH"); // value for Algorithm column in the csv report
 		cv.runExperiment(miml_brknn);
 		System.out.println(report.toString(cv));
 		report.saveReport(report.toCSV(cv));
 
 		System.out.println("-Fifth example cross-validation using MIMLRBF:\n");
-		ConfigParameters.setAlgorithmName("MIMLRBF"); // value for Algorithm column in the report
+		ConfigParameters.setAlgorithmName("MIMLRBF"); // value for Algorithm column in the csv report
 		cv.runExperiment(mimlrbf);
 		System.out.println(report.toString(cv));
 		report.saveReport(report.toCSV(cv));
+		mimlrbf.dispose(); // Dispose of native MW resources
 
 		System.out.println("-Sixth example cross-validation using MIMLBagging:\n");
-		ConfigParameters.setAlgorithmName("MIMLBagging_MMT_LP_J48"); // value for Algorithm column in the report
+		ConfigParameters.setAlgorithmName("MIMLBagging_MMT_LP_J48"); // value for Algorithm column in the csv report
 		cv.runExperiment(mimlbagging);
 		System.out.println(report.toString(cv));
 		report.saveReport(report.toCSV(cv));

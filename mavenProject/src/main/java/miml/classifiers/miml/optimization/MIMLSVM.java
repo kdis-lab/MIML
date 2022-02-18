@@ -114,6 +114,12 @@ public class MIMLSVM extends MWClassifier {
 	}
 
 	@Override
+	public void dispose() {
+		// Dispose of native MW resources
+		mimlsvm.dispose();
+	}
+
+	@Override
 	public void configure(Configuration configuration) {
 		this.type = configuration.getString("type", "RBF");
 		this.para = configuration.getString("para", "0.2");
@@ -124,7 +130,7 @@ public class MIMLSVM extends MWClassifier {
 	}
 
 	@Override
-	protected Object[] trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
+	protected void trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
 
 		MWCharArray typeIn = new MWCharArray(type);
 		MWCharArray paraIn = new MWCharArray(para);
@@ -140,10 +146,17 @@ public class MIMLSVM extends MWClassifier {
 		// Call in Matlab:
 		// [models, clustering]=MIMLSVM_run_train(train_bags,train_targets,type, para,
 		// cost, ratio, seed, h)
-		Object[] model = mimlsvm.MIMLSVM_run_train(nValuesReturned, train_bags, train_targets, typeIn, paraIn, costIn,
+		classifier = mimlsvm.MIMLSVM_run_train(nValuesReturned, train_bags, train_targets, typeIn, paraIn, costIn,
 				ratioIn, seedIn, hIn);
 
-		return model;
+		// Dispose of native MW resources
+		typeIn.dispose();
+		paraIn.dispose();
+		costIn.dispose();
+		hIn.dispose();
+		ratioIn.dispose();
+		seedIn.dispose();
+
 	}
 
 	@Override

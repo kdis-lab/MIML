@@ -98,6 +98,12 @@ public class MIMLRBF extends MWClassifier {
 		this.seed = seed;
 	}
 
+	@Override
+	public void dispose() {
+		// Dispose of native MW resources
+		mimlrbf.dispose();
+	}
+
 	/**
 	 * Returns the fraction parameter considered to build the classifier.
 	 * 
@@ -160,7 +166,7 @@ public class MIMLRBF extends MWClassifier {
 	}
 
 	@Override
-	protected Object[] trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
+	protected void trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
 
 		MWNumericArray ratioIn = new MWNumericArray(ratio, MWClassID.DOUBLE);
 		MWNumericArray muIn = new MWNumericArray(mu, MWClassID.DOUBLE);
@@ -172,10 +178,9 @@ public class MIMLRBF extends MWClassifier {
 
 		// Call in Matlab:
 		// [Centroids,Sigma_value,Weights]=MIMLRBF_run_train(train_bags,train_target,ratio,mu,seed)
-		Object[] model = mimlrbf.MIMLRBF_run_train(nValuesReturned, train_bags, train_targets, ratioIn, muIn, seedIn);
 
 		/**
-		 * Returns the trained classifier being
+		 * The trained classifier being:
 		 * <ul>
 		 * <li>classifier[0] the centroids. A Kx1 cell structure, where the k-th
 		 * centroid of the RBF neural network is stored in Centroid{k,1}</li>
@@ -185,7 +190,12 @@ public class MIMLRBF extends MWClassifier {
 		 * prediction</li>
 		 * </ul>
 		 */
-		return model;
+		classifier = mimlrbf.MIMLRBF_run_train(nValuesReturned, train_bags, train_targets, ratioIn, muIn, seedIn);
+
+		// Dispose of native MW resources
+		ratioIn.dispose();
+		muIn.dispose();
+		seedIn.dispose();
 	}
 
 	@Override

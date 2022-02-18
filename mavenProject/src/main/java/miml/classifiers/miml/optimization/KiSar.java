@@ -107,6 +107,12 @@ public class KiSar extends MWClassifier {
 	}
 
 	@Override
+	public void dispose() {
+		// Dispose of native MW resources
+		kisar.dispose();
+	}
+
+	@Override
 	public void configure(Configuration configuration) {
 		this.C = configuration.getDouble("C", 500);
 		this.iteration = configuration.getDouble("iteration", 20);
@@ -116,7 +122,7 @@ public class KiSar extends MWClassifier {
 	}
 
 	@Override
-	protected Object[] trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
+	protected void trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
 		MWNumericArray CIn = new MWNumericArray(C, MWClassID.DOUBLE);
 		MWNumericArray iterationIn = new MWNumericArray(iteration, MWClassID.DOUBLE);
 		MWNumericArray epsilonIn = new MWNumericArray(epsilon, MWClassID.DOUBLE);
@@ -130,9 +136,16 @@ public class KiSar extends MWClassifier {
 		// Call in Matlab:
 		// model=KiSar_run_train(train_bags, train_targets, C, iteration, epsilon, K,
 		// relationMethod)
-		Object[] model = kisar.KiSar_run_train(nValuesReturned, train_bags, train_targets, CIn, iterationIn, epsilonIn,
-				KIn, relationMethodIn);
-		return model;
+		classifier = kisar.KiSar_run_train(nValuesReturned, train_bags, train_targets, CIn, iterationIn, epsilonIn, KIn,
+				relationMethodIn);
+
+		// Dispose of native MW resources
+		CIn.dispose();
+		iterationIn.dispose();
+		epsilonIn.dispose();
+		KIn.dispose();
+		relationMethodIn.dispose();
+
 	}
 
 	@Override

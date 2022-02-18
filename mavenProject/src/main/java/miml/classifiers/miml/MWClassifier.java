@@ -41,7 +41,10 @@ public abstract class MWClassifier extends MIMLClassifier {
 	/** Wrapper for Matlab data types. */
 	protected MWTranslator wrapper;
 
-	/** It will store the trained classifier. */
+	/**
+	 * It will store the trained classifier. The number of elements will be the same
+	 * as elements returns the native MW classifier.
+	 */
 	protected Object[] classifier = null;
 
 	@Override
@@ -51,8 +54,11 @@ public abstract class MWClassifier extends MIMLClassifier {
 		MWCellArray train_bags = wrapper.getBags();
 		MWNumericArray train_targets = wrapper.getLabels();
 
-		classifier = trainMWClassifier(train_bags, train_targets);
+		trainMWClassifier(train_bags, train_targets);
 
+		// Dispose of native MW resources
+		train_bags.dispose();
+		train_targets.dispose();
 	}
 
 	@Override
@@ -63,17 +69,15 @@ public abstract class MWClassifier extends MIMLClassifier {
 
 		Object[] prediction = predictMWClassifier(train_bags, train_targets, test_bag);
 
-		// Only if outputs were being considered
-		// double outputs[] = null;
-		// if (prediction[0] != null) {
-		// if (prediction[0] instanceof MWNumericArray) {
-		// outputs = ((MWNumericArray) prediction[0]).getDoubleData();
-		// }
-
 		double pre_labels[] = null;
 		if (prediction[1] instanceof MWNumericArray) {
 			pre_labels = ((MWNumericArray) prediction[1]).getDoubleData();
 		}
+
+		// Dispose of native MW resources
+		train_bags.dispose();
+		train_targets.dispose();
+		test_bag.dispose();
 
 		boolean bipartition[] = new boolean[numLabels];
 		double confidences[] = new double[numLabels];
@@ -102,11 +106,8 @@ public abstract class MWClassifier extends MIMLClassifier {
 	 *                      aDoubleArray(j,i) equals +1, otherwise train_target(j,i)
 	 *                      equals -1.
 	 * @throws MWException To be handled.
-	 * @return An array of object. The number of elements will be the same as
-	 *         elements returns function classifier.CLASSIFIER_run_train.
 	 */
-	protected abstract Object[] trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets)
-			throws MWException;
+	protected abstract void trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException;
 
 	/**
 	 * Performs a prediction on a test bag.
@@ -133,4 +134,12 @@ public abstract class MWClassifier extends MIMLClassifier {
 	 */
 	protected abstract Object[] predictMWClassifier(MWCellArray train_bags, MWNumericArray train_targets,
 			MWNumericArray test_bag) throws MWException;
+
+	/**
+	 * Disposes native MW classifier. This method should be called if the classifier
+	 * is not been used anymore in the program in order to free the memory that the
+	 * MW classifier was using.
+	 */
+	public abstract void dispose();
+
 }

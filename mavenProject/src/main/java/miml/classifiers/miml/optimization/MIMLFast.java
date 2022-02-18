@@ -124,6 +124,12 @@ public class MIMLFast extends MWClassifier {
 	}
 
 	@Override
+	public void dispose() {
+		// Dispose of native MW resources
+		mimlfast.dispose();
+	}
+
+	@Override
 	public void configure(Configuration configuration) {
 		this.D = configuration.getInt("D", 100);
 		this.norm_up = configuration.getInt("normUp", 10);
@@ -137,7 +143,7 @@ public class MIMLFast extends MWClassifier {
 	}
 
 	@Override
-	protected Object[] trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
+	protected void trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
 
 		MWNumericArray DIn = new MWNumericArray(D, MWClassID.DOUBLE);
 		MWNumericArray norm_upIn = new MWNumericArray(norm_up, MWClassID.DOUBLE);
@@ -157,18 +163,28 @@ public class MIMLFast extends MWClassifier {
 		// [AW,AV,Anum]=MIMLFast_run_train(train_bags,train_targets,D, norm_up, maxiter,
 		// step_size, lambda, num_sub, opts_norm, opts_average_size,
 		// opts_average_begin);
-		Object[] model = mimlfast.MIMLFast_run_train(nValuesReturned, train_bags, train_targets, DIn, norm_upIn,
-				maxiterIn, step_sizeIn, lambdaIn, num_subIn, opts_normIn, opts_average_sizeIn, opts_average_beginIn);
 
 		/**
-		 * Returns the trained model being
+		 * The trained classifier being:
 		 * <ul>
 		 * <li>classifier[0] AW. A numBagsxnumFeaturesperBag array of double.</li>
 		 * <li>classifier[1] AV. An array of double.</li>
 		 * <li>classifier[2] Anum. An integer value.</li>
 		 * </ul>
 		 */
-		return model;
+		classifier = mimlfast.MIMLFast_run_train(nValuesReturned, train_bags, train_targets, DIn, norm_upIn, maxiterIn,
+				step_sizeIn, lambdaIn, num_subIn, opts_normIn, opts_average_sizeIn, opts_average_beginIn);
+
+		// Dispose of native MW resources
+		DIn.dispose();
+		norm_upIn.dispose();
+		maxiterIn.dispose();
+		step_sizeIn.dispose();
+		lambdaIn.dispose();
+		num_subIn.dispose();
+		opts_normIn.dispose();
+		opts_average_sizeIn.dispose();
+		opts_average_beginIn.dispose();
 	}
 
 	@Override
@@ -185,6 +201,9 @@ public class MIMLFast extends MWClassifier {
 		// [Outputs,Pre_Labels]=MIMLFast_run_test(aBag, AW,AV,Anum, num_sub)
 		Object[] prediction = mimlfast.MIMLFast_run_test(nValuesReturned, test_bag, classifier[0], classifier[1],
 				classifier[2], num_subIn);
+
+		// Dispose of native MW resources
+		num_subIn.dispose();
 
 		return prediction;
 	}

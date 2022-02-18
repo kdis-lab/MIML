@@ -110,6 +110,12 @@ public class MIMLWel extends MWClassifier {
 	}
 
 	@Override
+	public void dispose() {
+		// Dispose of native MW resources
+		mimlwel.dispose();
+	}
+
+	@Override
 	public void configure(Configuration configuration) {
 		this.opts_C = configuration.getDouble("C", 50);
 		this.opts_m = configuration.getDouble("m", 1);
@@ -121,7 +127,7 @@ public class MIMLWel extends MWClassifier {
 	}
 
 	@Override
-	protected Object[] trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
+	protected void trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
 
 		MWNumericArray opts_CIn = new MWNumericArray(opts_C, MWClassID.DOUBLE);
 		MWNumericArray opts_mIn = new MWNumericArray(opts_m, MWClassID.DOUBLE);
@@ -139,10 +145,18 @@ public class MIMLWel extends MWClassifier {
 		// [Centroids,centroid_index,num_cluster,Dist,model]=MIMLWel_run_train(train_bags,train_targets,opts_C,
 		// opts_m, opts_beta,
 		// opts_iteration, opts_epsilon, ratio, mu);
-		Object[] model = mimlwel.MIMLWel_run_train(nValuesReturned, train_bags, train_targets, opts_CIn, opts_mIn,
+		classifier = mimlwel.MIMLWel_run_train(nValuesReturned, train_bags, train_targets, opts_CIn, opts_mIn,
 				opts_betaIn, opts_iterationIn, opts_epsilonIn, ratioIn, muIn);
 
-		return model;
+		// Dispose of native MW resources
+		opts_CIn.dispose();
+		opts_mIn.dispose();
+		opts_betaIn.dispose();
+		opts_iterationIn.dispose();
+		opts_epsilonIn.dispose();
+		ratioIn.dispose();
+		muIn.dispose();
+
 	}
 
 	@Override
@@ -160,6 +174,8 @@ public class MIMLWel extends MWClassifier {
 		// Centroids,centroid_index,num_cluster,Dist, model)
 		Object[] prediction = mimlwel.MIMLWel_run_test(nValuesReturned, test_bag, muIn, classifier[0], classifier[1],
 				classifier[2], classifier[3], classifier[4]);
+
+		// Dispose of native MW resources
 
 		return prediction;
 	}
@@ -289,4 +305,5 @@ public class MIMLWel extends MWClassifier {
 	public void setMu(double mu) {
 		this.mu = mu;
 	}
+
 }

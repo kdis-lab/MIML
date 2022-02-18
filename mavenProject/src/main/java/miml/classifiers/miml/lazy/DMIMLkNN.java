@@ -22,8 +22,7 @@ import mulan.classifier.lazy.DMLkNN;
 /**
  * DMIMLkNN is the adaptation to the MIML framework of the DMLkNN[1] multi-label
  * algorithm. To perform this adaptation, DMIMLkNN maintains the treatment of
- * labels of DMLkNN but computes the proximity between bags with a
- * multi-instance measure of distance.
+ * labels of DMLkNN but uses a multi-instance measure of distance.
  * 
  * <em>[1] Zoulficar Younes, Fahed Abdallah, Thierry Denceaux (2008).
  * Multi-label classification algorithm derived from k-nearest neighbor rule

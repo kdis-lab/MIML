@@ -99,6 +99,12 @@ public class EnMIMLNNmetric extends MWClassifier {
 		this.seed = seed;
 	}
 
+	@Override
+	public void dispose() {
+		// Dispose of native MW resources
+		enmimlnn.dispose();
+	}
+
 	/**
 	 * Returns the fraction parameter considered to build the classifier.
 	 * 
@@ -161,7 +167,7 @@ public class EnMIMLNNmetric extends MWClassifier {
 	}
 
 	@Override
-	protected Object[] trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
+	protected void trainMWClassifier(MWCellArray train_bags, MWNumericArray train_targets) throws MWException {
 
 		MWNumericArray ratioIn = new MWNumericArray(ratio, MWClassID.DOUBLE);
 		MWNumericArray muIn = new MWNumericArray(mu, MWClassID.DOUBLE);
@@ -173,11 +179,9 @@ public class EnMIMLNNmetric extends MWClassifier {
 
 		// Call in Matlab:
 		// [Centroids,Sigma_value,Weights]=EnMIMLNNmetric_run_train(train_bags,train_target,ratio,mu,seed)
-		Object model[] = enmimlnn.EnMIMLNNmetric_run_train(nValuesReturned, train_bags, train_targets, ratioIn, muIn,
-				seedIn);
 
 		/**
-		 * Returns the trained classifier being
+		 * The trained classifier being:
 		 * <ul>
 		 * <li>classifier[0] the centroids. A Kx1 cell structure, where the k-th
 		 * centroid of the RBF neural network is stored in Centroid{k,1}</li>
@@ -187,7 +191,13 @@ public class EnMIMLNNmetric extends MWClassifier {
 		 * prediction</li>
 		 * </ul>
 		 */
-		return model;
+		classifier = enmimlnn.EnMIMLNNmetric_run_train(nValuesReturned, train_bags, train_targets, ratioIn, muIn,
+				seedIn);
+
+		// Dispose of native MW resources
+		ratioIn.dispose();
+		muIn.dispose();
+		seedIn.dispose();
 	}
 
 	@Override
@@ -204,8 +214,7 @@ public class EnMIMLNNmetric extends MWClassifier {
 		Object[] prediction = enmimlnn.EnMIMLNNmetric_run_test(nValuesReturned, test_bag, classifier[0], classifier[1],
 				classifier[2]);
 
-		prediction[0] = null; // Predictions are not probabilities
-
 		return prediction;
 	}
+
 }
