@@ -80,7 +80,7 @@ MIML includes a set of algorithms according to the following three approaches:
 
 3 **MIML solving without transformation**. Currently the following algorithms have been included:
   * Ensembles: Bagging
-  * Instance-baed: MIMLkNN, MIMLIBLR, MIMLBRkNN, DMIMLkNN, MIMLMAPkNN.
+  * Instance-based: MIMLkNN, MIMLIBLR, MIMLBRkNN, DMIMLkNN, MIMLMAPkNN.
   * ANNs: MIMLRBF, MIMLNN, EnMIMLNNmetric
   * Other optimization: MIMLFast, KiSar, MIMLWell, MIMLSVM
   
