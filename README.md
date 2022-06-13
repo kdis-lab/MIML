@@ -151,7 +151,7 @@ bag2,"12,-98,10\n42.5,-19,-12",0,1,1,0
 ```   
 
 ## Citation
-This work has been performed by A. Belmonte, A. Zafra and E. Gibaja and is currently in a reviewing process.
+Belmonte, Á., Zafra, A., & Gibaja, E. (2022). MIML library: a Modular and Flexible Library for Multi-instance Multi-label Learning. *Neurocomputing*, *500*, 632-636. https://doi.org/10.1016/j.neucom.2022.05.068
 
 ## License
 MIML library is released under the GNU General Public License [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html).
