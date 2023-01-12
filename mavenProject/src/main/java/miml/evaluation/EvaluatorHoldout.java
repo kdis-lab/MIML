@@ -30,7 +30,6 @@ import mulan.data.InvalidDataFormatException;
 import mulan.evaluation.Evaluation;
 import mulan.evaluation.Evaluator;
 
-// TODO: Auto-generated Javadoc
 /**
  * Class that allow evaluate an algorithm applying a holdout method.
  *
@@ -56,11 +55,8 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	/** Test time in milliseconds. */
 	protected long testTime;
 
-	/** Seed for randomization */
-	protected int seed = 1;
-
 	/**
-	 * Instantiates a new Holdout evaluator.
+	 * Instantiates a new holdout evaluator with provided train and test partitions.
 	 *
 	 * @param trainData The train data used in the experiment.
 	 * @param testData  The test data used in the experiment.
@@ -72,15 +68,33 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	}
 
 	/**
-	 * Instantiates a new Holdout evaluator.
+	 * Instantiates a new holdout evaluator with random partitioning method.
 	 *
 	 * @param mimlDataSet     The dataset to be used.
 	 * @param percentageTrain The percentage of train.
 	 * @throws Exception If occur an error during holdout experiment.
 	 */
 	public EvaluatorHoldout(MIMLInstances mimlDataSet, double percentageTrain) throws Exception {
+		this(mimlDataSet, percentageTrain, 1, 1);
+	}
 
-		List<MIMLInstances> list = MIMLInstances.splitData(mimlDataSet, percentageTrain, seed);
+	/**
+	 * Instantiates a new Holdout evaluator with a partitioning method and a seed.
+	 *
+	 * @param mimlDataSet     The dataset to be used.
+	 * @param percentageTrain The percentage of train.
+	 * @param seed Seed for randomization.
+	 * @param method partitioning method.
+	 * <ul>
+	 * <li> 1 random partitioning </li>
+	 * <li> 2 powerset partitioning </li>
+	 * <li> 3 iterative partitioning </li>
+	 * </ul>
+	 * @throws Exception If occur an error during holdout experiment.
+	 */
+	public EvaluatorHoldout(MIMLInstances mimlDataSet, double percentageTrain, int seed, int method) throws Exception {
+
+		List<MIMLInstances> list = MIMLInstances.splitData(mimlDataSet, percentageTrain, seed, method);
 		this.trainData = list.get(0);
 		this.testData = list.get(1);
 	}
@@ -122,23 +136,6 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 		}
 	}
 
-	/**
-	 * Gets the seed used in the experiment.
-	 *
-	 * @return The seed.
-	 */
-	public int getSeed() {
-		return seed;
-	}
-
-	/**
-	 * Sets the seed used in the experiment.
-	 *
-	 * @param seed The new seed.
-	 */
-	public void setSeed(int seed) {
-		this.seed = seed;
-	}
 
 	/**
 	 * Gets the time spent in training.
@@ -177,6 +174,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 		return testData;
 	}
 
+
 	/*
 	 * @see
 	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
@@ -186,14 +184,25 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 
 		String arffFileTrain = configuration.subset("data").getString("trainFile");
 		String xmlFileName = configuration.subset("data").getString("xmlFile");
-		String arffFileTest = configuration.subset("data").getString("testFile");
-		seed = configuration.getInt("seed", 1);
+		String arffFileTest = configuration.subset("data").getString("testFile");		
 
 		try {
 
 			if (arffFileTest == null) {
-				List<MIMLInstances> list = MIMLInstances.splitData(new MIMLInstances(arffFileTrain, xmlFileName),
-						configuration.subset("data").getDouble("percentageTrain", 80), seed);
+				// if partitioning method is not provided it will be random partitioning
+				String partitioning = configuration.getString("partitionMethod", "random");
+				int method = 1; // by default random partitioning
+
+				if (partitioning.equals("random"))
+					method = 1;
+				if (partitioning.equals("powerset"))
+					method = 2;
+				if (partitioning.equals("iterative"))
+					method = 3;
+
+				int seed = configuration.getInt("seed", 1);
+				double percentageTrain = configuration.getDouble("percentageTrain", 80);
+				List<MIMLInstances> list = MIMLInstances.splitData(new MIMLInstances(arffFileTrain, xmlFileName), percentageTrain, seed, method);
 				this.trainData = list.get(0);
 				this.testData = list.get(1);
 			} else {

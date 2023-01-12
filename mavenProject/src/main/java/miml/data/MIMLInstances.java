@@ -17,8 +17,10 @@ package miml.data;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
+import miml.data.partitioning.iterative.IterativeTrainTest;
+import miml.data.partitioning.powerset.LabelPowersetTrainTest;
+import miml.data.partitioning.random.RandomTrainTest;
 import mulan.data.InvalidDataFormatException;
 import mulan.data.LabelsMetaData;
 import mulan.data.MultiLabelInstances;
@@ -26,8 +28,6 @@ import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
-import weka.filters.Filter;
-import weka.filters.unsupervised.instance.RemovePercentage;
 
 /**
  * 
@@ -88,6 +88,17 @@ public class MIMLInstances extends MultiLabelInstances {
 	 */
 	public MIMLInstances(String arffFilePath, int numLabelAttributes) throws InvalidDataFormatException {
 		super(arffFilePath, numLabelAttributes);
+	}
+	
+	/**
+	 * Constructor.
+	 * 
+	 * @param mimlDataSet  A datasetof {@link MIMLInstances}.	  
+	 * @throws InvalidDataFormatException To be handled in an upper level.
+	 */
+	public MIMLInstances(MIMLInstances mimlDataSet) throws InvalidDataFormatException 
+	{
+		super(mimlDataSet.getDataSet(), mimlDataSet.getLabelsMetaData());
 	}
 
 	/**
@@ -369,38 +380,48 @@ public class MIMLInstances extends MultiLabelInstances {
 		return new MIMLInstances(instances, this.getLabelsMetaData());
 	}
 
+	
+	
 	/**
-	 * Split MIML data in train and test partition given a percentage.
+	 * Split MIML data train and test partition given a percentage and a partitioning method.
 	 *
 	 * @param mimlDataSet     The MIML dataset to be splited.
-	 * @param percentageTrain The percentage (0-100) to be used in train.
+	 * @param percentageTrain The percentage (0-100) to be used for train.
 	 * @param seed            Seed use to randomize.
+	 * @param partitioningMethod An integer with the partitioning method:
+	 * <ul>
+	 * <li> 1 random partitioning </li>
+	 * <li> 2 powerset partitioning </li>
+	 * <li> 3 iterative partitioning </li>
+	 * </ul>
 	 * @return A list with the dataset splited.
 	 * @throws Exception To be handled in an upper level.
 	 */
-	public static List<MIMLInstances> splitData(MIMLInstances mimlDataSet, double percentageTrain, int seed)
+	public static List<MIMLInstances> splitData(MIMLInstances mimlDataSet, double percentageTrain, int seed, int partitioningMethod)
 			throws Exception {
 		// splits the data set into train and test
 		// copy of original data
-		Instances dataSet = new Instances(mimlDataSet.getDataSet());
-		dataSet.randomize(new Random(seed));
-
-		// obtains train set
-		RemovePercentage rmvp = new RemovePercentage();
-		rmvp.setInvertSelection(true);
-		rmvp.setPercentage(percentageTrain);
-		rmvp.setInputFormat(dataSet);
-		Instances trainDataSet = Filter.useFilter(dataSet, rmvp);
-
-		// obtains test set
-		rmvp = new RemovePercentage();
-		rmvp.setPercentage(percentageTrain);
-		rmvp.setInputFormat(dataSet);
-		Instances testDataSet = Filter.useFilter(dataSet, rmvp);
-
+		MultiLabelInstances[] partitions = null;
+		
+		switch (partitioningMethod)
+		{	
+			case 1: 
+				RandomTrainTest engineRandom = new RandomTrainTest(seed, mimlDataSet);			        
+		        partitions = engineRandom.split(percentageTrain);
+		        break;
+			case 2:    
+		        LabelPowersetTrainTest engineLP = new LabelPowersetTrainTest(seed, mimlDataSet);
+		        partitions = engineLP.split(percentageTrain);
+		        break;
+		    case 3: 
+		        IterativeTrainTest engineIterative = new IterativeTrainTest(seed, mimlDataSet);
+		        partitions = engineIterative.split(percentageTrain);
+		        break;
+		}
+		
 		List<MIMLInstances> datasets = new ArrayList<MIMLInstances>();
-		datasets.add(new MIMLInstances(trainDataSet, mimlDataSet.getLabelsMetaData()));
-		datasets.add(new MIMLInstances(testDataSet, mimlDataSet.getLabelsMetaData()));
+		datasets.add(new MIMLInstances(partitions[0].getDataSet(), partitions[0].getLabelsMetaData()));
+		datasets.add(new MIMLInstances(partitions[1].getDataSet(), partitions[1].getLabelsMetaData()));
 
 		return datasets;
 	}

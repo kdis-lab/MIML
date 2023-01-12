@@ -205,7 +205,7 @@ public class RandomCrossValidation extends CrossValidationBase {
 		}
 
 		// Checking
-		System.out.println("currentInstances/realInstances (may be duplicated): " + totalAssigned + "/" + numInstances);
+		System.out.println("\nRandom partitioning:\ncurrentInstances/realInstances (may be duplicated): " + totalAssigned + "/" + numInstances);
 		for (int f = 0; f < nFolds; f++)
 			System.out.println("Fold " + f + ": " + Folds[f].getDataSet().numInstances() + " patterns");
 		/*

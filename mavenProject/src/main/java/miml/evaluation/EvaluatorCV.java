@@ -33,7 +33,10 @@ import mulan.evaluation.MultipleEvaluation;
 import weka.core.Instances;
 
 /**
- * Class that allow evaluate an algorithm applying a cross-validation method.
+ * Class that allow evaluate an algorithm applying a cross-validation method
+ * with random partitioning. This class uses weka.core.Instances.trainCV and
+ * weka.core.Instances.testCV so there is not guarantee of having examples of
+ * all labels in the partitioned data.
  * 
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
@@ -61,7 +64,7 @@ public class EvaluatorCV implements IConfiguration, IEvaluator<MultipleEvaluatio
 	protected long testTime[];
 
 	/**
-	 * Instantiates a new Holdout evaluator.
+	 * Instantiates a new CV evaluator.
 	 *
 	 * @param data     The data used in the experiment.
 	 * @param numFolds The number of folds used in the cross-validation.

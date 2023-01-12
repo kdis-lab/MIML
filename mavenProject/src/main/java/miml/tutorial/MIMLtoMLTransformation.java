@@ -118,6 +118,7 @@ public class MIMLtoMLTransformation {
 		String xmlFileResultPropositional = "data" + File.separator + "resultPropositional.xml";
 
 		PropositionalTransformation propositional = new PropositionalTransformation(mimlDataSet);
+		propositional.setIncludeBagId(true); //by default the bagID attribute is not included
 		// Transforms a single instance
 		result = propositional.transformInstance(mimlDataSet.getBag(0));
 

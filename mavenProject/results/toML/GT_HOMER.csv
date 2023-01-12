@@ -1,2 +1,2 @@
 Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
-MIMLClassifierToML,mulan.classifier.meta.HOMER,miml.transformation.mimlTOml.GeometricTransformation,miml_birds_random_80train.arff,MIMLtoML_GT_HOMER.config,507,164,0.14068825910931176,0.11538461538461539,0.3470133667502089,0.36328996839806466
+MIMLClassifierToML,mulan.classifier.meta.HOMER,miml.transformation.mimlTOml.GeometricTransformation,miml_birds_random_80train.arff,MIMLtoML_GT_HOMER.config,471,186,0.1548582995951417,0.07692307692307693,0.3449372265161738,0.3416423908234097

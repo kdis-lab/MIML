@@ -10,6 +10,7 @@ miml.classifiers.ml
 miml.core
 miml.core.distance
 miml.data
+miml.data.normalization
 miml.data.partitioning
 miml.data.partitioning.iterative
 miml.data.partitioning.powerset

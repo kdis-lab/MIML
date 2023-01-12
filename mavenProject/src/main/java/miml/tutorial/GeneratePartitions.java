@@ -50,14 +50,15 @@ public class GeneratePartitions {
 
 		// Action
 		System.out.println("\t -t|c value");
-		System.out.println("\t\t -t double_percentage ->  train-test and train percentage");
-		System.out.println("\t\t -c integer_nFolds  -> cross-validation and number of folds");
+		System.out.println("\t\t -t double_percentageTrain ->  train-test partitioning and train percentage");
+		System.out.println("\t\t -c integer_nFolds  -> cross-validation partitioning and number of folds");
 
 		// Options
-		System.out.println("\t -s 0|1|2");
-		System.out.println("\t\t -s 0 ->  random  stratification. For classification and regression (by default)");
-		System.out.println("\t\t -s 1 ->  iterative stratification. Just for classification");
+		System.out.println("\t -s 1|2|3");
+		System.out.println("\t\t -s 1 ->  random  stratification. For classification and regression (by default)");
 		System.out.println("\t\t -s 2 ->  label powerset stratification. Just for classification");
+		System.out.println("\t\t -s 3 ->  iterative stratification. Just for classification");
+		
 
 		// Output
 		System.out.println("\t -o OutputFile (without extension)");
@@ -70,7 +71,7 @@ public class GeneratePartitions {
 		System.out.println("java -jar GeneratePartitions -f toy.arff -x toy.xml -t 80 -s 1  -o outputFolder"
 				+ File.separator + "toy");
 		System.out.println("java -jar GeneratePartitions -f data" + File.separator + "toy.arff -x data" + File.separator
-				+ "toy.xml -c 10 -s 0 -o toy");
+				+ "toy.xml -c 10 -s 1 -o toy");
 
 		System.exit(-1);
 	}
@@ -91,11 +92,11 @@ public class GeneratePartitions {
 	 *             folds</li>
 	 *             </ul>
 	 *             </li>
-	 *             <li>-s 0|1|2
+	 *             <li>-s 1|2|3
 	 *             <ul>
-	 *             <li>-s 0 -&gt; random stratification (by default)</li>
-	 *             <li>-s 1 -&gt; iterative stratification</li>
+	 *             <li>-s 1 -&gt; random stratification (by default)</li>
 	 *             <li>-s 2 -&gt; label powerset stratification</li>
+	 *             <li>-s 3 -&gt; iterative stratification</li>
 	 *             </ul>
 	 *             *
 	 *             <li>-o OutputFile (without extension)
@@ -120,7 +121,7 @@ public class GeneratePartitions {
 		// Gets option values
 		String arffName = Utils.getOption("f", args);
 		String sTargets = Utils.getOption("x", args);
-		String percentage = Utils.getOption("t", args);
+		String percentageTrain = Utils.getOption("t", args);
 		String folds = Utils.getOption("c", args);
 		String outputFile = Utils.getOption("o", args);
 		String stratification = Utils.getOption("s", args);
@@ -139,7 +140,7 @@ public class GeneratePartitions {
 			System.out.println("Error: Empty output file");
 			error = true;
 		}
-		if (percentage.equals("") && folds.equals("")) {
+		if (percentageTrain.equals("") && folds.equals("")) {
 			System.out.println("Error: Unspecified -t or -c option");
 			error = true;
 		}
@@ -153,29 +154,29 @@ public class GeneratePartitions {
 		// Loads the dataset
 		mlDataSet = new MultiLabelInstances(arffName, sTargets);
 
-		if (!percentage.equalsIgnoreCase("")) {
+		if (!percentageTrain.equalsIgnoreCase("")) {
 			// The percentage option is not empty
 			// Train-test
-			double percentageValue = Double.parseDouble(percentage);
-			if (stratification.contentEquals("1")) {
+			double percentageValue = Double.parseDouble(percentageTrain);
+			if (stratification.contentEquals("3")) {
 				// Iterative stratification
-				System.out.println("\nPerforming iterative train-test partitioning (" + percentage + " train)...");
+				System.out.println("\nPerforming iterative train-test partitioning (" + percentageTrain + " train)...");
 				IterativeTrainTest engine = new IterativeTrainTest(mlDataSet);
 				partitions = engine.split(percentageValue);
 			} else if (stratification.contentEquals("2")) {
 				// Labelpowerset stratification
-				System.out.println("\nPerforming label powerset train-test partitioning (" + percentage + " train)...");
+				System.out.println("\nPerforming label powerset train-test partitioning (" + percentageTrain + " train)...");
 				LabelPowersetTrainTest engine = new LabelPowersetTrainTest(mlDataSet);
 				partitions = engine.split(percentageValue);
 			} else {
 				// Random (default option)
-				System.out.println("\nPerforming random train-test partitioning (" + percentage + " train)...");
+				System.out.println("\nPerforming random train-test partitioning (" + percentageTrain + " train)...");
 				RandomTrainTest engine = new RandomTrainTest(mlDataSet);
 				partitions = engine.split(percentageValue);
 
 			}
 			// Save the train-test partition
-			String aux = new String(outputFile + "_" + percentage + "train");
+			String aux = new String(outputFile + "_" + percentageTrain + "train");
 			MLSave.saveArff(partitions[0], new String(aux + ".arff"));
 			aux = new String(outputFile + "_" + (100 - (int) percentageValue) + "test");
 			MLSave.saveArff(partitions[1], new String(aux + ".arff"));
@@ -183,7 +184,7 @@ public class GeneratePartitions {
 		} else {
 			// Cross-validation
 			int foldsValue = Integer.parseInt(folds);
-			if (stratification.contentEquals("1")) {
+			if (stratification.contentEquals("3")) {
 				// Iterative stratification
 				System.out.println("\nPerforming iterative cross-validation partitioning (" + folds + " folds)...");
 				IterativeCrossValidation engine = new IterativeCrossValidation(mlDataSet);

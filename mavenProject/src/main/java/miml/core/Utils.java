@@ -17,6 +17,8 @@ package miml.core;
 
 import java.util.ArrayList;
 import org.apache.commons.configuration2.Configuration;
+
+import weka.classifiers.AbstractClassifier;
 import weka.core.Instances;
 import weka.filters.Filter;
 import weka.filters.unsupervised.instance.Resample;
@@ -29,7 +31,7 @@ import weka.filters.unsupervised.instance.Resample;
  * @author Alvaro A. Belmonte
  * @author Eva Gibaja
  * @author Amelia Zafra
- * @version 20200626
+ * @version 20220613
  *
  */
 public final class Utils {
@@ -40,7 +42,7 @@ public final class Utils {
 	 * @param data                  Instances with the dataset.
 	 * @param percentage            percentage of instances that will contain the
 	 *                              new dataset.
-	 * @param sampleWithReplacement If true the sample will be with replacement.
+	 * @param sampleWithReplacement If true the sampling will be with replacement.
 	 * @param seed                  Seed for randomization. Necessary if instances
 	 *                              have not been previously shuffled with
 	 *                              randomize.
@@ -119,21 +121,26 @@ public final class Utils {
 				objects[i] = configuration.getLong("parameters.parameter(" + i + ")[@value]");
 				break;
 			default:
-				try {
+				try { 
 					classes[i] = Class.forName(className);
 					if (classes[i].isEnum()) {
 						objects[i] = Enum.valueOf(classes[i].asSubclass(Enum.class),
 								configuration.getString("parameters.parameter(" + i + ")[@value]"));
-					} else {
+					} else { 
+						//The parameter is a weka algorithm						
 						if (subparams == null) {
 							objects[i] = Class
 									.forName(configuration.getString("parameters.parameter(" + i + ")[@value]"))
-									.getConstructor().newInstance();
+									.getConstructor().newInstance();							
 						} else {
 							objects[i] = Class
 									.forName(configuration.getString("parameters.parameter(" + i + ")[@value]"))
 									.getConstructor(subparams.getClasses()).newInstance(subparams.getObjects());
 						}
+						String options = configuration.getString("parameters.parameter(" + i + ")[@listOptions]");
+						if(options!=null) //There are options for the weka classifier
+							   ((AbstractClassifier)objects[i]).setOptions(weka.core.Utils.splitOptions(options));
+
 					}
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -123,7 +123,7 @@ public class MIMLClassifierToMI extends MIMLClassifier {
 			e.printStackTrace();
 		}
 
-		// Check if options is setted
+		// Check if options is set
 		String strOptions = configuration.subset("multiInstanceClassifier").getString("listOptions");
 		if (strOptions != null) {
 			try {

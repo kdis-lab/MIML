@@ -87,5 +87,49 @@ public class AverageHausdorff extends HausdorffDistance {
 
 		return (sumU + sumV) / (first.size() + second.size());
 	}
+	
+	/* PRUEBA PARA ASEGURARME QUE FUNCIONA BIEN LA FUNCIÓN DE DISTANCIA DE ARRIBA
+	public double distance(Instances first, Instances second) throws Exception {
 
+		int nInstancesB1 = first.size();		
+		int nInstancesB2 = second.size();
+		
+		double distances[][] = new double[nInstancesB1][nInstancesB2];	
+		
+		for (int i = 0; i < first.size(); ++i) {
+
+			Instance u = first.instance(i);	
+
+			for (int j = 0; j < second.size(); ++j) {
+
+				Instance v = second.instance(j);
+				distances[i][j] = dfun.distance(u, v);
+			}		
+		}
+
+		double sumU = 0.0;
+		for (int i = 0; i < first.size(); ++i) {			
+			double minDistance = Double.MAX_VALUE;
+			for (int j = 0; j < second.size(); ++j) {
+				if (distances[i][j]<minDistance)
+					minDistance = distances[i][j];
+			}
+			sumU+=minDistance;
+		}
+		
+		double sumV = 0.0;
+		for (int j = 0; j < second.size(); ++j) {			
+			double minDistance = Double.MAX_VALUE;
+			for (int i = 0; i < first.size(); ++i) {
+				if (distances[i][j]<minDistance)
+					minDistance = distances[i][j];
+			}
+			sumU+=minDistance;
+		}	
+
+		//System.out.println("Hola: "+(sumU + sumV) / (first.size() + second.size()));
+
+		return (sumU + sumV) / (first.size() + second.size());
+	}*/
+	
 }

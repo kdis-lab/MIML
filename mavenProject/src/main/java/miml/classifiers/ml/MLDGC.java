@@ -200,7 +200,7 @@ public class MLDGC extends MultiLabelKNN {
 		PdisF = PdisF / k;
 		PdisY_disF = PdisY_disF / k;
 		if ((PdisY == 0 || PdisY == 1))
-			weight = 0;
+			weight = 0; //PROBAR CON 1
 		else
 			weight = ((PdisY_disF * PdisF) / PdisY) - (((1 - PdisY_disF) * PdisF) / (1 - PdisY));
 

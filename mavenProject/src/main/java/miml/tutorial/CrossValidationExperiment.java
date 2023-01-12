@@ -78,7 +78,9 @@ public class CrossValidationExperiment {
 		// MIML report
 		boolean printStd = true, printMetricsPerLabel = false, printHeader = true;
 		BaseMIMLReport report = new BaseMIMLReport(null, reportFileName, printStd, printMetricsPerLabel, printHeader);
-		ConfigParameters.setConfigFileName("Java app"); // value for ConfigurationFile column in the csv report
+		ConfigParameters.setConfigFileName("Java app"); // value for ConfigurationFile column in the csv report. As the
+														// experiment does not use any configuration file, "Java app"
+														// has been set to avoid an empty column
 		ConfigParameters.setDataFileName(arffFileName); // value for Dataset column in the csv report
 
 		// Cross-validation evaluator

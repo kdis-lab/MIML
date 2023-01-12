@@ -149,7 +149,7 @@ public class RandomTrainTest extends TrainTestBase {
 			}
 		}
 
-		System.out.println("\nnLabels: " + numLabels + " Covered: " + nCoveredLabels);
+		System.out.println("\nRandom partitioning:\nnumLabels: " + numLabels + " Covered: " + nCoveredLabels);
 		int currentTrain = Partition[0].getNumInstances();
 		int currentTest = Partition[1].getNumInstances();
 		System.out.println("\nTotal instances: " + numInstances + " Expected train: " + nTrain);

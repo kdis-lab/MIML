@@ -18,6 +18,7 @@ package miml.tutorial;
 import java.io.File;
 
 import miml.classifiers.miml.lazy.MIMLkNN;
+import miml.core.ConfigParameters;
 import miml.core.distance.MaximalHausdorff;
 import miml.data.MIMLInstances;
 import miml.evaluation.EvaluatorHoldout;
@@ -65,7 +66,7 @@ public class HoldoutExperiment {
 		// MIML report
 		String reportFileName = Utils.getOption("r", args);
 		BaseMIMLReport report = new BaseMIMLReport(null, reportFileName, false, false, false);
-
+		
 		// Loads classifier
 		System.out.println("Loading MIMLkNN classifier...");
 		MIMLkNN mimlknn = new MIMLkNN(new MaximalHausdorff());
