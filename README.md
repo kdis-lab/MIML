@@ -21,7 +21,7 @@ In this Github repository, you can find the following folders:
 * [*dist*](https://github.com/kdis-lab/MIML/tree/master/dist). It contains the distribution of the MIML library as a *jar* file. Concretely, the folder contains:
   * [*configurations*](https://github.com/kdis-lab/MIML/tree/master/dist/configurations). It contains an example of *xml* configuration file for each algorithm included in the library.
   * [*data*](https://github.com/kdis-lab/MIML/tree/master/dist/data). It contains some examples of datasets. Particularly, *birds* dataset in included with the distribution of the library.
-  * [*miml-1.0.jar*](https://github.com/kdis-lab/MIML/tree/master/dist/miml-1.0.jar). The *jar* file packaged with all its dependencies.  
+  * [*miml-1.0.jar*](https://github.com/kdis-lab/MIML/tree/master/dist/miml-1.4.jar). The *jar* file packaged with all its dependencies.  
 * [*mavenProject*](https://github.com/kdis-lab/MIML/tree/master/mavenProject). It contains the distribution of the MIML library as a Maven project with the following folders:    
   * [*configurations*](https://github.com/kdis-lab/MIML/tree/master/mavenProject/configurations). It contains an example of *xml* configuration file for each of the algorithms included in the library.
   * [*data*](https://github.com/kdis-lab/MIML/tree/master/mavenProject/data). It contains some examples of datasets. Particularly, *birds* dataset is included with the distribution of the library.  
@@ -70,17 +70,17 @@ MIML includes a set of algorithms according to the following three approaches:
 
 1 **MIML to MI approach**. This approach transforms the MIML problem to MI and then uses any MI algorithm to solve the problem. To this end, a transformation at labels level is applied. Currently two label transformations have been included: BR and LP.
   * BR transformation. The following MI algorithms can be used with this transformation:
-    * CitationkNN, MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM, MITI, MIWrapper, SimpleMI.
+    * CitationkNN, MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM, MITI, MIWrapper, SimpleMI, TLC, MINND.
   * LP transformation. The following MI algorithms can be used with this transformation:
-    * CitationkNN, MIWrapper, SimpleMI.
-      * Note that if MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISMO, MISVM or MITI are run with LP transformation the following execution error is raised *Cannot handle multi-valued nominalclass!*. This is due to the philosophy of the LP method which obtains one multi-class dataset and these algorithms are only able to deal with binary class data. 
+    * CitationkNN, MIWrapper, SimpleMI, TLC, MINND.
+      * Note that if MDD, MIDD, MIBoost, MILR, MIOptimalBall, MIRI, MISVM or MITI are run with LP transformation the following execution error is raised *Cannot handle multi-valued nominalclass!*. This is due to the philosophy of the LP method which obtains one multi-class dataset and these algorithms are only able to deal with binary class data. 
 
-2 **MIML to ML approach**. This approach transforms the MIML problem to ML and then uses any ML algorithm to solve the problem. To this end, a transformation at bag level is performed. Currently, three bag transformations have been included: arithmetic, geometric and min-max. The following are the ML algorithms considered by the library. The following ML algorithms can be used with these transformations:
-  * BR, LP, RPC, CLR, BRkNN, DMLkNN, IBLR, MLkNN, HOMER, RAkEL, PS, EPS, CC, ECC, MLStacking.
+2 **MIML to ML approach**. This approach transforms the MIML problem to ML and then uses any ML algorithm to solve the problem. To this end, a transformation at bag level is performed. Currently, five bag transformations have been included: arithmetic, geometric, min-max, kmeans and medoid. The following are the ML algorithms considered by the library. The following ML algorithms can be used with these transformations:
+  * BR, LP, RPC, CLR, BRkNN, DMLkNN, IBLR, MLkNN, HOMER, RAkEL, PS, EPS, CC, ECC, MLStacking, MLDGC, RFPCT.
 
 3 **MIML solving without transformation**. Currently the following algorithms have been included:
   * Ensembles: Bagging
-  * Instance-based: MIMLkNN, MIMLIBLR, MIMLBRkNN, DMIMLkNN, MIMLMAPkNN.
+  * Instance-based: MIMLkNN, MIMLIBLR, MIMLBRkNN, DMIMLkNN, MIMLMAPkNN, MIMLDGC.
   * ANNs: MIMLRBF, MIMLNN, EnMIMLNNmetric
   * Other optimization: MIMLFast, KiSar, MIMLWell, MIMLSVM
   
@@ -146,8 +146,8 @@ The following is an example of *xml*  file with a hierarchy of labels:
 @attribute label3 {0,1}
 @attribute label4 {0,1}
 @data
-bag1,"42,-198,-109\n42.9,-191,-142\n3,4,6",1,0,0,1
-bag2,"12,-98,10\n42.5,-19,-12",0,1,1,0 
+bag1,"42,-198,-109\n41.9,-191,-142\n35,14.2,6.33",1,0,0,1
+bag2,"11.25,-98,10\n31,40.5,7.85",0,1,1,0 
 ```   
 
 ## Citation
