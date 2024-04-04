@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="500px" preserveAspectRatio="none" style="width:4176px;height:500px;" version="1.1" viewBox="0 0 4176 500" width="4176px" zoomAndPan="magnify"><defs/><g><!--MD5=[7f870ca704c9124736e132f6f8d5dc8f]
+class miml.core--><a href="miml\core\package-summary.html" target="_top" title="miml\core\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\core\package-summary.html" xlink:show="new" xlink:title="miml\core\package-summary.html" xlink:type="simple"><g id="elem_miml.core"><rect codeLine="95" fill="#F1F1F1" height="27.6094" id="miml.core" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="66" x="2294.57" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="2297.57" y="26.5332">miml.core</text></g></a><!--MD5=[482cd9265e76004988fbcdc006906288]
+class org.apache.commons.configuration2--><g id="elem_org.apache.commons.configuration2"><rect fill="#F1F1F1" height="27.6094" id="org.apache.commons.configuration2" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="236" x="2577.57" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="230" x="2580.57" y="290.5332">org.apache.commons.configuration2</text></g><!--MD5=[01ac32895c6a62c3a4a17dd977f1d0ea]
+class org.apache.commons.configuration2.ex--><g id="elem_org.apache.commons.configuration2.ex"><rect fill="#F1F1F1" height="27.6094" id="org.apache.commons.configuration2.ex" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="254" x="1898.57" y="95"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="248" x="1901.57" y="114.5332">org.apache.commons.configuration2.ex</text></g><!--MD5=[77a100a74101caf363308bac55a4f9cb]
+class miml.classifiers.miml--><a href="miml\classifiers\miml\package-summary.html" target="_top" title="miml\classifiers\miml\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\classifiers\miml\package-summary.html" xlink:show="new" xlink:title="miml\classifiers\miml\package-summary.html" xlink:type="simple"><g id="elem_miml.classifiers.miml"><rect codeLine="97" fill="#F1F1F1" height="27.6094" id="miml.classifiers.miml" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="132" x="2268.57" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="2271.57" y="290.5332">miml.classifiers.miml</text></g></a><!--MD5=[7ec671fed4440bb20adf684e12b159cf]
+class miml.evaluation--><a href="miml\evaluation\package-summary.html" target="_top" title="miml\evaluation\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\evaluation\package-summary.html" xlink:show="new" xlink:title="miml\evaluation\package-summary.html" xlink:type="simple"><g id="elem_miml.evaluation"><rect codeLine="99" fill="#F1F1F1" height="27.6094" id="miml.evaluation" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="103" x="2293.07" y="183"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="2296.07" y="202.5332">miml.evaluation</text></g></a><!--MD5=[813b9bf515f297cb22a2c6cec1341be8]
+class miml.report--><a href="miml\report\package-summary.html" target="_top" title="miml\report\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\report\package-summary.html" xlink:show="new" xlink:title="miml\report\package-summary.html" xlink:type="simple"><g id="elem_miml.report"><rect codeLine="101" fill="#F1F1F1" height="27.6094" id="miml.report" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="76" x="2397.57" y="95"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="2400.57" y="114.5332">miml.report</text></g></a><!--MD5=[218e0249750c62ecb7da79989dc09b1b]
+class weka.core--><g id="elem_weka.core"><rect fill="#F1F1F1" height="27.6094" id="weka.core" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="70" x="2299.57" y="447"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="2302.57" y="466.5332">weka.core</text></g><!--MD5=[23185278e082776b950be1c8518b5918]
+class miml.data--><a href="miml\data\package-summary.html" target="_top" title="miml\data\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\data\package-summary.html" xlink:show="new" xlink:title="miml\data\package-summary.html" xlink:type="simple"><g id="elem_miml.data"><rect codeLine="103" fill="#F1F1F1" height="27.6094" id="miml.data" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="66" x="2482.57" y="359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="2485.57" y="378.5332">miml.data</text></g></a><!--MD5=[21d75676d4a1c8022569de614302d3cb]
+class mulan.data--><g id="elem_mulan.data"><rect fill="#F1F1F1" height="27.6094" id="mulan.data" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="76" x="1520.57" y="447"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="1523.57" y="466.5332">mulan.data</text></g><!--MD5=[6a50b1f1bae5947fdc9c8020136e04c7]
+class com.mathworks.toolbox.javabuilder--><g id="elem_com.mathworks.toolbox.javabuilder"><rect fill="#F1F1F1" height="27.6094" id="com.mathworks.toolbox.javabuilder" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="225" x="3894.07" y="447"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="219" x="3897.07" y="466.5332">com.mathworks.toolbox.javabuilder</text></g><!--MD5=[11e3ce2dd3ff85ecdd9d2147de39aa83]
+class miml.data.partitioning--><a href="miml\data\partitioning\package-summary.html" target="_top" title="miml\data\partitioning\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\data\partitioning\package-summary.html" xlink:show="new" xlink:title="miml\data\partitioning\package-summary.html" xlink:type="simple"><g id="elem_miml.data.partitioning"><rect codeLine="105" fill="#F1F1F1" height="27.6094" id="miml.data.partitioning" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="140" x="596.57" y="359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="134" x="599.57" y="378.5332">miml.data.partitioning</text></g></a><!--MD5=[86400311d5393685bf0b6ed1522e1272]
+class miml.data.partitioning.random--><a href="miml\data\partitioning\random\package-summary.html" target="_top" title="miml\data\partitioning\random\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\data\partitioning\random\package-summary.html" xlink:show="new" xlink:title="miml\data\partitioning\random\package-summary.html" xlink:type="simple"><g id="elem_miml.data.partitioning.random"><rect codeLine="107" fill="#F1F1F1" height="27.6094" id="miml.data.partitioning.random" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="192" x="32.57" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="186" x="35.57" y="290.5332">miml.data.partitioning.random</text></g></a><!--MD5=[0d0baaaaba64721b4c336181028f72ab]
+class miml.core.distance--><a href="miml\core\distance\package-summary.html" target="_top" title="miml\core\distance\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\core\distance\package-summary.html" xlink:show="new" xlink:title="miml\core\distance\package-summary.html" xlink:type="simple"><g id="elem_miml.core.distance"><rect codeLine="109" fill="#F1F1F1" height="27.6094" id="miml.core.distance" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="123" x="1819.07" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="1822.07" y="290.5332">miml.core.distance</text></g></a><!--MD5=[2922a07b766f5badb5b39303fb4f36f5]
+class mulan.classifier--><g id="elem_mulan.classifier"><rect fill="#F1F1F1" height="27.6094" id="mulan.classifier" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="103" x="1661.07" y="359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97" x="1664.07" y="378.5332">mulan.classifier</text></g><!--MD5=[08dc3647e1bfb73875c656a9bfbbec33]
+class miml.classifiers.miml.optimization--><a href="miml\classifiers\miml\optimization\package-summary.html" target="_top" title="miml\classifiers\miml\optimization\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\classifiers\miml\optimization\package-summary.html" xlink:show="new" xlink:title="miml\classifiers\miml\optimization\package-summary.html" xlink:type="simple"><g id="elem_miml.classifiers.miml.optimization"><rect codeLine="111" fill="#F1F1F1" height="27.6094" id="miml.classifiers.miml.optimization" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="210" x="3493.57" y="183"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="204" x="3496.57" y="202.5332">miml.classifiers.miml.optimization</text></g></a><!--MD5=[cdaea4b376833adda4b8231eb7fdaf0c]
+class MWAlgorithms--><g id="elem_MWAlgorithms"><rect fill="#F1F1F1" height="27.6094" id="MWAlgorithms" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="96" x="4012.57" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="4015.57" y="290.5332">MWAlgorithms</text></g><!--MD5=[fef764a71b0003a14cfc870e51628a90]
+class miml.classifiers.miml.meta--><a href="miml\classifiers\miml\meta\package-summary.html" target="_top" title="miml\classifiers\miml\meta\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\classifiers\miml\meta\package-summary.html" xlink:show="new" xlink:title="miml\classifiers\miml\meta\package-summary.html" xlink:type="simple"><g id="elem_miml.classifiers.miml.meta"><rect codeLine="113" fill="#F1F1F1" height="27.6094" id="miml.classifiers.miml.meta" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="167" x="2431.07" y="183"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="2434.07" y="202.5332">miml.classifiers.miml.meta</text></g></a><!--MD5=[50b926cf05158e845ec67963e339bdca]
+class mulan.evaluation--><g id="elem_mulan.evaluation"><rect fill="#F1F1F1" height="27.6094" id="mulan.evaluation" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="113" x="2049.07" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="2052.07" y="290.5332">mulan.evaluation</text></g><!--MD5=[273c5c963cf7a7d34b1484e7531130fb]
+class miml.transformation.mimlTOmi--><a href="miml\transformation\mimlTOmi\package-summary.html" target="_top" title="miml\transformation\mimlTOmi\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\transformation\mimlTOmi\package-summary.html" xlink:show="new" xlink:title="miml\transformation\mimlTOmi\package-summary.html" xlink:type="simple"><g id="elem_miml.transformation.mimlTOmi"><rect codeLine="115" fill="#F1F1F1" height="27.6094" id="miml.transformation.mimlTOmi" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="195" x="3711.07" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="3714.07" y="290.5332">miml.transformation.mimlTOmi</text></g></a><!--MD5=[7b5c0f204ffdfca1bea03c78cc72f233]
+class mulan.transformations--><g id="elem_mulan.transformations"><rect fill="#F1F1F1" height="27.6094" id="mulan.transformations" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="146" x="3654.57" y="359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="3657.57" y="378.5332">mulan.transformations</text></g><!--MD5=[a3760e901618e2f05789daecbac6edfc]
+class miml.classifiers.ml--><a href="miml\classifiers\ml\package-summary.html" target="_top" title="miml\classifiers\ml\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\classifiers\ml\package-summary.html" xlink:show="new" xlink:title="miml\classifiers\ml\package-summary.html" xlink:type="simple"><g id="elem_miml.classifiers.ml"><rect codeLine="117" fill="#F1F1F1" height="27.6094" id="miml.classifiers.ml" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="1239.57" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="1242.57" y="290.5332">miml.classifiers.ml</text></g></a><!--MD5=[2fb28ad4ff6a502a15bc8a3c726411cc]
+class mulan.classifier.lazy--><g id="elem_mulan.classifier.lazy"><rect fill="#F1F1F1" height="27.6094" id="mulan.classifier.lazy" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="131" x="1423.07" y="359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="1426.07" y="378.5332">mulan.classifier.lazy</text></g><!--MD5=[b495f6816f7bd80fcd37e7dbe24a464c]
+class weka.core.neighboursearch--><g id="elem_weka.core.neighboursearch"><rect fill="#F1F1F1" height="27.6094" id="weka.core.neighboursearch" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="181" x="1064.07" y="359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="1067.07" y="378.5332">weka.core.neighboursearch</text></g><!--MD5=[63139b40a83ad973cc6b1a180aefd5b2]
+class miml.data.statistics--><a href="miml\data\statistics\package-summary.html" target="_top" title="miml\data\statistics\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\data\statistics\package-summary.html" xlink:show="new" xlink:title="miml\data\statistics\package-summary.html" xlink:type="simple"><g id="elem_miml.data.statistics"><rect codeLine="119" fill="#F1F1F1" height="27.6094" id="miml.data.statistics" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="124" x="3250.57" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="3253.57" y="290.5332">miml.data.statistics</text></g></a><!--MD5=[47a3ec660835b2ffa074f9d3ee8eebdc]
+class miml.classifiers.miml.mimlTOmi--><a href="miml\classifiers\miml\mimlTOmi\package-summary.html" target="_top" title="miml\classifiers\miml\mimlTOmi\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\classifiers\miml\mimlTOmi\package-summary.html" xlink:show="new" xlink:title="miml\classifiers\miml\mimlTOmi\package-summary.html" xlink:type="simple"><g id="elem_miml.classifiers.miml.mimlTOmi"><rect codeLine="121" fill="#F1F1F1" height="27.6094" id="miml.classifiers.miml.mimlTOmi" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="198" x="1311.57" y="183"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="192" x="1314.57" y="202.5332">miml.classifiers.miml.mimlTOmi</text></g></a><!--MD5=[d10529106a0d37909a0ac42e7a1ec09e]
+class mulan.classifier.transformation--><g id="elem_mulan.classifier.transformation"><rect fill="#F1F1F1" height="27.6094" id="mulan.classifier.transformation" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="198" x="488.57" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="192" x="491.57" y="290.5332">mulan.classifier.transformation</text></g><!--MD5=[eb6c209bdff668b3a8ec27364405e042]
+class weka.classifiers--><g id="elem_weka.classifiers"><rect fill="#F1F1F1" height="27.6094" id="weka.classifiers" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="104" x="721.57" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="724.57" y="290.5332">weka.classifiers</text></g><!--MD5=[5dd52d2fa5c84ba820b01311f4488109]
+class miml.data.partitioning.powerset--><a href="miml\data\partitioning\powerset\package-summary.html" target="_top" title="miml\data\partitioning\powerset\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\data\partitioning\powerset\package-summary.html" xlink:show="new" xlink:title="miml\data\partitioning\powerset\package-summary.html" xlink:type="simple"><g id="elem_miml.data.partitioning.powerset"><rect codeLine="123" fill="#F1F1F1" height="27.6094" id="miml.data.partitioning.powerset" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="201" x="861.07" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="195" x="864.07" y="290.5332">miml.data.partitioning.powerset</text></g></a><!--MD5=[9fe0d923c297d7a07480a7418a58fa67]
+class miml.classifiers.miml.lazy--><a href="miml\classifiers\miml\lazy\package-summary.html" target="_top" title="miml\classifiers\miml\lazy\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\classifiers\miml\lazy\package-summary.html" xlink:show="new" xlink:title="miml\classifiers\miml\lazy\package-summary.html" xlink:type="simple"><g id="elem_miml.classifiers.miml.lazy"><rect codeLine="125" fill="#F1F1F1" height="27.6094" id="miml.classifiers.miml.lazy" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="160" x="1672.57" y="183"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="1675.57" y="202.5332">miml.classifiers.miml.lazy</text></g></a><!--MD5=[97c7dfce1e7d01c7c4d824e7ae19fb33]
+class miml.classifiers.mi--><a href="miml\classifiers\mi\package-summary.html" target="_top" title="miml\classifiers\mi\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\classifiers\mi\package-summary.html" xlink:show="new" xlink:title="miml\classifiers\mi\package-summary.html" xlink:type="simple"><g id="elem_miml.classifiers.mi"><rect codeLine="127" fill="#F1F1F1" height="27.6094" id="miml.classifiers.mi" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="3835.57" y="359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="3838.57" y="378.5332">miml.classifiers.mi</text></g></a><!--MD5=[5f0426953d72f63ae5d2605f4794debb]
+class weka.classifiers.mi--><g id="elem_weka.classifiers.mi"><rect fill="#F1F1F1" height="27.6094" id="weka.classifiers.mi" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="122" x="3736.57" y="447"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="3739.57" y="466.5332">weka.classifiers.mi</text></g><!--MD5=[d4edcf9523668e73f549f9a88fd01645]
+class miml.classifiers.miml.mimlTOml--><a href="miml\classifiers\miml\mimlTOml\package-summary.html" target="_top" title="miml\classifiers\miml\mimlTOml\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\classifiers\miml\mimlTOml\package-summary.html" xlink:show="new" xlink:title="miml\classifiers\miml\mimlTOml\package-summary.html" xlink:type="simple"><g id="elem_miml.classifiers.miml.mimlTOml"><rect codeLine="129" fill="#F1F1F1" height="27.6094" id="miml.classifiers.miml.mimlTOml" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="198" x="3027.57" y="183"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="192" x="3030.57" y="202.5332">miml.classifiers.miml.mimlTOml</text></g></a><!--MD5=[5d367df049fc10d6a93be28124c09f60]
+class miml.transformation.mimlTOml--><a href="miml\transformation\mimlTOml\package-summary.html" target="_top" title="miml\transformation\mimlTOml\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\transformation\mimlTOml\package-summary.html" xlink:show="new" xlink:title="miml\transformation\mimlTOml\package-summary.html" xlink:type="simple"><g id="elem_miml.transformation.mimlTOml"><rect codeLine="131" fill="#F1F1F1" height="27.6094" id="miml.transformation.mimlTOml" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="195" x="3481.07" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="189" x="3484.07" y="290.5332">miml.transformation.mimlTOml</text></g></a><!--MD5=[09307f96dad21061500f547931c91d64]
+class weka.filters.unsupervised.attribute--><g id="elem_weka.filters.unsupervised.attribute"><rect fill="#F1F1F1" height="27.6094" id="weka.filters.unsupervised.attribute" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="221" x="3185.07" y="359"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="215" x="3188.07" y="378.5332">weka.filters.unsupervised.attribute</text></g><!--MD5=[5051a132df6d15df92a45d34113eed1e]
+class miml.data.normalization--><a href="miml\data\normalization\package-summary.html" target="_top" title="miml\data&#10;ormalization\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\data\normalization\package-summary.html" xlink:show="new" xlink:title="miml\data&#10;ormalization\package-summary.html" xlink:type="simple"><g id="elem_miml.data.normalization"><rect codeLine="133" fill="#F1F1F1" height="27.6094" id="miml.data.normalization" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="153" x="2920.07" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="2923.07" y="290.5332">miml.data.normalization</text></g></a><!--MD5=[8d3db1d9e12e49257c4f56749ccbea11]
+class miml.classifiers.miml.neural--><a href="miml\classifiers\miml\neural\package-summary.html" target="_top" title="miml\classifiers\miml&#10;eural\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\classifiers\miml\neural\package-summary.html" xlink:show="new" xlink:title="miml\classifiers\miml&#10;eural\package-summary.html" xlink:type="simple"><g id="elem_miml.classifiers.miml.neural"><rect codeLine="135" fill="#F1F1F1" height="27.6094" id="miml.classifiers.miml.neural" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="176" x="3855.57" y="183"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="3858.57" y="202.5332">miml.classifiers.miml.neural</text></g></a><!--MD5=[e9b9ebf346eb19999607f2776949caca]
+class miml.data.partitioning.iterative--><a href="miml\data\partitioning\iterative\package-summary.html" target="_top" title="miml\data\partitioning\iterative\package-summary.html" xlink:actuate="onRequest" xlink:href="miml\data\partitioning\iterative\package-summary.html" xlink:show="new" xlink:title="miml\data\partitioning\iterative\package-summary.html" xlink:type="simple"><g id="elem_miml.data.partitioning.iterative"><rect codeLine="137" fill="#F1F1F1" height="27.6094" id="miml.data.partitioning.iterative" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="194" x="259.57" y="271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188" x="262.57" y="290.5332">miml.data.partitioning.iterative</text></g></a><!--MD5=[7d489d032d370428820c959152eb630c]
+link miml.core to org.apache.commons.configuration2--><g id="link_miml.core_org.apache.commons.configuration2"><path codeLine="7" d="M2360.8,29.4 C2426.43,45.68 2573.4,90.75 2655.57,183 C2676.94,206.99 2687.58,243.77 2692.31,265.7 " fill="none" id="miml.core-to-org.apache.commons.configuration2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2693.34,270.68,2695.4327,261.056,2692.3265,265.7838,2687.5987,262.6776,2693.34,270.68" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1aaece9d390c6e89796d5bd6df418cfa]
+link miml.core to org.apache.commons.configuration2.ex--><g id="link_miml.core_org.apache.commons.configuration2.ex"><path codeLine="8" d="M2294.39,31.45 C2241.7,46.45 2138.55,75.83 2076.47,93.51 " fill="none" id="miml.core-to-org.apache.commons.configuration2.ex" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2071.33,94.97,2081.0826,96.3436,2076.1376,93.5964,2078.8848,88.6514,2071.33,94.97" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[2f394f8f33d603b97abd9acd8eb95ea9]
+link miml.core to miml.classifiers.miml--><g id="link_miml.core_miml.classifiers.miml"><path codeLine="9" d="M2309.9,35.03 C2281.28,65.98 2235.65,146.19 2258.57,211 C2266.48,233.38 2284.49,253.92 2301.68,267.48 " fill="none" id="miml.core-to-miml.classifiers.miml" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2306.02,270.77,2301.2545,262.1509,2302.032,267.754,2296.4289,268.5316,2306.02,270.77" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bc362b22dedc9e233f6e234369605f3c]
+link miml.classifiers.miml to miml.core--><g id="link_miml.classifiers.miml_miml.core"><path codeLine="24" d="M2332.79,270.77 C2322.62,257.39 2302.15,235.27 2293.57,211 C2271.73,149.23 2312.15,73.47 2325.88,39.7 " fill="none" id="miml.classifiers.miml-to-miml.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2327.7,35.03,2320.7059,41.9641,2325.885,39.6889,2328.1602,44.8681,2327.7,35.03" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d0064a4435ecbf05c60f0427fd1e0fdf]
+link miml.core to miml.evaluation--><g id="link_miml.core_miml.evaluation"><path codeLine="10" d="M2321.72,35.08 C2317.59,65.81 2324.76,142.69 2334.64,177.89 " fill="none" id="miml.core-to-miml.evaluation" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2336.11,182.77,2337.3418,172.9985,2334.6667,177.9828,2329.6823,175.3077,2336.11,182.77" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e52b108d87fbe3f13db623457f789882]
+link miml.evaluation to miml.core--><g id="link_miml.evaluation_miml.core"><path codeLine="35" d="M2350.86,182.77 C2355.37,151.88 2348.2,75 2337.93,39.94 " fill="none" id="miml.evaluation-to-miml.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2336.39,35.08,2335.2732,44.8653,2337.8895,39.8499,2342.905,42.4661,2336.39,35.08" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b02d189318498b52f71c8726e64180a7]
+link miml.core to miml.report--><g id="link_miml.core_miml.report"><path codeLine="11" d="M2334.51,35.06 C2349.5,50.28 2380.83,75.43 2405.08,91.85 " fill="none" id="miml.core-to-miml.report" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2409.52,94.82,2404.2372,86.5078,2405.3554,92.0531,2399.8101,93.1713,2409.52,94.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7bc4fc39886563336d14aad75b37c6ba]
+link miml.report to miml.core--><g id="link_miml.report_miml.core"><path codeLine="85" d="M2429.07,94.82 C2414.23,79.55 2382.89,54.39 2358.47,38.01 " fill="none" id="miml.report-to-miml.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2353.99,35.06,2359.3056,43.3512,2358.1655,37.8104,2363.7063,36.6704,2353.99,35.06" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f47ebe8df5ff8cca9d9e944030f3d93f]
+link miml.core to weka.core--><g id="link_miml.core_weka.core"><path codeLine="12" d="M2294.39,21.71 C2162.44,21.67 1664.15,32.06 1293.57,183 C1227.64,209.85 997.68,335.26 1046.57,387 C1090.48,433.46 2080.75,455.12 2294.24,459.25 " fill="none" id="miml.core-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2299.44,459.35,2290.5218,455.1708,2294.441,459.25,2290.3618,463.1692,2299.44,459.35" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0747188ee35e7349d079aec7953eb799]
+link miml.data to weka.core--><g id="link_miml.data_weka.core"><path codeLine="13" d="M2488.08,387.06 C2455.43,402.58 2401.05,428.41 2366.55,444.81 " fill="none" id="miml.data-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2362.02,446.96,2371.8658,446.7141,2366.5369,444.8159,2368.4352,439.487,2362.02,446.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4c5ea52390e2a8d3c5ddb9ddae544885]
+link miml.data to mulan.data--><g id="link_miml.data_mulan.data"><path codeLine="14" d="M2482.35,376.99 C2337.92,389.96 1764.57,441.49 1601.84,456.11 " fill="none" id="miml.data-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1596.68,456.57,1605.9986,459.758,1601.6604,456.1276,1605.2908,451.7894,1596.68,456.57" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8f159c6ec55384d21f918bf98e985d33]
+link miml.data to com.mathworks.toolbox.javabuilder--><g id="link_miml.data_com.mathworks.toolbox.javabuilder"><path codeLine="15" d="M2548.77,375.22 C2700.99,380.91 3347.5,406.38 3876.57,447 C3880.55,447.31 3884.59,447.63 3888.67,447.97 " fill="none" id="miml.data-to-com.mathworks.toolbox.javabuilder" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3893.86,448.41,3885.2221,443.6785,3888.8772,447.996,3884.5597,451.651,3893.86,448.41" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1916a5dd5e6a9b88533552fdfc431861]
+link miml.data.partitioning to mulan.data--><g id="link_miml.data.partitioning_mulan.data"><path codeLine="16" d="M736.94,380.78 C913.62,397.82 1372.01,442.01 1515.19,455.82 " fill="none" id="miml.data.partitioning-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1520.55,456.33,1511.9665,451.5005,1515.5722,455.8593,1511.2134,459.465,1520.55,456.33" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1c25f8faae3db0807aac074ae3601fad]
+link miml.data.partitioning.random to miml.data.partitioning--><g id="link_miml.data.partitioning.random_miml.data.partitioning"><path codeLine="17" d="M209.99,299.01 C313.55,315.57 490.97,343.93 591.44,359.99 " fill="none" id="miml.data.partitioning.random-to-miml.data.partitioning" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="596.46,360.79,588.2147,355.4034,591.5242,359.9911,586.9365,363.3007,596.46,360.79" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[52c7ddc9cc8ffa89b8703769ca4c8c9a]
+link miml.data.partitioning.random to mulan.data--><g id="link_miml.data.partitioning.random_mulan.data"><path codeLine="18" d="M166.05,299 C231.83,321.22 372.77,366.1 495.57,387 C887.11,453.63 1369.6,459.84 1515.08,460.12 " fill="none" id="miml.data.partitioning.random-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1520.11,460.12,1511.11,456.12,1515.11,460.12,1511.11,464.12,1520.11,460.12" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8db3e4fa4cbb2c70ae540d1d4ceaf149]
+link miml.core.distance to miml.data--><g id="link_miml.core.distance_miml.data"><path codeLine="19" d="M1942.32,295.12 C1951.45,296.44 1960.76,297.77 1969.57,299 C2159.94,325.63 2387.96,355.44 2477.15,367.03 " fill="none" id="miml.core.distance-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2482.31,367.7,2473.8992,362.5758,2477.3515,367.057,2472.8703,370.5093,2482.31,367.7" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[09bac5651c9d87b9b00d27d9b210bccf]
+link miml.core.distance to weka.core--><g id="link_miml.core.distance_weka.core"><path codeLine="20" d="M1914.69,299.08 C1997.37,330.76 2208.02,411.5 2295.53,445.04 " fill="none" id="miml.core.distance-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2300.36,446.89,2293.3886,439.933,2295.6914,445.0999,2290.5245,447.4027,2300.36,446.89" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[803c04873966283a1f5c940df7d0b353]
+link miml.classifiers.miml to mulan.classifier--><g id="link_miml.classifiers.miml_mulan.classifier"><path codeLine="21" d="M2268.53,295.25 C2259.47,296.51 2250.29,297.79 2241.57,299 C2069.71,322.87 1866.41,350.85 1769.48,364.18 " fill="none" id="miml.classifiers.miml-to-mulan.classifier" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1764.38,364.88,1773.8443,367.6053,1769.3326,364.1929,1772.745,359.6812,1764.38,364.88" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9f85dde4191fa315d837a719bbbe666f]
+link miml.classifiers.miml to weka.core--><g id="link_miml.classifiers.miml_weka.core"><path codeLine="22" d="M2334.57,299.08 C2334.57,329.69 2334.57,406.06 2334.57,441.45 " fill="none" id="miml.classifiers.miml-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2334.57,446.77,2338.57,437.77,2334.57,441.77,2330.57,437.77,2334.57,446.77" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8fab268931246c4367f67813d0d5564d]
+link miml.classifiers.miml to miml.data--><g id="link_miml.classifiers.miml_miml.data"><path codeLine="23" d="M2362.06,299.06 C2394.71,314.58 2449.09,340.41 2483.6,356.81 " fill="none" id="miml.classifiers.miml-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2488.12,358.96,2481.7048,351.487,2483.6031,356.8159,2478.2742,358.7141,2488.12,358.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c4eba282966701c5d4b928185528820e]
+link miml.classifiers.miml to mulan.data--><g id="link_miml.classifiers.miml_mulan.data"><path codeLine="25" d="M2276.56,299.01 C2127.35,332.46 1732.8,420.93 1601.64,450.34 " fill="none" id="miml.classifiers.miml-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1596.72,451.45,1606.3788,453.3755,1601.5979,450.3518,1604.6216,445.5709,1596.72,451.45" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5e4c353d57f84ff812135fe740b6abb4]
+link miml.classifiers.miml to com.mathworks.toolbox.javabuilder--><g id="link_miml.classifiers.miml_com.mathworks.toolbox.javabuilder"><path codeLine="26" d="M2346.31,299.31 C2367.48,322.22 2414.58,368.41 2465.57,387 C2612.99,440.76 3720.05,435.86 3876.57,447 C3880.55,447.28 3884.59,447.59 3888.67,447.91 " fill="none" id="miml.classifiers.miml-to-com.mathworks.toolbox.javabuilder" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3893.86,448.33,3885.2087,443.6231,3888.876,447.9301,3884.5689,451.5974,3893.86,448.33" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[90ea40d332b86a12dd4599697193262c]
+link miml.classifiers.miml.optimization to miml.classifiers.miml--><g id="link_miml.classifiers.miml.optimization_miml.classifiers.miml"><path codeLine="27" d="M3493.52,205.15 C3243.39,222.17 2617.67,264.74 2405.91,279.15 " fill="none" id="miml.classifiers.miml.optimization-to-miml.classifiers.miml" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2400.68,279.5,2409.9332,282.8731,2405.6682,279.157,2409.3844,274.892,2400.68,279.5" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f851a3ebf58a7357f14a828ad9310389]
+link miml.classifiers.miml.optimization to MWAlgorithms--><g id="link_miml.classifiers.miml.optimization_MWAlgorithms"><path codeLine="28" d="M3668.49,211.01 C3761.39,228.31 3923.51,258.49 4007.2,274.07 " fill="none" id="miml.classifiers.miml.optimization-to-MWAlgorithms" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="4012.35,275.02,4004.2492,269.4185,4007.4369,274.0917,4002.7638,277.2794,4012.35,275.02" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6cdb04968cc64b6e28c4d81a68731108]
+link miml.classifiers.miml.optimization to com.mathworks.toolbox.javabuilder--><g id="link_miml.classifiers.miml.optimization_com.mathworks.toolbox.javabuilder"><path codeLine="29" d="M3696.92,211.01 C3779.06,223.49 3888.25,244.36 3923.57,271 C3980.02,313.58 3998.76,402.79 4004.38,441.46 " fill="none" id="miml.classifiers.miml.optimization-to-com.mathworks.toolbox.javabuilder" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="4005.12,446.79,4007.8491,437.3268,4004.4349,441.8372,3999.9245,438.423,4005.12,446.79" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0b955bb20bc6b23cc60bf87313c210de]
+link miml.classifiers.miml.optimization to org.apache.commons.configuration2--><g id="link_miml.classifiers.miml.optimization_org.apache.commons.configuration2"><path codeLine="30" d="M3493.22,208.03 C3325.21,224.03 2997.4,255.25 2818.78,272.27 " fill="none" id="miml.classifiers.miml.optimization-to-org.apache.commons.configuration2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2813.8,272.74,2823.1366,275.875,2818.7778,272.2693,2822.3835,267.9105,2813.8,272.74" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[34049f860a2f3fcdde4c6858c210d275]
+link miml.classifiers.miml.meta to miml.classifiers.miml--><g id="link_miml.classifiers.miml.meta_miml.classifiers.miml"><path codeLine="31" d="M2487.23,211.06 C2454.89,226.51 2401.12,252.2 2366.79,268.61 " fill="none" id="miml.classifiers.miml.meta-to-miml.classifiers.miml" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2361.87,270.96,2371.7151,270.6887,2366.3814,268.8042,2368.2659,263.4705,2361.87,270.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[38a955b57825daa241433e8864d17090]
+link miml.classifiers.miml.meta to miml.data--><g id="link_miml.classifiers.miml.meta_miml.data"><path codeLine="32" d="M2514.65,211.08 C2514.82,241.69 2515.26,318.06 2515.46,353.45 " fill="none" id="miml.classifiers.miml.meta-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2515.49,358.77,2519.4385,349.7473,2515.4614,353.7701,2511.4386,349.793,2515.49,358.77" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0453781c7eb3706f6ac22241fbb003f5]
+link miml.classifiers.miml.meta to mulan.classifier--><g id="link_miml.classifiers.miml.meta_mulan.classifier"><path codeLine="33" d="M2460.98,211.04 C2407.28,224.53 2322.5,246.95 2250.57,271 C2218.4,281.76 2212.3,290.1 2179.57,299 C2034.57,338.4 1858.09,358.79 1769.33,367.2 " fill="none" id="miml.classifiers.miml.meta-to-mulan.classifier" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1764.14,367.69,1773.4774,370.8225,1769.1177,367.218,1772.7222,362.8582,1764.14,367.69" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9652bed0bc9d93db31c3c26b0fa3951c]
+link miml.classifiers.miml.meta to org.apache.commons.configuration2--><g id="link_miml.classifiers.miml.meta_org.apache.commons.configuration2"><path codeLine="34" d="M2542.06,211.06 C2574.71,226.58 2629.09,252.41 2663.6,268.81 " fill="none" id="miml.classifiers.miml.meta-to-org.apache.commons.configuration2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2668.12,270.96,2661.7048,263.487,2663.6031,268.8159,2658.2742,270.7141,2668.12,270.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[946fd4308722c115f509c0d7bf108031]
+link miml.evaluation to mulan.evaluation--><g id="link_miml.evaluation_mulan.evaluation"><path codeLine="36" d="M2308.27,211.06 C2264.8,226.7 2192.18,252.84 2146.68,269.21 " fill="none" id="miml.evaluation-to-mulan.evaluation" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2141.82,270.96,2151.6439,271.6603,2146.5219,269.2593,2148.9228,264.1373,2141.82,270.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[01db395215dbb7f35e81c4c367c3392a]
+link miml.evaluation to miml.data--><g id="link_miml.evaluation_miml.data"><path codeLine="37" d="M2358.05,211.08 C2372.96,225.61 2397.66,249.8 2418.57,271 C2447.39,300.2 2480.36,334.79 2499.49,354.98 " fill="none" id="miml.evaluation-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2503.13,358.82,2499.837,349.538,2499.6885,355.1929,2494.0336,355.0444,2503.13,358.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bb96ce4cb59d3063e2599db5148395a0]
+link miml.evaluation to miml.classifiers.miml--><g id="link_miml.evaluation_miml.classifiers.miml"><path codeLine="38" d="M2343.05,211.06 C2341.36,225.58 2338.62,249.15 2336.72,265.55 " fill="none" id="miml.evaluation-to-miml.classifiers.miml" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2336.1,270.82,2341.1016,262.3356,2336.671,265.8527,2333.1539,261.4221,2336.1,270.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ddc16f874bbf73b39adba86c74880702]
+link miml.evaluation to org.apache.commons.configuration2--><g id="link_miml.evaluation_org.apache.commons.configuration2"><path codeLine="39" d="M2396.36,210.69 C2460.67,226.45 2570.06,253.25 2637.25,269.71 " fill="none" id="miml.evaluation-to-org.apache.commons.configuration2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2642.42,270.98,2634.6421,264.9381,2637.5659,269.7808,2632.7233,272.7046,2642.42,270.98" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b7bd948f52aa51dfa6f6fd715e75e47e]
+link miml.evaluation to mulan.data--><g id="link_miml.evaluation_mulan.data"><path codeLine="40" d="M2292.87,197.48 C2171.05,197.38 1871.01,204.09 1801.57,271 C1763.9,307.3 1815.77,347.41 1781.57,387 C1736.38,439.3 1653.13,454.34 1602.13,458.54 " fill="none" id="miml.evaluation-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1596.99,458.93,1606.2717,462.2239,1601.9751,458.5443,1605.6547,454.2477,1596.99,458.93" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[cbf3ffb849e6f631c75910e4a93ef5ec]
+link miml.transformation.mimlTOmi to mulan.transformations--><g id="link_miml.transformation.mimlTOmi_mulan.transformations"><path codeLine="41" d="M3796.27,299.06 C3782.23,313.96 3759.23,338.39 3743.75,354.82 " fill="none" id="miml.transformation.mimlTOmi-to-mulan.transformations" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3739.99,358.82,3749.0711,355.0077,3743.4168,355.179,3743.2455,349.5247,3739.99,358.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[dde710b0139646afb0678fce4b5f9b49]
+link miml.transformation.mimlTOmi to miml.data--><g id="link_miml.transformation.mimlTOmi_miml.data"><path codeLine="42" d="M3711.04,297.37 C3705.13,297.95 3699.27,298.5 3693.57,299 C3246.22,338.12 2701.5,363.76 2553.96,370.33 " fill="none" id="miml.transformation.mimlTOmi-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2548.88,370.56,2558.0435,374.1698,2553.8754,370.3453,2557.6999,366.1772,2548.88,370.56" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[38f90815d4bcc3efad3d079defa60e9c]
+link miml.transformation.mimlTOmi to weka.core--><g id="link_miml.transformation.mimlTOmi_weka.core"><path codeLine="43" d="M3780.83,299.08 C3731.55,321.62 3624.91,367.26 3529.57,387 C3301.44,434.24 2556.57,454.72 2374.83,459.09 " fill="none" id="miml.transformation.mimlTOmi-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2369.62,459.21,2378.7091,463.0033,2374.6187,459.0957,2378.5262,455.0054,2369.62,459.21" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[fb5b3b838b5968c0b8b05406f24a1f35]
+link miml.classifiers.ml to mulan.classifier.lazy--><g id="link_miml.classifiers.ml_mulan.classifier.lazy"><path codeLine="44" d="M1327.43,299.06 C1361.7,314.58 1418.79,340.41 1455.01,356.81 " fill="none" id="miml.classifiers.ml-to-mulan.classifier.lazy" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1459.75,358.96,1453.1928,351.6113,1455.1928,356.9028,1449.9013,358.9029,1459.75,358.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[16864e19b3ad2063d5649cc2dda70b9e]
+link miml.classifiers.ml to weka.core.neighboursearch--><g id="link_miml.classifiers.ml_weka.core.neighboursearch"><path codeLine="45" d="M1276.7,299.06 C1251.11,314.34 1208.76,339.63 1181.26,356.06 " fill="none" id="miml.classifiers.ml-to-weka.core.neighboursearch" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1176.65,358.82,1186.4254,357.6195,1180.9375,356.2475,1182.3095,350.7596,1176.65,358.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ab1926365c277725a9b2752f59e7f871]
+link miml.classifiers.ml to weka.core--><g id="link_miml.classifiers.ml_weka.core"><path codeLine="46" d="M1307.65,299.11 C1324.15,321.7 1361.44,367.42 1405.57,387 C1568.17,459.12 2136.86,461.2 2294.04,460.36 " fill="none" id="miml.classifiers.ml-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2299.46,460.33,2290.4373,456.3815,2294.4601,460.3586,2290.483,464.3814,2299.46,460.33" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e0515f8991efe9876944725e63a64a6d]
+link miml.classifiers.ml to mulan.data--><g id="link_miml.classifiers.ml_mulan.data"><path codeLine="47" d="M1300.91,299.13 C1305.39,320.52 1317.19,362.94 1343.57,387 C1391.9,431.09 1467.92,448.69 1515.42,455.62 " fill="none" id="miml.classifiers.ml-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1520.5,456.34,1512.1498,451.1175,1515.5494,455.6389,1511.028,459.0385,1520.5,456.34" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5b171477bce8192e1f048cfe10d35df9]
+link miml.classifiers.ml to mulan.classifier--><g id="link_miml.classifiers.ml_mulan.classifier"><path codeLine="48" d="M1357.89,298.32 C1437.41,314.84 1577.62,343.97 1655.82,360.21 " fill="none" id="miml.classifiers.ml-to-mulan.classifier" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1660.88,361.26,1652.8776,355.5187,1655.9838,360.2465,1651.256,363.3527,1660.88,361.26" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1b3e11f5d5c78e08095faf37203f3932]
+link miml.data.statistics to miml.data--><g id="link_miml.data.statistics_miml.data"><path codeLine="49" d="M3250.36,292.71 C3092.82,309.71 2681.55,354.09 2553.92,367.86 " fill="none" id="miml.data.statistics-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2548.78,368.42,2558.1525,371.446,2553.752,367.8914,2557.3067,363.4909,2548.78,368.42" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d79b371cb77adc409d074724257c574e]
+link miml.data.statistics to mulan.data--><g id="link_miml.data.statistics_mulan.data"><path codeLine="50" d="M3267.22,299.1 C3220.54,312.89 3145.89,335.77 3082.57,359 C3052.27,370.11 3047.04,379.86 3015.57,387 C2736.17,450.35 1812.74,458.74 1601.76,459.84 " fill="none" id="miml.data.statistics-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1596.61,459.86,1605.6327,463.8085,1601.6099,459.8314,1605.587,455.8086,1596.61,459.86" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[684957655b5f6bf1003d84f69b9db804]
+link miml.data.statistics to weka.core--><g id="link_miml.data.statistics_weka.core"><path codeLine="51" d="M3286.31,299.03 C3235.88,323.84 3126.87,376.34 3086.57,387 C2821.93,456.98 2489.03,461.38 2375.02,460.61 " fill="none" id="miml.data.statistics-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2369.75,460.57,2378.7154,464.647,2374.7498,460.6129,2378.784,456.6473,2369.75,460.57" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[da7ae61aea48f9332a3ed8de4e224b87]
+link miml.classifiers.miml.mimlTOmi to mulan.classifier.transformation--><g id="link_miml.classifiers.miml.mimlTOmi_mulan.classifier.transformation"><path codeLine="52" d="M1311.31,207.97 C1174.49,221.78 920.27,247.67 703.57,271 C699.67,271.42 695.71,271.85 691.7,272.29 " fill="none" id="miml.classifiers.miml.mimlTOmi-to-mulan.classifier.transformation" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="686.6,272.84,695.981,275.8394,691.5705,272.2972,695.1126,267.8867,686.6,272.84" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[34c45f13eb7bfe2932bab404ae7a92e2]
+link miml.classifiers.miml.mimlTOmi to weka.classifiers--><g id="link_miml.classifiers.miml.mimlTOmi_weka.classifiers"><path codeLine="53" d="M1311.49,209.07 C1198.14,222.12 1007.06,245.31 843.57,271 C839.45,271.65 835.19,272.35 830.91,273.08 " fill="none" id="miml.classifiers.miml.mimlTOmi-to-weka.classifiers" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="825.88,273.96,835.4323,276.3588,830.8061,273.1033,834.0615,268.4771,825.88,273.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c650806597a523ecf63a46a5e9a2a253]
+link miml.classifiers.miml.mimlTOmi to miml.classifiers.miml--><g id="link_miml.classifiers.miml.mimlTOmi_miml.classifiers.miml"><path codeLine="54" d="M1509.89,207.24 C1697.45,224.7 2099.56,262.13 2263.14,277.35 " fill="none" id="miml.classifiers.miml.mimlTOmi-to-miml.classifiers.miml" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2268.39,277.84,2259.7928,273.0349,2263.4109,277.3835,2259.0624,281.0015,2268.39,277.84" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8df7e82b5e0d717f8549b0236662dd86]
+link miml.classifiers.miml.mimlTOmi to mulan.classifier--><g id="link_miml.classifiers.miml.mimlTOmi_mulan.classifier"><path codeLine="55" d="M1433.27,211.08 C1487.82,242.51 1626.1,322.18 1685.16,356.21 " fill="none" id="miml.classifiers.miml.mimlTOmi-to-mulan.classifier" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1689.61,358.77,1683.817,350.805,1685.2803,356.2693,1679.8159,357.7326,1689.61,358.77" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8e29787a77cd4870e8ced00f76e1305e]
+link miml.classifiers.miml.mimlTOmi to miml.data--><g id="link_miml.classifiers.miml.mimlTOmi_miml.data"><path codeLine="56" d="M1452.35,211.02 C1523.37,232.64 1672.52,275.87 1801.57,299 C2056.97,344.77 2369.29,364.38 2476.95,370.1 " fill="none" id="miml.classifiers.miml.mimlTOmi-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2482.23,370.38,2473.4473,365.923,2477.2366,370.1232,2473.0364,373.9125,2482.23,370.38" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3fc4668eceb2b6331d1c19d73a293bfd]
+link miml.classifiers.miml.mimlTOmi to org.apache.commons.configuration2--><g id="link_miml.classifiers.miml.mimlTOmi_org.apache.commons.configuration2"><path codeLine="57" d="M1509.8,204.64 C1741.62,220.16 2318.28,258.75 2572.2,275.74 " fill="none" id="miml.classifiers.miml.mimlTOmi-to-org.apache.commons.configuration2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2577.4,276.09,2568.6825,271.5068,2572.4108,275.7612,2568.1564,279.4895,2577.4,276.09" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1ce86ea005cccbaad6962cd40add436b]
+link miml.classifiers.miml.mimlTOmi to mulan.data--><g id="link_miml.classifiers.miml.mimlTOmi_mulan.data"><path codeLine="58" d="M1311.33,199.49 C999.78,204.64 59.14,224.03 14.57,271 C6,280.03 6.92,289.19 14.57,299 C109.66,420.88 1274.46,453.61 1515.21,459.1 " fill="none" id="miml.classifiers.miml.mimlTOmi-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1520.38,459.21,1511.4738,455.0054,1515.3813,459.0957,1511.2909,463.0033,1520.38,459.21" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bf84e6a2aefca91e653b23eed70b36d6]
+link miml.data.partitioning.powerset to miml.data.partitioning--><g id="link_miml.data.partitioning.powerset_miml.data.partitioning"><path codeLine="59" d="M916.77,299.06 C862.79,314.8 772.38,341.15 716.29,357.5 " fill="none" id="miml.data.partitioning.powerset-to-miml.data.partitioning" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="711.31,358.96,721.07,360.28,716.11,357.56,718.83,352.6,711.31,358.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[35923e6b2d862c6fda7ef90fe23fdb06]
+link miml.data.partitioning.powerset to mulan.data--><g id="link_miml.data.partitioning.powerset_mulan.data"><path codeLine="60" d="M960.25,299.13 C958.87,320.93 959.66,364.41 984.57,387 C1062.29,457.49 1395.37,461.55 1515.31,460.65 " fill="none" id="miml.data.partitioning.powerset-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1520.52,460.61,1511.486,456.6873,1515.5202,460.6529,1511.5546,464.687,1520.52,460.61" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1ed3d19b4c7151b22f68fd68ff5d6ba6]
+link miml.classifiers.miml.lazy to org.apache.commons.configuration2--><g id="link_miml.classifiers.miml.lazy_org.apache.commons.configuration2"><path codeLine="61" d="M1832.97,205.33 C1997.97,220.38 2375.81,254.84 2572.09,272.74 " fill="none" id="miml.classifiers.miml.lazy-to-org.apache.commons.configuration2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2577.27,273.21,2568.6728,268.4049,2572.2909,272.7535,2567.9424,276.3715,2577.27,273.21" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1fab5546a93dac7218670835122f81c4]
+link miml.classifiers.miml.lazy to mulan.classifier.lazy--><g id="link_miml.classifiers.miml.lazy_mulan.classifier.lazy"><path codeLine="62" d="M1672.32,206.4 C1624.59,215.27 1565.88,233.51 1526.57,271 C1503.22,293.26 1494.09,331.27 1490.62,353.77 " fill="none" id="miml.classifiers.miml.lazy-to-mulan.classifier.lazy" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1489.88,358.87,1495.1227,350.5325,1490.5931,353.9211,1487.2045,349.3915,1489.88,358.87" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ef1aa7dcc2416274334560b9306a8df2]
+link miml.classifiers.miml.lazy to weka.core--><g id="link_miml.classifiers.miml.lazy_weka.core"><path codeLine="63" d="M1734.51,211.12 C1691.79,243.65 1591.88,329.56 1643.57,387 C1687.29,435.58 2152.18,454.22 2293.83,458.8 " fill="none" id="miml.classifiers.miml.lazy-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2299.14,458.97,2290.2701,454.6893,2294.1425,458.8129,2290.0188,462.6853,2299.14,458.97" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c04e20be0f892affa6b5e61585c67f86]
+link miml.classifiers.miml.lazy to miml.core.distance--><g id="link_miml.classifiers.miml.lazy_miml.core.distance"><path codeLine="64" d="M1772.01,211.06 C1794.66,226.28 1832.09,251.43 1856.54,267.85 " fill="none" id="miml.classifiers.miml.lazy-to-miml.core.distance" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1860.95,270.82,1855.7001,262.487,1856.7963,268.0366,1851.2467,269.1328,1860.95,270.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5ef14bc67caa7fa67e0fe3e3b11980ee]
+link miml.classifiers.miml.lazy to weka.core.neighboursearch--><g id="link_miml.classifiers.miml.lazy_weka.core.neighboursearch"><path codeLine="65" d="M1672.35,205.37 C1533.37,218.67 1259,247.49 1221.57,271 C1190.3,290.64 1170.41,330.83 1161,354.15 " fill="none" id="miml.classifiers.miml.lazy-to-weka.core.neighboursearch" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1159.15,358.86,1166.1626,351.9445,1160.9774,354.2059,1158.716,349.0207,1159.15,358.86" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9a75646910aeac47e1358c7e056cc755]
+link miml.classifiers.miml.lazy to miml.data--><g id="link_miml.classifiers.miml.lazy_miml.data"><path codeLine="66" d="M1790.85,211.09 C1832.5,225.43 1900.97,249.28 1959.57,271 C1991.76,282.93 1998.39,290.16 2031.57,299 C2194.08,342.28 2394.58,362.27 2477.21,369.12 " fill="none" id="miml.classifiers.miml.lazy-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2482.48,369.55,2473.8287,364.8431,2477.496,369.1501,2473.1889,372.8174,2482.48,369.55" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[2a556817895dafa4706be6b2ac0cd1ca]
+link miml.classifiers.miml.lazy to miml.classifiers.miml--><g id="link_miml.classifiers.miml.lazy_miml.classifiers.miml"><path codeLine="67" d="M1832.58,209.82 C1946.67,226.68 2154.35,257.37 2263.38,273.48 " fill="none" id="miml.classifiers.miml.lazy-to-miml.classifiers.miml" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2268.5,274.24,2260.1922,268.9504,2263.5552,273.499,2259.0066,276.862,2268.5,274.24" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e9704df817f7a7657fa3df714455761d]
+link miml.classifiers.miml.lazy to mulan.classifier--><g id="link_miml.classifiers.miml.lazy_mulan.classifier"><path codeLine="68" d="M1749.56,211.08 C1742.5,241.81 1724.82,318.69 1716.73,353.89 " fill="none" id="miml.classifiers.miml.lazy-to-mulan.classifier" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1715.61,358.77,1721.538,350.905,1716.7385,353.899,1713.7445,349.0994,1715.61,358.77" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d72b8102835790164330fed1dc32db08]
+link miml.classifiers.mi to weka.classifiers.mi--><g id="link_miml.classifiers.mi_weka.classifiers.mi"><path codeLine="69" d="M3879.84,387.06 C3862.89,402.09 3835.02,426.8 3816.48,443.24 " fill="none" id="miml.classifiers.mi-to-weka.classifiers.mi" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3812.44,446.82,3821.8298,443.8482,3816.1833,443.5053,3816.5262,437.8588,3812.44,446.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[036dffa53b847f2479613bf6403c059d]
+link miml.classifiers.mi to weka.core--><g id="link_miml.classifiers.mi_weka.core"><path codeLine="70" d="M3835.34,384.84 C3829.68,385.66 3824.03,386.4 3818.57,387 C3248.19,449.58 2548.58,458.52 2374.97,459.79 " fill="none" id="miml.classifiers.mi-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2369.75,459.83,2378.7727,463.7785,2374.7499,459.8014,2378.727,455.7786,2369.75,459.83" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[f83d4b28000d5c467ecc0d50651b2e15]
+link miml.classifiers.miml.mimlTOml to miml.classifiers.miml--><g id="link_miml.classifiers.miml.mimlTOml_miml.classifiers.miml"><path codeLine="71" d="M3027.46,208.76 C2865.49,226.35 2547.92,260.83 2406.02,276.24 " fill="none" id="miml.classifiers.miml.mimlTOml-to-miml.classifiers.miml" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2400.63,276.83,2410.011,279.8294,2405.6005,276.2872,2409.1426,271.8767,2400.63,276.83" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ded53956acdc382e649400bf28b6547e]
+link miml.classifiers.miml.mimlTOml to mulan.classifier--><g id="link_miml.classifiers.miml.mimlTOml_mulan.classifier"><path codeLine="72" d="M3083.78,211.1 C3038.51,225.15 2965.11,248.5 2902.57,271 C2870.65,282.48 2864.67,291.58 2831.57,299 C2625.85,345.09 1967.3,365.44 1769.36,370.62 " fill="none" id="miml.classifiers.miml.mimlTOml-to-mulan.classifier" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1764.21,370.75,1773.3098,374.5173,1769.2083,370.6215,1773.1042,366.52,1764.21,370.75" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c220e2f18bc8500377d053d1b68f5667]
+link miml.classifiers.miml.mimlTOml to miml.transformation.mimlTOml--><g id="link_miml.classifiers.miml.mimlTOml_miml.transformation.mimlTOml"><path codeLine="73" d="M3195.22,211.06 C3278.76,226.96 3419.24,253.68 3504.96,269.99 " fill="none" id="miml.classifiers.miml.mimlTOml-to-miml.transformation.mimlTOml" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3510.02,270.96,3501.9192,265.3585,3505.1069,270.0317,3500.4338,273.2194,3510.02,270.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1988815be563b9a67964af8188d81d43]
+link miml.classifiers.miml.mimlTOml to miml.data--><g id="link_miml.classifiers.miml.mimlTOml_miml.data"><path codeLine="74" d="M3126.05,211.3 C3124.4,233.35 3117.7,277.18 3090.57,299 C3007.59,365.74 2668.82,372.02 2553.91,372.2 " fill="none" id="miml.classifiers.miml.mimlTOml-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2548.61,372.2,2557.6214,376.1743,2553.61,372.1857,2557.5985,368.1743,2548.61,372.2" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[19c3d37834ea9b39c21310c26e4798c3]
+link miml.classifiers.miml.mimlTOml to weka.filters.unsupervised.attribute--><g id="link_miml.classifiers.miml.mimlTOml_weka.filters.unsupervised.attribute"><path codeLine="75" d="M3217.53,211.03 C3285.82,222.89 3371.12,242.87 3392.57,271 C3417.54,303.75 3367,337.38 3329.94,356.39 " fill="none" id="miml.classifiers.miml.mimlTOml-to-weka.filters.unsupervised.attribute" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3325.04,358.86,3334.8769,358.3751,3329.5035,356.6068,3331.2719,351.2335,3325.04,358.86" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e875e7ee199b808eb11d2f68cdf86788]
+link miml.classifiers.miml.mimlTOml to mulan.data--><g id="link_miml.classifiers.miml.mimlTOml_mulan.data"><path codeLine="76" d="M3131.44,211.31 C3138.26,232.58 3147.65,274.35 3126.57,299 C3024.5,418.36 1844.69,453.11 1602.04,459.02 " fill="none" id="miml.classifiers.miml.mimlTOml-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1596.82,459.15,1605.9091,462.9433,1601.8187,459.0357,1605.7262,454.9454,1596.82,459.15" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[cf0b55e30210a6212b21604fc727dde5]
+link miml.classifiers.miml.mimlTOml to org.apache.commons.configuration2--><g id="link_miml.classifiers.miml.mimlTOml_org.apache.commons.configuration2"><path codeLine="77" d="M3061.11,211.06 C2981.61,226.92 2848.03,253.58 2766.25,269.9 " fill="none" id="miml.classifiers.miml.mimlTOml-to-org.apache.commons.configuration2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2760.94,270.96,2770.546,273.1334,2765.8445,269.9877,2768.9903,265.2862,2760.94,270.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8a5dc0cffcecdf1602a14772a07bd341]
+link miml.data.normalization to miml.data--><g id="link_miml.data.normalization_miml.data"><path codeLine="78" d="M2923.78,299.01 C2820.21,317.53 2634.03,350.82 2553.93,365.14 " fill="none" id="miml.data.normalization-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2548.81,366.06,2558.3768,368.4002,2553.7307,365.1731,2556.9578,360.5271,2548.81,366.06" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[cf67c185e1ae15bae0a9148b8c7253d2]
+link miml.transformation.mimlTOml to miml.data--><g id="link_miml.transformation.mimlTOml_miml.data"><path codeLine="79" d="M3480.95,293.9 C3254.97,312.18 2703.78,356.77 2553.79,368.91 " fill="none" id="miml.transformation.mimlTOml-to-miml.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2548.62,369.33,2557.9111,372.5974,2553.604,368.9301,2557.2713,364.6231,2548.62,369.33" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3061e5236e4a44726fdf96b46ddc149a]
+link miml.transformation.mimlTOml to mulan.data--><g id="link_miml.transformation.mimlTOml_mulan.data"><path codeLine="80" d="M3561.18,299.05 C3527.34,324.14 3453.33,377.52 3423.57,387 C3333.98,415.53 1873.29,452.35 1601.81,458.96 " fill="none" id="miml.transformation.mimlTOml-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1596.75,459.08,1605.8498,462.8473,1601.7483,458.9515,1605.6442,454.85,1596.75,459.08" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[86e9d8a438a41d1dccb6d5778ca5be6a]
+link miml.transformation.mimlTOml to weka.core--><g id="link_miml.transformation.mimlTOml_weka.core"><path codeLine="81" d="M3571.15,299.15 C3557.55,321.8 3526.23,367.61 3485.57,387 C3383.62,435.62 2567.22,455.24 2375,459.21 " fill="none" id="miml.transformation.mimlTOml-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2369.77,459.32,2378.8482,463.1392,2374.769,459.22,2378.6882,455.1408,2369.77,459.32" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[d55bcb32d1e0e6cfc185d255941c6f44]
+link miml.transformation.mimlTOml to weka.filters.unsupervised.attribute--><g id="link_miml.transformation.mimlTOml_weka.filters.unsupervised.attribute"><path codeLine="82" d="M3535.59,299.06 C3483.91,314.77 3397.43,341.05 3343.6,357.41 " fill="none" id="miml.transformation.mimlTOml-to-weka.filters.unsupervised.attribute" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="3338.49,358.96,3348.2615,360.1918,3343.2772,357.5167,3345.9523,352.5323,3338.49,358.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8022ae90de61fb2952c0fd343307e7cb]
+link miml.report to miml.evaluation--><g id="link_miml.report_miml.evaluation"><path codeLine="83" d="M2421.75,123.06 C2405.85,138.09 2379.7,162.8 2362.31,179.24 " fill="none" id="miml.report-to-miml.evaluation" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2358.52,182.82,2367.802,179.527,2362.1471,179.3785,2362.2956,173.7236,2358.52,182.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6ed20d49a82df0fdb9739762661240eb]
+link miml.report to org.apache.commons.configuration2--><g id="link_miml.report_org.apache.commons.configuration2"><path codeLine="84" d="M2473.59,119.25 C2512.13,129.96 2572.12,150.44 2615.57,183 C2646.49,206.17 2672.1,244.05 2685.49,266.24 " fill="none" id="miml.report-to-org.apache.commons.configuration2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2688.16,270.73,2686.9978,260.95,2685.6043,266.4325,2680.1218,265.039,2688.16,270.73" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1ea35274164c6b4c586872baa74314a7]
+link miml.classifiers.miml.neural to miml.classifiers.miml--><g id="link_miml.classifiers.miml.neural_miml.classifiers.miml"><path codeLine="86" d="M3855.53,203.29 C3814.77,205.71 3765.71,208.57 3721.57,211 C3205.66,239.44 3076.49,242.83 2560.57,271 C2508.8,273.83 2450.38,277.19 2405.9,279.79 " fill="none" id="miml.classifiers.miml.neural-to-miml.classifiers.miml" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2400.82,280.09,2410.0341,283.5685,2405.8118,279.8039,2409.5764,275.5816,2400.82,280.09" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[03ee06c4421cb0ff440aa86558ba65c8]
+link miml.classifiers.miml.neural to MWAlgorithms--><g id="link_miml.classifiers.miml.neural_MWAlgorithms"><path codeLine="87" d="M3961.34,211.06 C3982.04,226.28 4016.25,251.43 4038.6,267.85 " fill="none" id="miml.classifiers.miml.neural-to-MWAlgorithms" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="4042.63,270.82,4037.7418,262.2699,4038.5993,267.8613,4033.0079,268.7189,4042.63,270.82" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1aa463744e68531614d8a2cfefff30b4]
+link miml.classifiers.miml.neural to com.mathworks.toolbox.javabuilder--><g id="link_miml.classifiers.miml.neural_com.mathworks.toolbox.javabuilder"><path codeLine="88" d="M4031.26,211.07 C4067.03,221.19 4104.98,239.15 4126.57,271 C4169.24,333.96 4076.56,411.1 4030.52,443.96 " fill="none" id="miml.classifiers.miml.neural-to-com.mathworks.toolbox.javabuilder" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="4026.22,446.99,4035.8789,445.0651,4030.304,444.1055,4031.2637,438.5306,4026.22,446.99" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[47f0e489dd767814122f25169442d52d]
+link miml.classifiers.miml.neural to org.apache.commons.configuration2--><g id="link_miml.classifiers.miml.neural_org.apache.commons.configuration2"><path codeLine="89" d="M3855.32,204.08 C3636.84,219.14 3070.35,258.17 2818.91,275.5 " fill="none" id="miml.classifiers.miml.neural-to-org.apache.commons.configuration2" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2813.76,275.86,2823.0132,279.2331,2818.7482,275.517,2822.4644,271.252,2813.76,275.86" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[2b0a051c5ed48041d892cd64b2b7e226]
+link miml.data.partitioning.iterative to miml.data.partitioning--><g id="link_miml.data.partitioning.iterative_miml.data.partitioning"><path codeLine="90" d="M403.65,299.06 C460.49,314.83 555.76,341.26 614.67,357.6 " fill="none" id="miml.data.partitioning.iterative-to-miml.data.partitioning" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="619.55,358.96,611.9336,352.7157,614.7292,357.6336,609.8113,360.4291,619.55,358.96" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8b48e5048af251489c59b8d128639c31]
+link miml.data.partitioning.iterative to mulan.data--><g id="link_miml.data.partitioning.iterative_mulan.data"><path codeLine="91" d="M378.3,299.05 C416.99,321.56 501.04,367.15 578.57,387 C759.85,433.42 1350.05,453.89 1515.25,458.79 " fill="none" id="miml.data.partitioning.iterative-to-mulan.data" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1520.48,458.95,1511.5979,454.6946,1515.482,458.8072,1511.3694,462.6913,1520.48,458.95" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[243579eacbcb8933aa7dfe3eef0a403c]
+link miml.data.partitioning.iterative to weka.core--><g id="link_miml.data.partitioning.iterative_weka.core"><path codeLine="92" d="M423.18,299.09 C537.51,321.01 778.69,364.94 984.57,387 C1500,442.23 2130.85,456.5 2294.36,459.37 " fill="none" id="miml.data.partitioning.iterative-to-weka.core" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="2299.52,459.46,2290.5899,455.3063,2294.5207,459.3743,2290.4528,463.3051,2299.52,459.46" style="stroke:#181818;stroke-width:1.0;"/></g><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="1986.12" y="479.6094"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="1986.12" y="489.9902">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[ba509a25aaef8c95dc344a06575de53e]
+@startuml
+    skinparam backgroundcolor transparent
+    set namespaceSeparator none
+    hide circle
+    hide empty fields
+    hide empty methods
+
+    miml.core - -> org.apache.commons.configuration2
+    miml.core - -> org.apache.commons.configuration2.ex
+    miml.core - -> miml.classifiers.miml
+    miml.core - -> miml.evaluation
+    miml.core - -> miml.report
+    miml.core - -> weka.core
+    miml.data - -> weka.core
+    miml.data - -> mulan.data
+    miml.data - -> com.mathworks.toolbox.javabuilder
+    miml.data.partitioning - -> mulan.data
+    miml.data.partitioning.random - -> miml.data.partitioning
+    miml.data.partitioning.random - -> mulan.data
+    miml.core.distance - -> miml.data
+    miml.core.distance - -> weka.core
+    miml.classifiers.miml - -> mulan.classifier
+    miml.classifiers.miml - -> weka.core
+    miml.classifiers.miml - -> miml.data
+    miml.classifiers.miml - -> miml.core
+    miml.classifiers.miml - -> mulan.data
+    miml.classifiers.miml - -> com.mathworks.toolbox.javabuilder
+    miml.classifiers.miml.optimization - -> miml.classifiers.miml
+    miml.classifiers.miml.optimization - -> MWAlgorithms
+    miml.classifiers.miml.optimization - -> com.mathworks.toolbox.javabuilder
+    miml.classifiers.miml.optimization - -> org.apache.commons.configuration2
+    miml.classifiers.miml.meta - -> miml.classifiers.miml
+    miml.classifiers.miml.meta - -> miml.data
+    miml.classifiers.miml.meta - -> mulan.classifier
+    miml.classifiers.miml.meta - -> org.apache.commons.configuration2
+    miml.evaluation - -> miml.core
+    miml.evaluation - -> mulan.evaluation
+    miml.evaluation - -> miml.data
+    miml.evaluation - -> miml.classifiers.miml
+    miml.evaluation - -> org.apache.commons.configuration2
+    miml.evaluation - -> mulan.data
+    miml.transformation.mimlTOmi - -> mulan.transformations
+    miml.transformation.mimlTOmi - -> miml.data
+    miml.transformation.mimlTOmi - -> weka.core
+    miml.classifiers.ml - -> mulan.classifier.lazy
+    miml.classifiers.ml - -> weka.core.neighboursearch
+    miml.classifiers.ml - -> weka.core
+    miml.classifiers.ml - -> mulan.data
+    miml.classifiers.ml - -> mulan.classifier
+    miml.data.statistics - -> miml.data
+    miml.data.statistics - -> mulan.data
+    miml.data.statistics - -> weka.core
+    miml.classifiers.miml.mimlTOmi - -> mulan.classifier.transformation
+    miml.classifiers.miml.mimlTOmi - -> weka.classifiers
+    miml.classifiers.miml.mimlTOmi - -> miml.classifiers.miml
+    miml.classifiers.miml.mimlTOmi - -> mulan.classifier
+    miml.classifiers.miml.mimlTOmi - -> miml.data
+    miml.classifiers.miml.mimlTOmi - -> org.apache.commons.configuration2
+    miml.classifiers.miml.mimlTOmi - -> mulan.data
+    miml.data.partitioning.powerset - -> miml.data.partitioning
+    miml.data.partitioning.powerset - -> mulan.data
+    miml.classifiers.miml.lazy - -> org.apache.commons.configuration2
+    miml.classifiers.miml.lazy - -> mulan.classifier.lazy
+    miml.classifiers.miml.lazy - -> weka.core
+    miml.classifiers.miml.lazy - -> miml.core.distance
+    miml.classifiers.miml.lazy - -> weka.core.neighboursearch
+    miml.classifiers.miml.lazy - -> miml.data
+    miml.classifiers.miml.lazy - -> miml.classifiers.miml
+    miml.classifiers.miml.lazy - -> mulan.classifier
+    miml.classifiers.mi - -> weka.classifiers.mi
+    miml.classifiers.mi - -> weka.core
+    miml.classifiers.miml.mimlTOml - -> miml.classifiers.miml
+    miml.classifiers.miml.mimlTOml - -> mulan.classifier
+    miml.classifiers.miml.mimlTOml - -> miml.transformation.mimlTOml
+    miml.classifiers.miml.mimlTOml - -> miml.data
+    miml.classifiers.miml.mimlTOml - -> weka.filters.unsupervised.attribute
+    miml.classifiers.miml.mimlTOml - -> mulan.data
+    miml.classifiers.miml.mimlTOml - -> org.apache.commons.configuration2
+    miml.data.normalization - -> miml.data
+    miml.transformation.mimlTOml - -> miml.data
+    miml.transformation.mimlTOml - -> mulan.data
+    miml.transformation.mimlTOml - -> weka.core
+    miml.transformation.mimlTOml - -> weka.filters.unsupervised.attribute
+    miml.report - -> miml.evaluation
+    miml.report - -> org.apache.commons.configuration2
+    miml.report - -> miml.core
+    miml.classifiers.miml.neural - -> miml.classifiers.miml
+    miml.classifiers.miml.neural - -> MWAlgorithms
+    miml.classifiers.miml.neural - -> com.mathworks.toolbox.javabuilder
+    miml.classifiers.miml.neural - -> org.apache.commons.configuration2
+    miml.data.partitioning.iterative - -> miml.data.partitioning
+    miml.data.partitioning.iterative - -> mulan.data
+    miml.data.partitioning.iterative - -> weka.core
+
+    ' Package links
+    class "miml.core" [[miml\core\package-summary.html]] {
+    }
+    class "miml.classifiers.miml" [[miml\classifiers\miml\package-summary.html]] {
+    }
+    class "miml.evaluation" [[miml\evaluation\package-summary.html]] {
+    }
+    class "miml.report" [[miml\report\package-summary.html]] {
+    }
+    class "miml.data" [[miml\data\package-summary.html]] {
+    }
+    class "miml.data.partitioning" [[miml\data\partitioning\package-summary.html]] {
+    }
+    class "miml.data.partitioning.random" [[miml\data\partitioning\random\package-summary.html]] {
+    }
+    class "miml.core.distance" [[miml\core\distance\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.optimization" [[miml\classifiers\miml\optimization\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.meta" [[miml\classifiers\miml\meta\package-summary.html]] {
+    }
+    class "miml.transformation.mimlTOmi" [[miml\transformation\mimlTOmi\package-summary.html]] {
+    }
+    class "miml.classifiers.ml" [[miml\classifiers\ml\package-summary.html]] {
+    }
+    class "miml.data.statistics" [[miml\data\statistics\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.mimlTOmi" [[miml\classifiers\miml\mimlTOmi\package-summary.html]] {
+    }
+    class "miml.data.partitioning.powerset" [[miml\data\partitioning\powerset\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.lazy" [[miml\classifiers\miml\lazy\package-summary.html]] {
+    }
+    class "miml.classifiers.mi" [[miml\classifiers\mi\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.mimlTOml" [[miml\classifiers\miml\mimlTOml\package-summary.html]] {
+    }
+    class "miml.transformation.mimlTOml" [[miml\transformation\mimlTOml\package-summary.html]] {
+    }
+    class "miml.data.normalization" [[miml\data\normalization\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.neural" [[miml\classifiers\miml\neural\package-summary.html]] {
+    }
+    class "miml.data.partitioning.iterative" [[miml\data\partitioning\iterative\package-summary.html]] {
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+@startuml
+    skinparam backgroundcolor transparent
+    set namespaceSeparator none
+    hide circle
+    hide empty fields
+    hide empty methods
+
+    miml.core - -> org.apache.commons.configuration2
+    miml.core - -> org.apache.commons.configuration2.ex
+    miml.core - -> miml.classifiers.miml
+    miml.core - -> miml.evaluation
+    miml.core - -> miml.report
+    miml.core - -> weka.core
+    miml.data - -> weka.core
+    miml.data - -> mulan.data
+    miml.data - -> com.mathworks.toolbox.javabuilder
+    miml.data.partitioning - -> mulan.data
+    miml.data.partitioning.random - -> miml.data.partitioning
+    miml.data.partitioning.random - -> mulan.data
+    miml.core.distance - -> miml.data
+    miml.core.distance - -> weka.core
+    miml.classifiers.miml - -> mulan.classifier
+    miml.classifiers.miml - -> weka.core
+    miml.classifiers.miml - -> miml.data
+    miml.classifiers.miml - -> miml.core
+    miml.classifiers.miml - -> mulan.data
+    miml.classifiers.miml - -> com.mathworks.toolbox.javabuilder
+    miml.classifiers.miml.optimization - -> miml.classifiers.miml
+    miml.classifiers.miml.optimization - -> MWAlgorithms
+    miml.classifiers.miml.optimization - -> com.mathworks.toolbox.javabuilder
+    miml.classifiers.miml.optimization - -> org.apache.commons.configuration2
+    miml.classifiers.miml.meta - -> miml.classifiers.miml
+    miml.classifiers.miml.meta - -> miml.data
+    miml.classifiers.miml.meta - -> mulan.classifier
+    miml.classifiers.miml.meta - -> org.apache.commons.configuration2
+    miml.evaluation - -> miml.core
+    miml.evaluation - -> mulan.evaluation
+    miml.evaluation - -> miml.data
+    miml.evaluation - -> miml.classifiers.miml
+    miml.evaluation - -> org.apache.commons.configuration2
+    miml.evaluation - -> mulan.data
+    miml.transformation.mimlTOmi - -> mulan.transformations
+    miml.transformation.mimlTOmi - -> miml.data
+    miml.transformation.mimlTOmi - -> weka.core
+    miml.classifiers.ml - -> mulan.classifier.lazy
+    miml.classifiers.ml - -> weka.core.neighboursearch
+    miml.classifiers.ml - -> weka.core
+    miml.classifiers.ml - -> mulan.data
+    miml.classifiers.ml - -> mulan.classifier
+    miml.data.statistics - -> miml.data
+    miml.data.statistics - -> mulan.data
+    miml.data.statistics - -> weka.core
+    miml.classifiers.miml.mimlTOmi - -> mulan.classifier.transformation
+    miml.classifiers.miml.mimlTOmi - -> weka.classifiers
+    miml.classifiers.miml.mimlTOmi - -> miml.classifiers.miml
+    miml.classifiers.miml.mimlTOmi - -> mulan.classifier
+    miml.classifiers.miml.mimlTOmi - -> miml.data
+    miml.classifiers.miml.mimlTOmi - -> org.apache.commons.configuration2
+    miml.classifiers.miml.mimlTOmi - -> mulan.data
+    miml.data.partitioning.powerset - -> miml.data.partitioning
+    miml.data.partitioning.powerset - -> mulan.data
+    miml.classifiers.miml.lazy - -> org.apache.commons.configuration2
+    miml.classifiers.miml.lazy - -> mulan.classifier.lazy
+    miml.classifiers.miml.lazy - -> weka.core
+    miml.classifiers.miml.lazy - -> miml.core.distance
+    miml.classifiers.miml.lazy - -> weka.core.neighboursearch
+    miml.classifiers.miml.lazy - -> miml.data
+    miml.classifiers.miml.lazy - -> miml.classifiers.miml
+    miml.classifiers.miml.lazy - -> mulan.classifier
+    miml.classifiers.mi - -> weka.classifiers.mi
+    miml.classifiers.mi - -> weka.core
+    miml.classifiers.miml.mimlTOml - -> miml.classifiers.miml
+    miml.classifiers.miml.mimlTOml - -> mulan.classifier
+    miml.classifiers.miml.mimlTOml - -> miml.transformation.mimlTOml
+    miml.classifiers.miml.mimlTOml - -> miml.data
+    miml.classifiers.miml.mimlTOml - -> weka.filters.unsupervised.attribute
+    miml.classifiers.miml.mimlTOml - -> mulan.data
+    miml.classifiers.miml.mimlTOml - -> org.apache.commons.configuration2
+    miml.data.normalization - -> miml.data
+    miml.transformation.mimlTOml - -> miml.data
+    miml.transformation.mimlTOml - -> mulan.data
+    miml.transformation.mimlTOml - -> weka.core
+    miml.transformation.mimlTOml - -> weka.filters.unsupervised.attribute
+    miml.report - -> miml.evaluation
+    miml.report - -> org.apache.commons.configuration2
+    miml.report - -> miml.core
+    miml.classifiers.miml.neural - -> miml.classifiers.miml
+    miml.classifiers.miml.neural - -> MWAlgorithms
+    miml.classifiers.miml.neural - -> com.mathworks.toolbox.javabuilder
+    miml.classifiers.miml.neural - -> org.apache.commons.configuration2
+    miml.data.partitioning.iterative - -> miml.data.partitioning
+    miml.data.partitioning.iterative - -> mulan.data
+    miml.data.partitioning.iterative - -> weka.core
+
+    class "miml.core" [[miml\core\package-summary.html]] {
+    }
+    class "miml.classifiers.miml" [[miml\classifiers\miml\package-summary.html]] {
+    }
+    class "miml.evaluation" [[miml\evaluation\package-summary.html]] {
+    }
+    class "miml.report" [[miml\report\package-summary.html]] {
+    }
+    class "miml.data" [[miml\data\package-summary.html]] {
+    }
+    class "miml.data.partitioning" [[miml\data\partitioning\package-summary.html]] {
+    }
+    class "miml.data.partitioning.random" [[miml\data\partitioning\random\package-summary.html]] {
+    }
+    class "miml.core.distance" [[miml\core\distance\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.optimization" [[miml\classifiers\miml\optimization\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.meta" [[miml\classifiers\miml\meta\package-summary.html]] {
+    }
+    class "miml.transformation.mimlTOmi" [[miml\transformation\mimlTOmi\package-summary.html]] {
+    }
+    class "miml.classifiers.ml" [[miml\classifiers\ml\package-summary.html]] {
+    }
+    class "miml.data.statistics" [[miml\data\statistics\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.mimlTOmi" [[miml\classifiers\miml\mimlTOmi\package-summary.html]] {
+    }
+    class "miml.data.partitioning.powerset" [[miml\data\partitioning\powerset\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.lazy" [[miml\classifiers\miml\lazy\package-summary.html]] {
+    }
+    class "miml.classifiers.mi" [[miml\classifiers\mi\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.mimlTOml" [[miml\classifiers\miml\mimlTOml\package-summary.html]] {
+    }
+    class "miml.transformation.mimlTOml" [[miml\transformation\mimlTOml\package-summary.html]] {
+    }
+    class "miml.data.normalization" [[miml\data\normalization\package-summary.html]] {
+    }
+    class "miml.classifiers.miml.neural" [[miml\classifiers\miml\neural\package-summary.html]] {
+    }
+    class "miml.data.partitioning.iterative" [[miml\data\partitioning\iterative\package-summary.html]] {
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

@@ -15,6 +15,8 @@
  */
 package miml.data.partitioning;
 
+import java.util.Random;
+
 import mulan.data.InvalidDataFormatException;
 import mulan.data.MultiLabelInstances;
 import weka.core.Instances;
@@ -44,6 +46,10 @@ public abstract class PartitionerBase {
 		// copy of original data to ensure the same initial dataset
 		this.workingSet = new MultiLabelInstances(new Instances(mlDataSet.getDataSet()),
 				mlDataSet.getLabelsMetaData().clone());
+		
+		//randomize according to the seed
+		this.workingSet.getDataSet().randomize(new Random(seed));
+		
 	}
 
 	/**
@@ -58,5 +64,24 @@ public abstract class PartitionerBase {
 		// set seed value
 		this.seed = seed;
 	}
+
+	/**
+	 * Returns the number of examples of the dataset to be partitioned.
+	 * 
+	 * @return int
+	 */
+	public int totalExamples() {		
+		return workingSet.getDataSet().numInstances();
+	}
+
+	/**
+	 * Given an array with datasets corresponding to partitions, prints the number
+	 * of examples of each dataset of the vector
+	 * 
+	 * @param Partition An array with the partitions. In case of train/test,
+	 *                  partition Partition[0] is the train set and Partition[1] is
+	 *                  the test set. In case of CV, Partition[i] is the ith fold.
+	 */
+	protected abstract void statsToString(MultiLabelInstances[] Partition);
 
 }

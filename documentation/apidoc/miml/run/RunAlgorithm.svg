@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="100px" preserveAspectRatio="none" style="width:198px;height:100px;background:#FFFFFF;" version="1.1" viewBox="0 0 198 100" width="198px" zoomAndPan="magnify"><defs/><g><!--MD5=[3168fe6d808a5c977afa2383578adadf]
+class miml.run.RunAlgorithm--><a href="RunAlgorithm.html" target="_top" title="RunAlgorithm.html" xlink:actuate="onRequest" xlink:href="RunAlgorithm.html" xlink:show="new" xlink:title="RunAlgorithm.html" xlink:type="simple"><g id="elem_miml.run.RunAlgorithm"><rect codeLine="5" fill="#F1F1F1" height="65.7969" id="miml.run.RunAlgorithm" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="145" x="23" y="7"/><ellipse cx="50.6" cy="27.0938" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M53.3656,22.9688 Q53.5219,22.75 53.7094,22.6406 Q53.8969,22.5313 54.1156,22.5313 Q54.4906,22.5313 54.725,22.7969 Q54.9594,23.0469 54.9594,23.6563 L54.9594,25.1094 Q54.9594,25.7188 54.725,25.9844 Q54.4906,26.25 54.1156,26.25 Q53.7719,26.25 53.5688,26.0469 Q53.3656,25.8594 53.2563,25.3438 Q53.2094,24.9844 53.0219,24.7969 Q52.6938,24.4219 52.0844,24.2031 Q51.475,23.9844 50.85,23.9844 Q50.0844,23.9844 49.4438,24.3125 Q48.8188,24.6406 48.3188,25.3906 Q47.8344,26.1406 47.8344,27.1719 L47.8344,28.2656 Q47.8344,29.5 48.725,30.3281 Q49.6156,31.1406 51.2094,31.1406 Q52.1469,31.1406 52.8031,30.8906 Q53.1938,30.7344 53.6156,30.2969 Q53.8813,30.0313 54.0219,29.9531 Q54.1781,29.875 54.3813,29.875 Q54.7094,29.875 54.9594,30.1406 Q55.225,30.3906 55.225,30.7344 Q55.225,31.0781 54.8813,31.4844 Q54.3813,32.0625 53.5844,32.3906 Q52.5063,32.8438 51.2094,32.8438 Q49.6938,32.8438 48.4906,32.2188 Q47.5063,31.7188 46.8188,30.6563 Q46.1313,29.5781 46.1313,28.2969 L46.1313,27.1406 Q46.1313,25.8125 46.7406,24.6719 Q47.3656,23.5156 48.4594,22.9063 Q49.5531,22.2813 50.7875,22.2813 Q51.5219,22.2813 52.1625,22.4531 Q52.8188,22.6094 53.3656,22.9688 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="67.4" y="26.5332">RunAlgorithm</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="42" x="88.9" y="39.9902">miml.run</text><line style="stroke:#181818;stroke-width:0.5;" x1="24" x2="167" y1="47.1875" y2="47.1875"/><ellipse cx="34" cy="61.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="119" x="43" y="65.7207">main(String[]): void</text></g></a><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="0" y="79.7969"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="0" y="90.1777">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[5f60c01de3d131b9e45dd558af2c7d38]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    class "<size:14>RunAlgorithm\n<size:10>miml.run" as miml.run.RunAlgorithm [[RunAlgorithm.html]] {
+        {static} +main(String[]): void
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

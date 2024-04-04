@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms(avg),Test_time_ms(avg),Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToML,mulan.classifier.transformation.MultiLabelStacking,miml.transformation.mimlTOml.KMeansTransformation,miml_birds.arff,MIMLtoML_KMT_MLStacking.config,19875.0,45.0,0.7028221005001191,0.0,0.13077280304834485,0.16994907763468248

@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Macro-averaged F-Measure
+MIMLClassifierToML,miml.classifiers.ml.RFPCT,miml.transformation.mimlTOml.KMeansTransformation,miml_birds.arff,MIMLtoML_KMT_RFPCT.config,463,311,0.10931174089068824,0.15789473684210525

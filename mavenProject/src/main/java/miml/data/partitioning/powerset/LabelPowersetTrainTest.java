@@ -15,8 +15,6 @@
  */
 package miml.data.partitioning.powerset;
 
-import java.util.Random;
-
 import miml.data.partitioning.TrainTestBase;
 import mulan.data.InvalidDataFormatException;
 import mulan.data.MultiLabelInstances;
@@ -73,8 +71,8 @@ public class LabelPowersetTrainTest extends TrainTestBase {
 		}
 		transformed.setClassIndex(transformed.numAttributes() - 1);
 
-		// stratify
-		transformed.randomize(new Random(seed));
+		// stratify - DELETED - the working set has been randomized by constructor
+		// transformed.randomize(new Random(seed));
 
 		// Resample supervised filter creates a stratified subsample of the
 		// given dataset
@@ -112,6 +110,9 @@ public class LabelPowersetTrainTest extends TrainTestBase {
 		String relationName = workingSet.getDataSet().relationName();
 		Partition[0].getDataSet().setRelationName(relationName);
 		Partition[1].getDataSet().setRelationName(relationName);
+
+		System.out.println("\nLabel powerset train test partitioning:");
+		statsToString(Partition);
 
 		return Partition;
 

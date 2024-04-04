@@ -35,14 +35,16 @@ public class NormalizingDataset {
 		MIMLInstances mimlDataSet2;
 		try {
 			System.out.println("Loading datasets");
-			mimlDataSet1 = new MIMLInstances("data" + File.separator +"miml_birds_random_80train.arff", "data" + File.separator +"miml_birds.xml");
-			mimlDataSet2 = new MIMLInstances("data" + File.separator +"miml_birds_random_20test.arff",  "data" + File.separator +"miml_birds.xml");
+			mimlDataSet1 = new MIMLInstances("data" + File.separator + "miml_birds_random_80train.arff",
+					"data" + File.separator + "miml_birds.xml");
+			mimlDataSet2 = new MIMLInstances("data" + File.separator + "miml_birds_random_20test.arff",
+					"data" + File.separator + "miml_birds.xml");
 			/*
 			 * updateStats must be called before call normalize method. If several datasets
 			 * with the same structure are normalized at once (e.g. train and test or folds
 			 * partitioned files), this method will be called for each dataset before
 			 * normalization. Besides, if the method method detects that all the attributes
-			 * are jet normalized, it sets the "normalized" property as true.
+			 * are yet normalized, it sets the "normalized" property as true.
 			 */
 			norm.updateStats(mimlDataSet1);
 			norm.updateStats(mimlDataSet2);

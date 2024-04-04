@@ -15,7 +15,6 @@
  */
 package miml.data.normalization;
 
-
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
 import weka.core.Instance;
@@ -46,10 +45,11 @@ public class MinMaxNormalization {
 	boolean normalized = true;
 
 	/**
-	 * Applies min-max normalization on a MIMLInstances dataset. Given an attribute
-	 * values, x, the new x' value will be x' = (x-min(x))/(max(x)-min(x)). Before
-	 * call this method the method update stats must be called to get the max and
-	 * min values for attributes.
+	 * Applies min-max normalization on a MIMLInstances dataset. Given an
+	 * attribute's value, x, the new x' value will be x' =
+	 * (x-min(x))/(max(x)-min(x)). Thus every attribute's value is transformed into
+	 * a decimal between 0 and 1.Before call this method the method update stats
+	 * must be called to get the max and min values for attributes.
 	 * 
 	 * @param mimlDataSet a dataset to normalize.
 	 * @throws Exception To be handled in upper level.
@@ -67,17 +67,16 @@ public class MinMaxNormalization {
 				Instance instance = mimlDataSet.getInstance(i, j);
 
 				for (int k = 0; k < instance.numAttributes(); k++) {
-					
-					double value = instance.value(k);			
-					
+
+					double value = instance.value(k);
+
 					// to avoid dividing by zero in case of a 0 range
-					if(Double.compare(Min[k], Max[k])!=0) 
-					{						
+					if (Double.compare(Min[k], Max[k]) != 0) {
 						value = (value - Min[k]) / (Range[k]);
 
 					} else {
-						
-						value = 1;						
+
+						value = 1;
 					}
 					instance.setValue(k, value);
 				}
@@ -156,16 +155,17 @@ public class MinMaxNormalization {
 	/**
 	 * Returns true if the dataset does not need normalization. Requires a previous
 	 * call of updateStats.
+	 * 
 	 * @return boolean
 	 */
 	public boolean isNormalized() {
 		return normalized;
 	}
 
-
 	/**
 	 * Retuns an array with the maximum values for all bag attributes in the
 	 * dataset. Requires a previous call of updateStats.
+	 * 
 	 * @return double[]
 	 */
 	public double[] getMax() {
@@ -175,6 +175,7 @@ public class MinMaxNormalization {
 	/**
 	 * Retuns an array with the minimum values for all bag attributes in the
 	 * dataset. Requires a previous call of updateStats.
+	 * 
 	 * @return double[]
 	 */
 	public double[] getMin() {
@@ -184,6 +185,7 @@ public class MinMaxNormalization {
 	/**
 	 * Retuns an array with the range values (i.e. max-min) for all bag attributes
 	 * in the dataset. Requires a previous call of updateStats.
+	 * 
 	 * @return double
 	 */
 	public double[] getRange() {
@@ -193,6 +195,7 @@ public class MinMaxNormalization {
 	/**
 	 * Retuns the number of bag attributes in the dataset. Requires a previous call
 	 * of updateStats.
+	 * 
 	 * @return int
 	 */
 	public int getnFeatures() {

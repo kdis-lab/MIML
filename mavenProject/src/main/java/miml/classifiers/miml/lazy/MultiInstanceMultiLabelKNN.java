@@ -81,7 +81,7 @@ public abstract class MultiInstanceMultiLabelKNN extends MIMLClassifier {
 		this.numOfNeighbours = configuration.getInt("numOfNeighbours", 10);
 		try {
 			// Get the name of the metric class
-			String metricName = configuration.getString("metric[@name]");
+			String metricName = configuration.getString("metric[@name]", "miml.core.distance.AverageHausdorff");
 			// Instance class
 			Class<? extends IDistance> metricClass = (Class<? extends IDistance>) Class.forName(metricName);
 

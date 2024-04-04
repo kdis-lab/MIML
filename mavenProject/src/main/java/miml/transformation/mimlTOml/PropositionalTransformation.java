@@ -14,6 +14,8 @@
  */
 package miml.transformation.mimlTOml;
 
+import java.io.Serializable;
+
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
 import mulan.data.MultiLabelInstances;
@@ -35,7 +37,10 @@ import weka.filters.unsupervised.attribute.Remove;
  * @version 20210614
  *
  */
-public class PropositionalTransformation {
+public class PropositionalTransformation implements Serializable {
+
+	/** For serialization. */
+	private static final long serialVersionUID = 1L;
 
 	/** Array of updated label indices. */
 	protected int updatedLabelIndices[];
@@ -159,7 +164,7 @@ public class PropositionalTransformation {
 
 		for (int i = 0; i < bagAsInstances.numInstances(); i++) {
 			Instance newInst = new DenseInstance(template.numAttributes());
-			// Sets the reference to the datas
+			// Sets the reference to the dataset
 			newInst.setDataset(bag.dataset());
 
 			// sets the bagLabel

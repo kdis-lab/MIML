@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="100px" preserveAspectRatio="none" style="width:198px;height:100px;background:#FFFFFF;" version="1.1" viewBox="0 0 198 100" width="198px" zoomAndPan="magnify"><defs/><g><!--MD5=[9999b54916b3f3d68861aafda19f0c03]
+class miml.tutorial.Resampling--><a href="Resampling.html" target="_top" title="Resampling.html" xlink:actuate="onRequest" xlink:href="Resampling.html" xlink:show="new" xlink:title="Resampling.html" xlink:type="simple"><g id="elem_miml.tutorial.Resampling"><rect codeLine="5" fill="#F1F1F1" height="65.7969" id="miml.tutorial.Resampling" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="145" x="23" y="7"/><ellipse cx="55.55" cy="27.0938" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M58.3156,22.9688 Q58.4719,22.75 58.6594,22.6406 Q58.8469,22.5313 59.0656,22.5313 Q59.4406,22.5313 59.675,22.7969 Q59.9094,23.0469 59.9094,23.6563 L59.9094,25.1094 Q59.9094,25.7188 59.675,25.9844 Q59.4406,26.25 59.0656,26.25 Q58.7219,26.25 58.5188,26.0469 Q58.3156,25.8594 58.2063,25.3438 Q58.1594,24.9844 57.9719,24.7969 Q57.6438,24.4219 57.0344,24.2031 Q56.425,23.9844 55.8,23.9844 Q55.0344,23.9844 54.3938,24.3125 Q53.7688,24.6406 53.2688,25.3906 Q52.7844,26.1406 52.7844,27.1719 L52.7844,28.2656 Q52.7844,29.5 53.675,30.3281 Q54.5656,31.1406 56.1594,31.1406 Q57.0969,31.1406 57.7531,30.8906 Q58.1438,30.7344 58.5656,30.2969 Q58.8313,30.0313 58.9719,29.9531 Q59.1281,29.875 59.3313,29.875 Q59.6594,29.875 59.9094,30.1406 Q60.175,30.3906 60.175,30.7344 Q60.175,31.0781 59.8313,31.4844 Q59.3313,32.0625 58.5344,32.3906 Q57.4563,32.8438 56.1594,32.8438 Q54.6438,32.8438 53.4406,32.2188 Q52.4563,31.7188 51.7688,30.6563 Q51.0813,29.5781 51.0813,28.2969 L51.0813,27.1406 Q51.0813,25.8125 51.6906,24.6719 Q52.3156,23.5156 53.4094,22.9063 Q54.5031,22.2813 55.7375,22.2813 Q56.4719,22.2813 57.1125,22.4531 Q57.7688,22.6094 58.3156,22.9688 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="73.45" y="26.5332">Resampling</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="60" x="80.45" y="39.9902">miml.tutorial</text><line style="stroke:#181818;stroke-width:0.5;" x1="24" x2="167" y1="47.1875" y2="47.1875"/><ellipse cx="34" cy="61.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="119" x="43" y="65.7207">main(String[]): void</text></g></a><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="0" y="79.7969"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="0" y="90.1777">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[42802bb71d69b781bb4b363b81d2db86]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    class "<size:14>Resampling\n<size:10>miml.tutorial" as miml.tutorial.Resampling [[Resampling.html]] {
+        {static} +main(String[]): void
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

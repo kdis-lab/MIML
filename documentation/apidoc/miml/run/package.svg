@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="150px" preserveAspectRatio="none" style="width:198px;height:150px;background:#FFFFFF;" version="1.1" viewBox="0 0 198 150" width="198px" zoomAndPan="magnify"><defs/><g><!--MD5=[858827b05fe10bc1f9dada6723a5a88d]
+cluster miml.run--><g id="cluster_miml.run"><path d="M15,6 L76,6 A3.75,3.75 0 0 1 78.5,8.5 L85.5,29.6094 L188,29.6094 A2.5,2.5 0 0 1 190.5,32.1094 L190.5,121.5 A2.5,2.5 0 0 1 188,124 L15,124 A2.5,2.5 0 0 1 12.5,121.5 L12.5,8.5 A2.5,2.5 0 0 1 15,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="12.5" x2="85.5" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="60" x="16.5" y="22.5332">miml.run</text></g><!--MD5=[3168fe6d808a5c977afa2383578adadf]
+class miml.run.RunAlgorithm--><a href="RunAlgorithm.html" target="_top" title="RunAlgorithm.html" xlink:actuate="onRequest" xlink:href="RunAlgorithm.html" xlink:show="new" xlink:title="RunAlgorithm.html" xlink:type="simple"><g id="elem_miml.run.RunAlgorithm"><rect codeLine="3" fill="#F1F1F1" height="65.6094" id="miml.run.RunAlgorithm" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="145" x="29" y="42"/><ellipse cx="56.6" cy="58" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M59.3656,53.875 Q59.5219,53.6563 59.7094,53.5469 Q59.8969,53.4375 60.1156,53.4375 Q60.4906,53.4375 60.725,53.7031 Q60.9594,53.9531 60.9594,54.5625 L60.9594,56.0156 Q60.9594,56.625 60.725,56.8906 Q60.4906,57.1563 60.1156,57.1563 Q59.7719,57.1563 59.5688,56.9531 Q59.3656,56.7656 59.2563,56.25 Q59.2094,55.8906 59.0219,55.7031 Q58.6938,55.3281 58.0844,55.1094 Q57.475,54.8906 56.85,54.8906 Q56.0844,54.8906 55.4438,55.2188 Q54.8188,55.5469 54.3188,56.2969 Q53.8344,57.0469 53.8344,58.0781 L53.8344,59.1719 Q53.8344,60.4063 54.725,61.2344 Q55.6156,62.0469 57.2094,62.0469 Q58.1469,62.0469 58.8031,61.7969 Q59.1938,61.6406 59.6156,61.2031 Q59.8813,60.9375 60.0219,60.8594 Q60.1781,60.7813 60.3813,60.7813 Q60.7094,60.7813 60.9594,61.0469 Q61.225,61.2969 61.225,61.6406 Q61.225,61.9844 60.8813,62.3906 Q60.3813,62.9688 59.5844,63.2969 Q58.5063,63.75 57.2094,63.75 Q55.6938,63.75 54.4906,63.125 Q53.5063,62.625 52.8188,61.5625 Q52.1313,60.4844 52.1313,59.2031 L52.1313,58.0469 Q52.1313,56.7188 52.7406,55.5781 Q53.3656,54.4219 54.4594,53.8125 Q55.5531,53.1875 56.7875,53.1875 Q57.5219,53.1875 58.1625,53.3594 Q58.8188,53.5156 59.3656,53.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="73.4" y="63.7285">RunAlgorithm</text><line style="stroke:#181818;stroke-width:0.5;" x1="30" x2="173" y1="74" y2="74"/><line style="stroke:#181818;stroke-width:0.5;" x1="30" x2="173" y1="82" y2="82"/><ellipse cx="40" cy="96.3047" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="119" x="49" y="100.5332">main(String[]): void</text></g></a><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="0" y="130"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="0" y="140.3809">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[7fadf49a08b45946d3d553092dc8b2f1]
+@startuml
+    namespace miml.run {
+
+        class RunAlgorithm [[RunAlgorithm.html]] {
+            {static} +main(String[]): void
+        }
+
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

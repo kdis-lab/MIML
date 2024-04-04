@@ -136,7 +136,8 @@ public class MLDGC extends MultiLabelKNN {
 	}
 
 	/**
-	 * Computes the label distance between two instances.
+	 * Computes the label distance between two instances. The distance considered is
+	 * the Hamming loss.
 	 *
 	 * @param instance1 the first instance.
 	 * @param instance2 the second instance.
@@ -144,18 +145,32 @@ public class MLDGC extends MultiLabelKNN {
 	 */
 	protected double labelDistance(Instance instance1, Instance instance2) {
 		double symmetricDifference = 0;
-		int activeLabels = 0;
 		for (int i = 0; i < this.labelIndices.length; i++) {
 			if (instance1.value(labelIndices[i]) != instance2.value(labelIndices[i]))
 				symmetricDifference++;
-			if ((Utils.eq(instance1.value(labelIndices[i]), 1.0)) || (Utils.eq(instance2.value(labelIndices[i]), 1.0)))
-				activeLabels++;
 		}
-
 		return symmetricDifference / labelIndices.length; // HammingLoss
-		// return symmetricDifference / activeLabels; //Adjusted HammingLoss, considers
-		// averaging by active labels instead all labels
 	}
+
+	/*
+	 * Computes the label distance between two instances. Adjusted HammingLoss,
+	 * considers averaging by active labels instead all labels
+	 *
+	 * @param instance1 the first instance.
+	 * 
+	 * @param instance2 the second instance.
+	 * 
+	 * @return the label distance between two instances.
+	 */
+	/*
+	 * protected double labelDistance(Instance instance1, Instance instance2) {
+	 * double symmetricDifference = 0; int activeLabels = 0; for (int i = 0; i <
+	 * this.labelIndices.length; i++) { if (instance1.value(labelIndices[i]) !=
+	 * instance2.value(labelIndices[i])) symmetricDifference++; if
+	 * ((Utils.eq(instance1.value(labelIndices[i]), 1.0)) ||
+	 * (Utils.eq(instance2.value(labelIndices[i]), 1.0))) activeLabels++; } return
+	 * symmetricDifference / activeLabels; }
+	 */
 
 	/**
 	 * Given a neighborhood and an instance, computes neighborhood-weight and
@@ -200,7 +215,7 @@ public class MLDGC extends MultiLabelKNN {
 		PdisF = PdisF / k;
 		PdisY_disF = PdisY_disF / k;
 		if ((PdisY == 0 || PdisY == 1))
-			weight = 0; //PROBAR CON 1
+			weight = 0; // PROBAR CON 1
 		else
 			weight = ((PdisY_disF * PdisF) / PdisY) - (((1 - PdisY_disF) * PdisF) / (1 - PdisY));
 

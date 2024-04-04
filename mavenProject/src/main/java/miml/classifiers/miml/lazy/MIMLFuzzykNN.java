@@ -23,31 +23,31 @@ public class MIMLFuzzykNN extends MultiInstanceMultiLabelKNN {
 
 	/** For serialization. */
 	private static final long serialVersionUID = 1L;
-	
-	/** Instances.*/
+
+	/** Instances. */
 	protected MIMLInstances dataset;
-	
-	/** Neighborhood size.*/
+
+	/** Neighborhood size. */
 	protected int k;
-	
+
 	/** Partition matrix of num_labels x num_bags */
 	protected double U[][];
-	
-	/** Neighborhood size for initialization of U matrix.*/
+
+	/** Neighborhood size for initialization of U matrix. */
 	protected int kini;
-	
-	/** Fuzzy exponent.*/
+
+	/** Fuzzy exponent. */
 	protected double m;
-	
-	/** Type of initialization: Crisp, fuzzy*/
+
+	/** Type of initialization: Crisp, fuzzy */
 	protected int ini;
-	
-	/** To perform neighborhood search.*/
+
+	/** To perform neighborhood search. */
 	protected LinearNNESearch elnn;
-	
-	/** Tolerance to compare float values.*/
+
+	/** Tolerance to compare float values. */
 	protected double e = 0.0000001;
-	
+
 	class LinearNNESearch extends LinearNNSearch {
 
 		/** For serialization */

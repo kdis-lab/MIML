@@ -52,7 +52,7 @@ public abstract class TrainTestBase extends PartitionerBase {
 	 * Returns a array with two multi-label random datasets corresponding to the
 	 * train and test sets respectively.
 	 *
-	 * @param percentageTrain Percentage of train dataset.
+	 * @param percentageTrain Percentage of train dataset, a value in [0, 100].
 	 * @return MultiLabelInstances[].<br>
 	 *         MultiLabelInstances[0] is the train set. <br>
 	 *         MultiLabelInstances[1] is the test set.
@@ -60,4 +60,11 @@ public abstract class TrainTestBase extends PartitionerBase {
 	 */
 	public abstract MultiLabelInstances[] split(double percentageTrain) throws Exception;
 
+	protected void statsToString(MultiLabelInstances[] Partition) {
+		int currentTrain = Partition[0].getNumInstances();
+		int currentTest = Partition[1].getNumInstances();
+		System.out.println("\tTotal examples : " + totalExamples());
+		System.out.println("\tCurrent: Train: " + currentTrain + " Test: " + currentTest + " Total: "
+				+ (currentTrain + currentTest));
+	}
 }

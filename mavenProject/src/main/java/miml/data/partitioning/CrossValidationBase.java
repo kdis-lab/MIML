@@ -111,4 +111,10 @@ public abstract class CrossValidationBase extends PartitionerBase {
 	 */
 	public abstract MultiLabelInstances[] getFolds(int nFolds) throws InvalidDataFormatException;
 
+	protected void statsToString(MultiLabelInstances[] Partition) {
+		System.out.println("\tTotal examples: " + totalExamples());
+		System.out.println("\tNumber of folds: " + Partition.length);
+		for (int f = 0; f < Partition.length; f++)
+			System.out.println("\tFold " + f + ": " + Partition[f].getDataSet().numInstances() + " examples");
+	}
 }

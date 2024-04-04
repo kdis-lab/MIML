@@ -143,7 +143,13 @@ public class MIMLDistanceFunction extends NormalizableDistance {
 	 */
 	@Override
 	public void setInstances(Instances insts) {
-		super.setInstances(insts);
+		// metric.setInstances(insts);
+		try {
+			metric.setInstances(insts);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -155,6 +161,7 @@ public class MIMLDistanceFunction extends NormalizableDistance {
 	public Instances getInstances() {
 
 		return super.getInstances();
+
 	}
 
 	/*
@@ -217,7 +224,13 @@ public class MIMLDistanceFunction extends NormalizableDistance {
 	 */
 	@Override
 	public void update(Instance ins) {
-		super.update(ins);
+		// super.update(ins);
+		try {
+			metric.update(ins);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/*

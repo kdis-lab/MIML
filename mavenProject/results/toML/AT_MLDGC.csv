@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms(avg),Test_time_ms(avg),Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToML,miml.classifiers.ml.MLDGC,miml.transformation.mimlTOml.ArithmeticTransformation,miml_birds.arff,MIMLtoML_AT_MLDGC.config,27.6,36.6,0.09172818925140905,0.19441930618401204,0.47138539479096764,0.3316617425467456

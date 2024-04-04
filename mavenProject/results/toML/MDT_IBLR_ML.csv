@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms(avg),Test_time_ms(avg),Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToML,mulan.classifier.lazy.IBLR_ML,miml.transformation.mimlTOml.MedoidTransformation,miml_birds.arff,MIMLtoML_MDT_IBLR_ML.config,5129.2,73.0,0.16841708343256329,0.0193815987933635,0.23330802324610372,0.21329317161196495

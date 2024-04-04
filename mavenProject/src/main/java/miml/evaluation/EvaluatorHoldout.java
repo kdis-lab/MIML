@@ -17,7 +17,6 @@ package miml.evaluation;
 
 import java.io.File;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.configuration2.Configuration;
@@ -83,20 +82,20 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 	 *
 	 * @param mimlDataSet     The dataset to be used.
 	 * @param percentageTrain The percentage of train.
-	 * @param seed Seed for randomization.
-	 * @param method partitioning method.
-	 * <ul>
-	 * <li> 1 random partitioning </li>
-	 * <li> 2 powerset partitioning </li>
-	 * <li> 3 iterative partitioning </li>
-	 * </ul>
+	 * @param seed            Seed for randomization.
+	 * @param method          partitioning method.
+	 *                        <ul>
+	 *                        <li>1 random partitioning</li>
+	 *                        <li>2 powerset partitioning</li>
+	 *                        <li>3 iterative partitioning</li>
+	 *                        </ul>
 	 * @throws Exception If occur an error during holdout experiment.
 	 */
 	public EvaluatorHoldout(MIMLInstances mimlDataSet, double percentageTrain, int seed, int method) throws Exception {
 
-		List<MIMLInstances> list = MIMLInstances.splitData(mimlDataSet, percentageTrain, seed, method);
-		this.trainData = list.get(0);
-		this.testData = list.get(1);
+		MIMLInstances[] partitions = MIMLInstances.splitData(mimlDataSet, percentageTrain, seed, method);
+		this.trainData = partitions[0];
+		this.testData = partitions[1];
 	}
 
 	/**
@@ -136,7 +135,6 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 		}
 	}
 
-
 	/**
 	 * Gets the time spent in training.
 	 *
@@ -174,7 +172,6 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 		return testData;
 	}
 
-
 	/*
 	 * @see
 	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
@@ -184,7 +181,7 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 
 		String arffFileTrain = configuration.subset("data").getString("trainFile");
 		String xmlFileName = configuration.subset("data").getString("xmlFile");
-		String arffFileTest = configuration.subset("data").getString("testFile");		
+		String arffFileTest = configuration.subset("data").getString("testFile");
 
 		try {
 
@@ -202,9 +199,10 @@ public class EvaluatorHoldout implements IConfiguration, IEvaluator<Evaluation> 
 
 				int seed = configuration.getInt("seed", 1);
 				double percentageTrain = configuration.getDouble("percentageTrain", 80);
-				List<MIMLInstances> list = MIMLInstances.splitData(new MIMLInstances(arffFileTrain, xmlFileName), percentageTrain, seed, method);
-				this.trainData = list.get(0);
-				this.testData = list.get(1);
+				MIMLInstances[] partitions = MIMLInstances.splitData(new MIMLInstances(arffFileTrain, xmlFileName),
+						percentageTrain, seed, method);
+				this.trainData = partitions[0];
+				this.testData = partitions[1];
 			} else {
 
 				trainData = new MIMLInstances(arffFileTrain, xmlFileName);

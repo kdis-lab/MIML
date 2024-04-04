@@ -25,7 +25,9 @@ import miml.core.Params;
 import miml.core.Utils;
 import miml.data.MIMLBag;
 import miml.data.MIMLInstances;
+import miml.transformation.mimlTOml.KMeansTransformation;
 import miml.transformation.mimlTOml.MIMLtoML;
+import miml.transformation.mimlTOml.MedoidTransformation;
 import mulan.classifier.MultiLabelLearner;
 import mulan.classifier.MultiLabelOutput;
 import mulan.data.MultiLabelInstances;
@@ -50,6 +52,14 @@ import weka.filters.unsupervised.attribute.Remove;
  */
 public class MIMLClassifierToML extends MIMLClassifier {
 
+	public MultiLabelLearner getBaseClassifier() {
+		return baseClassifier;
+	}
+
+	public MIMLtoML getTransformationMethod() {
+		return transformationMethod;
+	}
+
 	/**
 	 * Generated Serial version UID.
 	 */
@@ -70,8 +80,12 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	 */
 	protected MIMLInstances mimlDataset;
 
-	Remove removeFilter;
-	MultiLabelInstances mlDataSetWithBagId;
+	/** The filter that removes the bagId attribute */
+	protected Remove removeFilter;
+
+	/** An empty dataset used as template for prediction */
+
+	protected MultiLabelInstances templateWithBagId;
 
 	/**
 	 * Basic constructor to initialize the classifier.
@@ -104,7 +118,11 @@ public class MIMLClassifierToML extends MIMLClassifier {
 		this.mimlDataset = mimlDataSet;
 
 		// Transforms a dataset
-		mlDataSetWithBagId = transformationMethod.transformDataset(mimlDataSet);
+		MultiLabelInstances mlDataSetWithBagId = transformationMethod.transformDataset(mimlDataSet);
+
+		// Generates a template (empty dataset) for prediction step
+		templateWithBagId = new MultiLabelInstances(new Instances(mlDataSetWithBagId.getDataSet(), 0),
+				mlDataSetWithBagId.getLabelsMetaData());
 
 		// Deletes bagIdAttribute
 		removeFilter = new Remove();
@@ -113,9 +131,15 @@ public class MIMLClassifierToML extends MIMLClassifier {
 		removeFilter.setInputFormat(mlDataSetWithBagId.getDataSet());
 		Instances newData = Filter.useFilter(mlDataSetWithBagId.getDataSet(), removeFilter);
 
+		// Builds the classifier by using the transformed dataset without bagID
+		// attribute
 		MultiLabelInstances withoutBagId = new MultiLabelInstances(newData, mimlDataSet.getLabelsMetaData());
 
 		baseClassifier.build(withoutBagId);
+	}
+
+	public Remove getRemoveFilter() {
+		return removeFilter;
 	}
 
 	/*
@@ -129,7 +153,9 @@ public class MIMLClassifierToML extends MIMLClassifier {
 		Instance instance = transformationMethod.transformInstance(bag);
 
 		// Delete bagIdAttribute
-		Instances newData = new Instances(this.mlDataSetWithBagId.getDataSet(), 0);
+		// Instances newData = new Instances(this.mlDataSetWithBagId.getDataSet(), 0);
+
+		Instances newData = new Instances(templateWithBagId.getDataSet(), 0);
 		newData.add(instance);
 		newData = Filter.useFilter(newData, removeFilter);
 
@@ -143,6 +169,7 @@ public class MIMLClassifierToML extends MIMLClassifier {
 	 * core.IConfiguration#configure(org.apache.commons.configuration.Configuration)
 	 */
 	@Override
+	// @SuppressWarnings("unchecked")
 	public void configure(Configuration configuration) {
 		// Get the string with the base classifier class
 		String classifierName = configuration.getString("multiLabelClassifier[@name]");
@@ -167,6 +194,7 @@ public class MIMLClassifierToML extends MIMLClassifier {
 
 		// Get the string with the base classifier class
 		String transformerName = configuration.getString("transformationMethod[@name]");
+
 		// Instance class
 		Class<? extends MIMLtoML> transformerClass = null;
 		try {
@@ -177,6 +205,41 @@ public class MIMLClassifierToML extends MIMLClassifier {
 		}
 		try {
 			this.transformationMethod = Objects.requireNonNull(transformerClass).getConstructor().newInstance();
+
+			// Medoid transformation allows to normalize the resulting transformed dataset
+			if (transformerName.contains("MedoidTransformation")) {
+				boolean normalize = configuration.getBoolean("transformationMethod[@normalize]", false);
+				((MedoidTransformation) this.transformationMethod).setNormalize(normalize);
+
+				double percentage = configuration.getFloat("transformationMethod[@percentage]", (float) -1);
+				((MedoidTransformation) this.transformationMethod).setPercentage(percentage);
+
+				// If a percentage has been set the number of clusters is ignored
+				if (percentage == -1) {
+					int numberOfClusters = configuration.getInt("transformationMethod[@numberOfClusters]", -1);
+					((MedoidTransformation) this.transformationMethod).setNumClusters(numberOfClusters);
+				}
+
+				int seed = configuration.getInt("transformationMethod[@seed]", 1);
+				((MedoidTransformation) this.transformationMethod).setSeed(seed);
+
+			}
+
+			if (transformerName.contains("KMeansTransformation")) {
+				double percentage = configuration.getFloat("transformationMethod[@percentage]", (float) -1);
+				((KMeansTransformation) this.transformationMethod).setPercentage(percentage);
+
+				// If a percentage has been set the number of clusters is ignored
+				if (percentage == -1) {
+					int numberOfClusters = configuration.getInt("transformationMethod[@numberOfClusters]", -1);
+					((KMeansTransformation) this.transformationMethod).setNumClusters(numberOfClusters);
+				}
+
+				int seed = configuration.getInt("transformationMethod[@seed]", 1);
+				((KMeansTransformation) this.transformationMethod).setSeed(seed);
+
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.exit(1);

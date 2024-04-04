@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="188px" preserveAspectRatio="none" style="width:312px;height:188px;background:#FFFFFF;" version="1.1" viewBox="0 0 312 188" width="312px" zoomAndPan="magnify"><defs/><g><!--MD5=[71c463bd13ab84abc7386bd2502a9d61]
+class miml.data.MLSave--><a href="MLSave.html" target="_top" title="MLSave.html" xlink:actuate="onRequest" xlink:href="MLSave.html" xlink:show="new" xlink:title="MLSave.html" xlink:type="simple"><g id="elem_miml.data.MLSave"><rect codeLine="5" fill="#F1F1F1" height="153.8438" id="miml.data.MLSave" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="291" x="7" y="7"/><ellipse cx="122.75" cy="27.0938" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M125.5156,22.9688 Q125.6719,22.75 125.8594,22.6406 Q126.0469,22.5313 126.2656,22.5313 Q126.6406,22.5313 126.875,22.7969 Q127.1094,23.0469 127.1094,23.6563 L127.1094,25.1094 Q127.1094,25.7188 126.875,25.9844 Q126.6406,26.25 126.2656,26.25 Q125.9219,26.25 125.7188,26.0469 Q125.5156,25.8594 125.4063,25.3438 Q125.3594,24.9844 125.1719,24.7969 Q124.8438,24.4219 124.2344,24.2031 Q123.625,23.9844 123,23.9844 Q122.2344,23.9844 121.5938,24.3125 Q120.9688,24.6406 120.4688,25.3906 Q119.9844,26.1406 119.9844,27.1719 L119.9844,28.2656 Q119.9844,29.5 120.875,30.3281 Q121.7656,31.1406 123.3594,31.1406 Q124.2969,31.1406 124.9531,30.8906 Q125.3438,30.7344 125.7656,30.2969 Q126.0313,30.0313 126.1719,29.9531 Q126.3281,29.875 126.5313,29.875 Q126.8594,29.875 127.1094,30.1406 Q127.375,30.3906 127.375,30.7344 Q127.375,31.0781 127.0313,31.4844 Q126.5313,32.0625 125.7344,32.3906 Q124.6563,32.8438 123.3594,32.8438 Q121.8438,32.8438 120.6406,32.2188 Q119.6563,31.7188 118.9688,30.6563 Q118.2813,29.5781 118.2813,28.2969 L118.2813,27.1406 Q118.2813,25.8125 118.8906,24.6719 Q119.5156,23.5156 120.6094,22.9063 Q121.7031,22.2813 122.9375,22.2813 Q123.6719,22.2813 124.3125,22.4531 Q124.9688,22.6094 125.5156,22.9688 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="143.25" y="26.5332">MLSave</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48" x="144.75" y="39.9902">miml.data</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="297" y1="47.1875" y2="47.1875"/><ellipse cx="18" cy="61.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="234" x="27" y="65.7207">saveArff(MIMLInstances, String): void</text><ellipse cx="18" cy="79.1016" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="265" x="27" y="83.3301">saveArff(MultiLabelInstances, String): void</text><ellipse cx="18" cy="96.7109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="201" x="27" y="100.9395">saveArff(Instances, String): void</text><ellipse cx="18" cy="114.3203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="265" x="27" y="118.5488">saveXml(MultiLabelInstances, String): void</text><ellipse cx="18" cy="131.9297" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="201" x="27" y="136.1582">saveXml(Instances, String): void</text><ellipse cx="18" cy="149.5391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="250" x="27" y="153.7676">saveXml(ArrayList&lt;String&gt;, String): void</text></g></a><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="57" y="167.8438"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="57" y="178.2246">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[e10bf793bf8e32c26f2374b62b842622]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    class "<size:14>MLSave\n<size:10>miml.data" as miml.data.MLSave [[MLSave.html]] {
+        {static} +saveArff(MIMLInstances, String): void
+        {static} +saveArff(MultiLabelInstances, String): void
+        {static} +saveArff(Instances, String): void
+        {static} +saveXml(MultiLabelInstances, String): void
+        {static} +saveXml(Instances, String): void
+        {static} +saveXml(ArrayList<String>, String): void
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

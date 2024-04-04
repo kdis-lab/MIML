@@ -17,7 +17,6 @@
 package miml.data.partitioning.random;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import miml.data.partitioning.TrainTestBase;
 import weka.core.Instance;
@@ -64,8 +63,8 @@ public class RandomTrainTest extends TrainTestBase {
 		// copy of original data
 		Instances dataSet = new Instances(workingSet.getDataSet());
 
-		// randomize dataset
-		dataSet.randomize(new Random(seed));
+		// randomize dataset - DELETED - the working set has been randomized by constructor
+		// dataSet.randomize(new Random(seed));
 
 		// Initializations
 		int numInstances = workingSet.getNumInstances();
@@ -149,13 +148,10 @@ public class RandomTrainTest extends TrainTestBase {
 			}
 		}
 
-		System.out.println("\nRandom partitioning:\nnumLabels: " + numLabels + " Covered: " + nCoveredLabels);
-		int currentTrain = Partition[0].getNumInstances();
-		int currentTest = Partition[1].getNumInstances();
-		System.out.println("\nTotal instances: " + numInstances + " Expected train: " + nTrain);
-		System.out.println("\tCurrent: Train: " + currentTrain + " Test: " + currentTest + " Total: "
-				+ (currentTrain + currentTest));
-
+		System.out.println(
+				"\nRandom train test partitioning:\n\tnumLabels: " + numLabels + " Covered: " + nCoveredLabels);
+		System.out.println("\tExpected train examples: " + nTrain);
+		statsToString(Partition);
 		/*
 		 * System.out.
 		 * println("\nResult of partitioning (0 not selected, 1 initially selected for train, 2 selected for train, 3 selected for test): "

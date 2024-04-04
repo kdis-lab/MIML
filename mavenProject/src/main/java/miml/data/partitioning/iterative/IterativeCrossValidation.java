@@ -91,6 +91,9 @@ public class IterativeCrossValidation extends CrossValidationBase {
 		for (int i = 0; i < partition.length; i++)
 			partition[i].getDataSet().setRelationName(relationName);
 
+		System.out.println("\nIterative CV partitioning:");
+		statsToString(partition);
+
 		return partition;
 	}
 }

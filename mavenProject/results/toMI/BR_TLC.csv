@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToMI,weka.classifiers.mi.TLC,miml.classifiers.miml.mimlTOmi.MIMLBinaryRelevance,miml_birds_random_80train.arff,MIMLtoMI_BR_TLC.config,3065,348,0.104251012145749,0.057692307692307696,0.40337060600218494,0.3547395547108987

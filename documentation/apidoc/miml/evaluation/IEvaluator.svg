@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="117px" preserveAspectRatio="none" style="width:279px;height:117px;background:#FFFFFF;" version="1.1" viewBox="0 0 279 117" width="279px" zoomAndPan="magnify"><defs/><g><!--MD5=[d273eba36a5cf220823e24e6a8361d46]
+class miml.evaluation.IEvaluator--><a href="IEvaluator.html" target="_top" title="IEvaluator.html" xlink:actuate="onRequest" xlink:href="IEvaluator.html" xlink:show="new" xlink:title="IEvaluator.html" xlink:type="simple"><g id="elem_miml.evaluation.IEvaluator"><rect codeLine="5" fill="#F1F1F1" height="83.4063" id="miml.evaluation.IEvaluator" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="258" x="7" y="7"/><ellipse cx="89.75" cy="27.0938" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M90.7031,23.7344 L90.7031,30.3906 L92.4219,30.3906 Q93.0313,30.3906 93.2969,30.625 Q93.5625,30.8594 93.5625,31.25 Q93.5625,31.625 93.2969,31.8594 Q93.0313,32.0938 92.4219,32.0938 L87.2813,32.0938 Q86.6719,32.0938 86.4063,31.8594 Q86.1406,31.625 86.1406,31.2344 Q86.1406,30.8594 86.4063,30.625 Q86.6719,30.3906 87.2813,30.3906 L89,30.3906 L89,23.7344 L87.2813,23.7344 Q86.6719,23.7344 86.4063,23.5 Q86.1406,23.2656 86.1406,22.875 Q86.1406,22.5 86.4063,22.2656 Q86.6719,22.0313 87.2813,22.0313 L92.4219,22.0313 Q93.0313,22.0313 93.2969,22.2656 Q93.5625,22.5 93.5625,22.875 Q93.5625,23.2656 93.2969,23.5 Q93.0313,23.7344 92.4219,23.7344 L90.7031,23.7344 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="63" x="115.25" y="26.5332">IEvaluator</text><text fill="#000000" font-family="sans-serif" font-size="10" font-style="italic" lengthAdjust="spacing" textLength="73" x="110.25" y="39.9902">miml.evaluation</text><rect fill="#FFFFFF" height="17.0938" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" width="9" x="259" y="4"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="7" x="260" y="17.457">T</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="264" y1="47.1875" y2="47.1875"/><ellipse cx="18" cy="61.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="232" x="27" y="65.7207">runExperiment(IMIMLClassifier): void</text><ellipse cx="18" cy="79.1016" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="112" x="27" y="83.3301">getEvaluation(): T</text></g></a><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="40.5" y="97.4063"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="40.5" y="107.7871">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[dab6021e83c0a86fff5d7c8d6bbda034]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    interface "<size:14>IEvaluator\n<size:10>miml.evaluation" as miml.evaluation.IEvaluator<T> [[IEvaluator.html]] {
+        {abstract} +runExperiment(IMIMLClassifier): void
+        {abstract} +getEvaluation(): T
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

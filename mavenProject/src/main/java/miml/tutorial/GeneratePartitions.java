@@ -58,7 +58,6 @@ public class GeneratePartitions {
 		System.out.println("\t\t -s 1 ->  random  stratification. For classification and regression (by default)");
 		System.out.println("\t\t -s 2 ->  label powerset stratification. Just for classification");
 		System.out.println("\t\t -s 3 ->  iterative stratification. Just for classification");
-		
 
 		// Output
 		System.out.println("\t -o OutputFile (without extension)");
@@ -165,7 +164,8 @@ public class GeneratePartitions {
 				partitions = engine.split(percentageValue);
 			} else if (stratification.contentEquals("2")) {
 				// Labelpowerset stratification
-				System.out.println("\nPerforming label powerset train-test partitioning (" + percentageTrain + " train)...");
+				System.out.println(
+						"\nPerforming label powerset train-test partitioning (" + percentageTrain + " train)...");
 				LabelPowersetTrainTest engine = new LabelPowersetTrainTest(mlDataSet);
 				partitions = engine.split(percentageValue);
 			} else {

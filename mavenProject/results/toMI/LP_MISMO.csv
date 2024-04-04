@@ -1,0 +1,2 @@
+Algorithm,Classifier,Transform method,Dataset,ConfigurationFile,Train_time_ms,Test_time_ms,Hamming Loss,Subset Accuracy,Macro-averaged Precision,Macro-averaged F-Measure
+MIMLClassifierToMI,miml.classifiers.mi.MISMOWrapper,miml.classifiers.miml.mimlTOmi.MIMLLabelPowerset,miml_birds_random_80train.arff,MIMLtoMI_LP_MISMO.config,5572,3092,0.12449392712550608,0.09615384615384616,0.3878136483399642,0.35751368010896145

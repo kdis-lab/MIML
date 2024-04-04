@@ -20,6 +20,8 @@ import miml.data.MIMLInstances;
 import miml.data.MLSave;
 import miml.transformation.mimlTOml.ArithmeticTransformation;
 import miml.transformation.mimlTOml.GeometricTransformation;
+import miml.transformation.mimlTOml.KMeansTransformation;
+import miml.transformation.mimlTOml.MedoidTransformation;
 import miml.transformation.mimlTOml.MinMaxTransformation;
 import miml.transformation.mimlTOml.PropositionalTransformation;
 import mulan.data.MultiLabelInstances;
@@ -118,7 +120,7 @@ public class MIMLtoMLTransformation {
 		String xmlFileResultPropositional = "data" + File.separator + "resultPropositional.xml";
 
 		PropositionalTransformation propositional = new PropositionalTransformation(mimlDataSet);
-		propositional.setIncludeBagId(true); //by default the bagID attribute is not included
+		propositional.setIncludeBagId(true); // by default the bagID attribute is not included
 		// Transforms a single instance
 		result = propositional.transformInstance(mimlDataSet.getBag(0));
 
@@ -126,6 +128,38 @@ public class MIMLtoMLTransformation {
 		result = propositional.transformDataset();
 		MLSave.saveArff(result, arffFileResultPropositional);
 		MLSave.saveXml(result, xmlFileResultPropositional);
+
+		System.out.println("=============Medoid=====================");
+		String arffFileResultMedoid = "data" + File.separator + "resultMedoid.arff";
+		String xmlFileResultMedoid = "data" + File.separator + "resultMedoid.xml";
+
+		MedoidTransformation medoid = new MedoidTransformation(mimlDataSet);
+
+		// Transforms a complete dataset
+		result = medoid.transformDataset();
+		MLSave.saveArff(result, arffFileResultMedoid);
+		MLSave.saveXml(result, xmlFileResultMedoid);
+
+		// Transforms a single instance. This method must be called after
+		// transformDataset as it performs kmedoid clustering required by this kind of
+		// transformation.
+		instance = medoid.transformInstance(mimlDataSet.getBag(0));
+
+		System.out.println("=============kMeans=====================");
+		String arffFileResultkMeans = "data" + File.separator + "resultkMeans.arff";
+		String xmlFileResultkMeans = "data" + File.separator + "resultkMeans.xml";
+
+		KMeansTransformation kmeans = new KMeansTransformation(mimlDataSet);
+
+		// Transforms a complete dataset
+		result = kmeans.transformDataset();
+		MLSave.saveArff(result, arffFileResultkMeans);
+		MLSave.saveXml(result, xmlFileResultkMeans);
+
+		// Transforms a single instance. This method must be called after
+		// transformDataset as it performs kmeans clustering required by this kind of
+		// transformation.
+		instance = kmeans.transformInstance(mimlDataSet.getBag(0));
 
 	}
 

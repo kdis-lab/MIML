@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="117px" preserveAspectRatio="none" style="width:216px;height:117px;background:#FFFFFF;" version="1.1" viewBox="0 0 216 117" width="216px" zoomAndPan="magnify"><defs/><g><!--MD5=[c53c6c2907ff754832edfbc65ed53084]
+class miml.tutorial.InsertingAttributesToBags--><a href="InsertingAttributesToBags.html" target="_top" title="InsertingAttributesToBags.html" xlink:actuate="onRequest" xlink:href="InsertingAttributesToBags.html" xlink:show="new" xlink:title="InsertingAttributesToBags.html" xlink:type="simple"><g id="elem_miml.tutorial.InsertingAttributesToBags"><rect codeLine="5" fill="#F1F1F1" height="83.4063" id="miml.tutorial.InsertingAttributesToBags" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="195" x="7" y="7"/><ellipse cx="22" cy="27.0938" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M24.7656,22.9688 Q24.9219,22.75 25.1094,22.6406 Q25.2969,22.5313 25.5156,22.5313 Q25.8906,22.5313 26.125,22.7969 Q26.3594,23.0469 26.3594,23.6563 L26.3594,25.1094 Q26.3594,25.7188 26.125,25.9844 Q25.8906,26.25 25.5156,26.25 Q25.1719,26.25 24.9688,26.0469 Q24.7656,25.8594 24.6563,25.3438 Q24.6094,24.9844 24.4219,24.7969 Q24.0938,24.4219 23.4844,24.2031 Q22.875,23.9844 22.25,23.9844 Q21.4844,23.9844 20.8438,24.3125 Q20.2188,24.6406 19.7188,25.3906 Q19.2344,26.1406 19.2344,27.1719 L19.2344,28.2656 Q19.2344,29.5 20.125,30.3281 Q21.0156,31.1406 22.6094,31.1406 Q23.5469,31.1406 24.2031,30.8906 Q24.5938,30.7344 25.0156,30.2969 Q25.2813,30.0313 25.4219,29.9531 Q25.5781,29.875 25.7813,29.875 Q26.1094,29.875 26.3594,30.1406 Q26.625,30.3906 26.625,30.7344 Q26.625,31.0781 26.2813,31.4844 Q25.7813,32.0625 24.9844,32.3906 Q23.9063,32.8438 22.6094,32.8438 Q21.0938,32.8438 19.8906,32.2188 Q18.9063,31.7188 18.2188,30.6563 Q17.5313,29.5781 17.5313,28.2969 L17.5313,27.1406 Q17.5313,25.8125 18.1406,24.6719 Q18.7656,23.5156 19.8594,22.9063 Q20.9531,22.2813 22.1875,22.2813 Q22.9219,22.2813 23.5625,22.4531 Q24.2188,22.6094 24.7656,22.9688 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="163" x="36" y="26.5332">InsertingAttributesToBags</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="60" x="87.5" y="39.9902">miml.tutorial</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="201" y1="47.1875" y2="47.1875"/><ellipse cx="18" cy="61.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="100" x="27" y="65.7207">showUse(): void</text><ellipse cx="18" cy="79.1016" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="119" x="27" y="83.3301">main(String[]): void</text></g></a><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="9" y="97.4063"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="9" y="107.7871">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[543d269615ef45a3223047b9fc7a4402]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    class "<size:14>InsertingAttributesToBags\n<size:10>miml.tutorial" as miml.tutorial.InsertingAttributesToBags [[InsertingAttributesToBags.html]] {
+        {static} +showUse(): void
+        {static} +main(String[]): void
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

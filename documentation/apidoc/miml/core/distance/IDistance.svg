@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="216px" preserveAspectRatio="none" style="width:284px;height:216px;background:#FFFFFF;" version="1.1" viewBox="0 0 284 216" width="284px" zoomAndPan="magnify"><defs/><g><!--MD5=[c57e4eed09b1184c6796a12f14ea56d0]
+class miml.core.distance.IDistance--><a href="IDistance.html" target="_top" title="IDistance.html" xlink:actuate="onRequest" xlink:href="IDistance.html" xlink:show="new" xlink:title="IDistance.html" xlink:type="simple"><g id="elem_miml.core.distance.IDistance"><rect codeLine="5" fill="#F1F1F1" height="83.4063" id="miml.core.distance.IDistance" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="270" x="7" y="107"/><ellipse cx="94.75" cy="127.0938" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M95.7031,123.7344 L95.7031,130.3906 L97.4219,130.3906 Q98.0313,130.3906 98.2969,130.625 Q98.5625,130.8594 98.5625,131.25 Q98.5625,131.625 98.2969,131.8594 Q98.0313,132.0938 97.4219,132.0938 L92.2813,132.0938 Q91.6719,132.0938 91.4063,131.8594 Q91.1406,131.625 91.1406,131.2344 Q91.1406,130.8594 91.4063,130.625 Q91.6719,130.3906 92.2813,130.3906 L94,130.3906 L94,123.7344 L92.2813,123.7344 Q91.6719,123.7344 91.4063,123.5 Q91.1406,123.2656 91.1406,122.875 Q91.1406,122.5 91.4063,122.2656 Q91.6719,122.0313 92.2813,122.0313 L97.4219,122.0313 Q98.0313,122.0313 98.2969,122.2656 Q98.5625,122.5 98.5625,122.875 Q98.5625,123.2656 98.2969,123.5 Q98.0313,123.7344 97.4219,123.7344 L95.7031,123.7344 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="59" x="128.75" y="126.5332">IDistance</text><text fill="#000000" font-family="sans-serif" font-size="10" font-style="italic" lengthAdjust="spacing" textLength="86" x="115.25" y="139.9902">miml.core.distance</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="276" y1="147.1875" y2="147.1875"/><ellipse cx="18" cy="161.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="244" x="27" y="165.7207">distance(MIMLBag, MIMLBag): double</text><ellipse cx="18" cy="179.1016" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="244" x="27" y="183.3301">distance(Instances, Instances): double</text></g></a><!--MD5=[5a5af9b0547913863cbe0ddf55a9ab5e]
+class java.io.Serializable--><g id="elem_java.io.Serializable"><rect codeLine="10" fill="#F1F1F1" height="40.1875" id="java.io.Serializable" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="105" x="89.5" y="7"/><ellipse cx="104.5" cy="27.0938" fill="#B4A7E5" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M105.4531,23.7344 L105.4531,30.3906 L107.1719,30.3906 Q107.7813,30.3906 108.0469,30.625 Q108.3125,30.8594 108.3125,31.25 Q108.3125,31.625 108.0469,31.8594 Q107.7813,32.0938 107.1719,32.0938 L102.0313,32.0938 Q101.4219,32.0938 101.1563,31.8594 Q100.8906,31.625 100.8906,31.2344 Q100.8906,30.8594 101.1563,30.625 Q101.4219,30.3906 102.0313,30.3906 L103.75,30.3906 L103.75,23.7344 L102.0313,23.7344 Q101.4219,23.7344 101.1563,23.5 Q100.8906,23.2656 100.8906,22.875 Q100.8906,22.5 101.1563,22.2656 Q101.4219,22.0313 102.0313,22.0313 L107.1719,22.0313 Q107.7813,22.0313 108.0469,22.2656 Q108.3125,22.5 108.3125,22.875 Q108.3125,23.2656 108.0469,23.5 Q107.7813,23.7344 107.1719,23.7344 L105.4531,23.7344 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="73" x="118.5" y="26.5332">Serializable</text><text fill="#000000" font-family="sans-serif" font-size="10" font-style="italic" lengthAdjust="spacing" textLength="31" x="139.5" y="39.9902">java.io</text></g><!--MD5=[e4bc20ba80d2a4da3000fdaf25d93515]
+reverse link java.io.Serializable to miml.core.distance.IDistance--><g id="link_java.io.Serializable_miml.core.distance.IDistance"><path codeLine="12" d="M142,67.23 C142,79.84 142,93.83 142,106.56 " fill="none" id="java.io.Serializable-backto-miml.core.distance.IDistance" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="135,67.2,142,47.2,149,67.2,135,67.2" style="stroke:#181818;stroke-width:1.0;"/></g><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="40" y="196.4063"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="40" y="206.7871">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[9832b6a31ea727d23d1fe42ec17643df]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    interface "<size:14>IDistance\n<size:10>miml.core.distance" as miml.core.distance.IDistance [[IDistance.html]] {
+        {abstract} +distance(MIMLBag, MIMLBag): double
+        {abstract} +distance(Instances, Instances): double
+    }
+
+    interface "<size:14>Serializable\n<size:10>java.io" as java.io.Serializable
+
+    java.io.Serializable <|- - miml.core.distance.IDistance
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

@@ -32,7 +32,9 @@ import miml.data.MIMLInstances;
 import miml.evaluation.EvaluatorCV;
 import miml.report.BaseMIMLReport;
 import miml.transformation.mimlTOml.GeometricTransformation;
+import miml.transformation.mimlTOml.MedoidTransformation;
 import miml.transformation.mimlTOml.MinMaxTransformation;
+import mulan.classifier.lazy.BRkNN;
 import mulan.classifier.lazy.DMLkNN;
 import mulan.classifier.transformation.LabelPowerset;
 import weka.classifiers.mi.SimpleMI;
@@ -91,6 +93,11 @@ public class CrossValidationExperiment {
 		MIMLkNN mimlknn = new MIMLkNN(new MaximalHausdorff(mimlDataSet));
 		MIMLClassifierToMI mimltomi = new MIMLClassifierToMI(new MIMLLabelPowerset(new SimpleMI()));
 		MIMLClassifierToML mimltoml = new MIMLClassifierToML(new DMLkNN(), new GeometricTransformation());
+
+		MedoidTransformation medoid = new MedoidTransformation();
+		medoid.setPercentage(0.25);
+		MIMLClassifierToML mimltoml_medoid = new MIMLClassifierToML(new BRkNN(), medoid);
+
 		MIMLBRkNN miml_brknn = new MIMLBRkNN(new MIMLDistanceFunction(new AverageHausdorff()));
 		MIMLBagging mimlbagging = new MIMLBagging(
 				new MIMLClassifierToML(new LabelPowerset(new J48()), new MinMaxTransformation()), 10);
@@ -133,6 +140,13 @@ public class CrossValidationExperiment {
 		System.out.println("-Sixth example cross-validation using MIMLBagging:\n");
 		ConfigParameters.setAlgorithmName("MIMLBagging_MMT_LP_J48"); // value for Algorithm column in the csv report
 		cv.runExperiment(mimlbagging);
+		System.out.println(report.toString(cv));
+		report.saveReport(report.toCSV(cv));
+
+		System.out.println(
+				"-Seventh example cross-validation using MIMLtoML transformation with medoidTransformation:\n");
+		ConfigParameters.setAlgorithmName("toML_MDT_BRkNN"); // value for Algorithm column in the csv report
+		cv.runExperiment(mimltoml_medoid);
 		System.out.println(report.toString(cv));
 		report.saveReport(report.toCSV(cv));
 

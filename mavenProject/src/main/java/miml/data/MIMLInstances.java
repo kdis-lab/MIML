@@ -16,10 +16,12 @@
 package miml.data;
 
 import java.util.ArrayList;
-import java.util.List;
-
+import miml.data.partitioning.CrossValidationBase;
+import miml.data.partitioning.iterative.IterativeCrossValidation;
 import miml.data.partitioning.iterative.IterativeTrainTest;
+import miml.data.partitioning.powerset.LabelPowersetCrossValidation;
 import miml.data.partitioning.powerset.LabelPowersetTrainTest;
+import miml.data.partitioning.random.RandomCrossValidation;
 import miml.data.partitioning.random.RandomTrainTest;
 import mulan.data.InvalidDataFormatException;
 import mulan.data.LabelsMetaData;
@@ -89,18 +91,28 @@ public class MIMLInstances extends MultiLabelInstances {
 	public MIMLInstances(String arffFilePath, int numLabelAttributes) throws InvalidDataFormatException {
 		super(arffFilePath, numLabelAttributes);
 	}
-	
+
 	/**
 	 * Constructor.
 	 * 
-	 * @param mimlDataSet  A datasetof {@link MIMLInstances}.	  
+	 * @param mimlDataSet A datasetof {@link MIMLInstances}.
 	 * @throws InvalidDataFormatException To be handled in an upper level.
 	 */
-	public MIMLInstances(MIMLInstances mimlDataSet) throws InvalidDataFormatException 
-	{
+	public MIMLInstances(MIMLInstances mimlDataSet) throws InvalidDataFormatException {
 		super(mimlDataSet.getDataSet(), mimlDataSet.getLabelsMetaData());
 	}
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param mlDataSet A multi-label datasetof .
+	 * @throws InvalidDataFormatException To be handled in an upper level.
+	 */
+	public MIMLInstances(MultiLabelInstances mlDataSet) throws InvalidDataFormatException
+	{
+		this((MIMLInstances)mlDataSet);
+	}
+	
 	/**
 	 * Gets a {@link MIMLBag} (i.e. pattern) with a certain bagIndex.
 	 * 
@@ -380,50 +392,95 @@ public class MIMLInstances extends MultiLabelInstances {
 		return new MIMLInstances(instances, this.getLabelsMetaData());
 	}
 
-	
-	
 	/**
-	 * Split MIML data train and test partition given a percentage and a partitioning method.
+	 * Split MIML data train and test partition given a percentage and a
+	 * partitioning method.
 	 *
-	 * @param mimlDataSet     The MIML dataset to be splited.
-	 * @param percentageTrain The percentage (0-100) to be used for train.
-	 * @param seed            Seed use to randomize.
+	 * @param mimlDataSet        The MIML dataset to be splited.
+	 * @param percentageTrain    The percentage (0-100) to be used for train.
+	 * @param seed               Seed use to randomize.
 	 * @param partitioningMethod An integer with the partitioning method:
-	 * <ul>
-	 * <li> 1 random partitioning </li>
-	 * <li> 2 powerset partitioning </li>
-	 * <li> 3 iterative partitioning </li>
-	 * </ul>
+	 *                           <ul>
+	 *                           <li>1 random partitioning</li>
+	 *                           <li>2 powerset partitioning</li>
+	 *                           <li>3 iterative partitioning</li>
+	 *                           </ul>
 	 * @return A list with the dataset splited.
 	 * @throws Exception To be handled in an upper level.
 	 */
-	public static List<MIMLInstances> splitData(MIMLInstances mimlDataSet, double percentageTrain, int seed, int partitioningMethod)
-			throws Exception {
+	public static MIMLInstances[] splitData(MIMLInstances mimlDataSet, double percentageTrain, int seed,
+			int partitioningMethod) throws Exception {
 		// splits the data set into train and test
 		// copy of original data
-		MultiLabelInstances[] partitions = null;
-		
-		switch (partitioningMethod)
-		{	
-			case 1: 
-				RandomTrainTest engineRandom = new RandomTrainTest(seed, mimlDataSet);			        
-		        partitions = engineRandom.split(percentageTrain);
-		        break;
-			case 2:    
-		        LabelPowersetTrainTest engineLP = new LabelPowersetTrainTest(seed, mimlDataSet);
-		        partitions = engineLP.split(percentageTrain);
-		        break;
-		    case 3: 
-		        IterativeTrainTest engineIterative = new IterativeTrainTest(seed, mimlDataSet);
-		        partitions = engineIterative.split(percentageTrain);
-		        break;
-		}
-		
-		List<MIMLInstances> datasets = new ArrayList<MIMLInstances>();
-		datasets.add(new MIMLInstances(partitions[0].getDataSet(), partitions[0].getLabelsMetaData()));
-		datasets.add(new MIMLInstances(partitions[1].getDataSet(), partitions[1].getLabelsMetaData()));
+		MultiLabelInstances[] partitionsML = null;
 
-		return datasets;
+		switch (partitioningMethod) {
+		case 1:
+			RandomTrainTest engineRandom = new RandomTrainTest(seed, mimlDataSet);
+			partitionsML = engineRandom.split(percentageTrain);
+			break;
+		case 2:
+			LabelPowersetTrainTest engineLP = new LabelPowersetTrainTest(seed, mimlDataSet);
+			partitionsML = engineLP.split(percentageTrain);
+			break;
+		case 3:
+			IterativeTrainTest engineIterative = new IterativeTrainTest(seed, mimlDataSet);
+			partitionsML = engineIterative.split(percentageTrain);
+			break;
+		}
+
+		MIMLInstances[] partitions =  new MIMLInstances[2];
+		partitions[0] = new MIMLInstances(partitionsML[0].getDataSet(), partitionsML[0].getLabelsMetaData()); 
+		partitions[1] = new MIMLInstances(partitionsML[1].getDataSet(), partitionsML[1].getLabelsMetaData());
+
+		return partitions;
+	}
+	
+	
+	/**
+	 * Generate tran/test partitions for CV cross validation.
+	 *
+	 * @param mimlDataSet        The MIML dataset to be splited.
+	 * @param nFolds             The number of folds.
+	 * @param seed               Seed use to randomize.
+	 * @param partitioningMethod An integer with the partitioning method:
+	 *                           <ul>
+	 *                           <li>1 random partitioning</li>
+	 *                           <li>2 powerset partitioning</li>
+	 *                           <li>3 iterative partitioning</li>
+	 *                           </ul>
+	 * @return MIMLInstances[][] a nfolds x 2 matrix. Each row represents a
+	 *         fold being column 0 the train set and the column 1 the test set.
+	 * @throws Exception To be handled in an upper level.
+	 */
+	public static MIMLInstances[][] roundsCV(MIMLInstances mimlDataSet, int nFolds, int seed,
+			int partitioningMethod) throws Exception {
+		
+		MultiLabelInstances[][] roundsML = null;
+		MIMLInstances[][] rounds = null;
+		CrossValidationBase engine;
+		switch (partitioningMethod) {
+		case 1:
+			engine = new RandomCrossValidation(mimlDataSet);
+			roundsML = engine.getRounds(nFolds);
+			break;
+		case 2:
+			engine = new LabelPowersetCrossValidation(mimlDataSet);
+			roundsML = engine.getRounds(nFolds);
+			break;
+		case 3:
+			engine = new IterativeCrossValidation(mimlDataSet);
+			roundsML = engine.getRounds(nFolds);
+			break;
+		}
+
+		rounds = new MIMLInstances[nFolds][2];
+		for (int i=0; i<nFolds; i++)
+		{
+			rounds[i][0] = new MIMLInstances(roundsML[i][0].getDataSet(), roundsML[i][0].getLabelsMetaData());  //train set for round i
+			rounds[i][1] = new MIMLInstances(roundsML[i][1].getDataSet(), roundsML[i][1].getLabelsMetaData());; //test set for round i
+		}	
+		return (rounds);
 	}
 
 }

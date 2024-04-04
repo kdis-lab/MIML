@@ -48,7 +48,24 @@ public abstract class MIMLtoML implements Serializable {
 	protected MIMLInstances dataset = null;
 
 	/**
-	 * Transforms {@link MIMLInstances} into MultiLabelInstances.
+	 * Constructor that sets the dataset
+	 * 
+	 * @param dataset The dataset to be transformed.
+	 */
+
+	public MIMLtoML(MIMLInstances dataset) {
+		super();
+		this.dataset = dataset;
+	}
+
+	/** Constructor that does not sets the dataset */
+	public MIMLtoML() {
+		super();
+	}
+
+	/**
+	 * Transforms {@link MIMLInstances} into MultiLabelInstances. To call this
+	 * method is the dataset must be previously set eg. in the constructor.
 	 * 
 	 * @return MultiLabelInstances.
 	 * @throws Exception To be handled in an upper level.
@@ -109,7 +126,7 @@ public abstract class MIMLtoML implements Serializable {
 		Instances bags = dataset.getDataSet();
 
 		template = bags.attribute(1).relation().stringFreeStructure();
-		// insert a bag label attribute at the begining
+		// insert a bag lab el attribute at the beginning
 		Attribute bagLabel = bags.attribute(0);
 		template.insertAttributeAt(bagLabel, 0);
 

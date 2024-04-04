@@ -358,7 +358,7 @@ public class BaseMIMLReport extends MIMLReport {
 
 		if (this.std) {
 			System.out.println(
-					"[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible  to calculate std value");
+					"[WARNING]: standardDeviation is setted true, but in holdout evaluation is not possible to calculate std value");
 		}
 
 		Evaluation evaluationHoldout = evaluator.getEvaluation();

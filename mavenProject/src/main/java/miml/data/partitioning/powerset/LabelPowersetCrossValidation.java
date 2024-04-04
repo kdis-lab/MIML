@@ -71,6 +71,9 @@ public class LabelPowersetCrossValidation extends CrossValidationBase {
 		for (int i = 0; i < partition.length; i++)
 			partition[i].getDataSet().setRelationName(relationName);
 
+		System.out.println("\nLabel Powerset CV partitioning:");
+		statsToString(partition);
+
 		return partition;
 	}
 

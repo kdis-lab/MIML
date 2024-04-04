@@ -86,7 +86,8 @@ public class IterativeTrainTest extends TrainTestBase {
 		splitRatio[0] = percentageTrain / 100;
 		splitRatio[1] = 1.0 - splitRatio[0];
 
-		Instances[] singleSegments = foldsCreation(workingSet.getDataSet(), new Random(seed), splitRatio,
+		//foldsCreation method empties the original dataset, that's why we work with a copy 
+		Instances[] singleSegments = foldsCreation(new Instances(workingSet.getDataSet()), new Random(seed), splitRatio,
 				workingSet.getNumLabels(), workingSet.getLabelIndices(), workingSet.getNumInstances());
 		for (int i = 0; i < folds; i++) {
 			try {
@@ -103,6 +104,8 @@ public class IterativeTrainTest extends TrainTestBase {
 		segments[0].getDataSet().setRelationName(relationName);
 		segments[1].getDataSet().setRelationName(relationName);
 
+		System.out.println("\nIterative train test partitioning:");
+		statsToString(segments);
 		return segments;
 	}
 

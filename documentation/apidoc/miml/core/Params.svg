@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="214px" preserveAspectRatio="none" style="width:229px;height:214px;background:#FFFFFF;" version="1.1" viewBox="0 0 229 214" width="229px" zoomAndPan="magnify"><defs/><g><!--MD5=[bcf23ce2b9668750f722e40315120da0]
+class miml.core.Params--><a href="Params.html" target="_top" title="Params.html" xlink:actuate="onRequest" xlink:href="Params.html" xlink:show="new" xlink:title="Params.html" xlink:type="simple"><g id="elem_miml.core.Params"><rect codeLine="5" fill="#F1F1F1" height="179.4531" id="miml.core.Params" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="208" x="7" y="7"/><ellipse cx="82.75" cy="27.0938" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M85.5156,22.9688 Q85.6719,22.75 85.8594,22.6406 Q86.0469,22.5313 86.2656,22.5313 Q86.6406,22.5313 86.875,22.7969 Q87.1094,23.0469 87.1094,23.6563 L87.1094,25.1094 Q87.1094,25.7188 86.875,25.9844 Q86.6406,26.25 86.2656,26.25 Q85.9219,26.25 85.7188,26.0469 Q85.5156,25.8594 85.4063,25.3438 Q85.3594,24.9844 85.1719,24.7969 Q84.8438,24.4219 84.2344,24.2031 Q83.625,23.9844 83,23.9844 Q82.2344,23.9844 81.5938,24.3125 Q80.9688,24.6406 80.4688,25.3906 Q79.9844,26.1406 79.9844,27.1719 L79.9844,28.2656 Q79.9844,29.5 80.875,30.3281 Q81.7656,31.1406 83.3594,31.1406 Q84.2969,31.1406 84.9531,30.8906 Q85.3438,30.7344 85.7656,30.2969 Q86.0313,30.0313 86.1719,29.9531 Q86.3281,29.875 86.5313,29.875 Q86.8594,29.875 87.1094,30.1406 Q87.375,30.3906 87.375,30.7344 Q87.375,31.0781 87.0313,31.4844 Q86.5313,32.0625 85.7344,32.3906 Q84.6563,32.8438 83.3594,32.8438 Q81.8438,32.8438 80.6406,32.2188 Q79.6563,31.7188 78.9688,30.6563 Q78.2813,29.5781 78.2813,28.2969 L78.2813,27.1406 Q78.2813,25.8125 78.8906,24.6719 Q79.5156,23.5156 80.6094,22.9063 Q81.7031,22.2813 82.9375,22.2813 Q83.6719,22.2813 84.3125,22.4531 Q84.9688,22.6094 85.5156,22.9688 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="103.25" y="26.5332">Params</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="48" x="103.25" y="39.9902">miml.core</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="214" y1="47.1875" y2="47.1875"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="58.4922"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="122" x="27" y="65.7207">classes: Class&lt;?&gt;[]</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="76.1016"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="27" y="83.3301">objects: Object[]</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="214" y1="90.4063" y2="90.4063"/><ellipse cx="18" cy="104.7109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182" x="27" y="108.9395">Params(Class&lt;?&gt;[], Object[])</text><ellipse cx="18" cy="122.3203" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155" x="27" y="126.5488">getClasses(): Class&lt;?&gt;[]</text><ellipse cx="18" cy="139.9297" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="27" y="144.1582">setClasses(Class&lt;?&gt;[]): void</text><ellipse cx="18" cy="157.5391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="27" y="161.7676">getObjects(): Object[]</text><ellipse cx="18" cy="175.1484" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160" x="27" y="179.377">setObjects(Object[]): void</text></g></a><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="15.5" y="193.4531"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="15.5" y="203.834">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[9e4a864b820d505414dad3cf9288add7]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    class "<size:14>Params\n<size:10>miml.core" as miml.core.Params [[Params.html]] {
+        -classes: Class<?>[]
+        -objects: Object[]
+        +Params(Class<?>[], Object[])
+        +getClasses(): Class<?>[]
+        +setClasses(Class<?>[]): void
+        +getObjects(): Object[]
+        +setObjects(Object[]): void
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

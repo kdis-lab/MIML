@@ -34,12 +34,11 @@ public class Resampling {
 
 	public static void main(String[] args) throws Exception {
 
-
 		MIMLInstances mimlDataSet1 = new MIMLInstances("data" + File.separator + "miml_birds_random_80train.arff",
 				"data" + File.separator + "miml_birds.xml");
 
-		System.out.println("Loading original dataset with "+mimlDataSet1.getNumBags() + " bags");
-		
+		System.out.println("Loading original dataset with " + mimlDataSet1.getNumBags() + " bags");
+
 		int seed = 1;
 		boolean sampleWithReplacement = true;
 		double samplePercentage = 80;
@@ -48,7 +47,8 @@ public class Resampling {
 
 		MIMLInstances mimlDataSet2 = new MIMLInstances(sample, mimlDataSet1.getLabelsMetaData());
 
-		System.out.println("Resampled dataset with " + mimlDataSet2.getNumBags() + "/" + mimlDataSet1.getNumBags() + " bags");
+		System.out.println(
+				"Resampled dataset with " + mimlDataSet2.getNumBags() + "/" + mimlDataSet1.getNumBags() + " bags");
 
 	}
 

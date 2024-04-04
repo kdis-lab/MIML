@@ -17,8 +17,6 @@
 package miml.data.partitioning.random;
 
 import java.util.ArrayList;
-import java.util.Random;
-
 import miml.data.partitioning.CrossValidationBase;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -33,7 +31,7 @@ import mulan.data.MultiLabelInstances;
  * and with some duplicated instances. In these cases, using a lower number of
  * folds (eg. 3 folds) or another kind of partitioning (eg. iteratrive or
  * powerset) is recommended. Besides, the same instance could be included twice
- * to guarantee instances of all labels in the resulte train set.
+ * to guarantee instances of all labels in the resulting train set.
  * 
  * @author Eva Gibaja
  * @version 20201029
@@ -73,8 +71,8 @@ public class RandomCrossValidation extends CrossValidationBase {
 		// copy of original data
 		Instances dataSet = new Instances(workingSet.getDataSet());
 
-		// randomize dataset
-		dataSet.randomize(new Random(seed));
+		// randomize dataset - DELETED - the working set has been randomized by constructor
+		//dataSet.randomize(new Random(seed));
 
 		// Initializations
 		int numInstances = workingSet.getNumInstances();
@@ -158,7 +156,7 @@ public class RandomCrossValidation extends CrossValidationBase {
 			Folds[f].getDataSet().setRelationName(relationName);
 		}
 
-		// Instance indexes to assing to any fold
+		// Instance indexes to assign to any fold
 		ArrayList<Integer> toAssign = new ArrayList<Integer>();
 		for (int i = 0; i < numInstances; i++)
 			toAssign.add(i);
@@ -204,10 +202,11 @@ public class RandomCrossValidation extends CrossValidationBase {
 			}
 		}
 
+		System.out.println("\nRandom CV partitioning:\n\tcurrentExamples/realExamples (may be duplicated): "
+				+ totalAssigned + "/" + numInstances);
+		statsToString(Folds);
+
 		// Checking
-		System.out.println("\nRandom partitioning:\ncurrentInstances/realInstances (may be duplicated): " + totalAssigned + "/" + numInstances);
-		for (int f = 0; f < nFolds; f++)
-			System.out.println("Fold " + f + ": " + Folds[f].getDataSet().numInstances() + " patterns");
 		/*
 		 * System.out.print("["); for (int i = 0; i < choosen.length; i++) { if
 		 * (choosen[i] == -1) System.out.println("Instance " + i + " not choosen"); else

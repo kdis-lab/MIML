@@ -121,25 +121,25 @@ public final class Utils {
 				objects[i] = configuration.getLong("parameters.parameter(" + i + ")[@value]");
 				break;
 			default:
-				try { 
+				try {
 					classes[i] = Class.forName(className);
 					if (classes[i].isEnum()) {
 						objects[i] = Enum.valueOf(classes[i].asSubclass(Enum.class),
 								configuration.getString("parameters.parameter(" + i + ")[@value]"));
-					} else { 
-						//The parameter is a weka algorithm						
+					} else {
+						// The parameter is a weka algorithm
 						if (subparams == null) {
 							objects[i] = Class
 									.forName(configuration.getString("parameters.parameter(" + i + ")[@value]"))
-									.getConstructor().newInstance();							
+									.getConstructor().newInstance();
 						} else {
 							objects[i] = Class
 									.forName(configuration.getString("parameters.parameter(" + i + ")[@value]"))
 									.getConstructor(subparams.getClasses()).newInstance(subparams.getObjects());
 						}
 						String options = configuration.getString("parameters.parameter(" + i + ")[@listOptions]");
-						if(options!=null) //There are options for the weka classifier
-							   ((AbstractClassifier)objects[i]).setOptions(weka.core.Utils.splitOptions(options));
+						if (options != null) // There are options for the weka classifier
+							((AbstractClassifier) objects[i]).setOptions(weka.core.Utils.splitOptions(options));
 
 					}
 				} catch (Exception e) {

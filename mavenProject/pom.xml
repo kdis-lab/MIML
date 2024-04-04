@@ -2,33 +2,25 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>miml</groupId>
 	<artifactId>miml</artifactId>
-	<version>1.0</version>
+	<version>1.4</version>
 	<packaging>jar</packaging>
-
 	<name>miml</name>
 	<url>http://maven.apache.org</url>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
 		<!-- Maven plugins -->
 		<compiler.plugin.version>3.8.0</compiler.plugin.version>
-
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-
-
 	<repositories>
 		<repository>
 			<id>local</id>
 			<url>file://${basedir}/src/main/resources</url>
 		</repository>
 	</repositories>
-
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
@@ -36,91 +28,82 @@
 			<artifactId>junit</artifactId>
 			<version>4.13.1</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
 			<version>4.2</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.4</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.8.1</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.2</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-configuration2 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-configuration2</artifactId>
 			<version>2.7</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-dev -->
 		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
 			<artifactId>weka-dev</artifactId>
 			<version>3.7.10</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/citationKNN -->
 		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
 			<artifactId>citationKNN</artifactId>
 			<version>1.0.1</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/multiInstanceLearning -->
 		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
 			<artifactId>multiInstanceLearning</artifactId>
 			<version>1.0.9</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/multiInstanceFilters -->
 		<dependency>
 			<groupId>nz.ac.waikato.cms.weka</groupId>
 			<artifactId>multiInstanceFilters</artifactId>
 			<version>1.0.10</version>
 		</dependency>
-
 		<dependency>
 			<groupId>mulan</groupId>
 			<artifactId>mulan</artifactId>
 			<version>1.5.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>MWalgorithms</groupId>
 			<artifactId>MWalgorithms</artifactId>
 			<version>1.0</version>
 		</dependency>
-
 		<dependency>
 			<groupId>javabuilder</groupId>
 			<artifactId>javabuilder</artifactId>
 			<version>1.0</version>
 		</dependency>
-
+	    <dependency>
+			<groupId>clus</groupId>
+			<artifactId>clus</artifactId>
+			<version>2.12</version>
+		</dependency>
 
 	</dependencies>
-
 	<build>
 		<plugins>
 			<!-- MINIMAL JDK VERSION -->
@@ -133,7 +116,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
 			<!-- GENERATE SOURCE CODE -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -147,7 +129,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 			<!-- CREATE JAR WITH DEPENDENCIES -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>

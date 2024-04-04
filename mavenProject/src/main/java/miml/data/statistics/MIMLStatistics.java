@@ -387,11 +387,11 @@ public class MIMLStatistics {
 
 	/**
 	 * Returns cooCurrenceMatrix in textual representation. It requires the method
-	 * calculateCooncurrence to be previously called.
+	 * calculateCoocurrence to be previously called.
 	 * 
-	 * @return CooCurrenceMatrix in textual representation.
+	 * @return CoocurrenceMatrix in textual representation.
 	 */
-	public String cooncurrenceToString() {
+	public String coocurrenceToString() {
 
 		return mlstatistics.coocurrenceToString();
 	}
@@ -402,7 +402,7 @@ public class MIMLStatistics {
 	 * 
 	 * @return CooCurrenceMatrix in CSV representation.
 	 */
-	public String cooncurrenceToCSV() {
+	public String coocurrenceToCSV() {
 
 		return mlstatistics.coocurrenceToCSV();
 	}

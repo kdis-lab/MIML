@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="100px" preserveAspectRatio="none" style="width:198px;height:100px;background:#FFFFFF;" version="1.1" viewBox="0 0 198 100" width="198px" zoomAndPan="magnify"><defs/><g><!--MD5=[c4d45110a366b9db5efc6c48dc23cc7f]
+class miml.tutorial.NormalizingDataset--><a href="NormalizingDataset.html" target="_top" title="NormalizingDataset.html" xlink:actuate="onRequest" xlink:href="NormalizingDataset.html" xlink:show="new" xlink:title="NormalizingDataset.html" xlink:type="simple"><g id="elem_miml.tutorial.NormalizingDataset"><rect codeLine="5" fill="#F1F1F1" height="65.7969" id="miml.tutorial.NormalizingDataset" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="153" x="19" y="7"/><ellipse cx="34" cy="27.0938" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M36.7656,22.9688 Q36.9219,22.75 37.1094,22.6406 Q37.2969,22.5313 37.5156,22.5313 Q37.8906,22.5313 38.125,22.7969 Q38.3594,23.0469 38.3594,23.6563 L38.3594,25.1094 Q38.3594,25.7188 38.125,25.9844 Q37.8906,26.25 37.5156,26.25 Q37.1719,26.25 36.9688,26.0469 Q36.7656,25.8594 36.6563,25.3438 Q36.6094,24.9844 36.4219,24.7969 Q36.0938,24.4219 35.4844,24.2031 Q34.875,23.9844 34.25,23.9844 Q33.4844,23.9844 32.8438,24.3125 Q32.2188,24.6406 31.7188,25.3906 Q31.2344,26.1406 31.2344,27.1719 L31.2344,28.2656 Q31.2344,29.5 32.125,30.3281 Q33.0156,31.1406 34.6094,31.1406 Q35.5469,31.1406 36.2031,30.8906 Q36.5938,30.7344 37.0156,30.2969 Q37.2813,30.0313 37.4219,29.9531 Q37.5781,29.875 37.7813,29.875 Q38.1094,29.875 38.3594,30.1406 Q38.625,30.3906 38.625,30.7344 Q38.625,31.0781 38.2813,31.4844 Q37.7813,32.0625 36.9844,32.3906 Q35.9063,32.8438 34.6094,32.8438 Q33.0938,32.8438 31.8906,32.2188 Q30.9063,31.7188 30.2188,30.6563 Q29.5313,29.5781 29.5313,28.2969 L29.5313,27.1406 Q29.5313,25.8125 30.1406,24.6719 Q30.7656,23.5156 31.8594,22.9063 Q32.9531,22.2813 34.1875,22.2813 Q34.9219,22.2813 35.5625,22.4531 Q36.2188,22.6094 36.7656,22.9688 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="48" y="26.5332">NormalizingDataset</text><text fill="#000000" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="60" x="78.5" y="39.9902">miml.tutorial</text><line style="stroke:#181818;stroke-width:0.5;" x1="20" x2="171" y1="47.1875" y2="47.1875"/><ellipse cx="30" cy="61.4922" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" text-decoration="underline" textLength="119" x="39" y="65.7207">main(String[]): void</text></g></a><rect fill="none" height="12.5781" style="stroke:none;stroke-width:1.0;" width="190" x="0" y="79.7969"/><text fill="#888888" font-family="sans-serif" font-size="10" lengthAdjust="spacing" textLength="190" x="0" y="90.1777">UMLDoclet 2.0.20, PlantUML 1.2022.12</text><!--MD5=[21a3ca9e404def667862661db838e9fa]
+@startuml
+    set namespaceSeparator none
+    hide empty fields
+    hide empty methods
+
+    class "<size:14>NormalizingDataset\n<size:10>miml.tutorial" as miml.tutorial.NormalizingDataset [[NormalizingDataset.html]] {
+        {static} +main(String[]): void
+    }
+
+    center footer UMLDoclet 2.0.20, PlantUML 1.2022.12
+@enduml
+
+PlantUML version 1.2022.12(Sun Oct 23 20:12:26 CEST 2022)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: es
+Country: ES
+--></g></svg>

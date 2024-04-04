@@ -105,9 +105,8 @@ public class MinMaxTransformation extends MIMLtoML {
 			// For all attributes in bag
 			for (int j = 0, attIdx = 1; j < instances.numAttributes(); j++, attIdx++) {
 				double[] minimax = minimax(instances, j);
-				newInst.setValue(attIdx, minimax[0]);// minima value
-				newInst.setValue(attIdx + instances.numAttributes(), minimax[1]);// maxima
-																					// value);
+				newInst.setValue(attIdx, minimax[0]);// minimal value
+				newInst.setValue(attIdx + instances.numAttributes(), minimax[1]);// maximal value);
 			}
 			// Copy label information into the dataset
 			for (int j = 0; j < labelIndices.length; j++) {
@@ -143,8 +142,8 @@ public class MinMaxTransformation extends MIMLtoML {
 		// For all attributes in bag
 		for (int j = 0, attIdx = 1; j < instances.numAttributes(); j++, attIdx++) {
 			double[] minimax = minimax(instances, j);
-			newInst.setValue(attIdx, minimax[0]);// minima value
-			newInst.setValue(attIdx + instances.numAttributes(), minimax[1]);// maxima
+			newInst.setValue(attIdx, minimax[0]);// minimal value
+			newInst.setValue(attIdx + instances.numAttributes(), minimax[1]);// maximal
 																				// value);
 		}
 
