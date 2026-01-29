@@ -88,8 +88,8 @@
 			<version>1.5.0</version>
 		</dependency>
 		<dependency>
-			<groupId>MWalgorithms</groupId>
-			<artifactId>MWalgorithms</artifactId>
+			<groupId>MWAlgorithms</groupId>
+			<artifactId>MWAlgorithms</artifactId>
 			<version>1.0</version>
 		</dependency>
 		<dependency>
