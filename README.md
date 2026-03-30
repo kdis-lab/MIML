@@ -150,6 +150,9 @@ bag1,"42,-198,-109\n41.9,-191,-142\n35,14.2,6.33",1,0,0,1
 bag2,"11.25,-98,10\n31,40.5,7.85",0,1,1,0 
 ```   
 
+## Acknowledgements
+This library was supported in part by the PID2023-148396NB-I00 project of Spanish Ministry of Science and Innovation and the European Regional Development Fund, by the ProyExcel-0069 project of the Andalusian University, Research and Innovation Department.
+
 ## Citation
 Belmonte, Á., Zafra, A., & Gibaja, E. (2022). MIML library: a Modular and Flexible Library for Multi-instance Multi-label Learning. *Neurocomputing*, *500*, 632-636. https://doi.org/10.1016/j.neucom.2022.05.068
 
